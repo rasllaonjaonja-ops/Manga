@@ -1,0 +1,32 @@
+name: Anime Trend Diagnostics
+
+on:
+  workflow_dispatch:
+  schedule:
+    # Chaque jour à 06h UTC, en dehors des cycles du radar.
+    - cron: '0 6 * * *'
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Vérifier le projet
+        run: node scripts/diagnostics.mjs
+
+      - name: Contrôler l'application
+        run: node scripts/check-app.mjs
+
+      - name: Tester le collecteur
+        run: npm test

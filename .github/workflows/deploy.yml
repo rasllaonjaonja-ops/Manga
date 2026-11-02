@@ -1,0 +1,71 @@
+name: Deploy Anime Trend Studio V3
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+  # Redéploie le site après chaque mise à jour du radar. Le commit du radar est
+  # fait avec GITHUB_TOKEN, qui ne déclenche pas de push : cet événement est nécessaire.
+  workflow_run:
+    workflows: ["Anime Trend RSS Radar"]
+    types: [completed]
+    branches: [main, master]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node.js LTS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Un contrôle en échec bloque le déploiement : aucune version cassée n'atteint le site.
+      - name: Contrôler l'application
+        run: node scripts/check-app.mjs
+
+      - name: Tester le collecteur
+        run: npm test
+
+      - name: Préparer le site statique
+        run: |
+          rm -rf _site && mkdir _site
+          test -f index.html || { echo "::error::index.html introuvable."; exit 1; }
+          cp index.html _site/
+          # Seuls les dossiers publics sont copiés : pas de .git, scripts ni workflows.
+          for dir in assets data css js; do
+            if [ -d "$dir" ]; then cp -r "$dir" _site/; fi
+          done
+          touch _site/.nojekyll
+
+      - name: Configurer GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Téléverser le site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        name: Publier sur GitHub Pages
+        uses: actions/deploy-pages@v4
