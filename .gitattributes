@@ -1,0 +1,8 @@
+# Fins de ligne identiques partout (Windows, macOS, Linux, Android) : pas de conflits « CRLF/LF ».
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+# Données générées par GitHub Actions : la version du dépôt fait foi.
+# Pour activer la résolution automatique : git config merge.ours.driver true
+data/latest-news.json merge=ours
+data/reports.json merge=ours

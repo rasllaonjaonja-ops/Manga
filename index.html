@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f3f7ff"><meta name="author" content="Anime Trend Studio"><meta name="color-scheme" content="light"><meta name="description" content="Anime Trend Studio 3.0 — studio éditorial de Manga, Animé et Actualités">
+<title>Anime Trend Studio 3.0</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="home-mode">
+<div class="shell">
+<aside class="side" id="side">
+ <div class="brand"><img src="assets/logo-manga-anime-actualites.png" alt="Logo Manga Anime et Actualités"><div><b>ANIME TREND</b><small>CONTENT STUDIO</small></div></div>
+ <nav class="nav sec-first"><button class="active" data-page="home"><i>⌂</i>Accueil</button></nav>
+ <div><div class="group-title">CRÉER</div><nav class="nav"><button data-page="writer"><i>✎</i>Atelier de publications</button><button data-page="campaign"><i>✦</i>Studio de campagnes</button><button data-page="reels"><i>▶</i>Studio Reels</button><button data-page="quiz"><i>❖</i>Quiz & communauté</button></nav></div>
+ <div><div class="group-title">ACTUALITÉS</div><nav class="nav"><button data-page="radar"><i>◉</i>Radar d'actualités</button><button data-page="queue"><i>▤</i>File éditoriale</button><button data-page="calendar"><i>▦</i>Calendrier éditorial</button></nav></div>
+ <div><div class="group-title">VISUELS</div><nav class="nav"><button data-page="visual"><i>▧</i>Studio visuel</button><button data-page="library"><i>▣</i>Médiathèque</button></nav></div>
+ <div><div class="group-title">PILOTAGE</div><nav class="nav"><button data-page="quality"><i>✓</i>Contrôle qualité</button><button data-page="automation"><i>⌘</i>GitHub & automatisation</button></nav></div>
+ <div><div class="group-title">CONFIGURATION</div><nav class="nav"><button data-page="settings"><i>⚙</i>Réglages</button><button data-page="help"><i>?</i>Aide & support</button><button data-page="about"><i>ⓘ</i>À propos</button></nav></div>
+ <div class="mode-test"><b>Mode TEST</b>Aucune publication automatique. La publication reste manuelle via Meta Business Suite.</div>
+ <div class="side-foot"><span class="online"></span>Système actif · V3 · Mode gratuit</div>
+</aside>
+<main>
+<header class="top"><div style="display:flex;align-items:center;gap:10px"><button class="btn hamb">☰</button><h1 id="title">Vue d'ensemble</h1></div><div class="topright"><span class="hide">MANGA, ANIMÉ ET ACTUALITÉS</span><span class="tag">V 3.0 · GRATUIT</span></div></header>
+<div class="wrap">
+
+<section class="page active" id="p-home">
+ <header class="dash-top">
+  <div class="dash-brand"><button class="btn hamb">☰</button><img src="assets/logo-manga-anime-actualites.png" alt="Logo"><div><b>ANIME <em>TREND</em></b><small>Manga • Animé • Actualités • Tendances</small></div></div>
+  <div class="dash-tools"><span class="dash-version">Version 3.0</span><span class="sys-pill" id="sysPill">● Système actif</span><button class="dash-icon" data-go="settings" title="Réglages">⚙</button><span class="profile"><span class="avatar">AT</span><span><b>Anime Trend</b><small>Studio local</small></span></span></div>
+ </header>
+ <div class="dash-grid">
+  <div class="dash-main">
+   <div class="banner">
+    <div class="banner-copy"><span class="kicker">THE ART OF ANIME CONTENT</span><h2>Bienvenue sur <em>ANIME TREND</em></h2><p>Votre studio pour créer, préparer et suivre vos contenus manga et animé.</p><p class="banner-sub">Créez • Inspirez • Partagez • Faites vivre votre passion !</p><div class="actions"><button class="btn primary" data-go="writer">✦ Commencer →</button><button class="btn" data-go="radar">Voir les actualités →</button></div></div>
+   </div>
+   <div class="kpis">
+    <div class="kpi blue"><div class="k-ico">▤</div><div><b id="sNews">0</b><span>Actualités collectées</span><small>dans le radar</small></div></div>
+    <div class="kpi red"><div class="k-ico">✎</div><div><b id="sPosts">0</b><span>Contenus enregistrés</span><small>file éditoriale</small></div></div>
+    <div class="kpi green"><div class="k-ico">◷</div><div><b id="sDrafts">0</b><span>À préparer</span><small>brouillons et à vérifier</small></div></div>
+    <div class="kpi violet"><div class="k-ico">▣</div><div><b id="sMedia">0</b><span>Visuels importés</span><small>médiathèque locale</small></div></div>
+   </div>
+   <div class="modules-row">
+    <div class="mod mod-create"><img src="assets/card-create-generated.jpg" alt="Illustration de l'espace création"><h4>✦ Espace Création</h4><p>Générateur de publications, Studio Reels, campagnes et quiz.</p><button class="btn primary" data-go="writer">Commencer →</button></div>
+    <div class="mod mod-prod"><img src="assets/card-production-generated.jpg" alt="Illustration de l'espace production"><h4>▣ Espace Production</h4><p>Studio visuel, médiathèque, calendrier et contrôle qualité.</p><button class="btn primary" data-go="visual">Explorer →</button></div>
+    <div class="mod mod-auto"><img src="assets/card-auto-generated.jpg" alt="Illustration de l'espace automatisation"><h4>⚙ Espace Automatisation</h4><p>Radar RSS, GitHub Actions, rapports et diagnostics.</p><button class="btn red" data-go="automation">Activer →</button></div>
+   </div>
+   <div class="panel"><div class="panel-head"><h3>🔥 Tendances du moment</h3><small class="muted">mots les plus fréquents dans les titres du radar</small></div><div id="homeTrends"><div class="empty">Les tendances apparaîtront après la collecte du radar.</div></div></div>
+   <div class="two-col">
+    <div class="panel"><div class="panel-head"><h3>Dernières actualités</h3><button data-go="radar">Voir tout →</button></div><div id="homeNews"><div class="empty">Chargement du radar…</div></div></div>
+    <div class="panel"><div class="panel-head"><h3>Projets récents</h3><button data-go="queue">Voir tout →</button></div><div id="homeRecent"><div class="empty">Vos créations apparaîtront ici.</div></div></div>
+   </div>
+   <div class="three-col">
+    <div class="panel"><div class="panel-head"><h3>Flux d'activité</h3></div><div id="homeActivity"></div></div>
+    <div class="panel"><div class="panel-head"><h3>Aperçu d'une publication</h3></div><div id="homePreview"></div></div>
+    <div class="panel"><div class="panel-head"><h3>Prochaines étapes</h3></div><div class="small muted">Rédigez un contenu, préparez son visuel, puis ajoutez-le à la file éditoriale. La publication reste manuelle.</div><button class="btn" data-go="campaign" style="margin-top:12px;width:100%">✦ Créer une campagne →</button></div>
+   </div>
+  </div>
+  <aside class="dash-side">
+   <div class="side-panel"><h3>Statut du système</h3>
+    <div class="sys-row"><span>Radar RSS</span><span class="ok" id="sysRss">En attente</span></div>
+    <div class="sys-row"><span>Sources configurées</span><span id="sysSources">3</span></div>
+    <div class="sys-row"><span>Stockage local</span><span class="ok" id="sysStorage">Vérification…</span></div>
+    <div class="sys-row"><span>GitHub Actions</span><span class="ok">Configuré</span></div>
+   </div>
+   <div class="side-panel"><h3>Prochain cycle</h3><small class="muted">Collecte automatique toutes les 5 heures</small><button class="btn primary" data-go="automation" style="margin-top:12px;width:100%">▶ Voir l'automatisation</button></div>
+   <div class="side-panel"><h3>Publication Facebook</h3><span class="badge orange">Mode TEST</span><p class="small muted" style="margin:10px 0">La publication automatique est désactivée. Les contenus se publient manuellement depuis Meta Business Suite.</p><button class="btn" data-go="automation" style="width:100%">Voir la configuration</button></div>
+   <div class="quote-card"><img src="assets/quote-generated.jpg" alt=""><p>« Les animés nous apprennent à rêver, à lutter et à ne jamais abandonner. »</p><small>— Anime Trend</small></div>
+  </aside>
+ </div>
+ <div class="home-footer">ANIME TREND STUDIO V3 · Manga • Animé • Actualités · Votre studio 100 % gratuit</div>
+ </section>
+
+<section class="page" id="p-about">
+ <div class="kicker">À PROPOS</div><h2>Anime Trend Studio V3</h2>
+ <div class="card" style="max-width:720px"><h3>Anime Trend Content Studio</h3><p class="small muted">Studio éditorial local et gratuit pour la page <strong>Manga, Animé et Actualités</strong> : rédaction, visuels PNG, Reels, campagnes, radar RSS, file éditoriale et calendrier.</p><h3>Version</h3><p class="small muted">V 3.0 · édition tableau de bord · fonctionnement 100 % navigateur, sans clé API ni serveur payant.</p><h3>Crédits</h3><p class="small muted">Illustrations originales générées pour le projet. Sources d'actualités : flux RSS publics, avec lien vers chaque article original.</p></div>
+</section>
+
+<section class="page" id="p-help">
+ <div class="kicker">SUPPORT</div><h2>Aide & support</h2>
+ <div class="card" style="max-width:720px"><h3>Démarrer</h3><p class="small muted">1. Rédigez un contenu dans l'Atelier. 2. Préparez son visuel dans le Studio visuel. 3. Ajoutez-le à la file éditoriale et au calendrier. 4. Publiez manuellement via Meta Business Suite.</p><h3>Données</h3><p class="small muted">Les créations sont enregistrées dans le stockage local de ce navigateur. Utilisez l'export JSON des Réglages pour conserver une copie.</p><h3>Limites</h3><p class="small muted">Aucune publication Facebook automatique n'est incluse. Le studio ne génère pas d'images ni de vidéos : il prépare des prompts et des storyboards.</p></div>
+</section>
+
+<section class="page" id="p-writer">
+ <div class="kicker">ATELIER DE CONTENU</div><h2>Créer une publication</h2><p class="sub">Générateur éditorial local : choisissez le format, le sujet, le ton et la longueur. Plusieurs formulations sont proposées sans API payante ; relisez et personnalisez avant publication.</p>
+ <div class="grid2"><div class="card">
+ <div class="field"><label>Type de publication</label><select id="postType"><option>Débat communautaire</option><option>Présentation de personnage</option><option>Citation / réflexion</option><option>Comparaison</option><option>Classement</option><option>Théorie de fan</option><option>Actualité vérifiée</option><option>Découverte manga / anime</option><option>Sondage</option></select></div>
+ <div class="field"><label>Sujet principal</label><input id="postTopic" placeholder="Ex. : pourquoi les héros solitaires nous marquent"></div>
+ <div class="two"><div class="field"><label>Ton</label><select id="postTone"><option>Naturel et humain</option><option>Émotionnel</option><option>Énergique</option><option>Analytique</option><option>Mystérieux</option></select></div><div class="field"><label>Longueur</label><select id="postLength"><option value="short">Courte</option><option value="medium" selected>Moyenne</option><option value="long">Détaillée</option></select></div></div>
+ <div class="field"><label>Question finale (facultatif)</label><input id="postQuestion" placeholder="Quel personnage vous a le plus marqué ?"></div>
+ <button class="btn primary" id="buildPost">Composer le texte</button>
+ </div><div class="card"><div class="tabs"><button class="tab active" data-tab="postText">Texte</button><button class="tab" data-tab="postView">Aperçu Facebook</button></div>
+ <div id="postText"><textarea id="postResult" style="min-height:260px" placeholder="Le texte généré apparaîtra ici. Vous pourrez le modifier."></textarea><div class="actions" style="margin-top:10px"><button class="btn" id="copyPost">Copier</button><button class="btn primary" id="savePost">📥 Enregistrer la publication + PNG</button></div><p class="footnote">Au clic, le texte est ajouté à la file éditoriale et un visuel PNG est téléchargé. Sur Android, vérifiez le dossier Téléchargements.</p></div>
+ <div id="postView" hidden><div class="preview"><div class="previewtop"><b>◉ Manga, Animé et Actualités</b></div><div class="caption" id="postPreview">Aperçu de la publication.</div></div></div>
+ </div></div>
+</section>
+
+<section class="page" id="p-reels">
+ <div class="kicker">VIDÉO COURTE</div><h2>Studio Reels</h2><p class="sub">Transformez une idée en séquence verticale structurée. Le studio prépare le script et les prompts ; il ne prétend pas rendre une vidéo finale.</p>
+ <div class="grid2"><div class="card"><div class="field"><label>Concept du Reel</label><input id="reelTopic" placeholder="Ex. : un ninja marche sous une pluie battante"></div><div class="two"><div class="field"><label>Durée</label><select id="reelDuration"><option value="7">7 secondes</option><option value="15" selected>15 secondes</option><option value="30">30 secondes</option><option value="45">45 secondes</option></select></div><div class="field"><label>Style narratif</label><select id="reelStyle"><option>Cinématique</option><option>Épique</option><option>Mélancolique</option><option>Mystérieux</option><option>Humoristique</option></select></div></div><div class="field"><label>Voix / narration</label><select id="reelVoice"><option>Sans voix, musique et ambiance</option><option>Voix off courte</option><option>Texte à l'écran</option></select></div><button class="btn primary" id="buildReel">Générer le storyboard</button></div>
+ <div class="card"><h3>Storyboard prêt à produire</h3><textarea id="reelResult" style="min-height:280px" placeholder="Le découpage scène par scène apparaîtra ici."></textarea><div class="actions" style="margin-top:10px"><button class="btn" id="copyReel">Copier</button><button class="btn primary" id="saveReel">Enregistrer</button></div></div></div>
+</section>
+
+<section class="page" id="p-visual">
+ <div class="kicker">PRODUCTION GRAPHIQUE · PHASE 3</div><h2>Studio visuel</h2>
+ <p class="sub">Créez des visuels adaptés à Facebook et Instagram : publication, Story, couverture et carrousel. Importez une image que vous possédez ou que vous êtes autorisé à utiliser, personnalisez le texte puis exportez en PNG.</p>
+ <div class="grid2">
+  <div class="card">
+   <h3>1. Paramètres du visuel</h3>
+   <div class="field"><label>Format de sortie</label><select id="artFormat"><option value="portrait">Publication portrait · 4:5</option><option value="square">Carré · 1:1</option><option value="story">Story / Reel · 9:16</option><option value="landscape">Paysage · 16:9</option></select></div>
+   <div class="field"><label>Image personnelle ou autorisée</label><input type="file" id="artFile" accept="image/*"></div>
+   <div class="field"><label>Titre principal</label><input id="artTitle" maxlength="70" value="LE DÉBAT DU JOUR"></div>
+   <div class="field"><label>Sous-titre</label><input id="artSubtitle" maxlength="90" value="MANGA • ANIME • COMMUNAUTÉ"></div>
+   <div class="two">
+    <div class="field"><label>Couleur d'accent</label><select id="artAccent"><option value="#7c3aed">Violet</option><option value="#1688e8">Bleu</option><option value="#e52f50">Rouge</option><option value="#e7a928">Or</option><option value="#16a36a">Vert</option></select></div>
+    <div class="field"><label>Style</label><select id="artTheme"><option value="cinema">Cinématique</option><option value="light">Clair premium</option><option value="neon">Néon nocturne</option></select></div>
+   </div>
+   <div class="field"><label>Signature de page</label><input id="artSignature" value="MANGA, ANIMÉ ET ACTUALITÉS" maxlength="50"></div>
+   <div class="actions"><button class="btn" id="renderArt">Actualiser l'aperçu</button><button class="btn primary" id="downloadArt">⬇ Exporter PNG</button></div>
+   <hr>
+   <h3>2. Exports rapides</h3>
+   <p class="footnote">Les exports utilisent le même visuel et adaptent automatiquement ses dimensions.</p>
+   <div class="actions"><button class="btn" id="downloadStory">Exporter en Story 9:16</button><button class="btn" id="downloadSquare">Exporter en carré 1:1</button></div>
+   <div class="field" style="margin-top:14px"><label>Texte du carrousel (5 cartes, une idée par ligne)</label><textarea id="carouselText" style="min-height:115px">Une passion qui nous rassemble.
+Des personnages inoubliables.
+Des histoires qui nous inspirent.
+Des univers à découvrir.
+Et vous, quel est votre anime préféré ?</textarea></div>
+   <button class="btn primary" id="downloadCarousel">⬇ Préparer les 5 cartes du carrousel</button>
+   <p class="footnote" id="visualStatus" aria-live="polite">Aperçu prêt. Aucun contenu n'est publié automatiquement.</p>
+  </div>
+  <div class="card">
+   <div class="rowhead"><h3>3. Aperçu en direct</h3><span class="tag">PNG haute résolution</span></div>
+   <div class="canvas-wrap"><canvas id="artCanvas" width="1080" height="1350"></canvas></div>
+   <div class="grid2" style="margin-top:12px">
+    <div class="stat"><small>Format</small><b id="artDimension">1080 × 1350</b></div>
+    <div class="stat"><small>Destination</small><b id="artDestination">Fil Facebook</b></div>
+   </div>
+   <p class="footnote">Conseil : gardez le titre court, utilisez un contraste fort et vérifiez la lisibilité sur téléphone. Les illustrations importées doivent être originales, licenciées ou autorisées.</p>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="p-quiz">
+ <div class="kicker">ANIMER LA COMMUNAUTÉ</div><h2>Quiz & communauté</h2><p class="sub">Préparez des formats interactifs. Les questions factuelles doivent être vérifiées avant diffusion.</p>
+ <div class="card" style="max-width:760px"><div class="field"><label>Thème du quiz ou du sondage</label><input id="quizTopic" placeholder="Ex. : les meilleurs rivaux dans les shonen"></div><div class="two"><div class="field"><label>Format</label><select id="quizFormat"><option>Quiz à choix multiples</option><option>Sondage communautaire</option><option>Question débat</option><option>Vrai ou faux</option></select></div><div class="field"><label>Nombre de questions</label><select id="quizCount"><option>1</option><option>3</option><option>5</option></select></div></div><button class="btn primary" id="buildQuiz">Préparer</button><hr><textarea id="quizResult" placeholder="Votre contenu communautaire apparaîtra ici." style="min-height:240px"></textarea><button class="btn" id="copyQuiz" style="margin-top:9px">Copier</button></div>
+</section>
+
+
+<section class="page" id="p-campaign">
+ <div class="kicker">NOUVEAU · V3</div><h2>Studio de campagnes</h2>
+ <p class="sub">Transformez une seule idée en plusieurs formats cohérents. Tout est généré localement à partir de modèles éditoriaux : aucune clé API, aucun abonnement et aucune publication automatique.</p>
+ <div class="grid2">
+  <div class="card">
+   <div class="field"><label>Thème de la campagne</label><input id="campTopic" placeholder="Ex. : les héros qui ont changé après une grande perte"></div>
+   <div class="two">
+    <div class="field"><label>Objectif</label><select id="campGoal"><option>Faire discuter la communauté</option><option>Présenter une œuvre</option><option>Partager une actualité</option><option>Créer une émotion</option><option>Faire découvrir un personnage</option></select></div>
+    <div class="field"><label>Ambiance</label><select id="campMood"><option>Cinématique</option><option>Émotionnelle</option><option>Énergique</option><option>Mystérieuse</option><option>Éducative</option></select></div>
+   </div>
+   <div class="field"><label>Public / angle éditorial</label><input id="campAudience" value="Fans de manga et d’anime francophones"></div>
+   <div class="field"><label>Faits ou détails à intégrer (facultatif)</label><textarea id="campFacts" placeholder="Ajoutez uniquement des éléments que vous avez vérifiés. Ne fournissez pas de spoilers non annoncés." style="min-height:75px"></textarea></div>
+   <div class="field"><label>Formats à inclure</label>
+    <div class="actions"><label class="badge"><input type="checkbox" id="campPost" checked style="width:auto;min-height:0"> Post</label><label class="badge"><input type="checkbox" id="campReel" checked style="width:auto;min-height:0"> Reel</label><label class="badge"><input type="checkbox" id="campStory" checked style="width:auto;min-height:0"> Story</label><label class="badge"><input type="checkbox" id="campCarousel" checked style="width:auto;min-height:0"> Carrousel</label><label class="badge"><input type="checkbox" id="campVisual" checked style="width:auto;min-height:0"> Prompt visuel</label></div>
+   </div>
+   <button class="btn primary" id="buildCampaign">Générer le pack de campagne</button>
+  </div>
+  <div class="card">
+   <h3>Guide de campagne</h3>
+   <div class="note">V3 crée des brouillons originaux et des prompts à utiliser dans votre outil de création visuelle/vidéo. Il ne génère pas lui-même les images ou les vidéos.</div>
+   <div class="list">
+    <div class="item"><div><strong>1. Cohérence</strong><small>Un seul angle éditorial décliné sur plusieurs formats.</small></div><span class="badge green">Inclus</span></div>
+    <div class="item"><div><strong>2. Réutilisation</strong><small>Enregistrer chaque élément dans la file éditoriale.</small></div><span class="badge green">Inclus</span></div>
+    <div class="item"><div><strong>3. Contrôle</strong><small>Vérifier les faits, droits, spoilers et sources avant publication.</small></div><span class="badge orange">À faire</span></div>
+    <div class="item"><div><strong>4. Publication</strong><small>Programmer manuellement via les outils Facebook disponibles.</small></div><span class="badge orange">Manuel</span></div>
+   </div>
+   <hr><div class="small muted">Conseil : pour une actualité, ajoutez le lien de la source primaire dans le texte et vérifiez la date de l’annonce avant de préparer les formats.</div>
+  </div>
+ </div>
+ <div class="rowhead"><h3>Pack généré</h3><div class="actions"><button class="btn sm" id="copyCampaign">Copier tout</button><button class="btn sm" id="downloadCampaign">Exporter .txt</button><button class="btn primary sm" id="saveCampaign">Enregistrer les formats sélectionnés</button></div></div>
+ <div class="card"><div id="campaignStatus" class="small muted">Votre pack apparaîtra ici.</div><div id="campaignOutput" class="result" style="min-height:250px;margin-top:10px">Aucun pack généré.</div></div>
+</section>
+
+<section class="page" id="p-radar">
+ <div class="kicker">VEILLE ÉDITORIALE</div><h2>Radar d'actualités</h2><p class="sub">Articles récents collectés par GitHub Actions depuis des flux RSS publics. Le studio conserve le titre, le lien, la date et la source ; il ne copie pas les articles.</p>
+ <div class="note">Le radar se met à jour lorsque le workflow GitHub s'exécute. Sur GitHub Pages, le navigateur lit le fichier JSON publié par le dépôt. Utilisez le bouton Actualiser si le cache est ancien.</div>
+ <div class="actions" style="margin-bottom:13px"><button class="btn primary" id="reloadNews">↻ Actualiser</button><select id="newsFilter" style="max-width:180px"><option value="all">Toutes les sources</option><option value="Anime News Network">Anime News Network</option><option value="MyAnimeList">MyAnimeList</option><option value="Google Actualités">Google Actualités</option></select><span class="small muted" id="newsStatus">Chargement du radar…</span></div>
+ <div id="newsList" class="grid2"><div class="empty">Aucune actualité chargée. Lancez le cycle GitHub.</div></div>
+ <div class="rowhead"><h3>Actualités enregistrées</h3></div>
+ <p class="small muted" style="margin:0 0 10px">Une actualité reste « À vérifier » jusqu'à ce que vous ayez consulté la source originale. Seule une actualité vérifiée peut devenir un brouillon.</p>
+ <div id="savedNewsList" class="list"><div class="empty">Aucune actualité enregistrée.</div></div>
+</section>
+
+<section class="page" id="p-queue">
+ <div class="kicker">PRODUCTION</div><h2>File éditoriale</h2><p class="sub">Retrouvez les contenus enregistrés, copiez-les, changez leur statut et exportez une sauvegarde.</p>
+ <div class="actions" style="margin-bottom:12px"><select id="queueFilter" style="max-width:190px"><option value="all">Tous les contenus</option><option value="Brouillon">Brouillons</option><option value="À vérifier">À vérifier</option><option value="Prêt">Prêts à publier</option><option value="Publié manuellement">Publiés manuellement</option><option value="Archivé">Archivés</option></select><button class="btn" id="exportBackup">Exporter la sauvegarde JSON</button><button class="btn" id="importBackupBtn">Importer une sauvegarde</button><input type="file" id="importBackup" accept="application/json" hidden></div><div id="queueList" class="list"></div>
+</section>
+
+<section class="page" id="p-calendar">
+ <div class="kicker">ORGANISATION</div><h2>Calendrier éditorial</h2>
+ <p class="sub">Planifiez vos contenus localement. Une échéance n'est pas une publication Facebook : vous publiez vous-même, puis marquez le contenu comme publié.</p>
+ <div class="card" style="max-width:720px"><div class="field"><label>Contenu à planifier</label><input id="calTitle" placeholder="Titre ou thème"></div>
+  <div class="two"><div class="field"><label>Date</label><input type="date" id="calDate"></div><div class="field"><label>Heure (facultatif)</label><input type="time" id="calTime"></div></div>
+  <div class="two"><div class="field"><label>Format</label><select id="calType"><option>Publication</option><option>Reel</option><option>Quiz</option><option>Actualité</option><option>Visuel</option></select></div><div class="field"><label>Statut</label><select id="calStatus"><option>Brouillon</option><option>À vérifier</option><option>Prêt</option><option>Programmé</option></select></div></div>
+  <button class="btn primary" id="addCal">Ajouter au planning</button></div>
+ <div class="rowhead"><h3>Planning</h3></div>
+ <div class="tabs" role="tablist"><button class="tab active" data-cal-view="list">Liste</button><button class="tab" data-cal-view="day">Jour</button><button class="tab" data-cal-view="week">Semaine</button><button class="tab" data-cal-view="month">Mois</button></div>
+ <div class="actions" style="margin-bottom:12px"><button class="btn sm" id="calPrev" hidden>←</button><button class="btn sm" id="calToday" hidden>Aujourd’hui</button><button class="btn sm" id="calNext" hidden>→</button><strong id="calPeriod" class="small"></strong></div>
+ <div id="calList" class="list"></div>
+</section>
+
+<section class="page" id="p-library">
+ <div class="kicker">RESSOURCES</div><h2>Médiathèque</h2><p class="sub">Stockez des visuels personnels ou autorisés. Les fichiers restent sur cet appareil et peuvent remplir le stockage du navigateur.</p><div class="card"><div class="field"><label>Importer des images (optimisées automatiquement, 1280 px maximum)</label><input type="file" id="mediaFiles" accept="image/*" multiple></div><div id="mediaGrid" class="grid3"></div></div>
+</section>
+
+<section class="page" id="p-quality">
+ <div class="kicker">PRÉVENTION</div><h2>Contrôle qualité</h2><p class="sub">Une checklist éditoriale pour réduire les risques de désinformation, de spam et de réutilisation non autorisée. Aucun outil ne peut garantir l'absence de signalement.</p>
+ <div class="card" style="max-width:780px"><div class="field"><label>Texte à vérifier</label><textarea id="qualityText" placeholder="Collez le texte de la publication ou la description du média..."></textarea></div><div class="two"><div class="field"><label>Origine de l'image / vidéo</label><select id="mediaRights"><option value="unknown">Inconnue / à vérifier</option><option value="own">Création personnelle</option><option value="licensed">Licence ou autorisation confirmée</option><option value="official">Image officielle (droits non présumés)</option></select></div><div class="field"><label>Information d'actualité</label><select id="factStatus"><option value="none">Pas d'affirmation d'actualité</option><option value="checked">Source fiable et date vérifiées</option><option value="unchecked">Pas encore vérifiée</option></select></div></div><button class="btn primary" id="runQuality">Lancer la checklist</button><hr><div class="result" id="qualityResult">Le rapport apparaîtra ici.</div></div>
+</section>
+
+<section class="page" id="p-automation">
+ <div class="kicker">AUTOMATISATION GRATUITE</div><h2>GitHub & automatisation</h2><p class="sub">La version 3.0 automatise la collecte RSS et la mise à jour du radar. Elle reste en mode préparation : aucune publication Facebook n'est envoyée.</p>
+ <div class="grid2"><div class="card"><h3>Configuration du projet</h3><p class="small muted">Dépôt associé</p><b>rasllaonjaonja-ops</b><p class="small muted" style="margin-top:12px">Cycle prévu</p><span class="badge green">Toutes les 5 heures</span><p class="footnote" style="margin-top:12px">Le workflow peut aussi être lancé manuellement depuis l'onglet Actions du dépôt.</p><a class="btn" href="https://github.com/rasllaonjaonja-ops" target="_blank" rel="noopener">Ouvrir le dépôt GitHub ↗</a></div>
+ <div class="card"><h3>Ce qui est réellement automatisé</h3><ul class="small muted" style="line-height:1.9;padding-left:18px"><li>Lecture de flux RSS publics.</li><li>Détection des doublons par identifiant / URL.</li><li>Classement simple par mots-clés et fraîcheur.</li><li>Écriture de data/latest-news.json.</li><li>Publication du site via GitHub Pages.</li></ul></div></div>
+ <div class="card" style="margin-top:13px"><h3>Installation / mise à jour</h3><ol class="small muted" style="line-height:2;padding-left:18px"><li>Décompressez le ZIP V3.</li><li>Ajoutez les fichiers au dépôt GitHub en conservant les dossiers.</li><li>Remplacez les fichiers de l'ancienne version par ceux de la V3.</li><li>Dans Settings → Actions → General, autorisez les workflows à écrire dans le dépôt.</li><li>Dans Settings → Pages, choisissez GitHub Actions.</li><li>Ouvrez Actions → « Anime Trend RSS Radar » → Run workflow.</li><li>Attendez le succès, puis rechargez votre site Pages.</li></ol><div class="note warn">N'ajoutez jamais de mot de passe, jeton Facebook ou clé privée dans index.html ou dans un dépôt public.</div></div>
+ <div class="card" style="margin-top:13px"><h3>Limites assumées</h3><p class="small muted">La collecte dépend de la disponibilité des flux RSS et des limites des sites sources. Le système n'extrait pas les articles complets, ne télécharge pas les images protégées et ne publie pas sur Facebook. La publication native via Meta reste séparée et peut nécessiter des autorisations d'application.</p></div>
+</section>
+
+<section class="page" id="p-settings">
+ <div class="kicker">PERSONNALISATION</div><h2>Réglages</h2><div class="card" style="max-width:650px"><div class="field"><label>Nom affiché de la page</label><input id="pageName" value="Manga, Animé et Actualités"></div><div class="two"><div class="field"><label>Taille de police</label><select id="fontSize"><option value="13">Petite</option><option value="14" selected>Normale</option><option value="15">Grande</option><option value="16">Très grande</option></select></div><div class="field"><label>Densité</label><select id="density"><option value="comfortable">Confortable</option><option value="compact">Compacte</option></select></div></div><button class="btn primary" id="saveSettings">Enregistrer</button><hr><button class="btn red" id="resetData">Effacer les données locales</button><p class="footnote">L'effacement supprime les brouillons, sources, médias, planning et réglages de ce navigateur. Exportez d'abord une sauvegarde.</p></div>
+<div class="card" style="max-width:650px;margin-top:13px"><h3>Vérifier l’application</h3><p class="small muted">Contrôle local : stockage, export PNG, éléments de l’interface et cohérence des données. Aucune donnée n’est envoyée.</p><button class="btn primary" id="runSelfTest">Lancer le contrôle</button><pre id="selfTestResult" class="result" style="margin-top:10px;min-height:0;white-space:pre-wrap"></pre></div>
+</section>
+</div></main></div>
+<script src="js/app.js"></script>
+</body></html>
