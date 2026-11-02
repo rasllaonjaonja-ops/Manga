@@ -1,0 +1,199 @@
+// Collecte RSS/Atom du radar Anime Trend.
+// Garanties :
+// - si aucun flux n'est accessible, les anciennes données sont conservées (jamais écrasées par une liste vide) ;
+// - déduplication par URL et par titre normalisé, après tri par pertinence ;
+// - un rapport d'exécution est ajouté à data/reports.json, même en cas d'erreur ;
+// - code de sortie 1 si aucun flux n'a répondu ou si une erreur inattendue survient.
+// Variables d'environnement (pour les tests) : RADAR_SOURCES, RADAR_OUTPUT, RADAR_REPORTS, RADAR_ALLOW_HTTP=1.
+import fs from "node:fs/promises";
+import crypto from "node:crypto";
+
+const SOURCES_FILE = process.env.RADAR_SOURCES || "data/sources.json";
+const OUTPUT_FILE = process.env.RADAR_OUTPUT || "data/latest-news.json";
+const REPORTS_FILE = process.env.RADAR_REPORTS || "data/reports.json";
+const ALLOW_HTTP = process.env.RADAR_ALLOW_HTTP === "1";
+const MAX_PER_SOURCE = 25;
+const MAX_AGE_DAYS = 21;
+const MAX_ITEMS = 100;
+const MAX_REPORTS = 60;
+
+export async function collect() {
+  const startedAt = new Date();
+  const errors = [];
+  let status = "erreur";
+  let okSources = 0;
+  let sourcesTotal = 0;
+  let articlesFound = 0;
+  let articlesKept = null;
+
+  try {
+    const sources = await loadSources();
+    sourcesTotal = sources.length;
+    const sourceResults = await Promise.all(sources.map(s => readSource(s, errors)));
+    okSources = sourceResults.filter(r => r.ok).length;
+    const merged = sourceResults.flatMap(r => r.items);
+    articlesFound = merged.length;
+
+    if (okSources === 0) {
+      status = "conserve";
+    } else {
+      const now = Date.now();
+      const ranked = merged
+        .filter(x => !x.publishedAt || (now - Date.parse(x.publishedAt)) <= MAX_AGE_DAYS * 86400000)
+        .map(x => ({ ...x, score: rank(x) }))
+        .sort((a, b) => b.score - a.score || Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0));
+      const items = dedupe(ranked).slice(0, MAX_ITEMS);
+      status = okSources === sources.length ? "ok" : "partiel";
+      await fs.writeFile(OUTPUT_FILE, JSON.stringify({ updatedAt: new Date().toISOString(), count: items.length, items }, null, 2) + "\n");
+      articlesKept = items.length;
+    }
+  } catch (error) {
+    errors.push({ source: "radar", message: error.message });
+    status = "erreur";
+  }
+
+  const report = {
+    runAt: startedAt.toISOString(),
+    durationSeconds: Math.round((Date.now() - startedAt.getTime()) / 1000),
+    status, sourcesTotal, sourcesOk: okSources, articlesFound, articlesKept, errors
+  };
+  await appendReport(report);
+
+  const message = status === "conserve" || status === "erreur"
+    ? `statut ${status} · données précédentes conservées`
+    : `statut ${status} · ${okSources}/${sourcesTotal} flux · ${articlesKept} articles`;
+  console.log(`Radar : ${message}.`);
+  return { ok: status === "ok" || status === "partiel", status, report };
+}
+
+async function appendReport(report) {
+  const reports = await readJson(REPORTS_FILE, { runs: [] });
+  const runs = Array.isArray(reports.runs) ? reports.runs : [];
+  reports.runs = [report, ...runs].slice(0, MAX_REPORTS);
+  await fs.writeFile(REPORTS_FILE, JSON.stringify(reports, null, 2) + "\n");
+}
+
+async function loadSources() {
+  const raw = JSON.parse(await fs.readFile(SOURCES_FILE, "utf8"));
+  if (!Array.isArray(raw)) throw new Error("sources.json doit contenir une liste.");
+  const pattern = ALLOW_HTTP ? /^https?:\/\//i : /^https:\/\//i;
+  const valid = raw.filter(s => s && typeof s.name === "string" && pattern.test(String(s.url || "")));
+  if (valid.length !== raw.length) console.warn(`${raw.length - valid.length} source(s) ignorée(s) : nom ou URL manquant.`);
+  if (valid.length === 0) throw new Error("aucune source valide.");
+  return valid;
+}
+
+async function readJson(file, fallback) {
+  try {
+    return JSON.parse(await fs.readFile(file, "utf8"));
+  } catch {
+    return fallback;
+  }
+}
+
+async function readSource(source, errors) {
+  try {
+    const response = await fetch(source.url, {
+      headers: { "user-agent": "AnimeTrendStudioRSS/3.0 (+GitHub Actions)" },
+      signal: AbortSignal.timeout(18000)
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    const xml = await response.text();
+    const items = parseFeed(xml, source).slice(0, MAX_PER_SOURCE);
+    if (items.length === 0) throw new Error("flux lu mais aucun article reconnu");
+    return { ok: true, items };
+  } catch (error) {
+    console.warn(`Flux indisponible : ${source.name} — ${error.message}`);
+    errors.push({ source: source.name, message: error.message });
+    return { ok: false, items: [] };
+  }
+}
+
+export function parseFeed(xml, source) {
+  const chunks = xml.match(/<(item|entry)\b[\s\S]*?<\/\1>/gi) || [];
+  return chunks.map(block => {
+    const title = clean(tag(block, "title"));
+    const link = tag(block, "link") || (block.match(/<link[^>]+href=["']([^"']+)/i) || [])[1] || "";
+    const guid = tag(block, "guid") || tag(block, "id") || link || title;
+    const rawDate = tag(block, "pubDate") || tag(block, "published") || tag(block, "updated");
+    const parsed = rawDate ? new Date(rawDate) : null;
+    const publishedAt = parsed && !Number.isNaN(parsed.getTime()) ? parsed.toISOString() : null;
+    const summary = clean(tag(block, "description") || tag(block, "summary") || tag(block, "content"));
+    if (!title || !/^https?:\/\//i.test(link)) return null;
+    return {
+      id: crypto.createHash("sha1").update(String(guid)).digest("hex"),
+      title, url: link, source: source.name, publishedAt,
+      summary: summary.slice(0, 500)
+    };
+  }).filter(Boolean);
+}
+
+function tag(block, name) {
+  const re = new RegExp(`<${name}(?:\\s[^>]*)?>([\\s\\S]*?)<\\/${name}>`, "i");
+  const match = block.match(re);
+  if (match) return match[1].replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1").trim();
+  if (name === "link") {
+    const attr = block.match(/<link[^>]+href=["']([^"']+)/i);
+    return attr ? attr[1] : "";
+  }
+  return "";
+}
+
+// Décodage sûr : balises retirées, entités décodées, &amp; en dernier, puis nouvelle suppression des balises.
+export function clean(value) {
+  let s = String(value || "").replace(/<!\[CDATA\[|\]\]>/g, "")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ");
+  const named = { nbsp: " ", quot: '"', apos: "'", lt: "<", gt: ">", hellip: "…", mdash: "—", ndash: "–", laquo: "«", raquo: "»", rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”" };
+  s = s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) => {
+    if (e[0] === "#") {
+      const code = e[1].toLowerCase() === "x" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
+      return Number.isFinite(code) && code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : m;
+    }
+    return named[e.toLowerCase()] ?? m;
+  });
+  s = s.replace(/&amp;/gi, "&");
+  s = s.replace(/<[^>]+>/g, " ");
+  return s.replace(/\s+/g, " ").trim();
+}
+
+function normTitle(t) {
+  return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
+}
+
+export function dedupe(list) {
+  const seenUrl = new Set();
+  const seenTitle = new Set();
+  const out = [];
+  for (const item of list) {
+    const url = item.url.split("#")[0];
+    const title = normTitle(item.title);
+    if (seenUrl.has(url) || (title && seenTitle.has(title))) continue;
+    seenUrl.add(url);
+    if (title) seenTitle.add(title);
+    out.push(item);
+  }
+  return out;
+}
+
+function rank(item) {
+  const text = (item.title + " " + item.summary).toLowerCase();
+  let score = 0;
+  for (const [word, points] of Object.entries({
+    "anime": 3, "manga": 3, "trailer": 4, "teaser": 4, "season": 3, "saison": 3,
+    "film": 2, "movie": 2, "announced": 3, "annonce": 3, "release": 2, "date": 2,
+    "adaptation": 3, "new": 1, "nouveau": 1, "final": 2, "ending": 2, "cast": 2
+  })) if (text.includes(word)) score += points;
+  if (item.publishedAt) {
+    const ageHours = Math.max(0, (Date.now() - Date.parse(item.publishedAt)) / 3600000);
+    score += Math.max(0, 10 - ageHours / 12);
+  }
+  return Math.round(score * 10) / 10;
+}
+
+// Exécution directe uniquement (pas lors d'un import par les tests).
+if (import.meta.url === `file://${process.argv[1]}` || process.argv[1]?.endsWith("collect-rss.mjs")) {
+  const result = await collect();
+  process.exit(result.ok ? 0 : 1);
+}
