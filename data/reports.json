@@ -1,1 +1,19 @@
-{"runs": []}
+{
+  "runs": [
+    {
+      "runAt": "2026-11-04T01:22:37.113Z",
+      "durationSeconds": 0,
+      "status": "erreur",
+      "sourcesTotal": 0,
+      "sourcesOk": 0,
+      "articlesFound": 0,
+      "articlesKept": null,
+      "errors": [
+        {
+          "source": "radar",
+          "message": "Unexpected end of JSON input"
+        }
+      ]
+    }
+  ]
+}
