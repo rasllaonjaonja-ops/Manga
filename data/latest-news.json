@@ -1,4 +1,636 @@
 {
-  "updatedAt": null,
-  "items": []
+  "updatedAt": "2026-11-04T01:29:08.948Z",
+  "count": 70,
+  "items": [
+    {
+      "id": "8f058c127f6715f09ab56568cc6e4989a33d722a",
+      "title": "'Mashle' Gets Live-Action Movie Adaptation",
+      "url": "https://myanimelist.net/news/74902561?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-04T00:41:36.000Z",
+      "summary": "Production company Warner Bros. Japan announced a live-action movie adaptation of Hajime Koumoto&#039;s Mashle (Mashle: Magic and Muscles) manga on Wednesday, revealing a super teaser visual (pictured above). The live-action movie will premiere in Japanese theaters on March 19, 2027. Warner Bros. Pictures and Fuji TV are credited as production coordinators, while Credeus&mdash;the live-action studio behind the Kingdom and Golden Kanuy film series&mdash;is producing the live-action adaptation. T.",
+      "score": 26.9
+    },
+    {
+      "id": "f1557169ef53b2c4e0df47ffe82b0a1e80fc8165",
+      "title": "New Girls Band Cry Anime Film's Teaser Unveils May 21 Opening",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/new-girls-band-cry-anime-film-teaser-unveils-may-21-opening/.243482",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T14:22:56.000Z",
+      "summary": "Returning cast & staff, stage production also announced",
+      "score": 24.1
+    },
+    {
+      "id": "91377a80daddf40ec94fdcd6e5e7e9de9da08b8a",
+      "title": "Manga 'Oshi ni Amagami' Receives TV Anime Adaptation",
+      "url": "https://myanimelist.net/news/74902452?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-03T23:33:08.000Z",
+      "summary": "Production company Shogakukan-Shueisha Productions announced a television anime adaptation of Julietta Suzuki&#039;s Oshi ni Amagami (Otaku Vampire&#039;s Love Bite) manga on Wednesday, revealing special visual (pictured) and announcement promo. Suzuki (Kamisama Hajimemashita) began serializing the comedy romance manga in Hana to Yume magazine in April 2022. Hakusensha published the tenth volume on July 17, with the 11th volume scheduled to be released on November 20. VIZ Media licensed the mang",
+      "score": 23.8
+    },
+    {
+      "id": "9d1066c8c46d6761513d8a318ace47264dc93a82",
+      "title": "'Hyouken no Majutsushi ga Sekai wo Suberu II' Announces Additional Cast",
+      "url": "https://myanimelist.net/news/74900432?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-03T09:29:45.000Z",
+      "summary": "The official website for the television anime adaptation of Nana Mikoshiba&#039;s Hyouken no Majutsushi ga Sekai wo Suberu (The Iceblade Sorcerer Shall Rule the World) light novel announced five additional cast members for the second season on Tuesday. The new season premiered on TBS on October 9 at 1.28 a.m., followed by BS11 at 11.00 p.m. on the same day. Cast Cathy Alphelius: Yuuki Wakai (Kakegurui) Abel Alphelius: Toshiyuki Morikawa (Nohara Hiroshi: Hiru Meshi no Ryuugi) Cyril Alphelius: Te.",
+      "score": 23.7
+    },
+    {
+      "id": "3c86cb815b14aa5e9e58a54692200d7ee825d8b4",
+      "title": "Manga 'Shibatsuki Bukken' Gets TV Anime Adaptation in Summer 2027",
+      "url": "https://myanimelist.net/news/74892534?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T02:52:56.000Z",
+      "summary": "Publishing company Shueisha announced a television anime adaptation of Esu Omori&#039;s Shibatsuki Bukken (Shiba Inu Rooms) on Sunday. An official website also opened and revealed the main staff, cast, a teaser visual (pictured), and a teaser promotional video. The anime is scheduled to air in Summer 2027. Voice actresses Niina Nakabayashi (Awajima Hyakkei) and Mutsumi Tamura (Kobayashi-san Chi no Maid Dragon) are starring as Koori Momose and Muu, respectively. Osamu Yamasaki (Seirei Gensouki, I",
+      "score": 22.1
+    },
+    {
+      "id": "4994c8ef4d5be31175b838108e1acf10f52bb625",
+      "title": "'Bocchi the Rock!' Gets Prequel Anime Movie in 2027",
+      "url": "https://myanimelist.net/news/74893965?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T13:22:13.000Z",
+      "summary": "The official website of the Bocchi the Rock! anime series announced a new prequel anime movie subtitled Hoshi no Ashiato, revealing the main cast, staff, a teaser visual (pictured), and an announcement promo on Sunday. The movie is scheduled to open in Japanese theaters in 2027. Voice actresses Maaya Uchida (Chuunibyou demo Koi ga Shitai!) and Sayumi Suzushiro (Kaguya-sama wa Kokurasetai) are starring as Seika Ijichi and Nijika Ijichi, respectively. Staff Director: Shin Wakabayashi (Wonder Egg P",
+      "score": 20
+    },
+    {
+      "id": "b5e9e3f265e1728030197e8c27b36c859a71b4e6",
+      "title": "Witch on the Holy Night Film Gets Manga Adaptation",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/witch-on-the-holy-night-film-gets-manga-adaptation/.243494",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-04T00:56:45.000Z",
+      "summary": "Shikimori's Not Just a Cutie's Keigo Maki debuts manga on November 11",
+      "score": 18
+    },
+    {
+      "id": "541c9cec2ada96f0e91bcbcbc63b16502f6854be",
+      "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
+      "url": "https://myanimelist.net/news/74900816?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-03T13:34:03.000Z",
+      "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon&#039;s Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine&#039;s 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs..",
+      "score": 18
+    },
+    {
+      "id": "1489a6b45b00ec1465511c6ae2dfdfc5d641280f",
+      "title": "Blue Eye Samurai : l'anime phénomène a enfin une date de retour ! Que révèlent les premières images de la saison 2 sur Netflix ? - Serieously",
+      "url": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxObkF2eWxuT0FHNER3TVdTdHVQb3pCNGFtczZEWGh5NVJzZDFFT3BwcmVQUWlFTDRPT1FSVWxuNm1FRWpjNlNUb1VvZDVWbFlGQzA1dmpyMlpjWmZ0NGplblRGTlpFbjNfOHBNeVdoMXVOVW9UY3RZb0hSbjVIcnZBMi1mMnZBRWRqdzNVdkUxcGdTTXRWaC1Ca3hBVXdGVmRySFVFNS1jWXZkNDhhQ19UZFdDaFpxUHNMUjRaQjV4XzdDZnBXc3FUN1hET29OQTJobDJDN1lTLWhqUm12aDFjQVpZeXYwSjNQdUJtTEp3?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T15:45:00.000Z",
+      "summary": "Blue Eye Samurai : l'anime phénomène a enfin une date de retour ! Que révèlent les premières images de la saison 2 sur Netflix ? &nbsp;&nbsp; Serieously",
+      "score": 17.2
+    },
+    {
+      "id": "51209e2a4d321399e32ffe89ad5c5afe7381702d",
+      "title": "Girls Band Cry The Movie : date de sortie et teaser - FuransuJapon",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE1ISlFHQXNYQU9lU3RJVmdHeThTbDFQbE0yWkRWakpwaHRmTFUzY3JHbTNlSlVUY0dITFd6ZzBJRUF0WnZMRFJ5RkdFcUdELUU5SGIzSmR5V3VkNWNrZjAxR1Q0Vm0ydDdPaGZYdkpiVQ?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T13:30:56.000Z",
+      "summary": "Girls Band Cry The Movie : date de sortie et teaser &nbsp;&nbsp; FuransuJapon",
+      "score": 17
+    },
+    {
+      "id": "03c9cbab365b7970f98d0deb04fe4108a20bb520",
+      "title": "'Charisma' Unveils Additional Cast, Teaser Promo",
+      "url": "https://myanimelist.net/news/74894062?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T14:02:37.000Z",
+      "summary": "The official website for the television anime adaptation of the Charisma House mixed-media project unveiled a pair of additional cast and teaser promotional video on Sunday. The anime series will premiere on TBS affiliate networks at 11:56 p.m. on January 7, 2027. Voice actors Shinnosuke Tachibana (Kamisama Hajimemashita) and Tomohiro Oono (Tomodachi Game) are joining the cast as Souemon Nakagami and Shuu Torahime, respectively. A short anime adaptation of Charisma will begin airing on November.",
+      "score": 17
+    },
+    {
+      "id": "e1c8c4848d73d9d9850b2f57e66aab25207dd2eb",
+      "title": "The Iceblade Sorcerer Shall Rule the World Season 2 Unveils 5 Cast Members",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/the-iceblade-sorcerer-shall-rule-the-world-season-2-unveils-5-cast-members/.243478",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T10:01:33.000Z",
+      "summary": "Yūki Wakai, Toshiyuki Morikawa, Tetsu Inada, Daiki Hamano, Riona Imaizumi join anime's cast from episode 5 on Thursday",
+      "score": 16.7
+    },
+    {
+      "id": "804a0f5284eebbde1535b4c653f01a2c6fc76095",
+      "title": "Anime - Love Potion, la sorcière mal-aimée - Episode #5 - Quand on est une sorcière, 03 Novembre 2026 - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxPTGVTQU4tU21mWDFyZ1hBTEROVFdBMmhtR3BzLWdWZTNlaW9GUjMybmpwS01KX2s2SmJXdUtSQmlhWVZxYzJnanAyaUF0RncxcE16WWxBNTI1VWNZY3ZiU0oyUGtRRm9GdnFtNEFiY0RMUjd1QWZ3TUJPak1sVWJfbU44WWxEZDdmeTlNQ2s1RlVyaVhNcHUxUGlrZW1EQlNaQXpCREhLY0ttRmRadk04MjdnazBUTEplcmw2WDVoUDFxX0M2SnBEZA?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T16:00:00.000Z",
+      "summary": "Anime - Love Potion, la sorcière mal-aimée - Episode #5 - Quand on est une sorcière, 03 Novembre 2026 &nbsp;&nbsp; Manga news",
+      "score": 16.2
+    },
+    {
+      "id": "79f2d6e47135df85ea451abe500492f87e7bbf07",
+      "title": "Anime - Reborn Goblin - Episode #6 - J'ai provoqué une crise vestimentaire. Des questions ?, 03 Novembre 2026 - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxQVTJ1UVpjZjFnUzJ2LU5fRjhWeGFxT1dHSFkwdE96UkhHdWNNb2dpZHVHT2NKd2hMR0N0NHF5dHFLUHZDU0tMcFQ1UnhmQTV0ZDg0SXR2RGRocEVWYUdNSGFfaExYQjg4cnhfc1lVUk9WWHJlM3RTeW50clNmdHU4QkhiOHJBMlFHU2ZUeUd4amc3OUxxa1BYQ1RlM3Y1TVp0Sk92R1lYNzBnaHQxZmtCVzZWQ2ZOcF92THJaNHRTNjlSbEdQSXpxOEtncHdnSDg?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T16:00:00.000Z",
+      "summary": "Anime - Reborn Goblin - Episode #6 - J'ai provoqué une crise vestimentaire. Des questions ?, 03 Novembre 2026 &nbsp;&nbsp; Manga news",
+      "score": 16.2
+    },
+    {
+      "id": "6d2e5a0b8b351b5f566078ab90aab31ee0993c98",
+      "title": "Otaku Vampire's Love Bite Manga Gets TV Anime",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/otaku-vampire-love-bite-manga-gets-tv-anime/.243498",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T23:41:39.000Z",
+      "summary": "\"Bloody romantic comedy\" from Kamisama Kiss creator Julietta Suzuki",
+      "score": 15.9
+    },
+    {
+      "id": "95714a1e8940a1e6f483940b2e30148a5bb4f8ab",
+      "title": "'I'm Running for Crown Princess, but All I Want is a Steady Paycheck!' Manga Ends",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/im-running-for-crown-princess-but-all-i-want-is-a-steady-paycheck-manga-ends/.243474",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T22:00:00.000Z",
+      "summary": "Makana Watari's manga adaptation of Yuuri Seo's light novels launched in 2019",
+      "score": 15.7
+    },
+    {
+      "id": "336a12974988dfc6f970b245917087a9abcf1eac",
+      "title": "I'm Not Even an NPC In This Otome Game! Manga Ends",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/im-not-even-an-npc-in-this-otome-game-manga-ends/.243461",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T12:26:05.000Z",
+      "summary": "Manga adaptation debuted in April 2020",
+      "score": 14.9
+    },
+    {
+      "id": "24be6486affb815efcd8de85520d3d606cb3fad0",
+      "title": "Mashle: Magic and Muscles Manga Gets Live-Action Film on March 19",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/mashle-magic-and-muscles-manga-gets-live-action-film-on-march-19/.243497",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T23:20:53.000Z",
+      "summary": "Warner Brothers, Fuji TV, Credeus, Toho collaborate on project",
+      "score": 14.8
+    },
+    {
+      "id": "6ba713b1bce2b13aa015a2e7ae6969a227e81083",
+      "title": "Hollywood Reporter: Sony to Co-Finance, Distribute Live-Action Naruto Film, Begin Production in Spring 2027",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/hollywood-reporter-sony-to-co-finance-distribute-live-action-naruto-film-begin-production-in-spring-/.243485",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T19:00:00.000Z",
+      "summary": "Sony to handle international distribution for Lionsgate's film adaptation following multi-studio bidding",
+      "score": 14.5
+    },
+    {
+      "id": "e31a5a8b2e0e8f917b726bd5abe91f0a1f60cb5e",
+      "title": "Dark Gathering saison 2 : date de sortie, visuels et infos - FuransuJapon",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4yOGJ1RFVBYWhxUF9qOUROdlBYeXROT2FKc25ERHZoQ0xxX28xWVhpMlNDWUthd0FENGZfMklXQWEyNDdxWTdyTjVJZk9FajF3T0JXZnc3elpabDZjd2NPOHdyWjBOQ3dpVTRoT0dR?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T15:32:24.000Z",
+      "summary": "Dark Gathering saison 2 : date de sortie, visuels et infos &nbsp;&nbsp; FuransuJapon",
+      "score": 14.2
+    },
+    {
+      "id": "98872a26cb201bf3b6a03f1bba12163bc75a0afb",
+      "title": "Manga 'Hiiragi-san Chi no Kyuuketsu Jijou' Gets TV Anime",
+      "url": "https://myanimelist.net/news/74885918?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-30T15:28:17.000Z",
+      "summary": "TMS Entertainment opened an official website for a television anime adaptation of Miki Yoshikawa&#039;s Hiiragi-san Chi no Kyuuketsu Jijou (Hiragi-san&#039;s House of Vampires) manga on Saturday, revealing a teaser visual (pictured). Unlimited Produce by TMS is credited for the planning and production. Yoshikawa (Kakkou no Iinazuke) originally drew the supernatural romcom manga as a one-shot in Weekly Shounen Magazine in September 2019. Bessatsu Shounen Magazine began serializing the series in O",
+      "score": 14.2
+    },
+    {
+      "id": "02dea8b2522ecb644c11b57f9dddb868b878576d",
+      "title": "Un nouveau manga de fantasy pour Norihiro Yagi, 03 Novembre 2026 - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQUnlLM3N0RDVYWld3cGFTQ2ZfVFNKdkRDTTRkVUcyQXpmS3Y1Y19ObEdWR1J1WE1feEphV3R0WEVHRkxlZ2ROWkIxTEVna3MydFo1T3hXRWVlVF9VNXJnTDk2MjhwTUlSdVRmQjVBMlhWYzZWa01Rb3BFbXphTmViVVVBQ3UydzZadHNwQ3MyYTNQUEk5UUVxMWRBeVNoVWE2V2c?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T13:00:00.000Z",
+      "summary": "Un nouveau manga de fantasy pour Norihiro Yagi, 03 Novembre 2026 &nbsp;&nbsp; Manga news",
+      "score": 14
+    },
+    {
+      "id": "44a3345db642dc6bd1c93284e51f934f13015a44",
+      "title": "Urban Myth Dissolution Center Manga Ends",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-02/urban-myth-dissolution-center-manga-ends/.243452",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T00:30:00.000Z",
+      "summary": "Manga adaptation launched on April 2025",
+      "score": 13.9
+    },
+    {
+      "id": "4044b8dcf0e6638d2edc987266eb0670b57da973",
+      "title": "Monsempron-Libos : en novembre, le Liberty s’anime avec des rencontres et des films documentaires - Sud Ouest",
+      "url": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxQUGtPYjMybGJxR19hQ1g4RFozR1oyUDJrbFU0azFqVTF6d3hRZllNWkNYSXd2SXlITW8xMmdya0ZyeFR3UmZuem9KNm9jc2lIVnBZM0pLdDRfYVFVdDd1M19sSzZkNHUzaXFieFVYT1ZyYWY4ejlhY2E4bWptVDJlVndZeDdhTXlCVVZydnVJdHNhLTVpOWtsYmRhbXFZZG82VDNvYmJtc3g1V0NaQTZtVVVRNlM4YzNCOEZjNTNpYXFVWUFaWFhIeGdaMjNHYzFQU1BnZm9zY181Q3NqMUJZQ0JzakJQNHp4bWJSR2JKUmk4blM2b3c?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T11:02:03.000Z",
+      "summary": "Monsempron-Libos : en novembre, le Liberty s’anime avec des rencontres et des films documentaires &nbsp;&nbsp; Sud Ouest",
+      "score": 13.8
+    },
+    {
+      "id": "9b18f87614c5082d2f198e0afc944bea877d89d0",
+      "title": "'Rock wa Lady no Tashinami deshite' Creator Launches New Manga",
+      "url": "https://myanimelist.net/news/74893568?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T09:53:25.000Z",
+      "summary": "The official X (formerly Twitter) account of Comic Heaven announced on Friday that manga creator Hiroshi Fukuda will launch a new manga, titled Koko wa Kagari no Territory (Here is Kagari&#039;s territory), in the magazine next issue, scheduled for a November 30 release. Fukuda is best known for Rock wa Lady no Tashinami deshite (Rock Is a Lady&#039;s Modesty), which began serializing in Young Animal from October 2022. Hakusensha published the eighth volume in August 2025. Yen Press licensed the",
+      "score": 13.7
+    },
+    {
+      "id": "bc2fd0aca39a4257982fdefda500069ff7b576c8",
+      "title": "Märchen Crown : le nouveau manga de l’auteur d’Oshi no Ko arrive enfin en France ! De quoi parle-t-il ? Quand sera-t-il disponible ? - Serieously",
+      "url": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPWEdkZEJEelpxOTlRMllNY3V3WjlUcXBuendvWjhxakxPc1RoNnVFeWhmV1REREFPSVBaSWdfbDRRVEZ1LWlSeG1NNnlfeVlHazg1ZjJ2OU9kQTN1eXFILVZTX3NLMmdwc2JWRVI2T2dxZXZnb2hSZTF6RFkta2h1WmRuWFdoM2wwSXhVVVVfYzJmUTBlb2RTNXFBUndyUjItLVdzLTBMVFRJUVdNSWM1TlJ2SnB2RmdBUXQ4M0pLemc2aWZEQ1Z0SFhmdF90TDB0cldIQTVmVzVISmJUX0k0a2ZlZGpZMkxwcUtwR2xLMA?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T21:00:00.000Z",
+      "summary": "Märchen Crown : le nouveau manga de l’auteur d’Oshi no Ko arrive enfin en France ! De quoi parle-t-il ? Quand sera-t-il disponible ? &nbsp;&nbsp; Serieously",
+      "score": 13.6
+    },
+    {
+      "id": "0cc848b4c5ac2aca5b1dbb2c79d3493d2138b639",
+      "title": "The Super Mario Galaxy Movie, Resident Evil Reboot Film Earn Nominations for Hollywood Music in Media Awards",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/the-super-mario-galaxy-movie-resident-evil-reboot-film-earn-nominations-for-hollywood-music-in-/.243484",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T20:00:00.000Z",
+      "summary": "Monster Hunter Outlanders game also gets nomination",
+      "score": 13.5
+    },
+    {
+      "id": "a55a84c971ce718fabb916a1bcce51b8a8a8c851",
+      "title": "Cyberpunk Edgerunners 2 Anime Streams New Music Videos",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/cyberpunk-edgerunners-2-anime-streams-new-music-videos/.243487",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T16:58:17.000Z",
+      "summary": "Jack-Amin Ibrahim directs new music video about Weak Kingsley, Avida",
+      "score": 13.3
+    },
+    {
+      "id": "1e939af33ef82669edc2d76c948e37de85053b24",
+      "title": "North American Anime & Manga Releases for November",
+      "url": "https://myanimelist.net/news/74894552?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T16:44:16.000Z",
+      "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi&#039;s Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi&#039;s Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (",
+      "score": 13.3
+    },
+    {
+      "id": "51cc4c2bea58ed20c71b3e31fafe3d908f91dae7",
+      "title": "Lancement du Tournoi Boy's Love 2025 - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQLWZRaGNBa0JsV0VDcFhvcUc1c2NlX0hvMEhQRk9PR18zb2kyOFk1NEgtcnV1a19TQk85VzRLQ1pfenZCSmxlemhHY3NCQ2FMWlQxTjZ1T1JJYWRmc08zNUtoaVZNalNvQWJiU0YtVm5SOWFDRWRISXRZY1BIMlNYYjRPSmVHc01vWm0yU0ZkSkI2ckXSAZIBQVVfeXFMT0lab0xiN0JaVVBKNVhTZ2FJb2V2NzBsY25BRkFzOTZtd3diUWNNTEgyVXpQNmo3SzRNSnF0aXdBRy1rYmZhZGZYRkcxUHdDYWw4Ny1lb0xnUGREX0RTNWkybHBVMWVNTnY1cXg2N3NHS19pcnJCV3dvSFRuX0w5cXNuV0V4LVd5TTV0RklvQkowTEE?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T16:00:00.000Z",
+      "summary": "Lancement du Tournoi Boy's Love 2025 &nbsp;&nbsp; Manga news",
+      "score": 13.2
+    },
+    {
+      "id": "597c27c6c1368ae7e23cc576a73ada45882cc8a0",
+      "title": "emaqi Service Adds Naruto, Kaiju No. 8, Spy x Family, 2 More Viz Media Titles; 8 New Exclusive Manga",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/emaqi-service-adds-naruto-kaiju-no-8-spy-x-family-2-more-viz-media-titles-8-new-exclusive-manga/.243412",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T14:00:00.000Z",
+      "summary": "New manga addition includes How Did We Even Do It?! , I'd Rather Die Than Call You Cute! , Kirin , Higanjima: Isle of Vampires , more",
+      "score": 13
+    },
+    {
+      "id": "7bc184350d6dea41fa4e5af26ddd28080389f3ec",
+      "title": "Clock Striker Vol.1 : Critiques - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE9kUU5LVHJudldOSVJzdzEzdFV1RDluUWZwOUpnZTJMN1BXYU9ualdlTXAxS3lFOS1aMi1KSnRwTkVlNmhzODhxcGR1WnQ3czVsdV82N19HTnpHUml0WjVuVHlzbDhuZk9TTXJJYmdjX3JIMndXZFFHalhUMA?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T13:26:20.000Z",
+      "summary": "Clock Striker Vol.1 : Critiques &nbsp;&nbsp; Manga news",
+      "score": 13
+    },
+    {
+      "id": "e6fbfde9f53b3a685b8c66985ecac8ae0d25ed08",
+      "title": "Dragon Ball - Full Color - Le roi démon Piccolo Vol.2 : Critiques - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOcTBZcTMycHJjV2JvQ0NuZHU1M1hidTI2RkhLeXp2dm5INXlvRnlabXdvaXdZem9MY2xESnE4b29hamVROEpaTDZZcjRmX3Z0ejl1el8ySTBnNzdXREczQ2tjYVFIcHo4UXVXN3F5cm1FV193MHZUbXUwemJMbS1ySy1pLUZJUENmZm5YdWJOTTlrTXhzQ1BlOUViSlVTbm1uRDdj?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T13:21:57.000Z",
+      "summary": "Dragon Ball - Full Color - Le roi démon Piccolo Vol.2 : Critiques &nbsp;&nbsp; Manga news",
+      "score": 13
+    },
+    {
+      "id": "70e3563f6ec2abebb9439d7239b680d944bee5c5",
+      "title": "Kaeruno Erefante Launches Manga Diary of a Male Porn Star Sequel",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/kaeruno-erefante-launches-manga-diary-of-a-male-porn-star-sequel/.243477",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-04T00:00:00.000Z",
+      "summary": "AV Danyū Hajimemashita Reiwa-hen sequel manga launched on October 30",
+      "score": 12.9
+    },
+    {
+      "id": "7642055e787bbe4a63ee5c147432b4c2798bd3da",
+      "title": "Watari Sakou's Honey Trap Method Manga Ends on December 1",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/watari-sakou-honey-trap-method-manga-ends-on-december-1/.243466",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T23:00:00.000Z",
+      "summary": "Spy romance manga launched in March earlier this year",
+      "score": 12.8
+    },
+    {
+      "id": "50cf97aa03d16961a74de7c57c3d6db3c5be2aed",
+      "title": "Apollodore, une nouvelle création aux éditions Kana - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQTWRmVENISGtUTFFKd3lXMUd3aXNWNEFiaGdRajNSelpxVS1nS1VwVGFXZkg1RlZ3OHB3TlhOS2tVWUdMa24zYVJXX1ZCVU1NRmtQUXNGd3BxTWZLcTY3bW04UUxyb05qV2dHYUdqcS0ySWg3RTE0S1FEVDgta3lFT28zM2toUzc2YWJIanVJQ2xqOVljTWJuSHp0UzVBV0tuLVhONG54c9IBpgFBVV95cUxOOHNBYnZJZVVkamxxT2g5aGd4aDN3VnFlNWFjeUVtQ0tURmJCQVdDSFhDdDMzb2I4T0lUdlBTSDFrZFhRdndkeFBkS1piS3JnN0NJWjFxeUN4LWQ1QXhYNk9TU3FvZ1phLWVLYTE3ZldkNWZWY2ZTWUw4RUhwZ2RFXzJSU2ZCNHptUUFJdDBJdEV3UXJDOW1kT05QS1lqX19iU01GYXd3?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T11:00:00.000Z",
+      "summary": "Apollodore, une nouvelle création aux éditions Kana &nbsp;&nbsp; Manga news",
+      "score": 12.8
+    },
+    {
+      "id": "a547eb810d21d402ba975e0a03c2012a47fad7aa",
+      "title": "Fin déjà annoncée pour Drama Queen !, 03 Novembre 2026 - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPMVRFRjVWTldYQWJpYnBwX3Q4UFF3N2V4TGJTZXRQWkdLMjdmc0xiaGJDdFVIQmhFa1ltZGwxZnF1SU90NnhwTHBuMllkQ29vcFNETVZNYWJrdzl4X0JFS1poWEIxNGo2NUxmUXIyN2d2Um5MMGlRMmpueDVqOGxpLXpGbEkxM280Y0hUU25RdzUxQQ?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T10:00:00.000Z",
+      "summary": "Fin déjà annoncée pour Drama Queen !, 03 Novembre 2026 &nbsp;&nbsp; Manga news",
+      "score": 12.7
+    },
+    {
+      "id": "e71f8e1381a9b377583903abe00805afe327ac9e",
+      "title": "Seraph of the End Manga Ends on December 4",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/seraph-of-the-end-manga-ends-on-december-4/.243493",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T21:00:00.000Z",
+      "summary": "Series debuted in 2012",
+      "score": 12.6
+    },
+    {
+      "id": "1e2118bfc137c41c091fd5f54f4327c57c98a4c7",
+      "title": "Aperçu de la nouvelle édition du manga X de CLAMP aux éditions Pika - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxPWEh3QXRHTUFUOXFqbGk1bWY3amliRDk4a3RoTGZ4MGhkWEdKTXh1RVdsNmtqcnlGYmY5RHVtODV1blA0X2xISm5XeV9aUldzNHo4a0RRRXI4ZGU1N0YySGk1bjIzSnhEM0lxV1k4TV8wd3k2bm9nUVRkYkdkRS15NDR5YWVIRlFad0ZVYnU0NjVsR0V6Sl9VcmVlQ2JoQUNqR3RkWHYyYnBFWUpWMmVsaFBaOGY1SmdMcm5RZ9IBuwFBVV95cUxQQXdxWHpTcXZIS0htZ0hBSHRiZV9TUWl4YVVPUE9faTFEUnkyMlpsbjJVQjVpQV9HclkzdC1DT0o0dHBuQ0JGY0VYcUFpdWdleHRPTmIwRHlfYmF4bWV5bTRBbW5UQkNHQXhucmNYcHFZRmczNnNfWWxGRlZMVVlUai04Zl84SG9zbE1FVmRIWmlMc2w2ZEdRa2REVjlqQWM4cUdlWW1EN0trTTNVWm5mcmxidmc0Q2E2eGVZ?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T09:00:00.000Z",
+      "summary": "Aperçu de la nouvelle édition du manga X de CLAMP aux éditions Pika &nbsp;&nbsp; Manga news",
+      "score": 12.6
+    },
+    {
+      "id": "f03b1be6d3aa4f42ebe9991ca45db6813ba32a6a",
+      "title": "HIDIVE Confirms English Dub for Nia Liston: The Merciless Maiden Anime, Reveals Series Leaving Service in November",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/hidive-confirms-english-dub-for-nia-liston-the-merciless-maiden-anime-reveals-series-leaving-/.243492",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T20:00:00.000Z",
+      "summary": "Dub debuts on November 18",
+      "score": 12.5
+    },
+    {
+      "id": "f290e6847fd7292bd273d0265b0305ab2244e312",
+      "title": "'Kizuguchi to Houtai' Unveils Additional Cast, Third Teaser Promo",
+      "url": "https://myanimelist.net/news/74884610?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-30T07:21:46.000Z",
+      "summary": "The official website of the Kizuguchi to Houtai (Wound and Bandage) television anime unveiled additional cast, third teaser visual (pictured), and third promotional video on Friday. The anime series adapting Nanai Umihoshi&#039;s romantic comedy manga will premiere on January 9, 2027 at 11:00 p.m. on AT-X, followed by ABC TV and TV Asahi on the ANiMAZiNG programming block. Cast Ginsuke Hatobane: Shouya Ishige (Sono Bisque Doll wa Koi wo Suru) Magical Penpengusa: Yuka Iguchi (Honzuki no Gekokujou",
+      "score": 12.5
+    },
+    {
+      "id": "a14007a9ad95d8df94c7d4fed9c81d4b4895f6e1",
+      "title": "HIDIVE to Stream I'm Dating a Dark Summoner Omake Shorts Anime",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/hidive-to-stream-im-dating-a-dark-summoner-omake-shorts-anime/.243489",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T17:24:33.000Z",
+      "summary": "HIDIVE streams chibi -style sketch show spinoff on Friday",
+      "score": 12.3
+    },
+    {
+      "id": "cd2b969adeb7336f4417124a540fdfa9c1c6c303",
+      "title": "Neufchâteau. Monsieur Jacky anime le Val-de-Meuse - Vosges Matin",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPQ1BSdHhnY3B5SGxCWGE5LV9OZmpGZG9jUG1kLVNwY0NDejlwLW5RYldzZU14WXRCYnptbWZUTS1KemlKV3B6LUhIUFVGRGo5YU4zeFUzNUlvZGRLeGtfT1NPSkJ1MEIxTW9EWjhrMWZQY2w0OTRaanVFODlubWJJWHg2WXM0bWVPQnQ5OUlycWlKZVNi?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T17:02:16.000Z",
+      "summary": "Neufchâteau. Monsieur Jacky anime le Val-de-Meuse &nbsp;&nbsp; Vosges Matin",
+      "score": 12.3
+    },
+    {
+      "id": "59fb073edf708b0d5dc1b2cf1af0195b4388a978",
+      "title": "Live-Action Quiztopia Series Unveils Trailer, Key Art",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-02/live-action-quiztopia-series-unveils-trailer-key-art/.243460",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T03:45:56.000Z",
+      "summary": "Series debuting on Netflix on December 17 with scenes with 8,000 extras",
+      "score": 12.2
+    },
+    {
+      "id": "e05e8cfe25cea65ffb799a23f64204f0cb846d2f",
+      "title": "Mari Okada, Makoto Ojiro's Sister Resistar Manga Ends in 2 Chapters",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/mari-okada-makoto-ojiro-sister-resistar-manga-ends-in-2-chapters/.243464",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T13:46:39.000Z",
+      "summary": "Manga about idol costume seamstress launched in September 2024",
+      "score": 12
+    },
+    {
+      "id": "950bd8bd6507942caa38a90db2ba9fb9dbde4a0f",
+      "title": "Le retour du manga Dragon Ball Super se complique de plus en plus - Numerama",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNUkZBVHJjSlZtbEU2WDk5ZGwybWhwc2Fqa18weDRfcFVYR0Q5Zk5BOUpyN3NITmtIaHpYMXMwTXJNd2Q0Sl80TlRUSFZOdmQtMDEyMjRVZDFFeEZadXFJSFlrcUdEZjNWbVNCM0hOMEVoc0dmeXE3RUQ3a1E0X3JRM3pBVXFONkdVWUVvZVZ2RzhXZVhueXJYME5RRlFDX1F1amtzcGFKTEItZnhfM1pFbElXNjhIZw?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T13:38:39.000Z",
+      "summary": "Le retour du manga Dragon Ball Super se complique de plus en plus &nbsp;&nbsp; Numerama",
+      "score": 12
+    },
+    {
+      "id": "fd9396546caa7eafc9956ec44df7375fa8c70a6a",
+      "title": "Ramparts of Ice Manga Gets Epilogue Chapter in Fan Book",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/ramparts-of-ice-manga-gets-epilogue-chapter-in-fan-book/.243463",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T13:25:30.000Z",
+      "summary": "Fan book ships on January 4",
+      "score": 12
+    },
+    {
+      "id": "ffb1c574caefdf2e80a8f80237a2d3b9f813792b",
+      "title": "Trigun Anime Gets New Novel This Winter",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-02/trigun-anime-gets-new-novel-this-winter/.243456",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-02T22:30:00.000Z",
+      "summary": "Series creator Yasuhiro Nightow, Trigun Stampede writer Takehiko Oxi collaborate on Trigun Manuscript",
+      "score": 11.8
+    },
+    {
+      "id": "32e4936b60c23a72176e758072bd849beda270e2",
+      "title": "Anime comme Demon Slayer : 10 séries à regarder ensuite - FuransuJapon",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE56RThUNWtfVVc1SjNMalNUNngxWkFxczlkMWpDSE1CbFAzZEtYYW1KRzB3dXc5UzlSdFhZdndMSVB0WWdNcDl5SEthSmFDZFo2SC1WaEtmNlB0WkIzVU5NREhDdU1PRkphVDBIUWhXZw?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T09:00:00.000Z",
+      "summary": "Anime comme Demon Slayer : 10 séries à regarder ensuite &nbsp;&nbsp; FuransuJapon",
+      "score": 11.6
+    },
+    {
+      "id": "6e12dbc4f6de45e06dadfaa9a785cea9c17f35d3",
+      "title": "Dragon Ball tomes : liste, éditions, arcs et dates de sortie - FuransuJapon",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBPVFQzMGtmbjZ1VXVlN1F5ZnZJLUVOOWZBSmMxeHZOWkhVTUR2cjZvMGNiTFNCLXZOZnZXX2hJX2haRW1KdF95MVU1b205SXhIS1dWUGpNV3pGTmo1a284emdMMXJDQzZlZEpIMTlB?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T17:00:00.000Z",
+      "summary": "Dragon Ball tomes : liste, éditions, arcs et dates de sortie &nbsp;&nbsp; FuransuJapon",
+      "score": 11.3
+    },
+    {
+      "id": "e1440825e6c726ff47b2f6cddea0b6db8b5dca9a",
+      "title": "Nippon Anime Awards : l'anime japonais crée son propre prix - SpiritGamer",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE1xbjJTNVpPb21nSVVoZUpLOWtlUWE0bmhxaXRLak94NTFEamxyRU9yZHZzeXZqZU5PVGxYM0QyRUh3ZGJXTF9MV2NiWVY5djJnN1RSeDhOS256aW1FcjZIakNHRkZxUW02by12ZlNOb21ZOWhKQm1ya2VpbUQ0UQ?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T05:23:26.000Z",
+      "summary": "Nippon Anime Awards : l'anime japonais crée son propre prix &nbsp;&nbsp; SpiritGamer",
+      "score": 11.3
+    },
+    {
+      "id": "555b670bbe331f92365312545c382b9a6e3f7c42",
+      "title": "'Claymore' Creator Norihiro Yagi Begins New Manga",
+      "url": "https://myanimelist.net/news/74894409?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T16:06:04.000Z",
+      "summary": "Norihiro Yagi, the creator of Claymore, began serializing a new manga titled Bartlet Fairy Basslet on the Shounen Jump+ platform on Monday. Yagi serialized Claymore in Monthly Shounen Jump from June 2001 to June 2007. Following the magazine&#039;s discontinuance, the manga switched to Jump SQ. in November 2007, where it ended in October 2014. Shueisha published the 27th and final volume in December 2014. VIZ Media licensed the manga in English in July 2006 and published the 27th volume in Octobe",
+      "score": 11.2
+    },
+    {
+      "id": "18386594a093d952a8fe17980bdac6386933a964",
+      "title": "'Shin Oishinbo' Reveals Additional Cast, Theme Songs",
+      "url": "https://myanimelist.net/news/74880493?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-29T09:52:07.000Z",
+      "summary": "The official website for the television anime adaptation of Tetsu Kariya&#039;s Oishinbo manga, titled Shin Oishinbo, revealed additional cast and theme songs on Thursday. The anime is scheduled to premiere in 2027. Cast Hideo Tanimura: Tohru Furusawa (Toradora!) Tomio Tomii: Kousuke Echigoya (Akane-banashi) Taizou Oohara: Nobuo Tobita (World Is Dancing) Kyouichi Koizumi: Hiroshi Naka (Saigo ni Hitotsu dake Onegai shitemo Yoroshii deshou ka) Kinue Arakawa: Kyou Yaoya (Tefuda ga Oome no Victoria.",
+      "score": 11
+    },
+    {
+      "id": "9a2597ee21955ff88407f900033ab1e5c3fd0ef1",
+      "title": "Ao Ashi - Playmaker Vol.36 : Critiques - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMjlkaDNVRFN1U1NaM3NJUWh2bzVjS2Z3clFXQk45Rm5QSlFYaElYRlpndGNXa1VqbDFqVTRqQ2RfNk1vV2JteHF4OFI2b3Y5dk5KY2x1YWpvOU1xN19XdjFfUE5sWGdsRmZlUXNpejhYZlZmUFVqMUZ4ZHVEbU84cjVB?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-02T12:36:56.000Z",
+      "summary": "Ao Ashi - Playmaker Vol.36 : Critiques &nbsp;&nbsp; Manga news",
+      "score": 10.9
+    },
+    {
+      "id": "7d89e2c28d43c085f412affde6552250b6ffdc9b",
+      "title": "Drama Queen Manga Ends in 4 Chapters",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-02/drama-queen-manga-ends-in-4-chapters/.243455",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-02T23:30:00.000Z",
+      "summary": "Kuraku Ichikawa debuted series in December 2024",
+      "score": 10.8
+    },
+    {
+      "id": "34c52f08b4d8fa128a88522ef47f4cc3f497e18e",
+      "title": "Television Producer/Distributor Sandy Frank Dies at 97",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-02/television-producer-distributor-sandy-frank-dies-at-97/.243457",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-02T21:30:00.000Z",
+      "summary": "Sandy Frank distributed Battle of the Planets anime; Name That Tune , The Dating Game game shows",
+      "score": 10.7
+    },
+    {
+      "id": "de49cad4caca896f17af5c2201cbddbe22bd8e43",
+      "title": "Supporting Cast for 'Kaze wo Tsugumono' Announced",
+      "url": "https://myanimelist.net/news/74888954?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-31T07:47:07.000Z",
+      "summary": "The official website for the Kaze wo Tsugumono (Inherit the Winds) original television anime announced supporting cast on Saturday. An advance theatrical screening will run for two weeks starting November 13. The anime will premiere in January 2027 at 11:30 p.m. on the Agaru Anime programming block on CBC and TBS&#039; 28 affiliated stations. Cast Nishiki Niimi: Daisuke Hirakawa (Tefuda ga Oome no Victoria) Kisaburou Kawai: Toshiyuki Toyonaga (Mao) Kyuusai Momoyama: Kappei Yamaguchi (Yomi no Ts.",
+      "score": 10.5
+    },
+    {
+      "id": "8aab011dbc6fcabf51c5bd3e43124b15b011f187",
+      "title": "'Pole Princess!!' Gets Theatrical Anime in January 2027",
+      "url": "https://myanimelist.net/news/74885701?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-30T14:09:48.000Z",
+      "summary": "The official website of the Pole Princess!! anime series announced a new theatrical anime titled Pole Princess!!: Croix du Nord on Friday, revealing the returning cast and staff. The anime will run for approximately 60 minutes, featuring five new songs from the Shining Pole Song Album and an original story. A two-week limited theatrical screening of the anime will begin at six theaters in Japan on January 29, 2027. Voice actresses Rio Tsuchiya (Shibou Yuugi de Meshi wo Kuu.), Anna Suzuki (Musho.",
+      "score": 10.1
+    },
+    {
+      "id": "5c25a1ad93c06c4a3015297313b169db82446d52",
+      "title": "'Death Stranding: Isolations' Reveals Additional Staff, Teaser Promo",
+      "url": "https://myanimelist.net/news/74883978?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-30T02:56:32.000Z",
+      "summary": "The official X of Kojima Productions revealed additional staff, teaser visual (pictured), and a teaser promotional video for the Death Stranding: Isolations anime series on Friday. The anime is scheduled to premiere worldwide on the Disney+ streaming service in 2027. Staff Series Composition, Script: Tow Ubukata (RWBY: Hyousetsu Teikoku) Character Design: Sayaka Koiso (Jujutsu Kaisen 2nd Season) Art Director, Color Script: Yann Le Gall (Ramen Akaneko) Color Design: Ami Kutsuna (The God of High S",
+      "score": 10.1
+    },
+    {
+      "id": "ad1680e6fe6d5f6158e9dfb91c0cdef791b3af32",
+      "title": "Psyren : pourquoi Crunchyroll ne diffuse-t-il pas un épisode inédit ? Quand l’anime fera-t-il son retour ? - Serieously",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQTmYxdWNaZ3pPcm9KY1Q0cUtnQjA0czlUcmhzZmttM3U0YWtZVFhoZ0pCLXV2R3FlcHNFczNwYTdiXzRkRzhkWE91dWxIc3lzdHN3MXluQms4S1RDelhKcl9TZk5TYUpqQ1BDcTJmT3VjbFhucTdtQllQU1FER29tMl9kOEZWYlZINGRncWZ6OFRLbUdXN0lPYktxUjk3c1k5Yzh6NDFObzhiS2lvU3ZxcXJjUGk2U3ZPSHZYcjQyeUladkVORjlYTGxZV0N5Ni1W?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-02T13:00:00.000Z",
+      "summary": "Psyren : pourquoi Crunchyroll ne diffuse-t-il pas un épisode inédit ? Quand l’anime fera-t-il son retour ? &nbsp;&nbsp; Serieously",
+      "score": 10
+    },
+    {
+      "id": "92d61abdefef9d19b22afe1f01268893bfaee34b",
+      "title": "Noël Manga 2026 : une chaussette collector offerte | Pika - Pika Édition",
+      "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUW41Sl9zemFRS3l1NEJXTkk3VHNiUkNUdHhxNGFuMXRvUFZvTmZ0SFk1SmQ3dWdNYnJPN2x0T3BWbURuQjhCUWsxakYzX0MtZW5CSVpYQnVlaVNFWEtEdlZqZWhjZTE1cHpfeF9SWnNJTHctUndpU2N0c1QwUEZpMWNTZ3FMUHJSX0lRTmZsT3hUQ2RiZEE?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-02T11:54:04.000Z",
+      "summary": "Noël Manga 2026 : une chaussette collector offerte | Pika &nbsp;&nbsp; Pika Édition",
+      "score": 9.9
+    },
+    {
+      "id": "76d779925b2750975c71b8ed8292c89b922f042c",
+      "title": "'Destiny Unchain Online' Reveals Main Cast, Staff, Teaser Promo, 2027 Debut",
+      "url": "https://myanimelist.net/news/74884436?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-30T08:00:02.000Z",
+      "summary": "An official website opened for the Destiny Unchain Online television anime on Friday, revealing the main cast, staff, a teaser visual (pictured), and teaser promotional video. The anime series adapting resn&#039;s adventure fantasy light novel will premiere in 2027. Voice actress Ikumi Hasegawa (86, Bocchi the Rock!) is starring as the main character Crim. Staff Director: Kouichi Hatsumi (Tokyo Revengers) Series Composition: Seiko Takagi (Yakusoku no Neverland script) Character Design: Masashi K",
+      "score": 9.5
+    },
+    {
+      "id": "61b9087031e1469fdf3f429444ccd71b3886f84c",
+      "title": "Hyperspace Neptunia: Unlimited Game Heads West in 2027",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-03/hyperspace-neptunia-unlimited-game-heads-west-in-2027/.243488",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-03T17:52:47.000Z",
+      "summary": "Game launches for Switch 2, Switch, PS5, PS4, PC",
+      "score": 9.4
+    },
+    {
+      "id": "78f2c8a3e5280e730ce108621de043b9db7c0860",
+      "title": "Hiragi-san's House of Vampires sera adapté en anime - Crunchyroll",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNZWVicjlKaFExMXBsbERFV0xRRko1RHkxTVZnZU0wLWpPakJPb1Q4QVBQbWE2alBORFM2anlvSWh6T0dZeU5lbVBrUk5uY0JCdFVZZWk0MlJBZlotX1BfWnBrZGgzTGFEeWZ2dXlsVjZhaFU3WjRScmlWYnBVY1JNWE5jLUw2UTVqaVhGUjVYbGdGbXRaTVJhaktSNnFWOTJPb1MycnY5aml2RGs?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-02T06:10:00.000Z",
+      "summary": "Hiragi-san's House of Vampires sera adapté en anime &nbsp;&nbsp; Crunchyroll",
+      "score": 9.4
+    },
+    {
+      "id": "6f4f4d0586236ef6c01ebcd5d35a1827609d892a",
+      "title": "Les cartes de vœux 2026-2027 débarquent en librairie ! - Pika Édition",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNejItTjQ1WkxSZDFsbXF2cENuLXhQaDhCazBiWVhzaWRYUU9GOTF1Z1Y3TWpjSGV4ZUlodTBGYnprN04yN1JRUDQwNGJnN1p3NnhVVWxReExHLUowWjRJaDBNQnNkdkJsZmhCbVR0ajlfdVRPcHNEbGt3eGExMEhiRE5rSVZvNmlRcVk4Yg?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-03T15:36:10.000Z",
+      "summary": "Les cartes de vœux 2026-2027 débarquent en librairie ! &nbsp;&nbsp; Pika Édition",
+      "score": 9.2
+    },
+    {
+      "id": "d00371a7cac8da21d9ba09d4df3c6b6758b86112",
+      "title": "'Kaketa Tsuki no Mercedes' Reveals Additional Cast, Second Promo",
+      "url": "https://myanimelist.net/news/74885002?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-30T09:43:30.000Z",
+      "summary": "The official website for the television anime adaptation of Firehead&#039;s Kaketa Tsuki no Mercedes: Kyuuketsuki no Kizoku ni Tensei shita kedo Suteraresou nanode Dungeon wo Seiha suru (Mercedes and the Waning Moon: The Dungeoneering Feats of a Discarded Vampire Aristocrat) light novel revealed additional cast and second promotional video. The anime series will premiere in January 2027. Cast Benkei: Kenta Miyake (Hidarikiki no Eren) Kuro: Ryuunosuke Watanuki (Yomi no Tsugai) Florian: Junichi Su",
+      "score": 8.7
+    },
+    {
+      "id": "4785dfcd2106ab841f4327408f09c03baace16ff",
+      "title": "All-Female Troupe Takarazuka Revue to Perform Musical for My Happy Marriage Series",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-02/all-female-troupe-takarazuka-revue-to-perform-musical-for-my-happy-marriage-series/.243454",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-02T20:30:00.000Z",
+      "summary": "Flower Troupe to perform show in Hyōgo from June 26-August 8, Tokyo from August 28-October 10",
+      "score": 7.6
+    },
+    {
+      "id": "2871280b94c5cad482698b13f3848a5e9feb63f3",
+      "title": "One Piece : Sanji a-t-il réellement éveillé son Haki des Rois ? Quand sortira le chapitre 1198 du manga ? - Serieously",
+      "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxPR0p1RUtVLUgyaENmWUZRY0RqbzJMZkstUUtlWXVva2Y2NUFkUWJEcWtDem1QcURWSldFNnBTUC1xTWtnNG9KWmwtdTJpUnFHMXlqVXlGNWxPVUR1Vm5jaEdtM2NocFlGdXZCWEp4MVhGV04wTGhRNDBtN2RiSVh5dWItaGVoTEtTR3hJRnk3SUgtRFpFTmJhcFplLTNCUDA5T05paHI3eDZ1TzVPSmVxZUJQVUFtcnFBUTBleFJObkxYUDA2Z3RYRzV3SXBVeUEy?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-01T09:00:00.000Z",
+      "summary": "One Piece : Sanji a-t-il réellement éveillé son Haki des Rois ? Quand sortira le chapitre 1198 du manga ? &nbsp;&nbsp; Serieously",
+      "score": 7.6
+    },
+    {
+      "id": "627420317a7e6a6a6f55736cf16fcc401fb62b47",
+      "title": "Sumitomo Mitsui Trust Bank, Comisma Plan 10 Billion Yen Anime Production Fund",
+      "url": "https://myanimelist.net/news/74888629?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-31T05:20:15.000Z",
+      "summary": "Sumitomo Mitsui Trust Bank and IP platform company Comisma have agreed in principle to establish an investment fund focused on anime production, targeting 10 billion yen (approximately US$63.4 million) in assets under management by the end of fiscal 2027. The initiative aims to broaden access to production financing, attract a broader range of investors, and improve financial returns for creators as demand for Japanese animation continues to grow worldwide. Under the proposed arrangement, the t.",
+      "score": 5.3
+    },
+    {
+      "id": "3ea4ec3e228a1781a139a5dbd8f7f293072f273f",
+      "title": "Light Novel 'Mushoku Tensei: Dasoku-hen' Concludes with Fourth Volume",
+      "url": "https://myanimelist.net/news/74885300?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-10-30T11:51:23.000Z",
+      "summary": "The official X account for Kadokawa&#039;s MF Books label announced on Friday that Rifujin na Magonote&#039;s Mushoku Tensei: Dasoku-hen (Mushoku Tensei: Redundant Reincarnation) light novel will end with its fourth volume on November 25. Rifujin penned the short story collection of Mushoku Tensei: Isekai Ittara Honki Dasu (Mushoku Tensei: Jobless Reincarnation) on Shousetsuka ni Narou website from May 2015 to September 2017. Kadokawa began publishing the novel through its MF Books label in June",
+      "score": 3.9
+    }
+  ]
 }
