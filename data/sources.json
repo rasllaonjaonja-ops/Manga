@@ -1,1 +1,14 @@
-
+[
+  {
+    "name": "Anime News Network",
+    "url": "https://www.animenewsnetwork.com/news/rss.xml?ann-edition=us"
+  },
+  {
+    "name": "MyAnimeList",
+    "url": "https://myanimelist.net/rss/news.xml"
+  },
+  {
+    "name": "Google Actualités",
+    "url": "https://news.google.com/rss/search?q=manga+OR+anime&hl=fr&gl=FR&ceid=FR:fr"
+  }
+]
