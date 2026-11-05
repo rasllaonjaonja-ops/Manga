@@ -135,7 +135,15 @@
     <div class="studio-step-heading"><span class="step-number">02</span><div><h4 id="artEditorTitle">Créer le visuel</h4><p>Un modèle éditorial unique, sans choix de thème ni de palette.</p></div></div>
     <div class="field"><label for="artTitle">Titre principal sur l’image</label><input id="artTitle" maxlength="100" value="L’ACTUALITÉ MANGA DU JOUR" placeholder="Titre court et accrocheur"></div>
     <div class="field"><label for="artSubtitle">Rubrique ou accroche</label><input id="artSubtitle" maxlength="100" value="MANGA · ANIME · ACTUALITÉS" placeholder="Ex. : ACTUALITÉ · ANNONCE · DOSSIER"></div>
-    <div class="field"><label for="artFile">Image principale</label><input type="file" id="artFile" accept="image/*"><small class="muted">Ajoutez une image originale ou dont vous détenez les droits. Elle sera intégrée à la composition.</small></div>
+    <section class="card image-ai-assistant" aria-labelledby="imageAiTitle">
+     <div class="studio-step-heading"><span class="step-number">AI</span><div><h4 id="imageAiTitle">Générer l’image avec une IA gratuite</h4><p>ChatGPT en priorité · Gemini en secours. Le prompt est adapté au brouillon sélectionné.</p></div></div>
+     <div class="actions"><button class="btn primary" type="button" id="openChatGPTImage">✦ Créer avec ChatGPT</button><button class="btn" type="button" id="openGeminiImage">↗ Secours avec Gemini</button></div>
+     <p class="footnote">Ouvre le service officiel dans un nouvel onglet. La génération se fait dans votre compte, selon les limites gratuites du service. Aucun paiement ni appel API n’est utilisé par le studio.</p>
+     <div class="field"><label for="imageAiPrompt">Prompt préparé pour l’image</label><textarea id="imageAiPrompt" rows="7" placeholder="Sélectionnez un brouillon puis cliquez sur ChatGPT ou Gemini."></textarea></div>
+     <div class="actions"><button class="btn sm" type="button" id="copyImagePrompt">Copier le prompt</button></div>
+     <p class="footnote" id="imageAiStatus" role="status" aria-live="polite">Après génération, téléchargez l’image puis importez-la ci-dessous pour l’associer au brouillon.</p>
+    </section>
+    <div class="field"><label for="artFile">Importer l’image générée</label><input type="file" id="artFile" accept="image/png,image/jpeg,image/webp,image/*"><small class="muted">Après import, l’image est optimisée et enregistrée avec le brouillon sélectionné, puis utilisée dans l’aperçu et l’export PNG.</small></div>
     <div class="field"><label for="artFormat">Format de publication</label><select id="artFormat"><option value="portrait">Publication Facebook · Portrait 4:5</option><option value="square">Carré · 1:1</option><option value="story">Story / Reel · 9:16</option><option value="landscape">Paysage · 16:9</option></select></div>
     <div class="field"><label for="artSignature">Signature de la page</label><input id="artSignature" value="MANGA, ANIMÉ ET ACTUALITÉS" maxlength="50"></div>
     <div class="studio-export-primary"><button class="btn primary block" id="downloadArt">↓ Exporter le visuel final (PNG)</button><button class="btn block" id="renderArt">Actualiser l’aperçu</button></div>
