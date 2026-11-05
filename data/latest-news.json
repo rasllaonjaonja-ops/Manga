@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T06:28:16.591Z",
+  "updatedAt": "2026-11-05T06:32:49.760Z",
   "count": 80,
   "items": [
     {
@@ -134,29 +134,6 @@
       "trendScore": 21.4
     },
     {
-      "id": "9d1066c8c46d6761513d8a318ace47264dc93a82",
-      "title": "'Hyouken no Majutsushi ga Sekai wo Suberu II' Announces Additional Cast",
-      "url": "https://myanimelist.net/news/74900432?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-03T09:29:45.000Z",
-      "summary": "The official website for the television anime adaptation of Nana Mikoshiba&#039;s Hyouken no Majutsushi ga Sekai wo Suberu (The Iceblade Sorcerer Shall Rule the World) light novel announced five additional cast members for the second season on Tuesday. The new season premiered on TBS on October 9 at 1.28 a.m., followed by BS11 at 11.00 p.m. on the same day. Cast Cathy Alphelius: Yuuki Wakai (Kakegurui) Abel Alphelius: Toshiyuki Morikawa (Nohara Hiroshi: Hiru Meshi no Ryuugi) Cyril Alphelius: Te...",
-      "score": 21.3,
-      "trendSources": [
-        "MyAnimeList"
-      ],
-      "trendArticles": [
-        {
-          "title": "'Hyouken no Majutsushi ga Sekai wo Suberu II' Announces Additional Cast",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74900432?_location=rss",
-          "summary": "The official website for the television anime adaptation of Nana Mikoshiba&#039;s Hyouken no Majutsushi ga Sekai wo Suberu (The Iceblade Sorcerer Shall Rule the World) light novel announced five additional cast members for the second season on Tuesday. The new season premiered on TBS on October 9 at 1.28 a.m., followed by BS11 at 11.00 p.m. on the same day. Cast Cathy Alphelius: Yuuki Wakai (Kakegurui) Abel Alphelius: Toshiyuki Morikawa (Nohara Hiroshi: Hiru Meshi no Ryuugi) Cyril Alphelius: Te...",
-          "publishedAt": "2026-11-03T09:29:45.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 21.3
-    },
-    {
       "id": "5a9b73195ca75fd74ce2a809a6648e90e83b808f",
       "title": "'Game Sekai Tensei \"Dankatsu\"' Reveals Additional Cast, Second Teaser Promo",
       "url": "https://myanimelist.net/news/74903583?_location=rss",
@@ -174,6 +151,29 @@
           "url": "https://myanimelist.net/news/74903583?_location=rss",
           "summary": "The official website for the television anime adaptation of Kaede Nishikigi&#039;s Game Sekai Tensei &quot;Dankatsu&quot;: Gamer wa &quot;Dungeon Shuukatsu no Susume&quot; wo &quot;Hajime kara&quot; Play suru (Reincarnation in the Game World Dankatsu: Game Addict Plays &quot;Encouragement for Job Hunting in Dungeons&quot; from a &quot;New Game&quot;) light novel revealed additional cast and second teaser promotional video on Wednesday. The anime will premiere in January 2027. Cast Hannah: Ayaka...",
           "publishedAt": "2026-11-04T09:24:11.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 21.2
+    },
+    {
+      "id": "9d1066c8c46d6761513d8a318ace47264dc93a82",
+      "title": "'Hyouken no Majutsushi ga Sekai wo Suberu II' Announces Additional Cast",
+      "url": "https://myanimelist.net/news/74900432?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-03T09:29:45.000Z",
+      "summary": "The official website for the television anime adaptation of Nana Mikoshiba&#039;s Hyouken no Majutsushi ga Sekai wo Suberu (The Iceblade Sorcerer Shall Rule the World) light novel announced five additional cast members for the second season on Tuesday. The new season premiered on TBS on October 9 at 1.28 a.m., followed by BS11 at 11.00 p.m. on the same day. Cast Cathy Alphelius: Yuuki Wakai (Kakegurui) Abel Alphelius: Toshiyuki Morikawa (Nohara Hiroshi: Hiru Meshi no Ryuugi) Cyril Alphelius: Te...",
+      "score": 21.2,
+      "trendSources": [
+        "MyAnimeList"
+      ],
+      "trendArticles": [
+        {
+          "title": "'Hyouken no Majutsushi ga Sekai wo Suberu II' Announces Additional Cast",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74900432?_location=rss",
+          "summary": "The official website for the television anime adaptation of Nana Mikoshiba&#039;s Hyouken no Majutsushi ga Sekai wo Suberu (The Iceblade Sorcerer Shall Rule the World) light novel announced five additional cast members for the second season on Tuesday. The new season premiered on TBS on October 9 at 1.28 a.m., followed by BS11 at 11.00 p.m. on the same day. Cast Cathy Alphelius: Yuuki Wakai (Kakegurui) Abel Alphelius: Toshiyuki Morikawa (Nohara Hiroshi: Hiru Meshi no Ryuugi) Cyril Alphelius: Te...",
+          "publishedAt": "2026-11-03T09:29:45.000Z"
         }
       ],
       "trendSourceCount": 1,
@@ -209,7 +209,7 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-04T13:05:39.000Z",
       "summary": "Reincarnation in the Game World Dan-Katsu: Game Addict Plays \"Encouragement for Job Hunting in…",
-      "score": 15.6,
+      "score": 15.5,
       "trendSources": [
         "Anime News Network",
         "Anime Corner"
@@ -231,7 +231,7 @@
         }
       ],
       "trendSourceCount": 2,
-      "trendScore": 20.6
+      "trendScore": 20.5
     },
     {
       "id": "4010b18b38e5b1cb15ce44375397093bfaaa7928",
@@ -1136,29 +1136,6 @@
       "trendScore": 11.1
     },
     {
-      "id": "1e939af33ef82669edc2d76c948e37de85053b24",
-      "title": "North American Anime & Manga Releases for November",
-      "url": "https://myanimelist.net/news/74894552?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-01T16:44:16.000Z",
-      "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi&#039;s Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi&#039;s Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
-      "score": 10.9,
-      "trendSources": [
-        "MyAnimeList"
-      ],
-      "trendArticles": [
-        {
-          "title": "North American Anime & Manga Releases for November",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74894552?_location=rss",
-          "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi&#039;s Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi&#039;s Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
-          "publishedAt": "2026-11-01T16:44:16.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 10.9
-    },
-    {
       "id": "b9e485797e7c6e0ec2696c1e6b34c03a9a749b87",
       "title": "Exclusive: I'm Dating a Dark Summoner Omake Shorts Premieres on HIDIVE on November 6, Key Visual and Trailer Revealed",
       "url": "https://animecorner.me/exclusive-im-dating-a-dark-summoner-omake-shorts-premieres-on-hidive-on-november-6-key-visual-and-trailer-revealed/",
@@ -1176,6 +1153,29 @@
           "url": "https://animecorner.me/exclusive-im-dating-a-dark-summoner-omake-shorts-premieres-on-hidive-on-november-6-key-visual-and-trailer-revealed/",
           "summary": "I'm Dating a Dark Summoner Omake Shorts will premiere exclusively on HIDIVE on November…",
           "publishedAt": "2026-11-03T16:01:49.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 10.8
+    },
+    {
+      "id": "1e939af33ef82669edc2d76c948e37de85053b24",
+      "title": "North American Anime & Manga Releases for November",
+      "url": "https://myanimelist.net/news/74894552?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T16:44:16.000Z",
+      "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi&#039;s Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi&#039;s Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
+      "score": 10.8,
+      "trendSources": [
+        "MyAnimeList"
+      ],
+      "trendArticles": [
+        {
+          "title": "North American Anime & Manga Releases for November",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74894552?_location=rss",
+          "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi&#039;s Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi&#039;s Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
+          "publishedAt": "2026-11-01T16:44:16.000Z"
         }
       ],
       "trendSourceCount": 1,
@@ -1579,7 +1579,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-02T11:54:04.000Z",
       "summary": "Noël Manga 2026 : une chaussette collector offerte | Pika &nbsp;&nbsp; Pika Édition",
-      "score": 7.5,
+      "score": 7.4,
       "trendSources": [
         "Google Actualités"
       ],
@@ -1593,7 +1593,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 7.5
+      "trendScore": 7.4
     },
     {
       "id": "5dad606bdbe819238c98562dde63708ffe77654f",
