@@ -392,3 +392,27 @@ img,canvas{max-width:100%}
 .manual-post-heading h3{margin:3px 0 4px}
 .manual-fb-avatar{width:42px;height:42px;object-fit:cover;border-radius:50%;border:1px solid #e3e5e9}
 @media(max-width:650px){.daily-card{padding-left:13px}.daily-fb-actions,.manual-fb-actions{font-size:10px}.manual-post-heading{flex-wrap:wrap}}
+
+/* V4.2 — studio simplifié : cartes quotidiennes colorées et aperçu visuel intégré */
+.daily-card{background:var(--daily-soft,#f5f7fb);border:1px solid color-mix(in srgb,var(--daily-tone) 30%,white);border-left:6px solid var(--daily-tone);padding:15px 16px 16px}
+.daily-card.daily-tone-1{--daily-tone:#2675c9;--daily-soft:#eaf3ff}
+.daily-card.daily-tone-2{--daily-tone:#8052b8;--daily-soft:#f2ebff}
+.daily-card.daily-tone-3{--daily-tone:#c66d25;--daily-soft:#fff0e2}
+.daily-card.daily-tone-4{--daily-tone:#218064;--daily-soft:#e7f6ef}
+.daily-card .daily-publication-label{background:#fff;border:1px solid color-mix(in srgb,var(--daily-tone) 25%,white)}
+.daily-card .daily-summary{color:#35415b}
+.daily-inline-preview{margin-top:12px;padding:12px;border:1px solid color-mix(in srgb,var(--daily-tone) 32%,white);border-radius:12px;background:#fff}
+.daily-inline-preview[hidden]{display:none}
+.daily-inline-preview-head{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-bottom:10px;color:var(--daily-tone);font-size:12px}
+.daily-inline-preview-head span{font-size:10px;color:#687386}
+.daily-inline-facebook{max-width:480px;margin:0 auto;border:1px solid #e0e3e9;border-radius:12px;overflow:hidden;background:#fff;color:#20232a;box-shadow:0 4px 18px #18243a12}
+.daily-inline-fb-head{display:flex;align-items:center;gap:9px;padding:11px 12px}
+.daily-inline-avatar{width:38px;height:38px;flex:0 0 38px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(135deg,#17233e,#8d315d);color:#fff;font-weight:900}
+.daily-inline-fb-head>div{display:grid;gap:3px;min-width:0}
+.daily-inline-fb-head strong{font-size:12px;color:#17191e}
+.daily-inline-fb-head small{font-size:10px;color:#777d87}
+.daily-inline-more{margin-left:auto;color:#777d87}
+.daily-inline-caption{padding:0 12px 11px;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.5;font-size:12px;color:#252830;max-height:260px;overflow:auto}
+.daily-inline-facebook canvas{display:block;width:100%;height:auto;background:#111629}
+.daily-inline-fb-actions{display:grid;grid-template-columns:repeat(3,1fr);padding:10px 4px;color:#626975;font-size:11px;font-weight:650;text-align:center}
+@media(max-width:600px){.daily-inline-preview{padding:8px}.daily-inline-caption{font-size:11px}.daily-inline-fb-actions{font-size:10px}}
