@@ -185,7 +185,11 @@ Et vous, quel est votre anime préféré ?</textarea></div>
 <section class="page" id="p-radar">
  <div class="kicker">VEILLE ÉDITORIALE</div><h2>Radar d'actualités</h2><p class="sub">Articles récents collectés par GitHub Actions depuis des flux RSS publics. Le studio conserve le titre, le lien, la date et la source ; il ne copie pas les articles.</p>
  <div class="note">Le radar se met à jour lorsque le workflow GitHub s'exécute. Sur GitHub Pages, le navigateur lit le fichier JSON publié par le dépôt. Utilisez le bouton Actualiser si le cache est ancien.</div>
- <div class="actions" style="margin-bottom:13px"><button class="btn primary" id="reloadNews">↻ Actualiser</button><select id="newsFilter" style="max-width:180px"><option value="all">Toutes les sources</option><option value="Anime News Network">Anime News Network</option><option value="MyAnimeList">MyAnimeList</option><option value="Google Actualités">Google Actualités</option></select><span class="small muted" id="newsStatus">Chargement du radar…</span></div>
+ <div class="actions" style="margin-bottom:13px"><button class="btn primary" id="reloadNews">↻ Actualiser</button><select id="newsFilter" style="max-width:180px"><option value="all">Toutes les sources</option><option value="Anime News Network">Anime News Network</option><option value="MyAnimeList">MyAnimeList</option><option value="Google Actualités">Google Actualités</option><option value="Anime Corner">Anime Corner</option><option value="Tokyo Otaku Mode">Tokyo Otaku Mode</option><option value="Crunchyroll (Google Actualités)">Crunchyroll (Google Actualités)</option></select><span class="small muted" id="newsStatus">Chargement du radar…</span></div>
+ <div class="rowhead"><h3>TOP 5 · Tendances à publier</h3><span class="badge">Sélection automatique</span></div>
+ <p class="small muted">Classement estimatif selon la fraîcheur et les sources indépendantes qui couvrent un même sujet. Ce n’est pas un classement officiel des tendances Facebook ou Google.</p>
+ <div id="topNewsList" class="grid2"><div class="empty">Le TOP 5 apparaîtra après la prochaine collecte.</div></div>
+ <div class="rowhead"><h3>Toutes les actualités</h3></div>
  <div id="newsList" class="grid2"><div class="empty">Aucune actualité chargée. Lancez le cycle GitHub.</div></div>
  <div class="rowhead"><h3>Actualités enregistrées</h3></div>
  <p class="small muted" style="margin:0 0 10px">Une actualité reste « À vérifier » jusqu'à ce que vous ayez consulté la source originale. Seule une actualité vérifiée peut devenir un brouillon.</p>
