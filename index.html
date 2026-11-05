@@ -2,8 +2,8 @@
 <html lang="fr">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f3f7ff"><meta name="author" content="Anime Trend Studio"><meta name="color-scheme" content="light"><meta name="description" content="Anime Trend Studio 3.0 — studio éditorial de Manga, Animé et Actualités">
-<title>Anime Trend Studio 3.0</title>
+<meta name="theme-color" content="#f3f7ff"><meta name="author" content="Anime Trend Studio"><meta name="color-scheme" content="light"><meta name="description" content="Anime Trend Studio 4.0 — studio éditorial de Manga, Animé et Actualités">
+<title>Anime Trend Studio 4.0</title>
 <link rel="stylesheet" href="./css/style.css?v=4">
 </head>
 <body class="home-mode">
@@ -58,7 +58,7 @@
   <aside class="dash-side">
    <div class="side-panel"><h3>Statut du système</h3>
     <div class="sys-row"><span>Radar RSS</span><span class="ok" id="sysRss">En attente</span></div>
-    <div class="sys-row"><span>Sources configurées</span><span id="sysSources">3</span></div>
+    <div class="sys-row"><span>Sources configurées</span><span id="sysSources">5</span></div>
     <div class="sys-row"><span>Stockage local</span><span class="ok" id="sysStorage">Vérification…</span></div>
     <div class="sys-row"><span>GitHub Actions</span><span class="ok">Configuré</span></div>
    </div>
@@ -185,7 +185,7 @@ Et vous, quel est votre anime préféré ?</textarea></div>
 <section class="page" id="p-radar">
  <div class="kicker">VEILLE ÉDITORIALE</div><h2>Radar d'actualités</h2><p class="sub">Articles récents collectés par GitHub Actions depuis des flux RSS publics. Le studio conserve le titre, le lien, la date et la source ; il ne copie pas les articles.</p>
  <div class="note">Le radar se met à jour lorsque le workflow GitHub s'exécute. Sur GitHub Pages, le navigateur lit le fichier JSON publié par le dépôt. Utilisez le bouton Actualiser si le cache est ancien.</div>
- <div class="actions" style="margin-bottom:13px"><button class="btn primary" id="reloadNews">↻ Actualiser</button><select id="newsFilter" style="max-width:180px"><option value="all">Toutes les sources</option><option value="Anime News Network">Anime News Network</option><option value="MyAnimeList">MyAnimeList</option><option value="Google Actualités">Google Actualités</option><option value="Anime Corner">Anime Corner</option><option value="Tokyo Otaku Mode">Tokyo Otaku Mode</option><option value="Crunchyroll (Google Actualités)">Crunchyroll (Google Actualités)</option></select><span class="small muted" id="newsStatus">Chargement du radar…</span></div>
+ <div class="actions" style="margin-bottom:13px"><button class="btn primary" id="reloadNews">↻ Actualiser</button><select id="newsFilter" style="max-width:180px"><option value="all">Toutes les sources</option><option value="Anime News Network">Anime News Network</option><option value="MyAnimeList">MyAnimeList</option><option value="Google Actualités">Google Actualités</option><option value="Anime Corner">Anime Corner</option><option value="Crunchyroll (Google Actualités)">Crunchyroll (Google Actualités)</option></select><span class="small muted" id="newsStatus">Chargement du radar…</span></div>
  <div class="rowhead"><h3>TOP 5 · Tendances à publier</h3><span class="badge">Sélection automatique</span></div>
  <p class="small muted">Classement estimatif selon la fraîcheur et les sources indépendantes qui couvrent un même sujet. Ce n’est pas un classement officiel des tendances Facebook ou Google.</p>
  <div id="topNewsList" class="grid2"><div class="empty">Le TOP 5 apparaîtra après la prochaine collecte.</div></div>
