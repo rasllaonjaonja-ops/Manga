@@ -46,7 +46,7 @@ export async function collect() {
         .sort((a, b) => b.score - a.score || Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0));
       // Regroupe les titres proches : plusieurs sources parlant du même sujet renforcent sa tendance,
       // sans créer plusieurs places artificielles dans le TOP 5.
-      const items = clusterSimilar(ranked).slice(0, MAX_ITEMS);
+      const items = clusterSimilar(dedupe(ranked)).slice(0, MAX_ITEMS);
       status = okSources === sources.length ? "ok" : "partiel";
       await fs.writeFile(OUTPUT_FILE, JSON.stringify({ updatedAt: new Date().toISOString(), count: items.length, items }, null, 2) + "\n");
       articlesKept = items.length;
@@ -127,7 +127,10 @@ export function parseFeed(xml, source) {
     return {
       id: crypto.createHash("sha1").update(String(guid)).digest("hex"),
       title, url: link, source: source.name, publishedAt,
-      summary: summary.slice(0, MAX_SUMMARY_CHARS)
+      summary: summary.slice(0, MAX_SUMMARY_CHARS),
+      summaryIsExcerpt: true,
+      summaryTruncated: summary.length > MAX_SUMMARY_CHARS,
+      summaryNotice: "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni."
     };
   }).filter(Boolean);
 }
@@ -162,7 +165,17 @@ export function clean(value) {
     oslash: "ø", uacute: "ú", ugrave: "ù", ucirc: "û", uuml: "ü",
     yacute: "ý", yuml: "ÿ", ntilde: "ñ", szlig: "ß",
     copy: "©", reg: "®", trade: "™", euro: "€", pound: "£", yen: "¥",
-    bull: "•", middot: "·", times: "×", deg: "°", plusmn: "±", micro: "µ"
+    bull: "•", middot: "·", times: "×", divide: "÷", deg: "°", plusmn: "±", micro: "µ",
+    ensp: " ", emsp: " ", thinsp: " ", hairsp: " ", zwnj: "", zwj: "", shy: "",
+    acute: "´", cedil: "¸", uml: "¨", circ: "ˆ", tilde: "˜", macr: "¯",
+    dagger: "†", ddagger: "‡", permil: "‰", prime: "′", Prime: "″",
+    lsaquo: "‹", rsaquo: "›", oelig: "œ", scaron: "š", yuml: "ÿ",
+    frac14: "¼", frac12: "½", frac34: "¾", sup1: "¹", sup2: "²", sup3: "³",
+    cent: "¢", curren: "¤", brvbar: "¦", sect: "§", para: "¶", ordm: "º",
+    ord: "ª", not: "¬", macr: "¯", plus: "+", minus: "−", lowast: "∗",
+    radic: "√", infin: "∞", ne: "≠", le: "≤", ge: "≥", asymp: "≈",
+    alpha: "α", beta: "β", gamma: "γ", delta: "δ", epsilon: "ε", theta: "θ",
+    lambda: "λ", mu: "μ", pi: "π", sigma: "σ", phi: "φ", omega: "ω"
   };
 
   // Plusieurs passages décodent aussi les entités encodées plusieurs fois.
@@ -297,11 +310,11 @@ export function clusterSimilar(list) {
     }
     if (match && best >= 0.24) {
       if (item.source && !match.sources.includes(item.source)) match.sources.push(item.source);
-      match.articles.push({ title: item.title, source: item.source || "Source", url: item.url, summary: item.summary || "", publishedAt: item.publishedAt || null });
+      match.articles.push({ title: item.title, source: item.source || "Source", url: item.url, summary: item.summary || "", summaryIsExcerpt: true, summaryTruncated: item.summaryTruncated === true, publishedAt: item.publishedAt || null });
       if ((item.summary || "").length > (match.item.summary || "").length || (item.score || 0) > (match.item.score || 0)) match.item = item;
       if (item.publishedAt && (!match.latest || Date.parse(item.publishedAt) > Date.parse(match.latest))) match.latest = item.publishedAt;
     } else {
-      groups.push({ item, kind, sources: item.source ? [item.source] : [], articles: [{ title: item.title, source: item.source || "Source", url: item.url, summary: item.summary || "", publishedAt: item.publishedAt || null }], latest: item.publishedAt || null });
+      groups.push({ item, kind, sources: item.source ? [item.source] : [], articles: [{ title: item.title, source: item.source || "Source", url: item.url, summary: item.summary || "", summaryIsExcerpt: true, summaryTruncated: item.summaryTruncated === true, publishedAt: item.publishedAt || null }], latest: item.publishedAt || null });
     }
   }
   return groups.map(group => ({
