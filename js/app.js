@@ -594,7 +594,7 @@ function renderTopNews(){
 window.useNewsByIndex=(index)=>{
  const item=newsItems[index];
  if(!item)return;
- navigate('writer');
+ navigate('visual');
  document.getElementById('postType').value='Actualité vérifiée';
  document.getElementById('postTopic').value=item.title;
  document.getElementById('postQuestion').value='Qu’en pensez-vous ?';
