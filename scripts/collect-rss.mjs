@@ -239,7 +239,8 @@ export function clusterSimilar(list) {
     const text = storyText(item), kind = eventKind(item);
     for (const group of groups) {
       if (kind !== group.kind) continue;
-      const similarity = titleSimilarity(canonicalStoryText(text), canonicalStoryText(storyText(group.item)));
+      // Compare les titres normalisés : les résumés longs et différents ne doivent pas diluer les alias de titres traduits.
+      const similarity = titleSimilarity(canonicalStoryText(item.title || ""), canonicalStoryText(group.item.title || ""));
       if (similarity > best) { best = similarity; match = group; }
     }
     if (match && best >= 0.24) {
