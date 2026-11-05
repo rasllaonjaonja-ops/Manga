@@ -280,6 +280,13 @@ document.getElementById('generateWithAI').onclick=generateWithCloudflare;
 /* Programme quotidien : quatre sujets RSS distincts, sans inventer d’actualité. */
 let dailyPack=[];
 let dailyRejected=new Set();
+/* Restaure les quatre brouillons enregistrés après rechargement du navigateur. */
+function restoreDailyPack(){
+ const today=dayKey(new Date());
+ dailyPack=db.posts.filter(p=>p.dailyDate===today&&p.dailySlot)
+  .sort((a,b)=>a.dailySlot-b.dailySlot).slice(0,4)
+  .map(p=>({item:{title:p.title,url:p.sourceUrl||'',source:p.sourceName||'Source enregistrée',summary:'Brouillon restauré depuis Publications.',publishedAt:p.created},type:p.type||'Actualité vérifiée',text:p.text||'',saved:true,postId:p.id,generating:false,status:'Brouillon enregistré · à vérifier'}));
+}
 function dailyKey(item){return String(item.url||item.title||'').trim().toLowerCase()}
 function dailyCandidates(){
  const used=new Set(dailyPack.map(p=>dailyKey(p.item)));
@@ -319,7 +326,7 @@ function renderDailyInlineVisual(index){
 function renderDailyPack(){
  const el=document.getElementById('dailyPackList');if(!el)return;
  const btn=document.getElementById('generateDailyPack');
- if(btn)btn.disabled=dailyPack.length!==4||dailyPack.some(p=>p.generating);
+ if(btn)btn.disabled=dailyPack.length!==4||dailyPack.some(p=>p.generating)||dailyPack.every(p=>String(p.text||'').trim());
  if(!dailyPack.length){el.innerHTML='<div class="empty">Aucun programme préparé.</div>';return}
  el.innerHTML=dailyPack.map((p,i)=>`<article class="daily-card daily-tone-${i+1}" data-daily-card="${i}">
   <div class="daily-card-head"><span class="daily-publication-label"><i></i> Publication ${i+1}/4</span><span class="badge orange">${safe(p.type)}</span></div>
@@ -378,9 +385,30 @@ document.getElementById('generateDailyPack').onclick=async()=>{
  }
  document.getElementById('dailyPackStatus').textContent='Traitement terminé. Relisez les quatre textes et ouvrez les sources originales. Aucun contenu n’a été publié sur Facebook.';
 };
+function persistDailyDraftEdit(p,value){
+ const saved=p.postId?db.posts.find(x=>x.id===p.postId):null;
+ if(!saved)return true;
+ const previous=lastPersisted;
+ saved.text=cut(value,20000);
+ try{
+  const payload=JSON.stringify(db);
+  localStorage.setItem(STORE,payload);
+  lastPersisted=payload;
+  return true;
+ }catch(error){
+  console.error(error);
+  db=JSON.parse(previous||'null');
+  const restored=db.posts.find(x=>x.id===p.postId);
+  p.text=restored?restored.text:'';
+  showIssue('Modification non enregistrée : le stockage local est plein. La dernière version sauvegardée a été conservée.');
+  return false;
+ }
+}
 document.getElementById('dailyPackList').addEventListener('input',e=>{
  const i=Number(e.target.dataset.dailyText);if(!Number.isInteger(i)||!dailyPack[i])return;
- dailyPack[i].text=e.target.value;if(dailyPack[i].postId){const saved=db.posts.find(x=>x.id===dailyPack[i].postId);if(saved){saved.text=cut(e.target.value,20000);localStorage.setItem(STORE,JSON.stringify(db));lastPersisted=JSON.stringify(db)}}const preview=document.getElementById('dailyFbCaption'+i);if(preview)preview.textContent=e.target.value||'Votre texte Facebook apparaîtra ici.';
+ const p=dailyPack[i];p.text=e.target.value;
+ if(!persistDailyDraftEdit(p,e.target.value)){e.target.value=p.text;return}
+ const preview=document.getElementById('dailyFbCaption'+i);if(preview)preview.textContent=e.target.value||'Votre texte Facebook apparaîtra ici.';
  const png=document.querySelector('[data-daily-act="png"][data-index="'+i+'"]');if(png)png.disabled=!e.target.value.trim();
 });
 document.getElementById('dailyPackList').addEventListener('click',async e=>{
@@ -837,5 +865,6 @@ function renderHomeExtras(){
 const _renderAllBase=renderAll;
 renderAll=function(){_renderAllBase();renderHomeExtras();renderSavedNews()};
 lastPersisted=JSON.stringify(db);
-applySettings();renderAll();
+restoreDailyPack();
+applySettings();renderAll();renderDailyPack();
 loadNews();
