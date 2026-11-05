@@ -1,0 +1,11 @@
+name = "anime-trend-studio-v4-ai"
+main = "worker.js"
+compatibility_date = "2026-11-05"
+
+[ai]
+binding = "AI"
+
+[vars]
+SITE_URL = "https://rasllaonjaonja-ops.github.io/Manga/"
+# Gemini et OpenRouter sont facultatifs. Ajouter leurs clés comme secrets,
+# jamais dans ce fichier ni dans le code HTML.
