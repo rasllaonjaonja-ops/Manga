@@ -151,9 +151,11 @@ export function clean(value) {
     hellip: "…", mdash: "—", ndash: "–", laquo: "«", raquo: "»",
     rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”",
     copy: "©", reg: "®", trade: "™", euro: "€", pound: "£",
-    bull: "•", middot: "·", times: "×", eacute: "é", egrave: "è",
-    agrave: "à", ccedil: "ç", ocirc: "ô", ucirc: "û", acirc: "â",
-    ecirc: "ê", icirc: "î", euml: "ë", iuml: "ï", uuml: "ü"
+    bull: "•", middot: "·", times: "×", infin: "∞", deg: "°", plusmn: "±", micro: "µ",
+    eacute: "é", aacute: "á", iacute: "í", oacute: "ó", uacute: "ú", yacute: "ý", ntilde: "ñ",
+    egrave: "è", agrave: "à", ccedil: "ç", ocirc: "ô", ucirc: "û", acirc: "â",
+    ecirc: "ê", icirc: "î", euml: "ë", auml: "ä", ouml: "ö", iuml: "ï", uuml: "ü",
+    aring: "å", aelig: "æ", oslash: "ø", szlig: "ß"
   };
   const decodeEntity = (match, entity) => {
     if (entity[0] === "#") {
