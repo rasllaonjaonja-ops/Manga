@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T07:29:05.168Z",
+  "updatedAt": "2026-11-05T07:49:55.785Z",
   "count": 68,
   "items": [
     {
@@ -108,7 +108,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 19.7,
+      "score": 19.6,
       "trendSources": [
         "Anime Corner",
         "MyAnimeList",
@@ -144,7 +144,7 @@
         }
       ],
       "trendSourceCount": 3,
-      "trendScore": 29.7
+      "trendScore": 29.6
     },
     {
       "id": "0f039dcce794fe8920357ceaf73b23bf97701960",
@@ -194,7 +194,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 19.8,
+      "score": 19.7,
       "trendSources": [
         "Anime News Network",
         "MyAnimeList"
@@ -220,7 +220,7 @@
         }
       ],
       "trendSourceCount": 2,
-      "trendScore": 24.8
+      "trendScore": 24.7
     },
     {
       "id": "4994c8ef4d5be31175b838108e1acf10f52bb625",
@@ -270,7 +270,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 21.2,
+      "score": 21.1,
       "trendSources": [
         "MyAnimeList"
       ],
@@ -286,7 +286,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 21.2
+      "trendScore": 21.1
     },
     {
       "id": "9d1066c8c46d6761513d8a318ace47264dc93a82",
@@ -298,7 +298,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 21.2,
+      "score": 21.1,
       "trendSources": [
         "MyAnimeList"
       ],
@@ -314,7 +314,45 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 21.2
+      "trendScore": 21.1
+    },
+    {
+      "id": "541c9cec2ada96f0e91bcbcbc63b16502f6854be",
+      "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
+      "url": "https://myanimelist.net/news/74900816?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-04T00:56:45.000Z",
+      "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon's Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine's 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 15.5,
+      "trendSources": [
+        "MyAnimeList",
+        "Anime News Network"
+      ],
+      "trendArticles": [
+        {
+          "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74900816?_location=rss",
+          "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon's Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine's 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
+          "publishedAt": "2026-11-03T13:34:03.000Z"
+        },
+        {
+          "title": "Witch on the Holy Night Film Gets Manga Adaptation",
+          "source": "Anime News Network",
+          "url": "https://www.animenewsnetwork.com/news/2026-11-03/witch-on-the-holy-night-film-gets-manga-adaptation/.243494",
+          "summary": "Shikimori's Not Just a Cutie's Keigo Maki debuts manga on November 11",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
+          "publishedAt": "2026-11-04T00:56:45.000Z"
+        }
+      ],
+      "trendSourceCount": 2,
+      "trendScore": 20.5
     },
     {
       "id": "ef4c45ef1433111fd0a8273f0ad9d58b33ca623c",
@@ -326,7 +364,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 15.5,
+      "score": 15.4,
       "trendSources": [
         "Anime News Network",
         "Anime Corner"
@@ -352,45 +390,7 @@
         }
       ],
       "trendSourceCount": 2,
-      "trendScore": 20.5
-    },
-    {
-      "id": "541c9cec2ada96f0e91bcbcbc63b16502f6854be",
-      "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
-      "url": "https://myanimelist.net/news/74900816?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-04T00:56:45.000Z",
-      "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon's Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine's 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
-      "summaryIsExcerpt": true,
-      "summaryTruncated": false,
-      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 15.5,
-      "trendSources": [
-        "Anime News Network",
-        "MyAnimeList"
-      ],
-      "trendArticles": [
-        {
-          "title": "Witch on the Holy Night Film Gets Manga Adaptation",
-          "source": "Anime News Network",
-          "url": "https://www.animenewsnetwork.com/news/2026-11-03/witch-on-the-holy-night-film-gets-manga-adaptation/.243494",
-          "summary": "Shikimori's Not Just a Cutie's Keigo Maki debuts manga on November 11",
-          "summaryIsExcerpt": true,
-          "summaryTruncated": false,
-          "publishedAt": "2026-11-04T00:56:45.000Z"
-        },
-        {
-          "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74900816?_location=rss",
-          "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon's Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine's 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
-          "summaryIsExcerpt": true,
-          "summaryTruncated": false,
-          "publishedAt": "2026-11-03T13:34:03.000Z"
-        }
-      ],
-      "trendSourceCount": 2,
-      "trendScore": 20.5
+      "trendScore": 20.4
     },
     {
       "id": "4010b18b38e5b1cb15ce44375397093bfaaa7928",
@@ -430,7 +430,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 19.9,
+      "score": 19.8,
       "trendSources": [
         "Google Actualités"
       ],
@@ -455,7 +455,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 19.9
+      "trendScore": 19.8
     },
     {
       "id": "3c86cb815b14aa5e9e58a54692200d7ee825d8b4",
@@ -654,34 +654,6 @@
       "trendScore": 14.5
     },
     {
-      "id": "9eb36ef82cd1934649c991455d4beb39a856c713",
-      "title": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? - Serieously",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxORGw5dTE3ZklhSlViQUNOYjl5RDAtal9MZTB2NWZpWk1pS2lESF8wSzJncktnWklvTXdIVC1QQVZyX0NkYTFxemhNV0FKY01WQkdSVEk5WFk5ZEZmcDRla3JQNElvUDZsWHdodW5fdkVjQU04dVJFZUlya0dMQXN3NFg3eFcxTzZENGlFYUhKQWhtMUw5a0IyV3NWWFhGcHBhak9SSnd2cmp4dUFQUDZvR2ZqSTdsNTcyOV9uTHRGQjNyMlk?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-04T13:00:00.000Z",
-      "summary": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? Serieously",
-      "summaryIsExcerpt": true,
-      "summaryTruncated": false,
-      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 14.5,
-      "trendSources": [
-        "Google Actualités"
-      ],
-      "trendArticles": [
-        {
-          "title": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? - Serieously",
-          "source": "Google Actualités",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxORGw5dTE3ZklhSlViQUNOYjl5RDAtal9MZTB2NWZpWk1pS2lESF8wSzJncktnWklvTXdIVC1QQVZyX0NkYTFxemhNV0FKY01WQkdSVEk5WFk5ZEZmcDRla3JQNElvUDZsWHdodW5fdkVjQU04dVJFZUlya0dMQXN3NFg3eFcxTzZENGlFYUhKQWhtMUw5a0IyV3NWWFhGcHBhak9SSnd2cmp4dUFQUDZvR2ZqSTdsNTcyOV9uTHRGQjNyMlk?oc=5",
-          "summary": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? Serieously",
-          "summaryIsExcerpt": true,
-          "summaryTruncated": false,
-          "publishedAt": "2026-11-04T13:00:00.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 14.5
-    },
-    {
       "id": "03c9cbab365b7970f98d0deb04fe4108a20bb520",
       "title": "'Charisma' Unveils Additional Cast, Teaser Promo",
       "url": "https://myanimelist.net/news/74894062?_location=rss",
@@ -708,6 +680,34 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 14.5
+    },
+    {
+      "id": "9eb36ef82cd1934649c991455d4beb39a856c713",
+      "title": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? - Serieously",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxORGw5dTE3ZklhSlViQUNOYjl5RDAtal9MZTB2NWZpWk1pS2lESF8wSzJncktnWklvTXdIVC1QQVZyX0NkYTFxemhNV0FKY01WQkdSVEk5WFk5ZEZmcDRla3JQNElvUDZsWHdodW5fdkVjQU04dVJFZUlya0dMQXN3NFg3eFcxTzZENGlFYUhKQWhtMUw5a0IyV3NWWFhGcHBhak9SSnd2cmp4dUFQUDZvR2ZqSTdsNTcyOV9uTHRGQjNyMlk?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-04T13:00:00.000Z",
+      "summary": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? Serieously",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 14.4,
+      "trendSources": [
+        "Google Actualités"
+      ],
+      "trendArticles": [
+        {
+          "title": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? - Serieously",
+          "source": "Google Actualités",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxORGw5dTE3ZklhSlViQUNOYjl5RDAtal9MZTB2NWZpWk1pS2lESF8wSzJncktnWklvTXdIVC1QQVZyX0NkYTFxemhNV0FKY01WQkdSVEk5WFk5ZEZmcDRla3JQNElvUDZsWHdodW5fdkVjQU04dVJFZUlya0dMQXN3NFg3eFcxTzZENGlFYUhKQWhtMUw5a0IyV3NWWFhGcHBhak9SSnd2cmp4dUFQUDZvR2ZqSTdsNTcyOV9uTHRGQjNyMlk?oc=5",
+          "summary": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? Serieously",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
+          "publishedAt": "2026-11-04T13:00:00.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 14.4
     },
     {
       "id": "740699eaa264e4fef204a7c6da9c9fa3496b58d8",
@@ -1102,34 +1102,6 @@
       "trendScore": 11.2
     },
     {
-      "id": "1e939af33ef82669edc2d76c948e37de85053b24",
-      "title": "North American Anime & Manga Releases for November",
-      "url": "https://myanimelist.net/news/74894552?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-01T16:44:16.000Z",
-      "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi's Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi's Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
-      "summaryIsExcerpt": true,
-      "summaryTruncated": false,
-      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 10.8,
-      "trendSources": [
-        "MyAnimeList"
-      ],
-      "trendArticles": [
-        {
-          "title": "North American Anime & Manga Releases for November",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74894552?_location=rss",
-          "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi's Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi's Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
-          "summaryIsExcerpt": true,
-          "summaryTruncated": false,
-          "publishedAt": "2026-11-01T16:44:16.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 10.8
-    },
-    {
       "id": "b9e485797e7c6e0ec2696c1e6b34c03a9a749b87",
       "title": "Exclusive: I'm Dating a Dark Summoner Omake Shorts Premieres on HIDIVE on November 6, Key Visual and Trailer Revealed",
       "url": "https://animecorner.me/exclusive-im-dating-a-dark-summoner-omake-shorts-premieres-on-hidive-on-november-6-key-visual-and-trailer-revealed/",
@@ -1152,6 +1124,34 @@
           "summaryIsExcerpt": true,
           "summaryTruncated": false,
           "publishedAt": "2026-11-03T16:01:49.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 10.7
+    },
+    {
+      "id": "1e939af33ef82669edc2d76c948e37de85053b24",
+      "title": "North American Anime & Manga Releases for November",
+      "url": "https://myanimelist.net/news/74894552?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T16:44:16.000Z",
+      "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi's Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi's Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 10.7,
+      "trendSources": [
+        "MyAnimeList"
+      ],
+      "trendArticles": [
+        {
+          "title": "North American Anime & Manga Releases for November",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74894552?_location=rss",
+          "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi's Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi's Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
+          "publishedAt": "2026-11-01T16:44:16.000Z"
         }
       ],
       "trendSourceCount": 1,
@@ -1195,7 +1195,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 10.4,
+      "score": 10.3,
       "trendSources": [
         "Anime News Network"
       ],
@@ -1211,7 +1211,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 10.4
+      "trendScore": 10.3
     },
     {
       "id": "7642055e787bbe4a63ee5c147432b4c2798bd3da",
@@ -1279,7 +1279,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 9.9,
+      "score": 9.8,
       "trendSources": [
         "Anime Corner"
       ],
@@ -1295,7 +1295,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 9.9
+      "trendScore": 9.8
     },
     {
       "id": "950bd8bd6507942caa38a90db2ba9fb9dbde4a0f",
@@ -1335,7 +1335,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 9.4,
+      "score": 9.3,
       "trendSources": [
         "Anime Corner"
       ],
@@ -1351,7 +1351,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 9.4
+      "trendScore": 9.3
     },
     {
       "id": "3f036f12a290006400b6b9c066cab77c281bbfd1",
@@ -1447,7 +1447,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 8.4,
+      "score": 8.3,
       "trendSources": [
         "Anime Corner"
       ],
@@ -1460,34 +1460,6 @@
           "summaryIsExcerpt": true,
           "summaryTruncated": false,
           "publishedAt": "2026-11-04T12:00:03.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 8.4
-    },
-    {
-      "id": "a3c80b4a4773d6f79a8720a631dcbf205e32cf6d",
-      "title": "From Gaming to Lifestyle: TTRacing Unveils the ORA Sofa Chair BT21 Collection",
-      "url": "https://animecorner.me/from-gaming-to-lifestyle-ttracing-unveils-the-ora-sofa-chair-bt21-collection/",
-      "source": "Anime Corner",
-      "publishedAt": "2026-11-04T10:47:57.000Z",
-      "summary": "TTRacing has officially unveiled its first-ever sofa chair with the ORA Sofa Chair BT21…",
-      "summaryIsExcerpt": true,
-      "summaryTruncated": false,
-      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 8.3,
-      "trendSources": [
-        "Anime Corner"
-      ],
-      "trendArticles": [
-        {
-          "title": "From Gaming to Lifestyle: TTRacing Unveils the ORA Sofa Chair BT21 Collection",
-          "source": "Anime Corner",
-          "url": "https://animecorner.me/from-gaming-to-lifestyle-ttracing-unveils-the-ora-sofa-chair-bt21-collection/",
-          "summary": "TTRacing has officially unveiled its first-ever sofa chair with the ORA Sofa Chair BT21…",
-          "summaryIsExcerpt": true,
-          "summaryTruncated": false,
-          "publishedAt": "2026-11-04T10:47:57.000Z"
         }
       ],
       "trendSourceCount": 1,
@@ -1520,6 +1492,34 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 8.3
+    },
+    {
+      "id": "a3c80b4a4773d6f79a8720a631dcbf205e32cf6d",
+      "title": "From Gaming to Lifestyle: TTRacing Unveils the ORA Sofa Chair BT21 Collection",
+      "url": "https://animecorner.me/from-gaming-to-lifestyle-ttracing-unveils-the-ora-sofa-chair-bt21-collection/",
+      "source": "Anime Corner",
+      "publishedAt": "2026-11-04T10:47:57.000Z",
+      "summary": "TTRacing has officially unveiled its first-ever sofa chair with the ORA Sofa Chair BT21…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 8.2,
+      "trendSources": [
+        "Anime Corner"
+      ],
+      "trendArticles": [
+        {
+          "title": "From Gaming to Lifestyle: TTRacing Unveils the ORA Sofa Chair BT21 Collection",
+          "source": "Anime Corner",
+          "url": "https://animecorner.me/from-gaming-to-lifestyle-ttracing-unveils-the-ora-sofa-chair-bt21-collection/",
+          "summary": "TTRacing has officially unveiled its first-ever sofa chair with the ORA Sofa Chair BT21…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
+          "publishedAt": "2026-11-04T10:47:57.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 8.2
     },
     {
       "id": "446b84f326eb9da0ae465a6bcedf6b6c4d7698c9",
@@ -1615,7 +1615,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 7.5,
+      "score": 7.4,
       "trendSources": [
         "Google Actualités"
       ],
@@ -1631,7 +1631,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 7.5
+      "trendScore": 7.4
     },
     {
       "id": "92d61abdefef9d19b22afe1f01268893bfaee34b",
@@ -1643,7 +1643,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 7.4,
+      "score": 7.3,
       "trendSources": [
         "Google Actualités"
       ],
@@ -1659,7 +1659,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 7.4
+      "trendScore": 7.3
     },
     {
       "id": "5dad606bdbe819238c98562dde63708ffe77654f",
@@ -1671,7 +1671,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 6.3,
+      "score": 6.2,
       "trendSources": [
         "Anime Corner"
       ],
@@ -1687,7 +1687,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 6.3
+      "trendScore": 6.2
     },
     {
       "id": "3a9f6703e134ac2f12f68a42a5da9460dc98cbc5",
@@ -1867,7 +1867,7 @@
       "summaryIsExcerpt": true,
       "summaryTruncated": false,
       "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
-      "score": 3.9,
+      "score": 3.8,
       "trendSources": [
         "Anime Corner"
       ],
@@ -1883,7 +1883,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 3.9
+      "trendScore": 3.8
     },
     {
       "id": "627420317a7e6a6a6f55736cf16fcc401fb62b47",
