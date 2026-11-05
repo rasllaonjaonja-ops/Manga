@@ -304,16 +304,22 @@ function renderDailyPack(){
  const btn=document.getElementById('generateDailyPack');
  if(btn)btn.disabled=dailyPack.length!==4||dailyPack.some(p=>p.generating);
  if(!dailyPack.length){el.innerHTML='<div class="empty">Aucun programme préparé.</div>';return}
- el.innerHTML=dailyPack.map((p,i)=>`<article class="daily-card" data-daily-card="${i}">
-  <div class="daily-card-head"><span class="badge">Publication ${i+1}/4</span><span class="badge orange">${safe(p.type)}</span></div>
+ el.innerHTML=dailyPack.map((p,i)=>`<article class="daily-card daily-tone-${i+1}" data-daily-card="${i}">
+  <div class="daily-card-head"><span class="daily-publication-label"><i></i> Publication ${i+1}/4</span><span class="badge orange">${safe(p.type)}</span></div>
   <h4>${safe(p.item.title)}</h4>
   <p class="small muted">${safe(p.item.source||'Source RSS')} · ${safe(p.item.publishedAt?new Date(p.item.publishedAt).toLocaleDateString('fr-FR'):'Date non précisée')}</p>
   <p class="daily-summary">${safe(clip(p.item.summary||'Résumé non fourni.',260))}</p>
   <p class="small"><a href="${safe(p.item.url)}" target="_blank" rel="noopener noreferrer">Consulter la source originale ↗</a></p>
   <div class="field"><label for="dailyText${i}">Texte Facebook modifiable</label><textarea id="dailyText${i}" data-daily-text="${i}" rows="7" placeholder="Générez ce brouillon avec l’IA…">${safe(p.text||'')}</textarea></div>
-  <div class="daily-preview" id="dailyPreview${i}" hidden><div class="preview"><div class="previewtop"><b>◉ Manga, Animé et Actualités</b><span class="muted">· Aperçu du fil</span></div><div class="caption">${safe(p.text||'Le texte généré apparaîtra ici.')}</div></div></div>
+  <div class="daily-facebook-preview" id="dailyPreview${i}" aria-label="Aperçu fidèle d’une publication Facebook non publiée">
+   <div class="daily-fb-head"><div class="daily-fb-avatar">M</div><div><strong>Manga, Animé et Actualités</strong><small>À l’instant · 🌐</small></div><span>•••</span></div>
+   <div class="daily-fb-caption" id="dailyFbCaption${i}">${safe(p.text||'Votre texte Facebook apparaîtra ici.')}</div>
+   <div class="daily-fb-source">Source : <a href="${safe(p.item.url)}" target="_blank" rel="noopener noreferrer">${safe(p.item.source||'Article original')} ↗</a></div>
+   <div class="daily-fb-engagement"><span>👍 ❤️ 😮</span><span>J’aime · Commentaires · Partages</span></div>
+   <div class="daily-fb-actions"><span>♡ J’aime</span><span>▢ Commenter</span><span>↗ Partager</span></div>
+  </div>
   <p class="footnote" id="dailyStatus${i}" aria-live="polite">${safe(p.status||'En attente de génération')}</p>
-  <div class="actions"><button class="btn sm" data-daily-act="preview" data-index="${i}">Aperçu Facebook</button><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="art" data-index="${i}" ${p.text?'':'disabled'}>Créer le visuel associé →</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button><button class="btn sm danger" data-daily-act="replace" data-index="${i}">Refuser / remplacer</button></div>
+  <div class="actions"><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="art" data-index="${i}" ${p.text?'':'disabled'}>Créer le visuel associé →</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button><button class="btn sm danger" data-daily-act="replace" data-index="${i}">Refuser / remplacer</button></div>
  </article>`).join('');
 }
 document.getElementById('prepareDailyPack').onclick=()=>{
@@ -347,12 +353,11 @@ document.getElementById('generateDailyPack').onclick=async()=>{
 };
 document.getElementById('dailyPackList').addEventListener('input',e=>{
  const i=Number(e.target.dataset.dailyText);if(!Number.isInteger(i)||!dailyPack[i])return;
- dailyPack[i].text=e.target.value;if(dailyPack[i].postId){const saved=db.posts.find(x=>x.id===dailyPack[i].postId);if(saved){saved.text=cut(e.target.value,20000);localStorage.setItem(STORE,JSON.stringify(db));lastPersisted=JSON.stringify(db)}}const preview=document.querySelector('#dailyPreview'+i+' .caption');if(preview)preview.textContent=e.target.value;
+ dailyPack[i].text=e.target.value;if(dailyPack[i].postId){const saved=db.posts.find(x=>x.id===dailyPack[i].postId);if(saved){saved.text=cut(e.target.value,20000);localStorage.setItem(STORE,JSON.stringify(db));lastPersisted=JSON.stringify(db)}}const preview=document.getElementById('dailyFbCaption'+i);if(preview)preview.textContent=e.target.value||'Votre texte Facebook apparaîtra ici.';
  const png=document.querySelector('[data-daily-act="png"][data-index="'+i+'"]');if(png)png.disabled=!e.target.value.trim();
 });
 document.getElementById('dailyPackList').addEventListener('click',async e=>{
  const b=e.target.closest('[data-daily-act]');if(!b)return;const i=Number(b.dataset.index),p=dailyPack[i];if(!p)return;
- if(b.dataset.dailyAct==='preview'){const box=document.getElementById('dailyPreview'+i);box.hidden=!box.hidden;b.textContent=box.hidden?'Aperçu Facebook':'Masquer l’aperçu';return}
  if(b.dataset.dailyAct==='replace'){
   const next=dailyCandidates()[0];
   if(!next){document.getElementById('dailyPackStatus').textContent='Aucun autre sujet distinct disponible dans le Radar. Le brouillon existant est conservé.';return}
@@ -444,7 +449,7 @@ document.getElementById('savePost').onclick=async()=>{
   alert('Le texte est enregistré dans la file, mais le téléchargement PNG a échoué. Essayez avec Chrome et autorisez les téléchargements.');
  }finally{btn.disabled=false}
 };
-document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));document.getElementById('postText').hidden=b.dataset.tab!=='postText';document.getElementById('postView').hidden=b.dataset.tab!=='postView';document.getElementById('postPreview').textContent=document.getElementById('postResult').value});
+document.getElementById('postPreview').textContent=document.getElementById('postResult').value||'Votre publication apparaîtra ici pendant la rédaction.';
 function composeReel(){let topic=document.getElementById('reelTopic').value.trim();if(!topic)return alert('Indiquez le concept du Reel.');let d=+document.getElementById('reelDuration').value,style=document.getElementById('reelStyle').value,voice=document.getElementById('reelVoice').value,n=d<=7?2:d<=15?4:d<=30?5:7,step=d/n;let scenes=['Accroche visuelle : installer le lieu et attirer l’attention dès la première seconde.','Révélation : montrer le sujet et créer une émotion claire.','Montée : rapproché caméra, mouvement fluide, tension ou énergie.','Moment fort : image mémorable, changement de rythme ou détail symbolique.','Conclusion : laisser une question ou une image qui donne envie de commenter.'];let out=`TITRE : ${topic}\nFORMAT : vertical 9:16 | DURÉE : ${d}s | STYLE : ${style}\nAUDIO : ${voice}\n\n`;for(let i=0;i<n;i++){let a=Math.round(i*step),b=Math.round((i+1)*step);out+=`SCÈNE ${i+1} — ${a}-${b}s\n${scenes[i%scenes.length]}\nVisuel : ${topic}, esthétique anime originale, ${style.toLowerCase()}, cadrage vertical, cohérence du personnage et du décor.\nCaméra : ${i===0?'plan d’ensemble dynamique':i===1?'travelling lent':'mouvement maîtrisé avec transition douce'}.\nTexte écran : ${i===0?'UNE HISTOIRE À DÉCOUVRIR':i===n-1?'ET VOUS, QU’EN PENSEZ-VOUS ?':''}\n\n`}out+=`FIN — Vérifier la musique, les droits des images et la lisibilité des textes avant publication.`;document.getElementById('reelResult').value=out}
 document.getElementById('buildReel').onclick=composeReel;document.getElementById('copyReel').onclick=()=>copyText(document.getElementById('reelResult').value);document.getElementById('saveReel').onclick=()=>{let t=document.getElementById('reelResult').value;if(!t)return alert('Créez d’abord un storyboard.');if(addPost(document.getElementById('reelTopic').value.trim()||'Reel','Script Reel',t))alert('Script enregistré dans la file éditoriale.')};
 
