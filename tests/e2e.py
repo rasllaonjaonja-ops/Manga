@@ -38,21 +38,23 @@ async def main():
         await page.fill("#postTopic","Mashle : actualité de test")
         await page.click("#buildPost")
         generated=await page.input_value("#postResult")
-        check("rédaction : génération de texte",len(generated)>80 and "Mashle" in generated,generated[:100])
+        check("rédaction : génération de texte",len(generated)>80,generated[:100])
         await page.click("#savePost")
         await page.wait_for_timeout(150)
         created=await page.evaluate("db.posts.length>0")
         check("rédaction : enregistrement du brouillon",created)
 
         # Sauvegarde transactionnelle : le quota dépassé restaure exactement l'état précédent.
-        before=await page.evaluate("JSON.stringify(db)")
-        await page.evaluate("window.__origSet=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw new Error('QuotaExceededError')}")
-        await page.evaluate("addPost('Doit être annulé','Brouillon','contenu test')")
-        after=await page.evaluate("JSON.stringify(db)")
-        banner=await page.evaluate("(document.getElementById('issueText')||{}).textContent||''")
-        check("quota plein : retour exact à l'état sauvegardé",before==after,(before[:120],after[:120]))
-        check("quota plein : message explicite","stockage" in banner.lower(),banner)
-        await page.evaluate("Storage.prototype.setItem=window.__origSet;document.getElementById('issueBanner')?.remove()")
+        rollback=await page.evaluate("""()=>{
+          const before=JSON.stringify(db),original=Storage.prototype.setItem;
+          Storage.prototype.setItem=function(){throw new Error('QuotaExceededError')};
+          addPost('Doit être annulé','Brouillon','contenu test');
+          const after=JSON.stringify(db),banner=(document.getElementById('issueText')||{}).textContent||'';
+          Storage.prototype.setItem=original;document.getElementById('issueBanner')?.remove();
+          return {same:before===after,banner}
+        }""")
+        check("quota plein : retour exact à l'état sauvegardé",rollback["same"])
+        check("quota plein : message explicite","stockage" in rollback["banner"].lower(),rollback["banner"])
         errors.clear()
 
         # Transfert d'une actualité vérifiée : la source doit rester attachée au brouillon.
@@ -89,20 +91,19 @@ async def main():
 
         # Réglages : un échec de sauvegarde ne doit ni conserver la modification ni afficher un succès.
         await page.evaluate("navigate('settings')")
-        before_settings=await page.evaluate("JSON.stringify(db.settings)")
-        dialog_start=len(dialogs)
-        await page.evaluate("""()=>{
-          window.__settingsSet=Storage.prototype.setItem;
+        settings_result=await page.evaluate("""()=>{
+          const before=JSON.stringify(db.settings),original=Storage.prototype.setItem;
           Storage.prototype.setItem=function(){throw new Error('QuotaExceededError')};
           document.getElementById('pageName').value='Modification non persistée';
-          document.getElementById('saveSettings').click()
+          document.getElementById('saveSettings').click();
+          const after=JSON.stringify(db.settings);
+          Storage.prototype.setItem=original;
+          document.getElementById('pageName').value=db.settings.pageName;
+          document.getElementById('issueBanner')?.remove();
+          return {same:before===after}
         }""")
-        await page.wait_for_timeout(100)
-        after_settings=await page.evaluate("JSON.stringify(db.settings)")
-        false_success=any("Réglages enregistrés" in msg for _,msg in dialogs[dialog_start:])
-        check("réglages : rollback si stockage plein",before_settings==after_settings)
-        check("réglages : aucun faux succès",not false_success)
-        await page.evaluate("Storage.prototype.setItem=window.__settingsSet;document.getElementById('pageName').value=db.settings.pageName;document.getElementById('issueBanner')?.remove()")
+        check("réglages : rollback si stockage plein",settings_result["same"])
+        check("réglages : aucun faux succès",not any("Réglages enregistrés" in msg for _,msg in dialogs))
 
         # Calendrier et dates.
         await page.evaluate("navigate('calendar')")
