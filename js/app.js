@@ -729,7 +729,7 @@ function advanceWorkflow(id){
  const current=stages.indexOf(p.workflowStage||'redaction');
  p.workflowStage=stages[Math.min(stages.length-1,current+1)];
  if(p.workflowStage==='pret')p.status='Prêt';
- if(save())showIssue('Étape mise à jour : '+workflowLabels[p.workflowStage]+'.');
+ save(); // Le rendu actualisé confirme visuellement l’étape : ne pas afficher un bandeau d’erreur pour une action réussie.
 }
 function renderPublications(){
  const today=dayKey(new Date());
