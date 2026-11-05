@@ -15,6 +15,7 @@ const ALLOW_HTTP = process.env.RADAR_ALLOW_HTTP === "1";
 const MAX_PER_SOURCE = 25;
 const MAX_AGE_DAYS = 21;
 const MAX_ITEMS = 100;
+const MAX_SUMMARY_CHARS = 2000;
 const MAX_REPORTS = 60;
 
 export async function collect() {
@@ -123,7 +124,7 @@ export function parseFeed(xml, source) {
     return {
       id: crypto.createHash("sha1").update(String(guid)).digest("hex"),
       title, url: link, source: source.name, publishedAt,
-      summary: summary.slice(0, 500)
+      summary: summary.slice(0, MAX_SUMMARY_CHARS)
     };
   }).filter(Boolean);
 }
