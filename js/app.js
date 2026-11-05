@@ -75,6 +75,7 @@ function runSelfTest(){
 }
 document.getElementById('runSelfTest').onclick=()=>{document.getElementById('selfTestResult').textContent=runSelfTest().join('\n')};
 document.getElementById('newsList').addEventListener('click',e=>{const s=e.target.closest('[data-news-save]');if(s){saveNewsItem(newsItems[+s.dataset.newsSave]);return}const b=e.target.closest('[data-news]');if(b)useNewsByIndex(+b.dataset.news)});
+document.getElementById('topNewsList').addEventListener('click',e=>{const b=e.target.closest('[data-trend]');if(b)useNewsByIndex(+b.dataset.trend)});
 function saveNewsItem(n){
  if(!n||!/^https?:\/\//i.test(String(n.url||'')))return alert('Actualité invalide : lien manquant.');
  if(db.news.some(x=>x.url===n.url))return alert('Cette actualité est déjà enregistrée.');
@@ -469,10 +470,21 @@ document.getElementById('downloadCampaign').onclick=()=>{if(!campaignPack.length
 document.getElementById('saveCampaign').onclick=()=>{if(!campaignPack.length)return alert('Générez d’abord un pack.');campaignPack.forEach(x=>db.posts.unshift({id:uid(),title:document.getElementById('campTopic').value.trim()+' — '+x.type,type:x.type,text:x.text,status:'Brouillon',created:new Date().toISOString()}));save();alert(campaignPack.length+' format(s) enregistré(s) dans la file éditoriale.')};
 
 async function loadNews(){let status=document.getElementById('newsStatus');status.textContent='Lecture du fichier du radar…';try{let r=await fetch('data/latest-news.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('Fichier absent ('+r.status+')');let data=await r.json();newsItems=Array.isArray(data.items)?data.items.filter(x=>isObj(x)&&typeof x.title==='string'):[];status.textContent=`${newsItems.length} article(s) · dernière collecte : ${data.updatedAt?new Date(data.updatedAt).toLocaleString('fr-FR'):'inconnue'}`;renderNews();renderAll()}catch(e){status.textContent='Radar non initialisé';document.getElementById('newsList').innerHTML='<div class="empty">Aucune collecte disponible pour le moment.<br>Déployez la V3 puis lancez le workflow « Anime Trend RSS Radar » dans GitHub Actions.</div>'}}
+function getTopNews(){
+ return newsItems.map((x,i)=>({x,i}))
+  .sort((a,b)=>(Number(b.x.trendScore)||0)-(Number(a.x.trendScore)||0)||Date.parse(b.x.publishedAt||0)-Date.parse(a.x.publishedAt||0))
+  .slice(0,5);
+}
+function renderTopNews(){
+ const el=document.getElementById('topNewsList');if(!el)return;
+ const top=getTopNews();
+ el.innerHTML=top.length?top.map(({x,i},rank)=>{const u=/^https?:\/\//i.test(String(x.url||''))?x.url:'#';const sources=Array.isArray(x.trendSources)?x.trendSources:[x.source||'Source unique'];return `<article class="card news-card"><div class="news-meta"><span class="badge">#${rank+1} · Tendance estimée</span><span>${Number(x.trendSourceCount)||1} source(s)</span></div><h4>${safe(x.title)}</h4><p>${safe(clip(x.summary,220))}</p><p class="small muted">Sources : ${safe(sources.join(', '))}</p><div class="actions"><a class="btn sm" href="${safe(u)}" target="_blank" rel="noopener noreferrer">Lire la source ↗</a><button class="btn primary sm" data-trend="${safe(i)}">Préparer cette publication</button></div></article>`}).join(''):'<div class="empty">Aucune tendance disponible pour le moment.</div>';
+}
 function renderNews(){
  const f=document.getElementById('newsFilter').value,el=document.getElementById('newsList');
  const arr=newsItems.map((x,i)=>({x,i})).filter(o=>f==='all'||o.x.source===f);
  el.innerHTML=arr.length?arr.map(({x,i})=>{const u=/^https?:\/\//i.test(String(x.url||''))?x.url:'#';return `<article class="card news-card"><div class="news-meta"><span class="badge">${safe(x.source)}</span><span>${validIso(x.publishedAt)?safe(new Date(x.publishedAt).toLocaleDateString('fr-FR')):'Date inconnue'}</span></div><h4>${safe(x.title)}</h4><p>${safe(clip(x.summary,220))}</p><div class="actions"><a class="btn sm" href="${safe(u)}" target="_blank" rel="noopener noreferrer">Lire la source ↗</a><button class="btn sm" data-news-save="${safe(i)}">Enregistrer</button><button class="btn sm" data-news="${safe(i)}">Préparer un post</button></div></article>`}).join(''):'<div class="empty">Aucun article pour ce filtre.</div>';
+ renderTopNews();
 }
 window.useNewsByIndex=(index)=>{
  const item=newsItems[index];
