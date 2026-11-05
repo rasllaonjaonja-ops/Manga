@@ -102,11 +102,11 @@ export default {
             { role: "system", content: SYSTEM_PROMPT },
             {
               role: "user",
-              content: "Rédige un article éditorial professionnel sur ce sujet :\\n" +
+              content: "Rédige un article éditorial professionnel sur ce sujet :\n" +
                 topic +
-                "\\n\\nSources et informations fournies :\\n" +
+                "\n\nSources et informations fournies :\n" +
                 (sources || "Aucune source fournie.") +
-                "\\n\\nNe présente pas les informations non vérifiées comme des faits."
+                "\n\nNe présente pas les informations non vérifiées comme des faits."
             }
           ],
           max_tokens: 1400
