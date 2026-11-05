@@ -11,7 +11,7 @@
 <aside class="side" id="side">
  <div class="brand"><img src="assets/logo-manga-anime-actualites.png" alt="Logo Manga Anime et Actualités"><div><b>ANIME TREND</b><small>CONTENT STUDIO</small></div></div>
  <nav class="nav sec-first"><button class="active" data-page="home"><i>⌂</i>Accueil</button></nav>
- <div><div class="group-title">CRÉER</div><nav class="nav"><button data-page="create"><i>✎</i>Atelier de publications</button><button data-page="campaign"><i>✦</i>Studio de campagnes</button><button data-page="reels"><i>▶</i>Studio Reels</button><button data-page="quiz"><i>❖</i>Quiz & communauté</button></nav></div>
+ <div><div class="group-title">CRÉER</div><nav class="nav"><button data-page="create"><i>✎</i>Atelier de publications</button><button data-page="visual"><i>▧</i>Studio de publication</button></nav></div>
  <div><div class="group-title">ACTUALITÉS</div><nav class="nav"><button data-page="radar"><i>◉</i>Radar d'actualités</button><button data-page="calendar"><i>▦</i>Calendrier éditorial</button></nav></div><div><div class="group-title">SUIVI DES CONTENUS</div><nav class="nav"><button data-page="publications"><i>▣</i>Publications</button></nav></div>
  <div><div class="group-title">VISUELS</div><nav class="nav"><button data-page="visual"><i>▧</i>Studio visuel</button><button data-page="library"><i>▣</i>Médiathèque</button></nav></div>
  <div><div class="group-title">PILOTAGE</div><nav class="nav"><button data-page="automation"><i>⌘</i>GitHub & automatisation</button></nav></div>
@@ -40,7 +40,7 @@
     <div class="kpi violet"><div class="k-ico">▣</div><div><b id="sMedia">0</b><span>Visuels importés</span><small>médiathèque locale</small></div></div>
    </div>
    <div class="modules-row">
-    <div class="mod mod-create"><img src="assets/card-create-generated.jpg" alt="Illustration de l'espace création"><h4>✦ Espace Création</h4><p>Studio visuel, campagnes, Reels et quiz.</p><button class="btn primary" data-go="visual">Commencer →</button></div>
+    <div class="mod mod-create"><img src="assets/card-create-generated.jpg" alt="Illustration de l'espace création"><h4>✦ Espace Création</h4><p>Création des publications et préparation des visuels.</p><button class="btn primary" data-go="visual">Commencer →</button></div>
     <div class="mod mod-prod"><img src="assets/card-production-generated.jpg" alt="Illustration de l'espace production"><h4>▣ Espace Production</h4><p>Studio visuel, médiathèque, calendrier et contrôle qualité.</p><button class="btn primary" data-go="visual">Explorer →</button></div>
     <div class="mod mod-auto"><img src="assets/card-auto-generated.jpg" alt="Illustration de l'espace automatisation"><h4>⚙ Espace Automatisation</h4><p>Radar RSS, GitHub Actions, rapports et diagnostics.</p><button class="btn red" data-go="automation">Activer →</button></div>
    </div>
@@ -52,7 +52,7 @@
    <div class="three-col">
     <div class="panel"><div class="panel-head"><h3>Flux d'activité</h3></div><div id="homeActivity"></div></div>
     <div class="panel"><div class="panel-head"><h3>Aperçu d'une publication</h3></div><div id="homePreview"></div></div>
-    <div class="panel"><div class="panel-head"><h3>Prochaines étapes</h3></div><div class="small muted">Rédigez un contenu, préparez son visuel, puis ajoutez-le à la Publications. La publication reste manuelle.</div><button class="btn" data-go="campaign" style="margin-top:12px;width:100%">✦ Créer une campagne →</button></div>
+    <div class="panel"><div class="panel-head"><h3>Prochaines étapes</h3></div><div class="small muted">Rédigez un contenu, préparez son visuel, puis ajoutez-le à la Publications. La publication reste manuelle.</div><button class="btn" data-go="visual" style="margin-top:12px;width:100%">✦ Ouvrir le studio de publication →</button></div>
    </div>
   </div>
   <aside class="dash-side">
@@ -183,53 +183,6 @@ Et vous, quel est votre anime préféré ?</textarea></div><button class="btn" i
  <button class="btn primary" id="runQuality">Lancer la checklist</button><pre class="result" id="qualityResult" style="white-space:pre-wrap;margin-top:10px">Le rapport apparaîtra ici.</pre>
  <p class="footnote">Ce contrôle aide à repérer des risques, mais ne garantit pas l’absence d’erreur, de réclamation ou de signalement Facebook.</p>
 </section>
-</section>
-
-<section class="page" id="p-reels">
- <div class="kicker">VIDÉO COURTE</div><h2>Studio Reels</h2><p class="sub">Transformez une idée en séquence verticale structurée. Le studio prépare le script et les prompts ; il ne prétend pas rendre une vidéo finale.</p>
- <div class="grid2"><div class="card"><div class="field"><label>Concept du Reel</label><input id="reelTopic" placeholder="Ex. : un ninja marche sous une pluie battante"></div><div class="two"><div class="field"><label>Durée</label><select id="reelDuration"><option value="7">7 secondes</option><option value="15" selected>15 secondes</option><option value="30">30 secondes</option><option value="45">45 secondes</option></select></div><div class="field"><label>Style narratif</label><select id="reelStyle"><option>Cinématique</option><option>Épique</option><option>Mélancolique</option><option>Mystérieux</option><option>Humoristique</option></select></div></div><div class="field"><label>Voix / narration</label><select id="reelVoice"><option>Sans voix, musique et ambiance</option><option>Voix off courte</option><option>Texte à l'écran</option></select></div><button class="btn primary" id="buildReel">Générer le storyboard</button></div>
- <div class="card"><h3>Storyboard prêt à produire</h3><textarea id="reelResult" style="min-height:280px" placeholder="Le découpage scène par scène apparaîtra ici."></textarea><div class="actions" style="margin-top:10px"><button class="btn" id="copyReel">Copier</button><button class="btn primary" id="saveReel">Enregistrer</button></div></div></div>
-</section>
-
-
-
-<section class="page" id="p-quiz">
- <div class="kicker">ANIMER LA COMMUNAUTÉ</div><h2>Quiz & communauté</h2><p class="sub">Préparez des formats interactifs. Les questions factuelles doivent être vérifiées avant diffusion.</p>
- <div class="card" style="max-width:760px"><div class="field"><label>Thème du quiz ou du sondage</label><input id="quizTopic" placeholder="Ex. : les meilleurs rivaux dans les shonen"></div><div class="two"><div class="field"><label>Format</label><select id="quizFormat"><option>Quiz à choix multiples</option><option>Sondage communautaire</option><option>Question débat</option><option>Vrai ou faux</option></select></div><div class="field"><label>Nombre de questions</label><select id="quizCount"><option>1</option><option>3</option><option>5</option></select></div></div><button class="btn primary" id="buildQuiz">Préparer</button><hr><textarea id="quizResult" placeholder="Votre contenu communautaire apparaîtra ici." style="min-height:240px"></textarea><button class="btn" id="copyQuiz" style="margin-top:9px">Copier</button></div>
-</section>
-
-
-<section class="page" id="p-campaign">
- <div class="kicker">NOUVEAU · V4</div><h2>Studio de campagnes</h2>
- <p class="sub">Transformez une seule idée en plusieurs formats cohérents. Tout est généré localement à partir de modèles éditoriaux : aucune clé API, aucun abonnement et aucune publication automatique.</p>
- <div class="grid2">
-  <div class="card">
-   <div class="field"><label>Thème de la campagne</label><input id="campTopic" placeholder="Ex. : les héros qui ont changé après une grande perte"></div>
-   <div class="two">
-    <div class="field"><label>Objectif</label><select id="campGoal"><option>Faire discuter la communauté</option><option>Présenter une œuvre</option><option>Partager une actualité</option><option>Créer une émotion</option><option>Faire découvrir un personnage</option></select></div>
-    <div class="field"><label>Ambiance</label><select id="campMood"><option>Cinématique</option><option>Émotionnelle</option><option>Énergique</option><option>Mystérieuse</option><option>Éducative</option></select></div>
-   </div>
-   <div class="field"><label>Public / angle éditorial</label><input id="campAudience" value="Fans de manga et d’anime francophones"></div>
-   <div class="field"><label>Faits ou détails à intégrer (facultatif)</label><textarea id="campFacts" placeholder="Ajoutez uniquement des éléments que vous avez vérifiés. Ne fournissez pas de spoilers non annoncés." style="min-height:75px"></textarea></div>
-   <div class="field"><label>Formats à inclure</label>
-    <div class="actions"><label class="badge"><input type="checkbox" id="campPost" checked style="width:auto;min-height:0"> Post</label><label class="badge"><input type="checkbox" id="campReel" checked style="width:auto;min-height:0"> Reel</label><label class="badge"><input type="checkbox" id="campStory" checked style="width:auto;min-height:0"> Story</label><label class="badge"><input type="checkbox" id="campCarousel" checked style="width:auto;min-height:0"> Carrousel</label><label class="badge"><input type="checkbox" id="campVisual" checked style="width:auto;min-height:0"> Prompt visuel</label></div>
-   </div>
-   <button class="btn primary" id="buildCampaign">Générer le pack de campagne</button>
-  </div>
-  <div class="card">
-   <h3>Guide de campagne</h3>
-   <div class="note">V4 crée des brouillons originaux et des prompts à utiliser dans votre outil de création visuelle/vidéo. Il ne génère pas lui-même les images ou les vidéos.</div>
-   <div class="list">
-    <div class="item"><div><strong>1. Cohérence</strong><small>Un seul angle éditorial décliné sur plusieurs formats.</small></div><span class="badge green">Inclus</span></div>
-    <div class="item"><div><strong>2. Réutilisation</strong><small>Enregistrer chaque élément dans la Publications.</small></div><span class="badge green">Inclus</span></div>
-    <div class="item"><div><strong>3. Contrôle</strong><small>Vérifier les faits, droits, spoilers et sources avant publication.</small></div><span class="badge orange">À faire</span></div>
-    <div class="item"><div><strong>4. Publication</strong><small>Programmer manuellement via les outils Facebook disponibles.</small></div><span class="badge orange">Manuel</span></div>
-   </div>
-   <hr><div class="small muted">Conseil : pour une actualité, ajoutez le lien de la source primaire dans le texte et vérifiez la date de l’annonce avant de préparer les formats.</div>
-  </div>
- </div>
- <div class="rowhead"><h3>Pack généré</h3><div class="actions"><button class="btn sm" id="copyCampaign">Copier tout</button><button class="btn sm" id="downloadCampaign">Exporter .txt</button><button class="btn primary sm" id="saveCampaign">Enregistrer les formats sélectionnés</button></div></div>
- <div class="card"><div id="campaignStatus" class="small muted">Votre pack apparaîtra ici.</div><div id="campaignOutput" class="result" style="min-height:250px;margin-top:10px">Aucun pack généré.</div></div>
 </section>
 
 <section class="page" id="p-radar">
