@@ -145,23 +145,38 @@ function tag(block, name) {
 
 // Décodage sûr : balises retirées, entités décodées, &amp; en dernier, puis nouvelle suppression des balises.
 export function clean(value) {
-  let s = String(value || "").replace(/<!\[CDATA\[|\]\]>/g, "")
-    .replace(/<script[\s\S]*?<\/script>/gi, " ")
-    .replace(/<style[\s\S]*?<\/style>/gi, " ")
-    .replace(/<[^>]+>/g, " ");
-  const named = { nbsp: " ", quot: '"', apos: "'", lt: "<", gt: ">", hellip: "…", mdash: "—", ndash: "–", laquo: "«", raquo: "»", rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”" };
-  s = s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, (m, e) => {
-    if (e[0] === "#") {
-      const code = e[1].toLowerCase() === "x" ? parseInt(e.slice(2), 16) : parseInt(e.slice(1), 10);
-      return Number.isFinite(code) && code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : m;
+  let s = String(value || "").replace(/<!\\[CDATA\\[|\\]\\]>/g, "");
+  const named = {
+    amp: "&", nbsp: " ", quot: '"', apos: "'", lt: "<", gt: ">",
+    hellip: "…", mdash: "—", ndash: "–", laquo: "«", raquo: "»",
+    rsquo: "’", lsquo: "‘", ldquo: "“", rdquo: "”",
+    copy: "©", reg: "®", trade: "™", euro: "€", pound: "£",
+    bull: "•", middot: "·", times: "×", eacute: "é", egrave: "è",
+    agrave: "à", ccedil: "ç", ocirc: "ô", ucirc: "û", acirc: "â",
+    ecirc: "ê", icirc: "î", euml: "ë", iuml: "ï", uuml: "ü"
+  };
+  const decodeEntity = (match, entity) => {
+    if (entity[0] === "#") {
+      const hex = entity[1]?.toLowerCase() === "x";
+      const code = hex ? parseInt(entity.slice(2), 16) : parseInt(entity.slice(1), 10);
+      if (!Number.isInteger(code) || code <= 0 || code > 0x10ffff || (code >= 0xd800 && code <= 0xdfff)) return match;
+      return String.fromCodePoint(code);
     }
-    return named[e.toLowerCase()] ?? m;
-  });
-  s = s.replace(/&amp;/gi, "&");
-  s = s.replace(/<[^>]+>/g, " ");
-  return s.replace(/\s+/g, " ").trim();
-}
+    return named[entity.toLowerCase()] ?? match;
+  };
 
+  // Certains flux encodent deux fois les entités (ex. &amp;#039;).
+  // Plusieurs passes bornées décodent ces cas sans boucle infinie.
+  for (let pass = 0; pass < 4; pass++) {
+    const before = s;
+    s = s.replace(/&(#x[0-9a-f]+|#\\d+|[a-z]+);/gi, decodeEntity)
+      .replace(/<script[\\s\\S]*?<\\/script>/gi, " ")
+      .replace(/<style[\\s\\S]*?<\\/style>/gi, " ")
+      .replace(/<[^>]*>/g, " ");
+    if (s === before) break;
+  }
+  return s.replace(/\\s+/g, " ").trim();
+}
 function normTitle(t) {
   return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
 }
