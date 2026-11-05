@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-05T07:18:55.992Z",
+  "updatedAt": "2026-11-05T07:29:05.168Z",
   "count": 68,
   "items": [
     {
@@ -9,6 +9,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-04T12:59:27.000Z",
       "summary": "Production company Warner Bros. Japan announced a live-action movie adaptation of Hajime Koumoto's Mashle (Mashle: Magic and Muscles) manga on Wednesday, revealing a super teaser visual (pictured above). The live-action movie will premiere in Japanese theaters on March 19, 2027. Warner Bros. Pictures and Fuji TV are credited as production coordinators, while Credeus—the live-action studio behind the Kingdom and Golden Kanuy film series—is producing the live-action adaptation. T...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 24.4,
       "trendSources": [
         "MyAnimeList",
@@ -21,6 +24,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74902561?_location=rss",
           "summary": "Production company Warner Bros. Japan announced a live-action movie adaptation of Hajime Koumoto's Mashle (Mashle: Magic and Muscles) manga on Wednesday, revealing a super teaser visual (pictured above). The live-action movie will premiere in Japanese theaters on March 19, 2027. Warner Bros. Pictures and Fuji TV are credited as production coordinators, while Credeus—the live-action studio behind the Kingdom and Golden Kanuy film series—is producing the live-action adaptation. T...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T00:41:36.000Z"
         },
         {
@@ -28,6 +33,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/mashle-magic-and-muscles-live-action-film-adaptation-announced/",
           "summary": "Mashle: Magic and Muscles manga is officially getting a live-action film adaptation, with its Japanese theatrical premiere set for March 19, 2027.",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T12:59:27.000Z"
         },
         {
@@ -35,6 +42,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/mashle-magic-and-muscles-manga-gets-live-action-film-on-march-19/.243497",
           "summary": "Warner Brothers, Fuji TV, Credeus, Toho collaborate on project",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T23:20:53.000Z"
         }
       ],
@@ -48,7 +57,10 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-04T00:20:36.000Z",
       "summary": "Production company Shogakukan-Shueisha Productions announced a television anime adaptation of Julietta Suzuki's Oshi ni Amagami (Otaku Vampire's Love Bite) manga on Wednesday, revealing special visual (pictured) and announcement promo. Suzuki (Kamisama Hajimemashita) began serializing the comedy romance manga in Hana to Yume magazine in April 2022. Hakusensha published the tenth volume on July 17, with the 11th volume scheduled to be released on November 20. VIZ Media licensed the mang...",
-      "score": 21.4,
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 21.3,
       "trendSources": [
         "MyAnimeList",
         "Anime Corner",
@@ -60,6 +72,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74902452?_location=rss",
           "summary": "Production company Shogakukan-Shueisha Productions announced a television anime adaptation of Julietta Suzuki's Oshi ni Amagami (Otaku Vampire's Love Bite) manga on Wednesday, revealing special visual (pictured) and announcement promo. Suzuki (Kamisama Hajimemashita) began serializing the comedy romance manga in Hana to Yume magazine in April 2022. Hakusensha published the tenth volume on July 17, with the 11th volume scheduled to be released on November 20. VIZ Media licensed the mang...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T23:33:08.000Z"
         },
         {
@@ -67,6 +81,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/otaku-vampires-love-bite-anime-adaptation-announced/",
           "summary": "Otaku Vampire's Love Bite manga by Julietta Suzuki (Kamisama Kiss) is getting an anime…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T00:20:36.000Z"
         },
         {
@@ -74,11 +90,13 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/otaku-vampire-love-bite-manga-gets-tv-anime/.243498",
           "summary": "\"Bloody romantic comedy\" from Kamisama Kiss creator Julietta Suzuki",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T23:41:39.000Z"
         }
       ],
       "trendSourceCount": 3,
-      "trendScore": 31.4
+      "trendScore": 31.3
     },
     {
       "id": "0cc28a004d0a362db1f1417cdc472699b01fa6b6",
@@ -87,6 +105,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-04T06:46:48.000Z",
       "summary": "The official website of the Watashi wo Center ni Suru to Chikaimasu ka? (Promise Me the Spotlight) television anime revealed the main cast, staff, a key visual (pictured), the opening theme, and a teaser promotional video on Wednesday. The anime series adapting Jun Wakatsuki's idol romance manga is scheduled to air on TV Tokyo's six affiliated stations. Cast Mizuki Natsuno: Haruna Mikawa (Ore dake Level Up na Ken) Kouichi Okuta: Taihi Kimura (Onmyou Kaiten Re:Birth) Awayuki Shiroi: Mai...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 19.7,
       "trendSources": [
         "Anime Corner",
@@ -99,6 +120,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/promise-me-the-spotlight-anime-reveals-visual-trailer-cast-opening-theme-song/",
           "summary": "The previously announced Promise Me the Spotlight anime adaptation revealed a key visual along…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T06:46:48.000Z"
         },
         {
@@ -106,6 +129,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74903023?_location=rss",
           "summary": "The official website of the Watashi wo Center ni Suru to Chikaimasu ka? (Promise Me the Spotlight) television anime revealed the main cast, staff, a key visual (pictured), the opening theme, and a teaser promotional video on Wednesday. The anime series adapting Jun Wakatsuki's idol romance manga is scheduled to air on TV Tokyo's six affiliated stations. Cast Mizuki Natsuno: Haruna Mikawa (Ore dake Level Up na Ken) Kouichi Okuta: Taihi Kimura (Onmyou Kaiten Re:Birth) Awayuki Shiroi: Mai...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T03:37:09.000Z"
         },
         {
@@ -113,6 +138,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/promise-me-the-spotlight-anime-unveils-teaser-main-cast-staff/.243469",
           "summary": "Haruna Mikawa, Taihi Kimura, Mai Kanno, Yukari Anzai star in studio TEAM TillDawn's anime",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T03:00:00.000Z"
         }
       ],
@@ -126,7 +153,10 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-04T23:39:46.000Z",
       "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
-      "score": 20.4,
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 20.3,
       "trendSources": [
         "Anime Corner",
         "Anime News Network"
@@ -137,6 +167,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
           "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T23:39:46.000Z"
         },
         {
@@ -144,11 +176,13 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/live-action-mashle-magic-and-muscles-film-reveals-cast-director/.243531",
           "summary": "Mackenyu Maeda stars as Mash Burnedead with Gintama's Yūichi Fukuda directing",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T23:26:04.000Z"
         }
       ],
       "trendSourceCount": 2,
-      "trendScore": 25.4
+      "trendScore": 25.3
     },
     {
       "id": "0ba5772177ad7a6c11e1e008b5bfebd68d8cd5e1",
@@ -157,6 +191,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-04T17:00:45.000Z",
       "summary": "The official website of the television anime adaptation of Yuu Tanaka's Tensei shitara Ken deshita (Reincarnated as a Sword) light novel revealed supporting cast, second key visual (pictured), and third promotional video for the \"Seedrun Arc\" on Thursday. The second season premiered on October 8 at 12.00 a.m. on Tokyo MX, followed by ABC TV, BS Asahi, and AT-X. Cast Valuza: Katsuyuki Konishi (Tongari Boushi no Atelier) Fult: Satsuki Kokubu (Hoshifuru Oukoku no Nina) Satia: Yurie K...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 19.8,
       "trendSources": [
         "Anime News Network",
@@ -168,6 +205,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/reincarnated-as-a-sword-season-2-anime-reveals-trailer-visual-cast-for-seedrun-arc/.243523",
           "summary": "Satsuki Kokubu, Yurie Kozakai, Hazuki Ogino, Sayumi Suzushiro, Katsuyuki Konishi join cast",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T17:00:45.000Z"
         },
         {
@@ -175,6 +214,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74904410?_location=rss",
           "summary": "The official website of the television anime adaptation of Yuu Tanaka's Tensei shitara Ken deshita (Reincarnated as a Sword) light novel revealed supporting cast, second key visual (pictured), and third promotional video for the \"Seedrun Arc\" on Thursday. The second season premiered on October 8 at 12.00 a.m. on Tokyo MX, followed by ABC TV, BS Asahi, and AT-X. Cast Valuza: Katsuyuki Konishi (Tongari Boushi no Atelier) Fult: Satsuki Kokubu (Hoshifuru Oukoku no Nina) Satia: Yurie K...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T16:33:53.000Z"
         }
       ],
@@ -188,6 +229,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-01T13:22:13.000Z",
       "summary": "The official website of the Bocchi the Rock! anime series announced a new prequel anime movie subtitled Hoshi no Ashiato, revealing the main cast, staff, a teaser visual (pictured), and an announcement promo on Sunday. The movie is scheduled to open in Japanese theaters in 2027. Voice actresses Maaya Uchida (Chuunibyou demo Koi ga Shitai!) and Sayumi Suzushiro (Kaguya-sama wa Kokurasetai) are starring as Seika Ijichi and Nijika Ijichi, respectively. Staff Director: Shin Wakabayashi (Wonder Egg P...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 17.5,
       "trendSources": [
         "MyAnimeList",
@@ -199,6 +243,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74893965?_location=rss",
           "summary": "The official website of the Bocchi the Rock! anime series announced a new prequel anime movie subtitled Hoshi no Ashiato, revealing the main cast, staff, a teaser visual (pictured), and an announcement promo on Sunday. The movie is scheduled to open in Japanese theaters in 2027. Voice actresses Maaya Uchida (Chuunibyou demo Koi ga Shitai!) and Sayumi Suzushiro (Kaguya-sama wa Kokurasetai) are starring as Seika Ijichi and Nijika Ijichi, respectively. Staff Director: Shin Wakabayashi (Wonder Egg P...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-01T13:22:13.000Z"
         },
         {
@@ -206,6 +252,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/bocchi-the-rock-gets-movie-starring-nijika-and-seika-in-2027/",
           "summary": "Bocchi the Rock is getting a movie in 2027 that stars Nijika and Seika.…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-01T12:07:27.000Z"
         }
       ],
@@ -219,6 +267,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-04T09:24:11.000Z",
       "summary": "The official website for the television anime adaptation of Kaede Nishikigi's Game Sekai Tensei \"Dankatsu\": Gamer wa \"Dungeon Shuukatsu no Susume\" wo \"Hajime kara\" Play suru (Reincarnation in the Game World Dankatsu: Game Addict Plays \"Encouragement for Job Hunting in Dungeons\" from a \"New Game\") light novel revealed additional cast and second teaser promotional video on Wednesday. The anime will premiere in January 2027. Cast Hannah: Ayaka...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 21.2,
       "trendSources": [
         "MyAnimeList"
@@ -229,6 +280,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74903583?_location=rss",
           "summary": "The official website for the television anime adaptation of Kaede Nishikigi's Game Sekai Tensei \"Dankatsu\": Gamer wa \"Dungeon Shuukatsu no Susume\" wo \"Hajime kara\" Play suru (Reincarnation in the Game World Dankatsu: Game Addict Plays \"Encouragement for Job Hunting in Dungeons\" from a \"New Game\") light novel revealed additional cast and second teaser promotional video on Wednesday. The anime will premiere in January 2027. Cast Hannah: Ayaka...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T09:24:11.000Z"
         }
       ],
@@ -242,6 +295,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-03T09:29:45.000Z",
       "summary": "The official website for the television anime adaptation of Nana Mikoshiba's Hyouken no Majutsushi ga Sekai wo Suberu (The Iceblade Sorcerer Shall Rule the World) light novel announced five additional cast members for the second season on Tuesday. The new season premiered on TBS on October 9 at 1.28 a.m., followed by BS11 at 11.00 p.m. on the same day. Cast Cathy Alphelius: Yuuki Wakai (Kakegurui) Abel Alphelius: Toshiyuki Morikawa (Nohara Hiroshi: Hiru Meshi no Ryuugi) Cyril Alphelius: Te...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 21.2,
       "trendSources": [
         "MyAnimeList"
@@ -252,6 +308,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74900432?_location=rss",
           "summary": "The official website for the television anime adaptation of Nana Mikoshiba's Hyouken no Majutsushi ga Sekai wo Suberu (The Iceblade Sorcerer Shall Rule the World) light novel announced five additional cast members for the second season on Tuesday. The new season premiered on TBS on October 9 at 1.28 a.m., followed by BS11 at 11.00 p.m. on the same day. Cast Cathy Alphelius: Yuuki Wakai (Kakegurui) Abel Alphelius: Toshiyuki Morikawa (Nohara Hiroshi: Hiru Meshi no Ryuugi) Cyril Alphelius: Te...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T09:29:45.000Z"
         }
       ],
@@ -265,6 +323,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-04T13:05:39.000Z",
       "summary": "Reincarnation in the Game World Dan-Katsu: Game Addict Plays \"Encouragement for Job Hunting in…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 15.5,
       "trendSources": [
         "Anime News Network",
@@ -276,6 +337,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/reincarnation-in-the-game-world-dan-katsu-anime-teaser-reveals-more-cast-theme-songs/.243515",
           "summary": "Ayaka Nanase, Kotone Izumi, Hikaru Iida, Chihaya Asakura join cast of January anime",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T09:59:56.000Z"
         },
         {
@@ -283,6 +346,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/reincarnation-in-the-game-world-dan-katsu-reveals-new-trailer-featuring-additional-cast-theme-songs/",
           "summary": "Reincarnation in the Game World Dan-Katsu: Game Addict Plays \"Encouragement for Job Hunting in…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T13:05:39.000Z"
         }
       ],
@@ -296,6 +361,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-04T00:56:45.000Z",
       "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon's Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine's 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 15.5,
       "trendSources": [
         "Anime News Network",
@@ -307,6 +375,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/witch-on-the-holy-night-film-gets-manga-adaptation/.243494",
           "summary": "Shikimori's Not Just a Cutie's Keigo Maki debuts manga on November 11",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T00:56:45.000Z"
         },
         {
@@ -314,6 +384,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74900816?_location=rss",
           "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon's Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine's 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T13:34:03.000Z"
         }
       ],
@@ -327,7 +399,10 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-03T12:52:35.000Z",
       "summary": "The previously teased Girls Band Cry THE MOVIE revealed a teaser visual and trailer…",
-      "score": 20.5,
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 20.4,
       "trendSources": [
         "Anime Corner"
       ],
@@ -337,11 +412,13 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/girls-band-cry-the-movie-reveals-teaser-visual-trailer-may-21-release-date/",
           "summary": "The previously teased Girls Band Cry THE MOVIE revealed a teaser visual and trailer…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T12:52:35.000Z"
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 20.5
+      "trendScore": 20.4
     },
     {
       "id": "56fa9b48b47c854a250e1c43227c9a0b99e99f6a",
@@ -350,6 +427,9 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-04T17:43:26.000Z",
       "summary": "L'anime Reincarnated as a Sword Saison 2, en Trailer 3 Adala News",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 19.9,
       "trendSources": [
         "Google Actualités"
@@ -360,6 +440,8 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOLTd1X2Q1bkVvZnJpLWRyY00ySWRxMUh5WWthdFk3SU5RTnR2c1NFQklGaTE4LVE2Tm4yTnRXUDB0eERoWGJXTk9UQXJZalNBLTY4cDUyT1dGTkYxelRLdFo2T3E5OWhTc2NFLUREWnlGdTNWcnltMW9jVzdqY1JybDQxTktISDdwUlMw?oc=5",
           "summary": "L'anime Reincarnated as a Sword Saison 2, en Trailer 3 Adala News",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T17:43:26.000Z"
         },
         {
@@ -367,6 +449,8 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5CTnVWM0h6NVU3R20yMC1lcmJuX29kT0xMekFnUmkzQmxtYkgzZUVfMzNyaHpVUTZoWWtpdFBaN181VmRJLTZnc1J2RklnOXhlT3ZxSklMT1JMQldwSC1VSWlfbmdrUnpiYzlGNWdnVkhxMFBKMmRYcUI0WQ?oc=5",
           "summary": "L'anime Watashi wo Center, en Teaser Vidéo Adala News",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T09:10:17.000Z"
         }
       ],
@@ -380,6 +464,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-01T02:52:56.000Z",
       "summary": "Publishing company Shueisha announced a television anime adaptation of Esu Omori's Shibatsuki Bukken (Shiba Inu Rooms) on Sunday. An official website also opened and revealed the main staff, cast, a teaser visual (pictured), and a teaser promotional video. The anime is scheduled to air in Summer 2027. Voice actresses Niina Nakabayashi (Awajima Hyakkei) and Mutsumi Tamura (Kobayashi-san Chi no Maid Dragon) are starring as Koori Momose and Muu, respectively. Osamu Yamasaki (Seirei Gensouki, I...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 19.6,
       "trendSources": [
         "MyAnimeList"
@@ -390,6 +477,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74892534?_location=rss",
           "summary": "Publishing company Shueisha announced a television anime adaptation of Esu Omori's Shibatsuki Bukken (Shiba Inu Rooms) on Sunday. An official website also opened and revealed the main staff, cast, a teaser visual (pictured), and a teaser promotional video. The anime is scheduled to air in Summer 2027. Voice actresses Niina Nakabayashi (Awajima Hyakkei) and Mutsumi Tamura (Kobayashi-san Chi no Maid Dragon) are starring as Koori Momose and Muu, respectively. Osamu Yamasaki (Seirei Gensouki, I...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-01T02:52:56.000Z"
         }
       ],
@@ -403,7 +492,10 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-04T11:39:25.000Z",
       "summary": "The official website for the television anime adaptation of Angyaman's Ramen Akaneko (Red Cat Ramen) revealed new staff and key visual (pictured) for the upcoming second season. The anime is scheduled to premiere in January 2027 on Tokyo TV. Staff Director: Hisatoshi Shimizu (Taisou Zamurai) Series Composition, Script: Shigeru Murakoshi (Kaya-chan wa Kowakunai) NEW Character design, Chief Animation Director: Michinori Chiba (SK∞) Art Director: Julieta Colás (Ousama Ranking: Yuu...",
-      "score": 18.4,
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 18.3,
       "trendSources": [
         "MyAnimeList"
       ],
@@ -413,11 +505,13 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74903763?_location=rss",
           "summary": "The official website for the television anime adaptation of Angyaman's Ramen Akaneko (Red Cat Ramen) revealed new staff and key visual (pictured) for the upcoming second season. The anime is scheduled to premiere in January 2027 on Tokyo TV. Staff Director: Hisatoshi Shimizu (Taisou Zamurai) Series Composition, Script: Shigeru Murakoshi (Kaya-chan wa Kowakunai) NEW Character design, Chief Animation Director: Michinori Chiba (SK∞) Art Director: Julieta Colás (Ousama Ranking: Yuu...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T11:39:25.000Z"
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 18.4
+      "trendScore": 18.3
     },
     {
       "id": "487d495e28456c8ecca4ccfa38240e5ebe253932",
@@ -426,7 +520,10 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-04T12:47:08.000Z",
       "summary": "L'anime Game Sekai Tensei Dankatsu, en Teaser Vidéo Adala News",
-      "score": 16.5,
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 16.4,
       "trendSources": [
         "Google Actualités"
       ],
@@ -436,11 +533,13 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUnptcGt3ZTBVeDhOWktsdi1BNHU4Q2dFQ1hYYUV4QXI4N2t3OVZDSWNSdTZWU0VnMmlPOUJvQmVyNE93dVJNTkxpOXE1S1NWUTVpSk1qcXpPc1FaUUdHRzdYdUVSZ1FNSTVDelFGeldCZzlaRjZ0Yzc0eklUVmNsUW04Tjc3aFE?oc=5",
           "summary": "L'anime Game Sekai Tensei Dankatsu, en Teaser Vidéo Adala News",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T12:47:08.000Z"
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 16.5
+      "trendScore": 16.4
     },
     {
       "id": "fbe13f0da491892bf4862aff71afe046bdf7e1a0",
@@ -449,6 +548,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T21:00:00.000Z",
       "summary": "Final arc starts in manga's 16th volume released on Wednesday",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 16.1,
       "trendSources": [
         "Anime News Network"
@@ -459,6 +561,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/make-the-exorcist-fall-in-love-manga-starts-final-arc/.243514",
           "summary": "Final arc starts in manga's 16th volume released on Wednesday",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T21:00:00.000Z"
         }
       ],
@@ -472,7 +576,10 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-05T04:21:18.000Z",
       "summary": "Film opens in Japan on November 27",
-      "score": 15.8,
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 15.7,
       "trendSources": [
         "Anime News Network"
       ],
@@ -482,11 +589,13 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/live-action-wandance-film-trailer-previews-theme-song-dance-scenes/.243536",
           "summary": "Film opens in Japan on November 27",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-05T04:21:18.000Z"
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 15.8
+      "trendScore": 15.7
     },
     {
       "id": "e9c617e7717066d58c08e5af45a3310dbbb2d901",
@@ -495,7 +604,10 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-05T04:25:45.000Z",
       "summary": "Takeuchi plays character Saturno in episode 6 on Saturday",
-      "score": 14.8,
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 14.7,
       "trendSources": [
         "Anime News Network"
       ],
@@ -505,34 +617,13 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/the-seven-knights-of-the-marronnier-kingdom-anime-casts-ryota-takeuchi/.243538",
           "summary": "Takeuchi plays character Saturno in episode 6 on Saturday",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-05T04:25:45.000Z"
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 14.8
-    },
-    {
-      "id": "03c9cbab365b7970f98d0deb04fe4108a20bb520",
-      "title": "'Charisma' Unveils Additional Cast, Teaser Promo",
-      "url": "https://myanimelist.net/news/74894062?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-01T14:02:37.000Z",
-      "summary": "The official website for the television anime adaptation of the Charisma House mixed-media project unveiled a pair of additional cast and teaser promotional video on Sunday. The anime series will premiere on TBS affiliate networks at 11:56 p.m. on January 7, 2027. Voice actors Shinnosuke Tachibana (Kamisama Hajimemashita) and Tomohiro Oono (Tomodachi Game) are joining the cast as Souemon Nakagami and Shuu Torahime, respectively. A short anime adaptation of Charisma will begin airing on November...",
-      "score": 14.6,
-      "trendSources": [
-        "MyAnimeList"
-      ],
-      "trendArticles": [
-        {
-          "title": "'Charisma' Unveils Additional Cast, Teaser Promo",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74894062?_location=rss",
-          "summary": "The official website for the television anime adaptation of the Charisma House mixed-media project unveiled a pair of additional cast and teaser promotional video on Sunday. The anime series will premiere on TBS affiliate networks at 11:56 p.m. on January 7, 2027. Voice actors Shinnosuke Tachibana (Kamisama Hajimemashita) and Tomohiro Oono (Tomodachi Game) are joining the cast as Souemon Nakagami and Shuu Torahime, respectively. A short anime adaptation of Charisma will begin airing on November...",
-          "publishedAt": "2026-11-01T14:02:37.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 14.6
+      "trendScore": 14.7
     },
     {
       "id": "7b22bb46cacaaf30246c6d78998887f56c226469",
@@ -541,6 +632,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-05T01:30:45.000Z",
       "summary": "Film opened in Japan in June 2024",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 14.5,
       "trendSources": [
         "Anime News Network"
@@ -551,6 +645,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/look-back-anime-film-wins-kineko-intl-film-fest-teens-feature-award/.243503",
           "summary": "Film opened in Japan in June 2024",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-05T01:30:45.000Z"
         }
       ],
@@ -564,6 +660,9 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-04T13:00:00.000Z",
       "summary": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? Serieously",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 14.5,
       "trendSources": [
         "Google Actualités"
@@ -574,7 +673,37 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxORGw5dTE3ZklhSlViQUNOYjl5RDAtal9MZTB2NWZpWk1pS2lESF8wSzJncktnWklvTXdIVC1QQVZyX0NkYTFxemhNV0FKY01WQkdSVEk5WFk5ZEZmcDRla3JQNElvUDZsWHdodW5fdkVjQU04dVJFZUlya0dMQXN3NFg3eFcxTzZENGlFYUhKQWhtMUw5a0IyV3NWWFhGcHBhak9SSnd2cmp4dUFQUDZvR2ZqSTdsNTcyOV9uTHRGQjNyMlk?oc=5",
           "summary": "I Parry Everything : l’anime aura-t-il une saison 2 ? Quand sera-t-elle disponible sur Netflix ? Serieously",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T13:00:00.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 14.5
+    },
+    {
+      "id": "03c9cbab365b7970f98d0deb04fe4108a20bb520",
+      "title": "'Charisma' Unveils Additional Cast, Teaser Promo",
+      "url": "https://myanimelist.net/news/74894062?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T14:02:37.000Z",
+      "summary": "The official website for the television anime adaptation of the Charisma House mixed-media project unveiled a pair of additional cast and teaser promotional video on Sunday. The anime series will premiere on TBS affiliate networks at 11:56 p.m. on January 7, 2027. Voice actors Shinnosuke Tachibana (Kamisama Hajimemashita) and Tomohiro Oono (Tomodachi Game) are joining the cast as Souemon Nakagami and Shuu Torahime, respectively. A short anime adaptation of Charisma will begin airing on November...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 14.5,
+      "trendSources": [
+        "MyAnimeList"
+      ],
+      "trendArticles": [
+        {
+          "title": "'Charisma' Unveils Additional Cast, Teaser Promo",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74894062?_location=rss",
+          "summary": "The official website for the television anime adaptation of the Charisma House mixed-media project unveiled a pair of additional cast and teaser promotional video on Sunday. The anime series will premiere on TBS affiliate networks at 11:56 p.m. on January 7, 2027. Voice actors Shinnosuke Tachibana (Kamisama Hajimemashita) and Tomohiro Oono (Tomodachi Game) are joining the cast as Souemon Nakagami and Shuu Torahime, respectively. A short anime adaptation of Charisma will begin airing on November...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
+          "publishedAt": "2026-11-01T14:02:37.000Z"
         }
       ],
       "trendSourceCount": 1,
@@ -587,6 +716,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-04T10:18:11.000Z",
       "summary": "Black Clover Season 2 has released preview images and synopsis for Episode 6 (Episode…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 13.2,
       "trendSources": [
         "Anime Corner"
@@ -597,6 +729,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/black-clover-season-2-episode-6-previews-noelle-and-charlotte-facing-vanica/",
           "summary": "Black Clover Season 2 has released preview images and synopsis for Episode 6 (Episode…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T10:18:11.000Z"
         }
       ],
@@ -610,6 +744,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-03T22:00:00.000Z",
       "summary": "Makana Watari's manga adaptation of Yuuri Seo's light novels launched in 2019",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 13.2,
       "trendSources": [
         "Anime News Network"
@@ -620,6 +757,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/im-running-for-crown-princess-but-all-i-want-is-a-steady-paycheck-manga-ends/.243474",
           "summary": "Makana Watari's manga adaptation of Yuuri Seo's light novels launched in 2019",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T22:00:00.000Z"
         }
       ],
@@ -633,6 +772,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-10-30T15:28:17.000Z",
       "summary": "TMS Entertainment opened an official website for a television anime adaptation of Miki Yoshikawa's Hiiragi-san Chi no Kyuuketsu Jijou (Hiragi-san's House of Vampires) manga on Saturday, revealing a teaser visual (pictured). Unlimited Produce by TMS is credited for the planning and production. Yoshikawa (Kakkou no Iinazuke) originally drew the supernatural romcom manga as a one-shot in Weekly Shounen Magazine in September 2019. Bessatsu Shounen Magazine began serializing the series in O...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 13,
       "trendSources": [
         "MyAnimeList"
@@ -643,6 +785,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74885918?_location=rss",
           "summary": "TMS Entertainment opened an official website for a television anime adaptation of Miki Yoshikawa's Hiiragi-san Chi no Kyuuketsu Jijou (Hiragi-san's House of Vampires) manga on Saturday, revealing a teaser visual (pictured). Unlimited Produce by TMS is credited for the planning and production. Yoshikawa (Kakkou no Iinazuke) originally drew the supernatural romcom manga as a one-shot in Weekly Shounen Magazine in September 2019. Bessatsu Shounen Magazine began serializing the series in O...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-30T15:28:17.000Z"
         }
       ],
@@ -656,6 +800,9 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-04T16:00:00.000Z",
       "summary": "Les éditions Huber dévoilent leurs prochaines sorties Manga news",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 12.7,
       "trendSources": [
         "Google Actualités"
@@ -666,6 +813,8 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxORXVfdVpwVGdkcjJ1cjhMclRuNGxTNjc1VVQxX19JdlpXc01WTGRURkdNZ3RiVElwWWpEZkt6ajlIR2RGNVZHakpuWUVoQllfZ2toc1B2d3JRTTZKYmVfQ2NubGZvMnFKeHRzYU5wYWdlQzBseXUyZkEwbHd0MUUtbS0yR05fTG43SWJEY09HUTgxdUFEUlNMRVJXZEc5YWc2MVVrd1htRVFXRTDSAaoBQVVfeXFMTUNNNzhoQTdiMkgxSk80NEt6NEowclROeWdXY0dwVlNnS1JKOVRmd2RxX0JETmlVVUZhQ1BocmxPX3NEWEhjT2FLOURfbEU2d1BHYmVTVE8yX05MZkxOT0NaeU9VVjl1R19VSVg3ZXBWUU94WGdYNGQzZFlnb1RpbVFxMFpJV1JlR1VET3lqNl9OeUxXMExoV3N3TndScFlJR1FTQk5iR242VlE?oc=5",
           "summary": "Les éditions Huber dévoilent leurs prochaines sorties Manga news",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T16:00:00.000Z"
         }
       ],
@@ -679,6 +828,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T15:00:00.000Z",
       "summary": "Mikawa writes, Shimotsuki draws Ryū no Kuni Gensō fantasy manga",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 12.6,
       "trendSources": [
         "Anime News Network"
@@ -689,6 +841,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/sugar-apple-fairy-tale-miri-mikawa-brave10-kairi-shimotsuki-launch-new-manga-on-november-24/.243510",
           "summary": "Mikawa writes, Shimotsuki draws Ryū no Kuni Gensō fantasy manga",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T15:00:00.000Z"
         }
       ],
@@ -702,6 +856,9 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-04T15:00:00.000Z",
       "summary": "Une nouvelle collection ITO Junji chez Celio Manga news",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 12.6,
       "trendSources": [
         "Google Actualités"
@@ -712,6 +869,8 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQTFYzdjZ3UXR2cGZPVjJFQU5aVS1EdU5TckNTZVVrOHh5UW1QazBUOVlONGVZUWJJYXRWN2RqUE8zNkdYdmNIWU1ld0twQ2FsakxmVVpFOHE5andvZmg3YXloMktIWnJRam11WWdPT28zMXJEakV3NUMtMmpkSGNVakJVUXR3dWcyRVpKV1BOUlJrbUVBMmlOdU55VzBDYUHSAZ4BQVVfeXFMUHNhQnRVSWt0dGZlQS16R0Vmd1dzOHVhckNQOHRfbWc2d19rdVVvNTJpQWtrSURIWXJlazJ2enhPUjMwa3hMdDRDM0x2OHJSa1ZVa2V5R3Vma3VDb083QllJbHJyaUxXZEhKS05WOGZtTUgwT19zQ0VxN0x3bFpxaC1aSC1EeWxIWlE2QVc5Qm1QUFlkcVIxWTZ0cEVYUkE?oc=5",
           "summary": "Une nouvelle collection ITO Junji chez Celio Manga news",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T15:00:00.000Z"
         }
       ],
@@ -725,6 +884,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T02:54:42.000Z",
       "summary": "Yuki Sakakihara, Mai Kanno, Ai Fairouz, Yōhei Azakami star",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 12.6,
       "trendSources": [
         "Anime News Network"
@@ -735,6 +897,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/pero-pero-sparkles-anime-reveals-cast-staff-january-debut/.243506",
           "summary": "Yuki Sakakihara, Mai Kanno, Ai Fairouz, Yōhei Azakami star",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T02:54:42.000Z"
         }
       ],
@@ -748,6 +912,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-05T00:26:43.000Z",
       "summary": "Beacon of Light in the Dark Sea , Dangers in My Heart , 7th Time Loop audiobooks",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 12.4,
       "trendSources": [
         "Anime News Network"
@@ -758,6 +925,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/seven-seas-licenses-led-by-stars-manga-melting-point-manhwa-3-audiobooks/.243530",
           "summary": "Beacon of Light in the Dark Sea , Dangers in My Heart , 7th Time Loop audiobooks",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-05T00:26:43.000Z"
         }
       ],
@@ -771,6 +940,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T17:30:11.000Z",
       "summary": "The official X/Twitter account for the Pokémon franchise announced on Wednesday that the second part of the paid Expansion Pass DLC for Pokémon...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 11.8,
       "trendSources": [
         "Anime News Network"
@@ -781,6 +953,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/daily-briefs/2026-11-04/pokemon-pokopia-game-adds-expansion-pass-dlc-part-2-dazzling-decorations-on-december-9/.243522",
           "summary": "The official X/Twitter account for the Pokémon franchise announced on Wednesday that the second part of the paid Expansion Pass DLC for Pokémon...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T17:30:11.000Z"
         }
       ],
@@ -794,6 +968,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T16:00:00.000Z",
       "summary": "Campaign to raise €7,000 launches on November 19",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 11.7,
       "trendSources": [
         "Anime News Network"
@@ -804,6 +981,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/yayu-murata-launches-kickstarter-for-across-the-strange-edge-manga-2nd-volume-deluxe-hardcover-/.243521",
           "summary": "Campaign to raise €7,000 launches on November 19",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T16:00:00.000Z"
         }
       ],
@@ -817,6 +996,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T03:57:16.000Z",
       "summary": "Previous batch of new episodes debuted on October 3",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 11.7,
       "trendSources": [
         "Anime News Network"
@@ -827,6 +1009,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/butt-detective-tv-anime-gets-new-episodes-starting-next-april/.243508",
           "summary": "Previous batch of new episodes debuted on October 3",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T03:57:16.000Z"
         }
       ],
@@ -840,6 +1024,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-05T01:28:12.000Z",
       "summary": "Film sold 590,000 tickets for 910 million yen on Tuesday opening",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 11.5,
       "trendSources": [
         "Anime News Network"
@@ -850,6 +1037,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/godzilla-minus-zero-earns-highest-ever-opening-day-for-live-action-film-in-japan/.243535",
           "summary": "Film sold 590,000 tickets for 910 million yen on Tuesday opening",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-05T01:28:12.000Z"
         }
       ],
@@ -863,6 +1052,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T13:46:36.000Z",
       "summary": "Sakamoto Days spinoff series debuted in July 2024",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 11.5,
       "trendSources": [
         "Anime News Network"
@@ -873,6 +1065,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/sakamoto-holidays-manga-heads-towards-climax/.243496",
           "summary": "Sakamoto Days spinoff series debuted in July 2024",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T13:46:36.000Z"
         }
       ],
@@ -886,6 +1080,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-01T09:53:25.000Z",
       "summary": "The official X (formerly Twitter) account of Comic Heaven announced on Friday that manga creator Hiroshi Fukuda will launch a new manga, titled Koko wa Kagari no Territory (Here is Kagari's territory), in the magazine next issue, scheduled for a November 30 release. Fukuda is best known for Rock wa Lady no Tashinami deshite (Rock Is a Lady's Modesty), which began serializing in Young Animal from October 2022. Hakusensha published the eighth volume in August 2025. Yen Press licensed the...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 11.2,
       "trendSources": [
         "MyAnimeList"
@@ -896,6 +1093,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74893568?_location=rss",
           "summary": "The official X (formerly Twitter) account of Comic Heaven announced on Friday that manga creator Hiroshi Fukuda will launch a new manga, titled Koko wa Kagari no Territory (Here is Kagari's territory), in the magazine next issue, scheduled for a November 30 release. Fukuda is best known for Rock wa Lady no Tashinami deshite (Rock Is a Lady's Modesty), which began serializing in Young Animal from October 2022. Hakusensha published the eighth volume in August 2025. Yen Press licensed the...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-01T09:53:25.000Z"
         }
       ],
@@ -909,6 +1108,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-01T16:44:16.000Z",
       "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi's Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi's Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 10.8,
       "trendSources": [
         "MyAnimeList"
@@ -919,6 +1121,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74894552?_location=rss",
           "summary": "Here are the North American anime, manga, and light novel releases for November. Week 1: November 3 - 9 Anime Releases Kobayashi-san Chi no Maid Dragon (incl. Valentine, Soshite Onsen! - Amari Kitai Shinaide Kudasai and OO Dragon) (Miss Kobayashi's Dragon Maid) Blu-ray [SteelBook] Kobayashi-san Chi no Maid Dragon S (incl. Nippon no Omotenashi - Attend wa Dragon desu, Mini Dragon, and Specials) (Miss Kobayashi's Dragon Maid S) Blu-ray [SteelBook] Manga Releases Aharen-san wa Hakarenai (...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-01T16:44:16.000Z"
         }
       ],
@@ -932,6 +1136,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-03T16:01:49.000Z",
       "summary": "I'm Dating a Dark Summoner Omake Shorts will premiere exclusively on HIDIVE on November…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 10.7,
       "trendSources": [
         "Anime Corner"
@@ -942,6 +1149,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/exclusive-im-dating-a-dark-summoner-omake-shorts-premieres-on-hidive-on-november-6-key-visual-and-trailer-revealed/",
           "summary": "I'm Dating a Dark Summoner Omake Shorts will premiere exclusively on HIDIVE on November…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T16:01:49.000Z"
         }
       ],
@@ -955,6 +1164,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T02:42:35.000Z",
       "summary": "Series to end in 26th volume",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 10.6,
       "trendSources": [
         "Anime News Network"
@@ -965,6 +1177,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/kemono-jihen-manga-climax-is-imminent/.243495",
           "summary": "Series to end in 26th volume",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T02:42:35.000Z"
         }
       ],
@@ -978,6 +1192,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T00:00:00.000Z",
       "summary": "AV Danyū Hajimemashita Reiwa-hen sequel manga launched on October 30",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 10.4,
       "trendSources": [
         "Anime News Network"
@@ -988,6 +1205,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/kaeruno-erefante-launches-manga-diary-of-a-male-porn-star-sequel/.243477",
           "summary": "AV Danyū Hajimemashita Reiwa-hen sequel manga launched on October 30",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T00:00:00.000Z"
         }
       ],
@@ -1001,6 +1220,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-03T23:00:00.000Z",
       "summary": "Spy romance manga launched in March earlier this year",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 10.3,
       "trendSources": [
         "Anime News Network"
@@ -1011,6 +1233,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/watari-sakou-honey-trap-method-manga-ends-on-december-1/.243466",
           "summary": "Spy romance manga launched in March earlier this year",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T23:00:00.000Z"
         }
       ],
@@ -1024,6 +1248,9 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-03T21:00:00.000Z",
       "summary": "Series debuted in 2012",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 10.1,
       "trendSources": [
         "Anime News Network"
@@ -1034,6 +1261,8 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-03/seraph-of-the-end-manga-ends-on-december-4/.243493",
           "summary": "Series debuted in 2012",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T21:00:00.000Z"
         }
       ],
@@ -1047,6 +1276,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-03T17:58:24.000Z",
       "summary": "Cartoonist and designer Jim Rugg has created a limited edition Astro Boy blacklight poster…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 9.9,
       "trendSources": [
         "Anime Corner"
@@ -1057,6 +1289,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/jim-rugg-creates-limited-edition-astro-boy-blacklight-poster-for-tezuka-god-of-manga-documentary/",
           "summary": "Cartoonist and designer Jim Rugg has created a limited edition Astro Boy blacklight poster…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T17:58:24.000Z"
         }
       ],
@@ -1070,6 +1304,9 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-03T13:38:39.000Z",
       "summary": "Le retour du manga Dragon Ball Super se complique de plus en plus Numerama",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 9.5,
       "trendSources": [
         "Google Actualités"
@@ -1080,6 +1317,8 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxNUkZBVHJjSlZtbEU2WDk5ZGwybWhwc2Fqa18weDRfcFVYR0Q5Zk5BOUpyN3NITmtIaHpYMXMwTXJNd2Q0Sl80TlRUSFZOdmQtMDEyMjRVZDFFeEZadXFJSFlrcUdEZjNWbVNCM0hOMEVoc0dmeXE3RUQ3a1E0X3JRM3pBVXFONkdVWUVvZVZ2RzhXZVhueXJYME5RRlFDX1F1amtzcGFKTEItZnhfM1pFbElXNjhIZw?oc=5",
           "summary": "Le retour du manga Dragon Ball Super se complique de plus en plus Numerama",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-03T13:38:39.000Z"
         }
       ],
@@ -1093,6 +1332,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-04T23:59:17.000Z",
       "summary": "Lucca Comics & Games concluded last week, but we can't forget the lively Halloween…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 9.4,
       "trendSources": [
         "Anime Corner"
@@ -1103,6 +1345,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/halloween-night-at-lucca-comics-and-games-2026-photo-gallery/",
           "summary": "Lucca Comics & Games concluded last week, but we can't forget the lively Halloween…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T23:59:17.000Z"
         }
       ],
@@ -1116,7 +1360,10 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-04T20:00:00.000Z",
       "summary": "Ha became 1st Korean comic artist to join Japan Cartoonists Association as full member in 2007",
-      "score": 9.1,
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 9,
       "trendSources": [
         "Anime News Network"
       ],
@@ -1126,11 +1373,13 @@
           "source": "Anime News Network",
           "url": "https://www.animenewsnetwork.com/news/2026-11-04/martial-arts-manhwa-artist-seung-nam-ha-dies-at-68/.243512",
           "summary": "Ha became 1st Korean comic artist to join Japan Cartoonists Association as full member in 2007",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T20:00:00.000Z"
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 9.1
+      "trendScore": 9
     },
     {
       "id": "8aab011dbc6fcabf51c5bd3e43124b15b011f187",
@@ -1139,6 +1388,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-10-30T14:09:48.000Z",
       "summary": "The official website of the Pole Princess!! anime series announced a new theatrical anime titled Pole Princess!!: Croix du Nord on Friday, revealing the returning cast and staff. The anime will run for approximately 60 minutes, featuring five new songs from the Shining Pole Song Album and an original story. A two-week limited theatrical screening of the anime will begin at six theaters in Japan on January 29, 2027. Voice actresses Rio Tsuchiya (Shibou Yuugi de Meshi wo Kuu.), Anna Suzuki (Musho...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 9,
       "trendSources": [
         "MyAnimeList"
@@ -1149,6 +1401,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74885701?_location=rss",
           "summary": "The official website of the Pole Princess!! anime series announced a new theatrical anime titled Pole Princess!!: Croix du Nord on Friday, revealing the returning cast and staff. The anime will run for approximately 60 minutes, featuring five new songs from the Shining Pole Song Album and an original story. A two-week limited theatrical screening of the anime will begin at six theaters in Japan on January 29, 2027. Voice actresses Rio Tsuchiya (Shibou Yuugi de Meshi wo Kuu.), Anna Suzuki (Musho...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-30T14:09:48.000Z"
         }
       ],
@@ -1162,6 +1416,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-01T16:06:04.000Z",
       "summary": "Norihiro Yagi, the creator of Claymore, began serializing a new manga titled Bartlet Fairy Basslet on the Shounen Jump+ platform on Monday. Yagi serialized Claymore in Monthly Shounen Jump from June 2001 to June 2007. Following the magazine's discontinuance, the manga switched to Jump SQ. in November 2007, where it ended in October 2014. Shueisha published the 27th and final volume in December 2014. VIZ Media licensed the manga in English in July 2006 and published the 27th volume in Octobe...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 8.7,
       "trendSources": [
         "MyAnimeList"
@@ -1172,6 +1429,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74894409?_location=rss",
           "summary": "Norihiro Yagi, the creator of Claymore, began serializing a new manga titled Bartlet Fairy Basslet on the Shounen Jump+ platform on Monday. Yagi serialized Claymore in Monthly Shounen Jump from June 2001 to June 2007. Following the magazine's discontinuance, the manga switched to Jump SQ. in November 2007, where it ended in October 2014. Shueisha published the 27th and final volume in December 2014. VIZ Media licensed the manga in English in July 2006 and published the 27th volume in Octobe...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-01T16:06:04.000Z"
         }
       ],
@@ -1185,6 +1444,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-04T12:00:03.000Z",
       "summary": "A life-size figure of Marin Kitagawa from My Dress-Up Darling has been revealed, with pre-orders now open via the official Prime 1 Studio online store.",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 8.4,
       "trendSources": [
         "Anime Corner"
@@ -1195,30 +1457,9 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/my-dress-up-darling-reveals-1-32-million-life-size-marin-kitagawa-figure/",
           "summary": "A life-size figure of Marin Kitagawa from My Dress-Up Darling has been revealed, with pre-orders now open via the official Prime 1 Studio online store.",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T12:00:03.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 8.4
-    },
-    {
-      "id": "cf2b875a4c7000148f801895d092e42e44089b4e",
-      "title": "Isshiki-san Wants to Know About Love Anime Reveals New Trailer, Opening Theme Song Artist",
-      "url": "https://animecorner.me/isshiki-san-wants-to-know-about-love-anime-reveals-new-trailer-opening-theme-song-artist/",
-      "source": "Anime Corner",
-      "publishedAt": "2026-10-31T11:37:06.000Z",
-      "summary": "Isshiki-san Wants to Know About Love anime revealed a new trailer and the opening…",
-      "score": 8.4,
-      "trendSources": [
-        "Anime Corner"
-      ],
-      "trendArticles": [
-        {
-          "title": "Isshiki-san Wants to Know About Love Anime Reveals New Trailer, Opening Theme Song Artist",
-          "source": "Anime Corner",
-          "url": "https://animecorner.me/isshiki-san-wants-to-know-about-love-anime-reveals-new-trailer-opening-theme-song-artist/",
-          "summary": "Isshiki-san Wants to Know About Love anime revealed a new trailer and the opening…",
-          "publishedAt": "2026-10-31T11:37:06.000Z"
         }
       ],
       "trendSourceCount": 1,
@@ -1231,6 +1472,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-04T10:47:57.000Z",
       "summary": "TTRacing has officially unveiled its first-ever sofa chair with the ORA Sofa Chair BT21…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 8.3,
       "trendSources": [
         "Anime Corner"
@@ -1241,7 +1485,37 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/from-gaming-to-lifestyle-ttracing-unveils-the-ora-sofa-chair-bt21-collection/",
           "summary": "TTRacing has officially unveiled its first-ever sofa chair with the ORA Sofa Chair BT21…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T10:47:57.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 8.3
+    },
+    {
+      "id": "cf2b875a4c7000148f801895d092e42e44089b4e",
+      "title": "Isshiki-san Wants to Know About Love Anime Reveals New Trailer, Opening Theme Song Artist",
+      "url": "https://animecorner.me/isshiki-san-wants-to-know-about-love-anime-reveals-new-trailer-opening-theme-song-artist/",
+      "source": "Anime Corner",
+      "publishedAt": "2026-10-31T11:37:06.000Z",
+      "summary": "Isshiki-san Wants to Know About Love anime revealed a new trailer and the opening…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
+      "score": 8.3,
+      "trendSources": [
+        "Anime Corner"
+      ],
+      "trendArticles": [
+        {
+          "title": "Isshiki-san Wants to Know About Love Anime Reveals New Trailer, Opening Theme Song Artist",
+          "source": "Anime Corner",
+          "url": "https://animecorner.me/isshiki-san-wants-to-know-about-love-anime-reveals-new-trailer-opening-theme-song-artist/",
+          "summary": "Isshiki-san Wants to Know About Love anime revealed a new trailer and the opening…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
+          "publishedAt": "2026-10-31T11:37:06.000Z"
         }
       ],
       "trendSourceCount": 1,
@@ -1254,6 +1528,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-04T09:54:28.000Z",
       "summary": "Far East Groove, the musical project led by composer Yasuharu Takanashi, wrapped up its…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 8.2,
       "trendSources": [
         "Anime Corner"
@@ -1264,6 +1541,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/yasuharu-takanashi-and-far-east-groove-madrid-concert-2026/",
           "summary": "Far East Groove, the musical project led by composer Yasuharu Takanashi, wrapped up its…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-04T09:54:28.000Z"
         }
       ],
@@ -1277,6 +1556,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-10-31T07:47:07.000Z",
       "summary": "The official website for the Kaze wo Tsugumono (Inherit the Winds) original television anime announced supporting cast on Saturday. An advance theatrical screening will run for two weeks starting November 13. The anime will premiere in January 2027 at 11:30 p.m. on the Agaru Anime programming block on CBC and TBS' 28 affiliated stations. Cast Nishiki Niimi: Daisuke Hirakawa (Tefuda ga Oome no Victoria) Kisaburou Kawai: Toshiyuki Toyonaga (Mao) Kyuusai Momoyama: Kappei Yamaguchi (Yomi no Ts...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 8,
       "trendSources": [
         "MyAnimeList"
@@ -1287,6 +1569,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74888954?_location=rss",
           "summary": "The official website for the Kaze wo Tsugumono (Inherit the Winds) original television anime announced supporting cast on Saturday. An advance theatrical screening will run for two weeks starting November 13. The anime will premiere in January 2027 at 11:30 p.m. on the Agaru Anime programming block on CBC and TBS' 28 affiliated stations. Cast Nishiki Niimi: Daisuke Hirakawa (Tefuda ga Oome no Victoria) Kisaburou Kawai: Toshiyuki Toyonaga (Mao) Kyuusai Momoyama: Kappei Yamaguchi (Yomi no Ts...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-31T07:47:07.000Z"
         }
       ],
@@ -1300,6 +1584,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-10-30T09:43:30.000Z",
       "summary": "The official website for the television anime adaptation of Firehead's Kaketa Tsuki no Mercedes: Kyuuketsuki no Kizoku ni Tensei shita kedo Suteraresou nanode Dungeon wo Seiha suru (Mercedes and the Waning Moon: The Dungeoneering Feats of a Discarded Vampire Aristocrat) light novel revealed additional cast and second promotional video. The anime series will premiere in January 2027. Cast Benkei: Kenta Miyake (Hidarikiki no Eren) Kuro: Ryuunosuke Watanuki (Yomi no Tsugai) Florian: Junichi Su...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 8,
       "trendSources": [
         "MyAnimeList"
@@ -1310,6 +1597,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74885002?_location=rss",
           "summary": "The official website for the television anime adaptation of Firehead's Kaketa Tsuki no Mercedes: Kyuuketsuki no Kizoku ni Tensei shita kedo Suteraresou nanode Dungeon wo Seiha suru (Mercedes and the Waning Moon: The Dungeoneering Feats of a Discarded Vampire Aristocrat) light novel revealed additional cast and second promotional video. The anime series will premiere in January 2027. Cast Benkei: Kenta Miyake (Hidarikiki no Eren) Kuro: Ryuunosuke Watanuki (Yomi no Tsugai) Florian: Junichi Su...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-30T09:43:30.000Z"
         }
       ],
@@ -1323,6 +1612,9 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-02T13:00:00.000Z",
       "summary": "Psyren : pourquoi Crunchyroll ne diffuse-t-il pas un épisode inédit ? Quand l’anime fera-t-il son retour ? Serieously",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 7.5,
       "trendSources": [
         "Google Actualités"
@@ -1333,6 +1625,8 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQTmYxdWNaZ3pPcm9KY1Q0cUtnQjA0czlUcmhzZmttM3U0YWtZVFhoZ0pCLXV2R3FlcHNFczNwYTdiXzRkRzhkWE91dWxIc3lzdHN3MXluQms4S1RDelhKcl9TZk5TYUpqQ1BDcTJmT3VjbFhucTdtQllQU1FER29tMl9kOEZWYlZINGRncWZ6OFRLbUdXN0lPYktxUjk3c1k5Yzh6NDFObzhiS2lvU3ZxcXJjUGk2U3ZPSHZYcjQyeUladkVORjlYTGxZV0N5Ni1W?oc=5",
           "summary": "Psyren : pourquoi Crunchyroll ne diffuse-t-il pas un épisode inédit ? Quand l’anime fera-t-il son retour ? Serieously",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-02T13:00:00.000Z"
         }
       ],
@@ -1346,6 +1640,9 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-02T11:54:04.000Z",
       "summary": "Noël Manga 2026 : une chaussette collector offerte | Pika Pika Édition",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 7.4,
       "trendSources": [
         "Google Actualités"
@@ -1356,6 +1653,8 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxPUW41Sl9zemFRS3l1NEJXTkk3VHNiUkNUdHhxNGFuMXRvUFZvTmZ0SFk1SmQ3dWdNYnJPN2x0T3BWbURuQjhCUWsxakYzX0MtZW5CSVpYQnVlaVNFWEtEdlZqZWhjZTE1cHpfeF9SWnNJTHctUndpU2N0c1QwUEZpMWNTZ3FMUHJSX0lRTmZsT3hUQ2RiZEE?oc=5",
           "summary": "Noël Manga 2026 : une chaussette collector offerte | Pika Pika Édition",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-02T11:54:04.000Z"
         }
       ],
@@ -1369,6 +1668,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-10-31T10:49:24.000Z",
       "summary": "Hiragi-san's House of Vampires manga by Miki Yoshikawa (A Couple of Cuckoos) is getting…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 6.3,
       "trendSources": [
         "Anime Corner"
@@ -1379,6 +1681,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/hiragi-sans-house-of-vampires-gets-anime/",
           "summary": "Hiragi-san's House of Vampires manga by Miki Yoshikawa (A Couple of Cuckoos) is getting…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-31T10:49:24.000Z"
         }
       ],
@@ -1392,6 +1696,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-10-29T15:22:44.000Z",
       "summary": "Disney Twisted-Wonderland The Animation: Episode of Savanaclaw revealed a new visual, along with a December 23 premiere date.",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 6,
       "trendSources": [
         "Anime Corner"
@@ -1402,6 +1709,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/disney-twisted-wonderland-season-2-episode-of-savanaclaw-reveals-new-visual-december-23-premiere/",
           "summary": "Disney Twisted-Wonderland The Animation: Episode of Savanaclaw revealed a new visual, along with a December 23 premiere date.",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-29T15:22:44.000Z"
         }
       ],
@@ -1415,6 +1724,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-01T17:12:15.000Z",
       "summary": "During Anime Central 2026 we had the incredible opportunity to speak with voice actor…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 5.8,
       "trendSources": [
         "Anime Corner"
@@ -1425,6 +1737,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/interview-voice-actor-cassandra-lee-morris/",
           "summary": "During Anime Central 2026 we had the incredible opportunity to speak with voice actor…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-01T17:12:15.000Z"
         }
       ],
@@ -1438,6 +1752,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-10-31T20:53:30.000Z",
       "summary": "JUJUTSU KAISEN revealed 12 new character poster visuals for Culling Game Arc Part 1 (Season 3) ahead of Season 4.",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 5.1,
       "trendSources": [
         "Anime Corner"
@@ -1448,6 +1765,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/jujutsu-kaisen-reveals-12-new-culling-game-character-posters-ahead-of-season-4/",
           "summary": "JUJUTSU KAISEN revealed 12 new character poster visuals for Culling Game Arc Part 1 (Season 3) ahead of Season 4.",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-31T20:53:30.000Z"
         }
       ],
@@ -1461,6 +1780,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-10-28T13:01:00.000Z",
       "summary": "The Greatest Magicmaster’s Retirement Plan anime unveiled a new visual featuring the character Tesfia…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 4,
       "trendSources": [
         "Anime Corner"
@@ -1471,6 +1793,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/the-greatest-magicmasters-retirement-plan-anime-unveils-tesfia-character-visual/",
           "summary": "The Greatest Magicmaster’s Retirement Plan anime unveiled a new visual featuring the character Tesfia…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-28T13:01:00.000Z"
         }
       ],
@@ -1484,6 +1808,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-10-28T12:50:01.000Z",
       "summary": "The upcoming Medaka Kuroiwa Is Impervious to My Charms Season 2 revealed a new…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 4,
       "trendSources": [
         "Anime Corner"
@@ -1494,6 +1821,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/medaka-kuroiwa-is-impervious-to-my-charms-season-2-reveals-new-visual-digest-video/",
           "summary": "The upcoming Medaka Kuroiwa Is Impervious to My Charms Season 2 revealed a new…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-28T12:50:01.000Z"
         }
       ],
@@ -1507,6 +1836,9 @@
       "source": "Google Actualités",
       "publishedAt": "2026-10-27T16:00:00.000Z",
       "summary": "Chez Vega, Le Paradis attendra Manga news",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 4,
       "trendSources": [
         "Google Actualités"
@@ -1517,6 +1849,8 @@
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxNaWRmd3dBMTR0TzR4bVNBcUpqQm5LUjAtSWt5ZWFZaXRNdFRZbVRpLU9QV2FBSk11RFJUS2RSTE4zOUpsalZOb2Q3eEoyOUNlbjhoOHBmY1B4dzQ3c19vM0pfWHQ4Q3pLMkhaX05RR2hWT3NYbXdINF83dlZDVzl0cjNJeTd2TGQ0anhN0gGKAUFVX3lxTE5YTHNwVGMtUjV5cnRLbWJEbURZZTl3VmJXZ2FVdnlndGtpVXR5ZzIwQXRBOXpXSXhyeWx1dFBMbndUSXV4ajBLSmRZeEREMGJDQnZZaXBTeFg5LW1ycHJaRnZpcHoxSmt6ZGRmNGFDbVhxaEx6Zm42ZWVRQ1dRWFNRaEI0NFY5Q2tUdw?oc=5",
           "summary": "Chez Vega, Le Paradis attendra Manga news",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-27T16:00:00.000Z"
         }
       ],
@@ -1530,6 +1864,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-11-02T05:57:14.000Z",
       "summary": "On October 23, ONE OR EIGHT brought their high-energy music to Samsung Hall, Manila,…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 3.9,
       "trendSources": [
         "Anime Corner"
@@ -1540,6 +1877,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/interview-one-or-eight-on-all-or-nothing-musical-identity-creative-ambitions-and-first-manila-concert/",
           "summary": "On October 23, ONE OR EIGHT brought their high-energy music to Samsung Hall, Manila,…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-11-02T05:57:14.000Z"
         }
       ],
@@ -1553,6 +1892,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-10-31T05:20:15.000Z",
       "summary": "Sumitomo Mitsui Trust Bank and IP platform company Comisma have agreed in principle to establish an investment fund focused on anime production, targeting 10 billion yen (approximately US$63.4 million) in assets under management by the end of fiscal 2027. The initiative aims to broaden access to production financing, attract a broader range of investors, and improve financial returns for creators as demand for Japanese animation continues to grow worldwide. Under the proposed arrangement, the t...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 3,
       "trendSources": [
         "MyAnimeList"
@@ -1563,6 +1905,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74888629?_location=rss",
           "summary": "Sumitomo Mitsui Trust Bank and IP platform company Comisma have agreed in principle to establish an investment fund focused on anime production, targeting 10 billion yen (approximately US$63.4 million) in assets under management by the end of fiscal 2027. The initiative aims to broaden access to production financing, attract a broader range of investors, and improve financial returns for creators as demand for Japanese animation continues to grow worldwide. Under the proposed arrangement, the t...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-31T05:20:15.000Z"
         }
       ],
@@ -1576,6 +1920,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-10-30T12:30:00.000Z",
       "summary": "Bleach wins Fall 2026 Week 4 with 25.31%, followed by Firefly Wedding and Student Council. Both Bleach and Cyberpunk leave the weekly polls after this week.",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 3,
       "trendSources": [
         "Anime Corner"
@@ -1586,6 +1933,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/fall-2026-anime-rankings-week-4/",
           "summary": "Bleach wins Fall 2026 Week 4 with 25.31%, followed by Firefly Wedding and Student Council. Both Bleach and Cyberpunk leave the weekly polls after this week.",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-30T12:30:00.000Z"
         }
       ],
@@ -1599,6 +1948,9 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-10-30T11:51:23.000Z",
       "summary": "The official X account for Kadokawa's MF Books label announced on Friday that Rifujin na Magonote's Mushoku Tensei: Dasoku-hen (Mushoku Tensei: Redundant Reincarnation) light novel will end with its fourth volume on November 25. Rifujin penned the short story collection of Mushoku Tensei: Isekai Ittara Honki Dasu (Mushoku Tensei: Jobless Reincarnation) on Shousetsuka ni Narou website from May 2015 to September 2017. Kadokawa began publishing the novel through its MF Books label in June...",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 3,
       "trendSources": [
         "MyAnimeList"
@@ -1609,6 +1961,8 @@
           "source": "MyAnimeList",
           "url": "https://myanimelist.net/news/74885300?_location=rss",
           "summary": "The official X account for Kadokawa's MF Books label announced on Friday that Rifujin na Magonote's Mushoku Tensei: Dasoku-hen (Mushoku Tensei: Redundant Reincarnation) light novel will end with its fourth volume on November 25. Rifujin penned the short story collection of Mushoku Tensei: Isekai Ittara Honki Dasu (Mushoku Tensei: Jobless Reincarnation) on Shousetsuka ni Narou website from May 2015 to September 2017. Kadokawa began publishing the novel through its MF Books label in June...",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-30T11:51:23.000Z"
         }
       ],
@@ -1622,6 +1976,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-10-29T12:36:10.000Z",
       "summary": "Ave Mujica released a music video for one of their latest songs, \"A Song…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 2,
       "trendSources": [
         "Anime Corner"
@@ -1632,6 +1989,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/ave-mujica-releases-a-song-of-romance-music-video/",
           "summary": "Ave Mujica released a music video for one of their latest songs, \"A Song…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-29T12:36:10.000Z"
         }
       ],
@@ -1645,6 +2004,9 @@
       "source": "Anime Corner",
       "publishedAt": "2026-10-29T12:32:00.000Z",
       "summary": "Over the past weekend, I had the opportunity to attend Cosplay Trackside 2026 at…",
+      "summaryIsExcerpt": true,
+      "summaryTruncated": false,
+      "summaryNotice": "Extrait RSS uniquement : le contenu intégral de l’article n’a pas été fourni.",
       "score": 0,
       "trendSources": [
         "Anime Corner"
@@ -1655,6 +2017,8 @@
           "source": "Anime Corner",
           "url": "https://animecorner.me/beyond-the-cancellation-umamusume-fans-come-together-at-cosplay-trackside/",
           "summary": "Over the past weekend, I had the opportunity to attend Cosplay Trackside 2026 at…",
+          "summaryIsExcerpt": true,
+          "summaryTruncated": false,
           "publishedAt": "2026-10-29T12:32:00.000Z"
         }
       ],
