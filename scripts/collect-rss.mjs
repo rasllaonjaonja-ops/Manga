@@ -182,14 +182,27 @@ export function dedupe(list) {
 }
 
 function trendTokens(value) {
-  const stop = new Set(["the","and","for","with","from","gets","get","new","anime","manga","de","des","les","une","un","du","la","le","to","of","on","in","a","an","is","by","as","its","their","this","that","reveals","revealed","reveal","unveils","unveiled","announced","announcement","adaptation","live","action","film","movie","teaser","trailer","promo","promotional","video","visual","cast","casting","director","staff","main","additional","season","series","tv","arc","second","third","fourth","part","premiere","premieres","release","released","march","january","november"]);
+  const stop = new Set(["the","and","for","with","from","gets","get","new","anime","manga","de","des","les","une","un","du","la","le","to","of","on","in","a","an","is","by","as","its","their","this","that","reveals","revealed","reveal","unveils","unveiled","announced","announcement","adaptation","live","action","film","movie","teaser","trailer","promo","promotional","video","visual","cast","casting","director","voice","actor","actress","staff","main","additional","season","series","tv","arc","second","third","fourth","part","premiere","premieres","release","released","march","january","november","getting","receives","received","official","website"]);
   return normTitle(value).split(" ").filter(t => t.length > 2 && !stop.has(t));
+}
+
+function canonicalStoryText(value) {
+  let text = normTitle(value);
+  const aliases = [
+    [/oshi ni amagami/g, "otaku vampire love bite"],
+    [/watashi wo center ni suru to chikaimasu ka/g, "promise me the spotlight"],
+    [/tensei shitara ken deshita/g, "reincarnated as a sword"],
+    [/mahoutsukai no yoru/g, "witch on the holy night"]
+  ];
+  for (const [pattern, canonical] of aliases) text = text.replace(pattern, canonical);
+  return text;
 }
 
 function storyText(item) { return String(item.title || "") + " " + String(item.summary || ""); }
 
 function eventKind(item) {
-  const text = normTitle(storyText(item));
+  // Le titre, et non le résumé, détermine l'annonce principale.
+  const text = normTitle(item.title || "");
   if (/\b(cast|casting|director|voice actor|voice actress)\b/.test(text)) return "cast";
   if (/\b(trailer|teaser|promo|promotional|pv)\b/.test(text)) return "promo";
   if (/\b(final arc|climax|ends|ending|final chapter)\b/.test(text)) return "ending";
@@ -214,6 +227,8 @@ export function isRelevantNews(item) {
   const explicitTopic = /\b(manga|mangas|anime|animes|shonen|seinen|shojo|manhwa|webtoon|light novel|otaku|crunchyroll|myanimelist|animenewsnetwork)\b/;
   if (!explicitTopic.test(combined)) return false;
   if (/\banime les rues\b|\banime la fete\b/.test(title)) return false;
+  // Écarte les fiches d'épisodes, critiques et catalogues issus de Google News.
+  if (/\bepisode\s*#?\s*\d+\b|\bcritiques?\b|\bavis sur\b|\bfigurines?\b|\bprecommandes?\b/.test(combined)) return false;
   return true;
 }
 
@@ -224,7 +239,7 @@ export function clusterSimilar(list) {
     const text = storyText(item), kind = eventKind(item);
     for (const group of groups) {
       if (kind !== group.kind) continue;
-      const similarity = titleSimilarity(text, storyText(group.item));
+      const similarity = titleSimilarity(canonicalStoryText(text), canonicalStoryText(storyText(group.item)));
       if (similarity > best) { best = similarity; match = group; }
     }
     if (match && best >= 0.24) {
