@@ -98,8 +98,10 @@ async def main():
         await page.reload(); await page.wait_for_timeout(200)
         restored_daily=await page.evaluate("""()=>({count:dailyPack.length,id:dailyPack[0]?.postId,text:document.querySelector('#dailyText0')?.value||''})""")
         check("brouillons du jour : restauration après rechargement",restored_daily["id"]=="daily-restore-e2e" and restored_daily["text"]=="Texte initial",restored_daily)
+        await page.evaluate("navigate('publications')")
         await page.fill("#dailyText0","Texte modifié durablement")
         await page.reload(); await page.wait_for_timeout(150)
+        await page.evaluate("navigate('publications')")
         edited_daily=await page.evaluate("db.posts.find(x=>x.id==='daily-restore-e2e')?.text")
         check("brouillons du jour : édition conservée après rechargement",edited_daily=="Texte modifié durablement",edited_daily)
 
