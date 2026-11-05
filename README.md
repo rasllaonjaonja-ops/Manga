@@ -97,3 +97,10 @@ Les contrôles Node.js tournent dans le workflow de diagnostic V4. Les tests nav
 ## Fichiers retirés par rapport aux versions précédentes
 
 `index-4.html`, `assets/card-auto.jpg`, `assets/card-create.jpg`, `assets/card-production.jpg`, `assets/hero-light.jpg`, `assets/quote-light.jpg`, `assets/recent-1.jpg` à `recent-4.jpg`, `assets/recent-generated-1.jpg` à `recent-generated-4.jpg`, `assets/sidebar-generated.jpg`, `assets/sidebar-light.jpg`.
+
+## Publications : historique et projets (V4)
+
+- L’onglet **Publications** sépare les contenus confirmés comme **Publiés manuellement** des contenus encore en projet (Brouillon, À vérifier, Prêt ou Archivé).
+- Chaque carte permet de consulter le texte complet, de le copier, de faire évoluer son statut ou de supprimer le contenu.
+- Le statut « Publié manuellement » exige une confirmation explicite : cette action ne publie rien sur Facebook.
+- Les publications restent dans le stockage local du navigateur, comme les autres créations. Exportez régulièrement une sauvegarde JSON ; elles ne sont pas synchronisées entre appareils.
