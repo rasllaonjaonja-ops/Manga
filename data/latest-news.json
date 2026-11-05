@@ -1,48 +1,19 @@
 {
-  "updatedAt": "2026-11-05T06:42:58.084Z",
-  "count": 75,
+  "updatedAt": "2026-11-05T06:47:11.186Z",
+  "count": 69,
   "items": [
-    {
-      "id": "0f039dcce794fe8920357ceaf73b23bf97701960",
-      "title": "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
-      "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
-      "source": "Anime Corner",
-      "publishedAt": "2026-11-04T23:39:46.000Z",
-      "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
-      "score": 20.4,
-      "trendSources": [
-        "Anime Corner",
-        "Anime News Network"
-      ],
-      "trendArticles": [
-        {
-          "title": "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
-          "source": "Anime Corner",
-          "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
-          "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
-          "publishedAt": "2026-11-04T23:39:46.000Z"
-        },
-        {
-          "title": "Live-Action Mashle: Magic and Muscles Film Reveals Cast, Director",
-          "source": "Anime News Network",
-          "url": "https://www.animenewsnetwork.com/news/2026-11-04/live-action-mashle-magic-and-muscles-film-reveals-cast-director/.243531",
-          "summary": "Mackenyu Maeda stars as Mash Burnedead with Gintama's Yūichi Fukuda directing",
-          "publishedAt": "2026-11-04T23:26:04.000Z"
-        }
-      ],
-      "trendSourceCount": 2,
-      "trendScore": 25.4
-    },
     {
       "id": "8f058c127f6715f09ab56568cc6e4989a33d722a",
       "title": "'Mashle' Gets Live-Action Movie Adaptation",
       "url": "https://myanimelist.net/news/74902561?_location=rss",
       "source": "MyAnimeList",
-      "publishedAt": "2026-11-04T00:41:36.000Z",
+      "publishedAt": "2026-11-04T12:59:27.000Z",
       "summary": "Production company Warner Bros. Japan announced a live-action movie adaptation of Hajime Koumoto&#039;s Mashle (Mashle: Magic and Muscles) manga on Wednesday, revealing a super teaser visual (pictured above). The live-action movie will premiere in Japanese theaters on March 19, 2027. Warner Bros. Pictures and Fuji TV are credited as production coordinators, while Credeus&mdash;the live-action studio behind the Kingdom and Golden Kanuy film series&mdash;is producing the live-action adaptation. T...",
       "score": 24.5,
       "trendSources": [
-        "MyAnimeList"
+        "MyAnimeList",
+        "Anime Corner",
+        "Anime News Network"
       ],
       "trendArticles": [
         {
@@ -51,24 +22,46 @@
           "url": "https://myanimelist.net/news/74902561?_location=rss",
           "summary": "Production company Warner Bros. Japan announced a live-action movie adaptation of Hajime Koumoto&#039;s Mashle (Mashle: Magic and Muscles) manga on Wednesday, revealing a super teaser visual (pictured above). The live-action movie will premiere in Japanese theaters on March 19, 2027. Warner Bros. Pictures and Fuji TV are credited as production coordinators, while Credeus&mdash;the live-action studio behind the Kingdom and Golden Kanuy film series&mdash;is producing the live-action adaptation. T...",
           "publishedAt": "2026-11-04T00:41:36.000Z"
+        },
+        {
+          "title": "Mashle: Magic and Muscles Live-Action Film Adaptation Announced",
+          "source": "Anime Corner",
+          "url": "https://animecorner.me/mashle-magic-and-muscles-live-action-film-adaptation-announced/",
+          "summary": "Mashle: Magic and Muscles manga is officially getting a live-action film adaptation, with its Japanese theatrical premiere set for March 19, 2027.",
+          "publishedAt": "2026-11-04T12:59:27.000Z"
+        },
+        {
+          "title": "Mashle: Magic and Muscles Manga Gets Live-Action Film on March 19",
+          "source": "Anime News Network",
+          "url": "https://www.animenewsnetwork.com/news/2026-11-03/mashle-magic-and-muscles-manga-gets-live-action-film-on-march-19/.243497",
+          "summary": "Warner Brothers, Fuji TV, Credeus, Toho collaborate on project",
+          "publishedAt": "2026-11-03T23:20:53.000Z"
         }
       ],
-      "trendSourceCount": 1,
-      "trendScore": 24.5
+      "trendSourceCount": 3,
+      "trendScore": 34.5
     },
     {
-      "id": "09c66bb6844a2cca0d3f01e8299943f02620fa4e",
-      "title": "Otaku Vampire's Love Bite Anime Adaptation Announced",
-      "url": "https://animecorner.me/otaku-vampires-love-bite-anime-adaptation-announced/",
-      "source": "Anime Corner",
+      "id": "91377a80daddf40ec94fdcd6e5e7e9de9da08b8a",
+      "title": "Manga 'Oshi ni Amagami' Receives TV Anime Adaptation",
+      "url": "https://myanimelist.net/news/74902452?_location=rss",
+      "source": "MyAnimeList",
       "publishedAt": "2026-11-04T00:20:36.000Z",
-      "summary": "Otaku Vampire's Love Bite manga by Julietta Suzuki (Kamisama Kiss) is getting an anime…",
-      "score": 19.5,
+      "summary": "Production company Shogakukan-Shueisha Productions announced a television anime adaptation of Julietta Suzuki&#039;s Oshi ni Amagami (Otaku Vampire&#039;s Love Bite) manga on Wednesday, revealing special visual (pictured) and announcement promo. Suzuki (Kamisama Hajimemashita) began serializing the comedy romance manga in Hana to Yume magazine in April 2022. Hakusensha published the tenth volume on July 17, with the 11th volume scheduled to be released on November 20. VIZ Media licensed the mang...",
+      "score": 21.4,
       "trendSources": [
+        "MyAnimeList",
         "Anime Corner",
         "Anime News Network"
       ],
       "trendArticles": [
+        {
+          "title": "Manga 'Oshi ni Amagami' Receives TV Anime Adaptation",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74902452?_location=rss",
+          "summary": "Production company Shogakukan-Shueisha Productions announced a television anime adaptation of Julietta Suzuki&#039;s Oshi ni Amagami (Otaku Vampire&#039;s Love Bite) manga on Wednesday, revealing special visual (pictured) and announcement promo. Suzuki (Kamisama Hajimemashita) began serializing the comedy romance manga in Hana to Yume magazine in April 2022. Hakusensha published the tenth volume on July 17, with the 11th volume scheduled to be released on November 20. VIZ Media licensed the mang...",
+          "publishedAt": "2026-11-03T23:33:08.000Z"
+        },
         {
           "title": "Otaku Vampire's Love Bite Anime Adaptation Announced",
           "source": "Anime Corner",
@@ -84,19 +77,21 @@
           "publishedAt": "2026-11-03T23:41:39.000Z"
         }
       ],
-      "trendSourceCount": 2,
-      "trendScore": 24.5
+      "trendSourceCount": 3,
+      "trendScore": 31.4
     },
     {
-      "id": "1b70a5283e6710ad0955d53ddb5fec86513f90de",
-      "title": "Promise Me the Spotlight Anime Reveals Visual, Trailer, Cast, Opening Theme Song",
-      "url": "https://animecorner.me/promise-me-the-spotlight-anime-reveals-visual-trailer-cast-opening-theme-song/",
-      "source": "Anime Corner",
+      "id": "0cc28a004d0a362db1f1417cdc472699b01fa6b6",
+      "title": "'Watashi wo Center ni Suru to Chikaimasu ka?' Reveals Main Cast, Staff, Opening Theme, Teaser Promo",
+      "url": "https://myanimelist.net/news/74903023?_location=rss",
+      "source": "MyAnimeList",
       "publishedAt": "2026-11-04T06:46:48.000Z",
-      "summary": "The previously announced Promise Me the Spotlight anime adaptation revealed a key visual along…",
-      "score": 23,
+      "summary": "The official website of the Watashi wo Center ni Suru to Chikaimasu ka? (Promise Me the Spotlight) television anime revealed the main cast, staff, a key visual (pictured), the opening theme, and a teaser promotional video on Wednesday. The anime series adapting Jun Wakatsuki&#039;s idol romance manga is scheduled to air on TV Tokyo&#039;s six affiliated stations. Cast Mizuki Natsuno: Haruna Mikawa (Ore dake Level Up na Ken) Kouichi Okuta: Taihi Kimura (Onmyou Kaiten Re:Birth) Awayuki Shiroi: Mai...",
+      "score": 19.7,
       "trendSources": [
-        "Anime Corner"
+        "Anime Corner",
+        "MyAnimeList",
+        "Anime News Network"
       ],
       "trendArticles": [
         {
@@ -105,33 +100,86 @@
           "url": "https://animecorner.me/promise-me-the-spotlight-anime-reveals-visual-trailer-cast-opening-theme-song/",
           "summary": "The previously announced Promise Me the Spotlight anime adaptation revealed a key visual along…",
           "publishedAt": "2026-11-04T06:46:48.000Z"
+        },
+        {
+          "title": "'Watashi wo Center ni Suru to Chikaimasu ka?' Reveals Main Cast, Staff, Opening Theme, Teaser Promo",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74903023?_location=rss",
+          "summary": "The official website of the Watashi wo Center ni Suru to Chikaimasu ka? (Promise Me the Spotlight) television anime revealed the main cast, staff, a key visual (pictured), the opening theme, and a teaser promotional video on Wednesday. The anime series adapting Jun Wakatsuki&#039;s idol romance manga is scheduled to air on TV Tokyo&#039;s six affiliated stations. Cast Mizuki Natsuno: Haruna Mikawa (Ore dake Level Up na Ken) Kouichi Okuta: Taihi Kimura (Onmyou Kaiten Re:Birth) Awayuki Shiroi: Mai...",
+          "publishedAt": "2026-11-04T03:37:09.000Z"
+        },
+        {
+          "title": "Promise Me the Spotlight Anime Unveils Teaser, Main Cast, Staff",
+          "source": "Anime News Network",
+          "url": "https://www.animenewsnetwork.com/news/2026-11-03/promise-me-the-spotlight-anime-unveils-teaser-main-cast-staff/.243469",
+          "summary": "Haruna Mikawa, Taihi Kimura, Mai Kanno, Yukari Anzai star in studio TEAM TillDawn's anime",
+          "publishedAt": "2026-11-04T03:00:00.000Z"
         }
       ],
-      "trendSourceCount": 1,
-      "trendScore": 23
+      "trendSourceCount": 3,
+      "trendScore": 29.7
     },
     {
-      "id": "91377a80daddf40ec94fdcd6e5e7e9de9da08b8a",
-      "title": "Manga 'Oshi ni Amagami' Receives TV Anime Adaptation",
-      "url": "https://myanimelist.net/news/74902452?_location=rss",
+      "id": "0ba5772177ad7a6c11e1e008b5bfebd68d8cd5e1",
+      "title": "'Tensei shitara Ken deshita II' Reveals Supporting Cast, Third Promo",
+      "url": "https://myanimelist.net/news/74904410?_location=rss",
       "source": "MyAnimeList",
-      "publishedAt": "2026-11-03T23:33:08.000Z",
-      "summary": "Production company Shogakukan-Shueisha Productions announced a television anime adaptation of Julietta Suzuki&#039;s Oshi ni Amagami (Otaku Vampire&#039;s Love Bite) manga on Wednesday, revealing special visual (pictured) and announcement promo. Suzuki (Kamisama Hajimemashita) began serializing the comedy romance manga in Hana to Yume magazine in April 2022. Hakusensha published the tenth volume on July 17, with the 11th volume scheduled to be released on November 20. VIZ Media licensed the mang...",
-      "score": 21.4,
+      "publishedAt": "2026-11-04T17:00:45.000Z",
+      "summary": "The official website of the television anime adaptation of Yuu Tanaka&#039;s Tensei shitara Ken deshita (Reincarnated as a Sword) light novel revealed supporting cast, second key visual (pictured), and third promotional video for the &quot;Seedrun Arc&quot; on Thursday. The second season premiered on October 8 at 12.00 a.m. on Tokyo MX, followed by ABC TV, BS Asahi, and AT-X. Cast Valuza: Katsuyuki Konishi (Tongari Boushi no Atelier) Fult: Satsuki Kokubu (Hoshifuru Oukoku no Nina) Satia: Yurie K...",
+      "score": 19.8,
       "trendSources": [
+        "Anime News Network",
         "MyAnimeList"
       ],
       "trendArticles": [
         {
-          "title": "Manga 'Oshi ni Amagami' Receives TV Anime Adaptation",
+          "title": "Reincarnated as a Sword Season 2 Anime Reveals Trailer, Visual, Cast for Seedrun Arc",
+          "source": "Anime News Network",
+          "url": "https://www.animenewsnetwork.com/news/2026-11-04/reincarnated-as-a-sword-season-2-anime-reveals-trailer-visual-cast-for-seedrun-arc/.243523",
+          "summary": "Satsuki Kokubu, Yurie Kozakai, Hazuki Ogino, Sayumi Suzushiro, Katsuyuki Konishi join cast",
+          "publishedAt": "2026-11-04T17:00:45.000Z"
+        },
+        {
+          "title": "'Tensei shitara Ken deshita II' Reveals Supporting Cast, Third Promo",
           "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74902452?_location=rss",
-          "summary": "Production company Shogakukan-Shueisha Productions announced a television anime adaptation of Julietta Suzuki&#039;s Oshi ni Amagami (Otaku Vampire&#039;s Love Bite) manga on Wednesday, revealing special visual (pictured) and announcement promo. Suzuki (Kamisama Hajimemashita) began serializing the comedy romance manga in Hana to Yume magazine in April 2022. Hakusensha published the tenth volume on July 17, with the 11th volume scheduled to be released on November 20. VIZ Media licensed the mang...",
-          "publishedAt": "2026-11-03T23:33:08.000Z"
+          "url": "https://myanimelist.net/news/74904410?_location=rss",
+          "summary": "The official website of the television anime adaptation of Yuu Tanaka&#039;s Tensei shitara Ken deshita (Reincarnated as a Sword) light novel revealed supporting cast, second key visual (pictured), and third promotional video for the &quot;Seedrun Arc&quot; on Thursday. The second season premiered on October 8 at 12.00 a.m. on Tokyo MX, followed by ABC TV, BS Asahi, and AT-X. Cast Valuza: Katsuyuki Konishi (Tongari Boushi no Atelier) Fult: Satsuki Kokubu (Hoshifuru Oukoku no Nina) Satia: Yurie K...",
+          "publishedAt": "2026-11-04T16:33:53.000Z"
         }
       ],
-      "trendSourceCount": 1,
-      "trendScore": 21.4
+      "trendSourceCount": 2,
+      "trendScore": 24.8
+    },
+    {
+      "id": "4994c8ef4d5be31175b838108e1acf10f52bb625",
+      "title": "'Bocchi the Rock!' Gets Prequel Anime Movie in 2027",
+      "url": "https://myanimelist.net/news/74893965?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-01T13:22:13.000Z",
+      "summary": "The official website of the Bocchi the Rock! anime series announced a new prequel anime movie subtitled Hoshi no Ashiato, revealing the main cast, staff, a teaser visual (pictured), and an announcement promo on Sunday. The movie is scheduled to open in Japanese theaters in 2027. Voice actresses Maaya Uchida (Chuunibyou demo Koi ga Shitai!) and Sayumi Suzushiro (Kaguya-sama wa Kokurasetai) are starring as Seika Ijichi and Nijika Ijichi, respectively. Staff Director: Shin Wakabayashi (Wonder Egg P...",
+      "score": 17.5,
+      "trendSources": [
+        "MyAnimeList",
+        "Anime Corner"
+      ],
+      "trendArticles": [
+        {
+          "title": "'Bocchi the Rock!' Gets Prequel Anime Movie in 2027",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74893965?_location=rss",
+          "summary": "The official website of the Bocchi the Rock! anime series announced a new prequel anime movie subtitled Hoshi no Ashiato, revealing the main cast, staff, a teaser visual (pictured), and an announcement promo on Sunday. The movie is scheduled to open in Japanese theaters in 2027. Voice actresses Maaya Uchida (Chuunibyou demo Koi ga Shitai!) and Sayumi Suzushiro (Kaguya-sama wa Kokurasetai) are starring as Seika Ijichi and Nijika Ijichi, respectively. Staff Director: Shin Wakabayashi (Wonder Egg P...",
+          "publishedAt": "2026-11-01T13:22:13.000Z"
+        },
+        {
+          "title": "Bocchi the Rock Gets Movie Starring Nijika and Seika in 2027",
+          "source": "Anime Corner",
+          "url": "https://animecorner.me/bocchi-the-rock-gets-movie-starring-nijika-and-seika-in-2027/",
+          "summary": "Bocchi the Rock is getting a movie in 2027 that stars Nijika and Seika.…",
+          "publishedAt": "2026-11-01T12:07:27.000Z"
+        }
+      ],
+      "trendSourceCount": 2,
+      "trendScore": 22.5
     },
     {
       "id": "5a9b73195ca75fd74ce2a809a6648e90e83b808f",
@@ -180,27 +228,35 @@
       "trendScore": 21.2
     },
     {
-      "id": "8a5ddd077232bf0473522a04665d2d194c67e51c",
-      "title": "Reincarnated as a Sword Season 2 Anime Reveals Trailer, Visual, Cast for Seedrun Arc",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-04/reincarnated-as-a-sword-season-2-anime-reveals-trailer-visual-cast-for-seedrun-arc/.243523",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-04T17:00:45.000Z",
-      "summary": "Satsuki Kokubu, Yurie Kozakai, Hazuki Ogino, Sayumi Suzushiro, Katsuyuki Konishi join cast",
-      "score": 20.9,
+      "id": "541c9cec2ada96f0e91bcbcbc63b16502f6854be",
+      "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
+      "url": "https://myanimelist.net/news/74900816?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-04T00:56:45.000Z",
+      "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon&#039;s Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine&#039;s 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
+      "score": 15.6,
       "trendSources": [
+        "MyAnimeList",
         "Anime News Network"
       ],
       "trendArticles": [
         {
-          "title": "Reincarnated as a Sword Season 2 Anime Reveals Trailer, Visual, Cast for Seedrun Arc",
+          "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
+          "source": "MyAnimeList",
+          "url": "https://myanimelist.net/news/74900816?_location=rss",
+          "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon&#039;s Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine&#039;s 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
+          "publishedAt": "2026-11-03T13:34:03.000Z"
+        },
+        {
+          "title": "Witch on the Holy Night Film Gets Manga Adaptation",
           "source": "Anime News Network",
-          "url": "https://www.animenewsnetwork.com/news/2026-11-04/reincarnated-as-a-sword-season-2-anime-reveals-trailer-visual-cast-for-seedrun-arc/.243523",
-          "summary": "Satsuki Kokubu, Yurie Kozakai, Hazuki Ogino, Sayumi Suzushiro, Katsuyuki Konishi join cast",
-          "publishedAt": "2026-11-04T17:00:45.000Z"
+          "url": "https://www.animenewsnetwork.com/news/2026-11-03/witch-on-the-holy-night-film-gets-manga-adaptation/.243494",
+          "summary": "Shikimori's Not Just a Cutie's Keigo Maki debuts manga on November 11",
+          "publishedAt": "2026-11-04T00:56:45.000Z"
         }
       ],
-      "trendSourceCount": 1,
-      "trendScore": 20.9
+      "trendSourceCount": 2,
+      "trendScore": 20.6
     },
     {
       "id": "ef4c45ef1433111fd0a8273f0ad9d58b33ca623c",
@@ -257,6 +313,29 @@
       "trendScore": 20.5
     },
     {
+      "id": "0f039dcce794fe8920357ceaf73b23bf97701960",
+      "title": "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
+      "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
+      "source": "Anime Corner",
+      "publishedAt": "2026-11-04T23:39:46.000Z",
+      "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
+      "score": 20.4,
+      "trendSources": [
+        "Anime Corner"
+      ],
+      "trendArticles": [
+        {
+          "title": "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
+          "source": "Anime Corner",
+          "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
+          "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
+          "publishedAt": "2026-11-04T23:39:46.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 20.4
+    },
+    {
       "id": "56fa9b48b47c854a250e1c43227c9a0b99e99f6a",
       "title": "L'anime Reincarnated as a Sword Saison 2, en Trailer 3 - Adala News",
       "url": "https://news.google.com/rss/articles/CBMiiwFBVV95cUxOLTd1X2Q1bkVvZnJpLWRyY00ySWRxMUh5WWthdFk3SU5RTnR2c1NFQklGaTE4LVE2Tm4yTnRXUDB0eERoWGJXTk9UQXJZalNBLTY4cDUyT1dGTkYxelRLdFo2T3E5OWhTc2NFLUREWnlGdTNWcnltMW9jVzdqY1JybDQxTktISDdwUlMw?oc=5",
@@ -276,13 +355,6 @@
           "publishedAt": "2026-11-04T17:43:26.000Z"
         },
         {
-          "title": "L'anime Game Sekai Tensei Dankatsu, en Teaser Vidéo - Adala News",
-          "source": "Google Actualités",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUnptcGt3ZTBVeDhOWktsdi1BNHU4Q2dFQ1hYYUV4QXI4N2t3OVZDSWNSdTZWU0VnMmlPOUJvQmVyNE93dVJNTkxpOXE1S1NWUTVpSk1qcXpPc1FaUUdHRzdYdUVSZ1FNSTVDelFGeldCZzlaRjZ0Yzc0eklUVmNsUW04Tjc3aFE?oc=5",
-          "summary": "L'anime Game Sekai Tensei Dankatsu, en Teaser Vidéo &nbsp;&nbsp; Adala News",
-          "publishedAt": "2026-11-04T12:47:08.000Z"
-        },
-        {
           "title": "L'anime Watashi wo Center, en Teaser Vidéo - Adala News",
           "source": "Google Actualités",
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE5CTnVWM0h6NVU3R20yMC1lcmJuX29kT0xMekFnUmkzQmxtYkgzZUVfMzNyaHpVUTZoWWtpdFBaN181VmRJLTZnc1J2RklnOXhlT3ZxSklMT1JMQldwSC1VSWlfbmdrUnpiYzlGNWdnVkhxMFBKMmRYcUI0WQ?oc=5",
@@ -292,52 +364,6 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 19.9
-    },
-    {
-      "id": "0ba5772177ad7a6c11e1e008b5bfebd68d8cd5e1",
-      "title": "'Tensei shitara Ken deshita II' Reveals Supporting Cast, Third Promo",
-      "url": "https://myanimelist.net/news/74904410?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-04T16:33:53.000Z",
-      "summary": "The official website of the television anime adaptation of Yuu Tanaka&#039;s Tensei shitara Ken deshita (Reincarnated as a Sword) light novel revealed supporting cast, second key visual (pictured), and third promotional video for the &quot;Seedrun Arc&quot; on Thursday. The second season premiered on October 8 at 12.00 a.m. on Tokyo MX, followed by ABC TV, BS Asahi, and AT-X. Cast Valuza: Katsuyuki Konishi (Tongari Boushi no Atelier) Fult: Satsuki Kokubu (Hoshifuru Oukoku no Nina) Satia: Yurie K...",
-      "score": 19.8,
-      "trendSources": [
-        "MyAnimeList"
-      ],
-      "trendArticles": [
-        {
-          "title": "'Tensei shitara Ken deshita II' Reveals Supporting Cast, Third Promo",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74904410?_location=rss",
-          "summary": "The official website of the television anime adaptation of Yuu Tanaka&#039;s Tensei shitara Ken deshita (Reincarnated as a Sword) light novel revealed supporting cast, second key visual (pictured), and third promotional video for the &quot;Seedrun Arc&quot; on Thursday. The second season premiered on October 8 at 12.00 a.m. on Tokyo MX, followed by ABC TV, BS Asahi, and AT-X. Cast Valuza: Katsuyuki Konishi (Tongari Boushi no Atelier) Fult: Satsuki Kokubu (Hoshifuru Oukoku no Nina) Satia: Yurie K...",
-          "publishedAt": "2026-11-04T16:33:53.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 19.8
-    },
-    {
-      "id": "0cc28a004d0a362db1f1417cdc472699b01fa6b6",
-      "title": "'Watashi wo Center ni Suru to Chikaimasu ka?' Reveals Main Cast, Staff, Opening Theme, Teaser Promo",
-      "url": "https://myanimelist.net/news/74903023?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-04T03:37:09.000Z",
-      "summary": "The official website of the Watashi wo Center ni Suru to Chikaimasu ka? (Promise Me the Spotlight) television anime revealed the main cast, staff, a key visual (pictured), the opening theme, and a teaser promotional video on Wednesday. The anime series adapting Jun Wakatsuki&#039;s idol romance manga is scheduled to air on TV Tokyo&#039;s six affiliated stations. Cast Mizuki Natsuno: Haruna Mikawa (Ore dake Level Up na Ken) Kouichi Okuta: Taihi Kimura (Onmyou Kaiten Re:Birth) Awayuki Shiroi: Mai...",
-      "score": 19.7,
-      "trendSources": [
-        "MyAnimeList"
-      ],
-      "trendArticles": [
-        {
-          "title": "'Watashi wo Center ni Suru to Chikaimasu ka?' Reveals Main Cast, Staff, Opening Theme, Teaser Promo",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74903023?_location=rss",
-          "summary": "The official website of the Watashi wo Center ni Suru to Chikaimasu ka? (Promise Me the Spotlight) television anime revealed the main cast, staff, a key visual (pictured), the opening theme, and a teaser promotional video on Wednesday. The anime series adapting Jun Wakatsuki&#039;s idol romance manga is scheduled to air on TV Tokyo&#039;s six affiliated stations. Cast Mizuki Natsuno: Haruna Mikawa (Ore dake Level Up na Ken) Kouichi Okuta: Taihi Kimura (Onmyou Kaiten Re:Birth) Awayuki Shiroi: Mai...",
-          "publishedAt": "2026-11-04T03:37:09.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 19.7
     },
     {
       "id": "3c86cb815b14aa5e9e58a54692200d7ee825d8b4",
@@ -363,29 +389,6 @@
       "trendScore": 19.7
     },
     {
-      "id": "9622d688b7ee26aad08a8e762b5310f2110ebe07",
-      "title": "Mashle: Magic and Muscles Live-Action Film Adaptation Announced",
-      "url": "https://animecorner.me/mashle-magic-and-muscles-live-action-film-adaptation-announced/",
-      "source": "Anime Corner",
-      "publishedAt": "2026-11-04T12:59:27.000Z",
-      "summary": "Mashle: Magic and Muscles manga is officially getting a live-action film adaptation, with its Japanese theatrical premiere set for March 19, 2027.",
-      "score": 19.5,
-      "trendSources": [
-        "Anime Corner"
-      ],
-      "trendArticles": [
-        {
-          "title": "Mashle: Magic and Muscles Live-Action Film Adaptation Announced",
-          "source": "Anime Corner",
-          "url": "https://animecorner.me/mashle-magic-and-muscles-live-action-film-adaptation-announced/",
-          "summary": "Mashle: Magic and Muscles manga is officially getting a live-action film adaptation, with its Japanese theatrical premiere set for March 19, 2027.",
-          "publishedAt": "2026-11-04T12:59:27.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 19.5
-    },
-    {
       "id": "99dc8847c8d1435d782a471394dc51915b325203",
       "title": "'Ramen Akeneko 2nd Season' Announces New Staff",
       "url": "https://myanimelist.net/news/74903763?_location=rss",
@@ -409,50 +412,27 @@
       "trendScore": 18.4
     },
     {
-      "id": "4994c8ef4d5be31175b838108e1acf10f52bb625",
-      "title": "'Bocchi the Rock!' Gets Prequel Anime Movie in 2027",
-      "url": "https://myanimelist.net/news/74893965?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-01T13:22:13.000Z",
-      "summary": "The official website of the Bocchi the Rock! anime series announced a new prequel anime movie subtitled Hoshi no Ashiato, revealing the main cast, staff, a teaser visual (pictured), and an announcement promo on Sunday. The movie is scheduled to open in Japanese theaters in 2027. Voice actresses Maaya Uchida (Chuunibyou demo Koi ga Shitai!) and Sayumi Suzushiro (Kaguya-sama wa Kokurasetai) are starring as Seika Ijichi and Nijika Ijichi, respectively. Staff Director: Shin Wakabayashi (Wonder Egg P...",
-      "score": 17.6,
+      "id": "487d495e28456c8ecca4ccfa38240e5ebe253932",
+      "title": "L'anime Game Sekai Tensei Dankatsu, en Teaser Vidéo - Adala News",
+      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUnptcGt3ZTBVeDhOWktsdi1BNHU4Q2dFQ1hYYUV4QXI4N2t3OVZDSWNSdTZWU0VnMmlPOUJvQmVyNE93dVJNTkxpOXE1S1NWUTVpSk1qcXpPc1FaUUdHRzdYdUVSZ1FNSTVDelFGeldCZzlaRjZ0Yzc0eklUVmNsUW04Tjc3aFE?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-04T12:47:08.000Z",
+      "summary": "L'anime Game Sekai Tensei Dankatsu, en Teaser Vidéo &nbsp;&nbsp; Adala News",
+      "score": 16.5,
       "trendSources": [
-        "MyAnimeList"
+        "Google Actualités"
       ],
       "trendArticles": [
         {
-          "title": "'Bocchi the Rock!' Gets Prequel Anime Movie in 2027",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74893965?_location=rss",
-          "summary": "The official website of the Bocchi the Rock! anime series announced a new prequel anime movie subtitled Hoshi no Ashiato, revealing the main cast, staff, a teaser visual (pictured), and an announcement promo on Sunday. The movie is scheduled to open in Japanese theaters in 2027. Voice actresses Maaya Uchida (Chuunibyou demo Koi ga Shitai!) and Sayumi Suzushiro (Kaguya-sama wa Kokurasetai) are starring as Seika Ijichi and Nijika Ijichi, respectively. Staff Director: Shin Wakabayashi (Wonder Egg P...",
-          "publishedAt": "2026-11-01T13:22:13.000Z"
+          "title": "L'anime Game Sekai Tensei Dankatsu, en Teaser Vidéo - Adala News",
+          "source": "Google Actualités",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOUnptcGt3ZTBVeDhOWktsdi1BNHU4Q2dFQ1hYYUV4QXI4N2t3OVZDSWNSdTZWU0VnMmlPOUJvQmVyNE93dVJNTkxpOXE1S1NWUTVpSk1qcXpPc1FaUUdHRzdYdUVSZ1FNSTVDelFGeldCZzlaRjZ0Yzc0eklUVmNsUW04Tjc3aFE?oc=5",
+          "summary": "L'anime Game Sekai Tensei Dankatsu, en Teaser Vidéo &nbsp;&nbsp; Adala News",
+          "publishedAt": "2026-11-04T12:47:08.000Z"
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 17.6
-    },
-    {
-      "id": "c69caced56beef35967f55e7427f0e0e90e4d2da",
-      "title": "Promise Me the Spotlight Anime Unveils Teaser, Main Cast, Staff",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-03/promise-me-the-spotlight-anime-unveils-teaser-main-cast-staff/.243469",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-04T03:00:00.000Z",
-      "summary": "Haruna Mikawa, Taihi Kimura, Mai Kanno, Yukari Anzai star in studio TEAM TillDawn's anime",
-      "score": 16.7,
-      "trendSources": [
-        "Anime News Network"
-      ],
-      "trendArticles": [
-        {
-          "title": "Promise Me the Spotlight Anime Unveils Teaser, Main Cast, Staff",
-          "source": "Anime News Network",
-          "url": "https://www.animenewsnetwork.com/news/2026-11-03/promise-me-the-spotlight-anime-unveils-teaser-main-cast-staff/.243469",
-          "summary": "Haruna Mikawa, Taihi Kimura, Mai Kanno, Yukari Anzai star in studio TEAM TillDawn's anime",
-          "publishedAt": "2026-11-04T03:00:00.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 16.7
+      "trendScore": 16.5
     },
     {
       "id": "fbe13f0da491892bf4862aff71afe046bdf7e1a0",
@@ -499,52 +479,6 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 15.8
-    },
-    {
-      "id": "541c9cec2ada96f0e91bcbcbc63b16502f6854be",
-      "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
-      "url": "https://myanimelist.net/news/74900816?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-03T13:34:03.000Z",
-      "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon&#039;s Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine&#039;s 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
-      "score": 15.6,
-      "trendSources": [
-        "MyAnimeList"
-      ],
-      "trendArticles": [
-        {
-          "title": "'Kawaii dake ja Nai Shikimori-san' Creator Begins 'Mahoutsukai no Yoru' Manga Adaptation",
-          "source": "MyAnimeList",
-          "url": "https://myanimelist.net/news/74900816?_location=rss",
-          "summary": "Manga creator Keigo Maki (Kawaii dake ja Nai Shikimori-san) will draw a manga adaptation of Type-Moon&#039;s Mahoutsukai no Yoru (Witch on the Holy Night) visual novel, the official X (formerly Twitter) account of the manga announced on Tuesday. The series will begin serialization in Weekly Shounen Magazine&#039;s 50th issue on November 11. Kinoko Nasu (Fate/stay night) and Type-Moon are credited for the original work, while Hirokazu Koyama (22/7) is credited for the original character designs....",
-          "publishedAt": "2026-11-03T13:34:03.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 15.6
-    },
-    {
-      "id": "b5e9e3f265e1728030197e8c27b36c859a71b4e6",
-      "title": "Witch on the Holy Night Film Gets Manga Adaptation",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-03/witch-on-the-holy-night-film-gets-manga-adaptation/.243494",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-04T00:56:45.000Z",
-      "summary": "Shikimori's Not Just a Cutie's Keigo Maki debuts manga on November 11",
-      "score": 15.5,
-      "trendSources": [
-        "Anime News Network"
-      ],
-      "trendArticles": [
-        {
-          "title": "Witch on the Holy Night Film Gets Manga Adaptation",
-          "source": "Anime News Network",
-          "url": "https://www.animenewsnetwork.com/news/2026-11-03/witch-on-the-holy-night-film-gets-manga-adaptation/.243494",
-          "summary": "Shikimori's Not Just a Cutie's Keigo Maki debuts manga on November 11",
-          "publishedAt": "2026-11-04T00:56:45.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 15.5
     },
     {
       "id": "e9c617e7717066d58c08e5af45a3310dbbb2d901",
@@ -637,6 +571,29 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 14.5
+    },
+    {
+      "id": "d65f13a012cb3483782aec0f82627d3dfed0ac0d",
+      "title": "Live-Action Mashle: Magic and Muscles Film Reveals Cast, Director",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-04/live-action-mashle-magic-and-muscles-film-reveals-cast-director/.243531",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-04T23:26:04.000Z",
+      "summary": "Mackenyu Maeda stars as Mash Burnedead with Gintama's Yūichi Fukuda directing",
+      "score": 13.4,
+      "trendSources": [
+        "Anime News Network"
+      ],
+      "trendArticles": [
+        {
+          "title": "Live-Action Mashle: Magic and Muscles Film Reveals Cast, Director",
+          "source": "Anime News Network",
+          "url": "https://www.animenewsnetwork.com/news/2026-11-04/live-action-mashle-magic-and-muscles-film-reveals-cast-director/.243531",
+          "summary": "Mackenyu Maeda stars as Mash Burnedead with Gintama's Yūichi Fukuda directing",
+          "publishedAt": "2026-11-04T23:26:04.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 13.4
     },
     {
       "id": "740699eaa264e4fef204a7c6da9c9fa3496b58d8",
@@ -821,29 +778,6 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 12.5
-    },
-    {
-      "id": "24be6486affb815efcd8de85520d3d606cb3fad0",
-      "title": "Mashle: Magic and Muscles Manga Gets Live-Action Film on March 19",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-03/mashle-magic-and-muscles-manga-gets-live-action-film-on-march-19/.243497",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-03T23:20:53.000Z",
-      "summary": "Warner Brothers, Fuji TV, Credeus, Toho collaborate on project",
-      "score": 12.4,
-      "trendSources": [
-        "Anime News Network"
-      ],
-      "trendArticles": [
-        {
-          "title": "Mashle: Magic and Muscles Manga Gets Live-Action Film on March 19",
-          "source": "Anime News Network",
-          "url": "https://www.animenewsnetwork.com/news/2026-11-03/mashle-magic-and-muscles-manga-gets-live-action-film-on-march-19/.243497",
-          "summary": "Warner Brothers, Fuji TV, Credeus, Toho collaborate on project",
-          "publishedAt": "2026-11-03T23:20:53.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 12.4
     },
     {
       "id": "0c840303d7875ee34193a7910585dd6361cad75f",
@@ -1557,29 +1491,6 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 5.2
-    },
-    {
-      "id": "b6864f17782d9445b8d07e04a5105ec89ca02c0a",
-      "title": "Bocchi the Rock Gets Movie Starring Nijika and Seika in 2027",
-      "url": "https://animecorner.me/bocchi-the-rock-gets-movie-starring-nijika-and-seika-in-2027/",
-      "source": "Anime Corner",
-      "publishedAt": "2026-11-01T12:07:27.000Z",
-      "summary": "Bocchi the Rock is getting a movie in 2027 that stars Nijika and Seika.…",
-      "score": 4.5,
-      "trendSources": [
-        "Anime Corner"
-      ],
-      "trendArticles": [
-        {
-          "title": "Bocchi the Rock Gets Movie Starring Nijika and Seika in 2027",
-          "source": "Anime Corner",
-          "url": "https://animecorner.me/bocchi-the-rock-gets-movie-starring-nijika-and-seika-in-2027/",
-          "summary": "Bocchi the Rock is getting a movie in 2027 that stars Nijika and Seika.…",
-          "publishedAt": "2026-11-01T12:07:27.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 4.5
     },
     {
       "id": "52921ddf2dc7564e3849bb09dc7a8f2ef99d0d55",
