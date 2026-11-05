@@ -14,7 +14,7 @@ function isSafeImage(d){return typeof d==='string'&&/^data:image\/(png|jpeg|webp
 function normalizeDb(x){
  const src=isObj(x)?x:{};
 const out={posts:[],calendar:[],media:[],news:[],settings:{pageName:blank.settings.pageName,fontSize:14,density:'comfortable',workerUrl:'https://wild-field-da5f.rasllaonjaonja.workers.dev'}};
- if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString()}));
+ if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString(),dailyDate:validDay(p.dailyDate)?p.dailyDate:null,dailySlot:Number.isInteger(+p.dailySlot)&&+p.dailySlot>=1&&+p.dailySlot<=4?+p.dailySlot:null,sourceUrl:/^https?:\/\//i.test(String(p.sourceUrl||''))?String(p.sourceUrl):'',sourceName:cut(p.sourceName||'',100)}));
 if(Array.isArray(src.calendar))out.calendar=src.calendar.filter(c=>isObj(c)&&validDay(c.date)).slice(0,2000).map(c=>({id:c.id!=null&&String(c.id)!==''?String(c.id):uid(),title:cut(c.title,200),date:c.date,time:/^([01]\d|2[0-3]):[0-5]\d$/.test(String(c.time||''))?c.time:'',type:cut(c.type||'Publication',40),status:calendarStatuses().includes(c.status)?c.status:'Brouillon'}));
  if(Array.isArray(src.news))out.news=src.news.filter(n=>isObj(n)&&typeof n.title==='string'&&/^https?:\/\//i.test(String(n.url||''))).slice(0,500).map(n=>({id:n.id!=null&&String(n.id)!==''?String(n.id):uid(),title:cut(n.title,300),source:cut(n.source||'Source',80),url:String(n.url),publishedAt:validIso(n.publishedAt)?n.publishedAt:null,summary:cut(n.summary,400),savedAt:validIso(n.savedAt)?n.savedAt:new Date().toISOString(),verified:n.verified===true}));
  if(Array.isArray(src.media))out.media=src.media.filter(m=>isObj(m)&&isSafeImage(m.data)).slice(0,300).map(m=>({id:m.id!=null&&String(m.id)!==''?String(m.id):uid(),name:cut(m.name||'visuel',120),data:m.data}));
@@ -290,6 +290,15 @@ function dailyType(item){
  if(/ranking|ranked|top \d|poll|survey|versus|vs\./.test(t))return 'Comparaison';
  return 'Débat communautaire';
 }
+function saveDailyDraft(p,slot){
+ const today=dayKey(new Date());
+ const existing=db.posts.find(x=>x.dailyDate===today&&x.dailySlot===slot);
+ const record={id:existing?existing.id:uid(),title:cut(p.item.title,200),type:cut(p.type,80),text:cut(p.text,20000),status:existing?existing.status:'Brouillon',created:existing?existing.created:new Date().toISOString(),dailyDate:today,dailySlot:slot,sourceUrl:String(p.item.url||''),sourceName:cut(p.item.source||'Source RSS',100)};
+ if(existing)Object.assign(existing,record);else db.posts.unshift(record);
+ if(!save())return false;
+ p.saved=true;p.postId=record.id;p.status='Brouillon enregistré automatiquement dans Publications';
+ return true;
+}
 function renderDailyPack(){
  const el=document.getElementById('dailyPackList');if(!el)return;
  const btn=document.getElementById('generateDailyPack');
@@ -329,7 +338,8 @@ document.getElementById('generateDailyPack').onclick=async()=>{
    if(!response.ok||data.success===false)throw new Error(data.error||('Erreur HTTP '+response.status));
    p.text=String(data.article||data.content||data.text||data.output||data.result||data.response||(data.data&&(data.data.article||data.data.content||data.data.text))||'').trim();
    if(!p.text)throw new Error('Réponse IA vide');
-   p.status='Texte généré · vérification humaine obligatoire';
+   if(!saveDailyDraft(p,i+1))throw new Error('Échec de l’enregistrement local du brouillon.');
+   p.status='Brouillon enregistré automatiquement · à vérifier';
   }catch(err){p.status='Échec : '+(err.message||'erreur inconnue');}
   p.generating=false;renderDailyPack();
  }
@@ -337,23 +347,24 @@ document.getElementById('generateDailyPack').onclick=async()=>{
 };
 document.getElementById('dailyPackList').addEventListener('input',e=>{
  const i=Number(e.target.dataset.dailyText);if(!Number.isInteger(i)||!dailyPack[i])return;
- dailyPack[i].text=e.target.value;const preview=document.querySelector('#dailyPreview'+i+' .caption');if(preview)preview.textContent=e.target.value;
+ dailyPack[i].text=e.target.value;if(dailyPack[i].postId){const saved=db.posts.find(x=>x.id===dailyPack[i].postId);if(saved){saved.text=cut(e.target.value,20000);localStorage.setItem(STORE,JSON.stringify(db));lastPersisted=JSON.stringify(db)}}const preview=document.querySelector('#dailyPreview'+i+' .caption');if(preview)preview.textContent=e.target.value;
  const png=document.querySelector('[data-daily-act="png"][data-index="'+i+'"]');if(png)png.disabled=!e.target.value.trim();
 });
 document.getElementById('dailyPackList').addEventListener('click',async e=>{
  const b=e.target.closest('[data-daily-act]');if(!b)return;const i=Number(b.dataset.index),p=dailyPack[i];if(!p)return;
  if(b.dataset.dailyAct==='preview'){const box=document.getElementById('dailyPreview'+i);box.hidden=!box.hidden;b.textContent=box.hidden?'Aperçu Facebook':'Masquer l’aperçu';return}
  if(b.dataset.dailyAct==='replace'){
-  dailyRejected.add(dailyKey(p.item));
   const next=dailyCandidates()[0];
-  if(!next){dailyRejected.delete(dailyKey(p.item));document.getElementById('dailyPackStatus').textContent='Aucun autre sujet distinct disponible dans le Radar. Lancez une nouvelle collecte RSS pour trouver un remplacement fiable.';return}
+  if(!next){document.getElementById('dailyPackStatus').textContent='Aucun autre sujet distinct disponible dans le Radar. Le brouillon existant est conservé.';return}
+  dailyRejected.add(dailyKey(p.item));
+  if(p.postId){db.posts=db.posts.filter(x=>x.id!==p.postId);if(!save())return;}
   dailyPack[i]={item:next.item,type:dailyType(next.item),text:'',saved:false,generating:false,status:'Sujet de remplacement sélectionné · prêt à générer'};
   document.getElementById('dailyPackStatus').textContent='Le sujet refusé a été écarté pour ce programme et remplacé par une autre actualité tendance. Aucun contenu n’a été publié.';
   renderDailyPack();return;
  }
  const textValue=document.getElementById('dailyText'+i).value.trim();p.text=textValue;
  if(b.dataset.dailyAct==='copy'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');copyText(textValue);return}
- if(b.dataset.dailyAct==='save'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');if(p.saved)return;if(addPost(p.item.title,p.type,textValue)){const saved=db.posts[0];saved.status='À vérifier';save();p.saved=true;p.status='Enregistré dans la file · À vérifier';renderDailyPack()}return}
+ if(b.dataset.dailyAct==='save'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');p.text=textValue;if(!saveDailyDraft(p,i+1))return;renderDailyPack();return}
  if(b.dataset.dailyAct==='png'){if(!textValue)return;try{await downloadPostCapture(p.item.title,p.type,textValue);alert('Visuel PNG téléchargé. Le texte complet reste dans le brouillon.')}catch(err){alert('Échec du téléchargement PNG : '+(err.message||'erreur'))}}
 });
 
@@ -620,14 +631,16 @@ function renderQueue(){
  el.innerHTML=arr.length?arr.map(p=>`<div class="item"><div style="min-width:0"><strong>${safe(p.title||p.type)}</strong><small>${safe(p.type)} · ${new Date(p.created).toLocaleDateString('fr-FR')} · <span class="badge ${p.status==='Prêt'||p.status==='Publié manuellement'?'green':'orange'}">${safe(p.status)}</span></small></div><div class="actions"><button class="btn sm" data-act="copy" data-id="${safe(p.id)}">Copier</button><button class="btn sm" data-act="status" data-id="${safe(p.id)}">Statut</button><button class="btn sm" data-act="remove" data-id="${safe(p.id)}">×</button></div></div>`).join(''):'<div class="empty">Aucun contenu dans cette catégorie.</div>';
 }
 function renderPublications(){
+ const today=dayKey(new Date());
+ const daily=db.posts.filter(p=>p.dailyDate===today&&p.dailySlot).sort((a,b)=>a.dailySlot-b.dailySlot);
  const published=db.posts.filter(p=>p.status==='Publié manuellement');
  const projects=db.posts.filter(p=>p.status!=='Publié manuellement');
- const card=p=>`<article class="publication-entry">
-  <div class="publication-entry-head"><strong>${safe(p.title||p.type||'Publication')}</strong><span class="badge ${p.status==='Publié manuellement'?'green':p.status==='Prêt'?'green':'orange'}">${safe(p.status)}</span></div>
-  <small class="muted">${safe(p.type)} · ${new Date(p.created).toLocaleDateString('fr-FR')}</small>
-  <details><summary>Voir le texte complet</summary><p class="publication-text">${safe(p.text)}</p></details>
-  <div class="actions"><button class="btn sm" data-hub-act="copy" data-id="${safe(p.id)}">Copier</button><button class="btn sm" data-hub-act="status" data-id="${safe(p.id)}">Statut</button><button class="btn sm" data-hub-act="remove" data-id="${safe(p.id)}">Supprimer</button></div>
- </article>`;
+ const card=p=>`<article class="publication-entry"><div class="publication-entry-head"><strong>${safe(p.title||p.type||'Publication')}</strong><span class="badge ${p.status==='Publié manuellement'?'green':p.status==='Prêt'?'green':'orange'}">${safe(p.status)}</span></div><small class="muted">${safe(p.type)} · ${new Date(p.created).toLocaleDateString('fr-FR')}${p.dailySlot?' · Publication du jour '+p.dailySlot+'/4':''}</small><details><summary>Voir le texte complet</summary><p class="publication-text">${safe(p.text)}</p></details>${p.sourceUrl?`<small><a href="${safe(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source : ${safe(p.sourceName||'article original')} ↗</a></small>`:''}<div class="actions"><button class="btn sm" data-hub-act="copy" data-id="${safe(p.id)}">Copier</button><button class="btn sm" data-hub-act="status" data-id="${safe(p.id)}">Statut</button><button class="btn sm" data-hub-act="remove" data-id="${safe(p.id)}">Supprimer</button></div></article>`;
+ const dailyEl=document.getElementById('dailyDraftPosts');
+ if(dailyEl){
+  document.getElementById('dailyDraftCount').textContent=daily.length+'/4 brouillons';
+  dailyEl.innerHTML=daily.length?daily.map(p=>`<article class="daily-draft-row"><div class="daily-draft-number">${p.dailySlot}</div><div class="daily-draft-content"><strong>${safe(p.title)}</strong><small>${safe(p.type)} · ${safe(p.status)}</small><details><summary>Lire le brouillon</summary><p class="publication-text">${safe(p.text)}</p></details>${p.sourceUrl?`<a href="${safe(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Consulter la source ↗</a>`:''}</div><div class="actions"><button class="btn sm" data-hub-act="copy" data-id="${safe(p.id)}">Copier</button><button class="btn sm" data-hub-act="status" data-id="${safe(p.id)}">Statut</button></div></article>`).join(''):'<div class="empty">Aucun brouillon quotidien enregistré pour aujourd’hui. Générez les quatre textes depuis l’Atelier.</div>';
+ }
  document.getElementById('publishedCount').textContent=published.length+' publiée(s)';
  document.getElementById('projectCount').textContent=projects.length+' en projet';
  document.getElementById('publishedPosts').innerHTML=published.length?published.map(card).join(''):'<div class="empty">Aucune publication confirmée pour le moment.</div>';
