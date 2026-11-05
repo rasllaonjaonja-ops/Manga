@@ -97,61 +97,59 @@
 </section>
 
 <section class="page" id="p-visual">
- <div class="kicker">STUDIO DE CRÉATION · TEXTE & VISUELS</div><h2>Studio visuel</h2><p class="sub">Créez une publication complète : rédigez avec l’IA, préparez son visuel, vérifiez l’aperçu Facebook puis enregistrez-la dans les brouillons ou la file éditoriale. Les quatre propositions quotidiennes restent des brouillons à relire.</p>
- <div class="card"><h3>1. Rédaction et publications du jour</h3>
- 
- <section class="card daily-studio" aria-labelledby="dailyStudioTitle">
-  <div class="daily-head"><div><div class="kicker">PROGRAMME ÉDITORIAL QUOTIDIEN</div><h3 id="dailyStudioTitle">Les 4 publications du jour</h3><p class="small muted">Sélectionnées à partir des tendances RSS. Chaque texte reste un brouillon à relire et vérifier avant publication.</p></div><span class="badge">Mode TEST · manuel</span></div>
-  <div class="actions"><button class="btn" id="prepareDailyPack">① Sélectionner 4 sujets tendance</button><button class="btn primary" id="generateDailyPack" disabled>✦ Générer les 4 brouillons avec l’IA</button></div>
-  <p class="footnote" id="dailyPackStatus" role="status" aria-live="polite">Chargez le Radar d’actualités puis sélectionnez les sujets du jour. Si moins de quatre actualités distinctes sont disponibles, le studio ne complète pas artificiellement le programme.</p>
-  <div id="dailyPackList" class="daily-pack-list"><div class="empty">Aucun programme préparé. Sélectionnez les sujets tendance pour commencer.</div></div>
+ <div class="visual-hero">
+  <div class="kicker">ANIME TREND · ESPACE DE PRODUCTION</div>
+  <h2>Studio visuel</h2>
+  <p class="sub">Un seul parcours pour préparer une publication complète : choisissez un sujet, rédigez le texte, créez son visuel, contrôlez le rendu Facebook puis exportez votre création.</p>
+  <div class="visual-flow"><span>01 · Rédiger</span><b>→</b><span>02 · Illustrer</span><b>→</b><span>03 · Prévisualiser</span><b>→</b><span>04 · Exporter</span></div>
  </div>
- <div class="card" id="artWorkspace" style="margin-top:18px"><h3>2. Création graphique et exports</h3>
- <div class="kicker">PRODUCTION GRAPHIQUE · PHASE 3</div><h2>Studio visuel</h2>
- <p class="sub">Créez des visuels adaptés à Facebook et Instagram : publication, Story, couverture et carrousel. Importez une image que vous possédez ou que vous êtes autorisé à utiliser, personnalisez le texte puis exportez en PNG.</p>
- <div class="grid2">
-  <div class="card">
-   <section class="linked-publication" aria-labelledby="artLinkTitle">
-    <div class="linked-head"><div><div class="kicker">LIAISON ÉDITORIALE</div><h3 id="artLinkTitle">Publication associée</h3><p class="small muted">Choisissez un brouillon ou chargez directement l’une des quatre publications du jour. Le titre et le texte seront repris automatiquement.</p></div><span class="badge green">Synchronisation locale</span></div>
-    <div class="field"><label for="artPostSelect">Brouillon à illustrer</label><select id="artPostSelect"><option value="">Choisir une publication enregistrée…</option></select></div>
-    <div class="actions"><button class="btn primary" id="loadArtPost">Charger dans le studio graphique</button><button class="btn" id="copyArtCaption">Copier le texte Facebook</button></div>
-    <p class="footnote" id="artLinkedStatus" role="status" aria-live="polite">Aucune publication associée. Sélectionnez un brouillon pour commencer.</p>
-    <div class="field"><label for="artCaption">Texte Facebook lié (conservé avec le brouillon)</label><textarea id="artCaption" rows="5" placeholder="Le texte complet de la publication sélectionnée apparaîtra ici."></textarea></div>
-   </section>
-   <h3>1. Paramètres du visuel</h3>
-   <div class="field"><label>Format de sortie</label><select id="artFormat"><option value="portrait">Publication portrait · 4:5</option><option value="square">Carré · 1:1</option><option value="story">Story / Reel · 9:16</option><option value="landscape">Paysage · 16:9</option></select></div>
-   <div class="field"><label>Image personnelle ou autorisée</label><input type="file" id="artFile" accept="image/*"></div>
-   <div class="field"><label>Titre principal</label><input id="artTitle" maxlength="70" value="LE DÉBAT DU JOUR"></div>
-   <div class="field"><label>Sous-titre</label><input id="artSubtitle" maxlength="90" value="MANGA • ANIME • COMMUNAUTÉ"></div>
-   <div class="two">
-    <div class="field"><label>Couleur d'accent</label><select id="artAccent"><option value="#7c3aed">Violet</option><option value="#1688e8">Bleu</option><option value="#e52f50">Rouge</option><option value="#e7a928">Or</option><option value="#16a36a">Vert</option></select></div>
-    <div class="field"><label>Style</label><select id="artTheme"><option value="cinema">Cinématique</option><option value="light">Clair premium</option><option value="neon">Néon nocturne</option></select></div>
-   </div>
-   <div class="field"><label>Signature de page</label><input id="artSignature" value="MANGA, ANIMÉ ET ACTUALITÉS" maxlength="50"></div>
-   <div class="actions"><button class="btn" id="renderArt">Actualiser l'aperçu</button><button class="btn primary" id="downloadArt">⬇ Exporter PNG</button></div>
-   <hr>
-   <h3>2. Exports rapides</h3>
-   <p class="footnote">Les exports utilisent le même visuel et adaptent automatiquement ses dimensions.</p>
-   <div class="actions"><button class="btn" id="downloadStory">Exporter en Story 9:16</button><button class="btn" id="downloadSquare">Exporter en carré 1:1</button></div>
-   <div class="field" style="margin-top:14px"><label>Texte du carrousel (5 cartes, une idée par ligne)</label><textarea id="carouselText" style="min-height:115px">Une passion qui nous rassemble.
+ <section class="card daily-studio" aria-labelledby="dailyStudioTitle">
+  <div class="daily-head"><div><div class="kicker">ÉTAPE 01 · PROGRAMME ÉDITORIAL</div><h3 id="dailyStudioTitle">Les 4 publications du jour</h3><p class="small muted">Quatre sujets issus du Radar. Les textes générés restent des brouillons à vérifier ; aucune publication n’est envoyée automatiquement.</p></div><span class="badge">Brouillons uniquement</span></div>
+  <div class="actions"><button class="btn" id="prepareDailyPack">① Sélectionner 4 sujets tendance</button><button class="btn primary" id="generateDailyPack" disabled>✦ Générer les 4 brouillons</button></div>
+  <p class="footnote" id="dailyPackStatus" role="status" aria-live="polite">Chargez le Radar puis sélectionnez les sujets du jour. Si quatre actualités fiables ne sont pas disponibles, le studio ne les invente pas.</p>
+  <div id="dailyPackList" class="daily-pack-list"><div class="empty">Aucun programme préparé.</div></div>
+ </section>
+ <section class="card visual-workspace" id="artWorkspace" aria-labelledby="artWorkspaceTitle">
+  <div class="visual-section-head"><div><div class="kicker">ÉTAPE 02 · PRODUCTION GRAPHIQUE</div><h3 id="artWorkspaceTitle">Créer le visuel de votre publication</h3><p class="small muted">Le visuel reprend le sujet du brouillon sélectionné. Une identité graphique unique est appliquée automatiquement pour garder une page cohérente.</p></div><span class="badge green">Identité visuelle unifiée</span></div>
+  <section class="linked-publication" aria-labelledby="artLinkTitle">
+   <div class="linked-head"><div><div class="kicker">CONTENU SOURCE</div><h4 id="artLinkTitle">Publication à illustrer</h4><p class="small muted">Sélectionnez une publication du jour ou un brouillon de votre liste. Son titre et son texte seront chargés dans le studio.</p></div></div>
+   <div class="linked-controls"><div class="field"><label for="artPostSelect">Choisir un brouillon</label><select id="artPostSelect"><option value="">Choisir une publication enregistrée…</option></select></div><div class="actions"><button class="btn primary" id="loadArtPost">Charger la publication</button><button class="btn" id="copyArtCaption">Copier le texte Facebook</button></div></div>
+   <p class="footnote" id="artLinkedStatus" role="status" aria-live="polite">Aucune publication associée. Sélectionnez un brouillon pour commencer.</p>
+   <div class="field"><label for="artCaption">Texte complet de la publication</label><textarea id="artCaption" rows="6" placeholder="Le texte Facebook apparaîtra ici après sélection d’un brouillon."></textarea></div>
+  </section>
+  <div class="visual-production-grid">
+   <div class="visual-controls">
+    <div class="visual-subhead"><span>03</span><div><h4>Composer le visuel</h4><p>Un modèle professionnel, sans réglages de style ou de couleur.</p></div></div>
+    <div class="field"><label for="artFormat">Format de sortie</label><select id="artFormat"><option value="portrait">Publication Facebook · Portrait 4:5</option><option value="square">Carré · 1:1</option><option value="story">Story / Reel · 9:16</option><option value="landscape">Paysage · 16:9</option></select></div>
+    <div class="field"><label for="artFile">Ajouter une image autorisée (facultatif)</label><input type="file" id="artFile" accept="image/*"><small class="muted">Utilisez une image originale ou dont vous possédez les droits.</small></div>
+    <div class="field"><label for="artTitle">Titre affiché sur le visuel</label><input id="artTitle" maxlength="100" value="L’ACTUALITÉ MANGA DU JOUR"></div>
+    <div class="field"><label for="artSubtitle">Accroche courte</label><input id="artSubtitle" maxlength="100" value="MANGA · ANIME · ACTUALITÉS"></div>
+    <div class="field"><label for="artSignature">Signature de la page</label><input id="artSignature" value="MANGA, ANIMÉ ET ACTUALITÉS" maxlength="50"></div>
+    <div class="visual-export-actions"><button class="btn" id="renderArt">Actualiser l’aperçu</button><button class="btn primary" id="downloadArt">⬇ Exporter le visuel PNG</button></div>
+    <div class="export-more"><h4>Déclinaisons rapides</h4><p class="small muted">Même identité graphique, dimensions adaptées au format.</p><div class="actions"><button class="btn" id="downloadStory">Exporter Story 9:16</button><button class="btn" id="downloadSquare">Exporter carré 1:1</button></div></div>
+    <div class="field"><label for="carouselText">Contenu du carrousel (une idée par carte)</label><textarea id="carouselText" rows="5">Une passion qui nous rassemble.
 Des personnages inoubliables.
 Des histoires qui nous inspirent.
 Des univers à découvrir.
 Et vous, quel est votre anime préféré ?</textarea></div>
-   <button class="btn primary" id="downloadCarousel">⬇ Préparer les 5 cartes du carrousel</button>
-   <p class="footnote" id="visualStatus" aria-live="polite">Aperçu prêt. Aucun contenu n'est publié automatiquement.</p><p class="footnote" id="artExportHistory">Aucun export enregistré pour le moment.</p>
-  </div>
-  <div class="card">
-   <div class="rowhead"><h3>3. Aperçu en direct</h3><span class="tag">PNG haute résolution</span></div>
-   <div class="canvas-wrap"><canvas id="artCanvas" width="1080" height="1350"></canvas></div>
-   <div class="grid2" style="margin-top:12px">
-    <div class="stat"><small>Format</small><b id="artDimension">1080 × 1350</b></div>
-    <div class="stat"><small>Destination</small><b id="artDestination">Fil Facebook</b></div>
+    <button class="btn" id="downloadCarousel">⬇ Exporter le carrousel</button>
+    <p class="footnote" id="visualStatus" aria-live="polite">Prêt à créer. Aucun contenu n’est publié automatiquement.</p>
+    <p class="footnote" id="artExportHistory">Aucun export enregistré pour le moment.</p>
    </div>
-   <p class="footnote">Le texte Facebook complet reste associé au brouillon ; le visuel exporté est un fichier distinct. Gardez le titre court, vérifiez sa lisibilité sur téléphone et utilisez uniquement des images autorisées.</p>
+   <div class="visual-preview-column">
+    <div class="visual-subhead"><span>04</span><div><h4>Aperçu de la publication Facebook</h4><p>Simulation de l’apparence dans le fil, avec le texte et le visuel associés.</p></div></div>
+    <article class="facebook-preview" aria-label="Aperçu simulé d’une publication Facebook">
+     <div class="fb-preview-header"><div class="fb-page-avatar">M</div><div class="fb-page-identity"><strong>Manga, Animé et Actualités</strong><small>Publication · Aperçu non publié</small></div><span class="fb-more">•••</span></div>
+     <div class="fb-preview-caption" id="fbPreviewCaption">Votre texte Facebook apparaîtra ici après sélection d’un brouillon. Vérifiez l’accroche, les paragraphes, les hashtags et la source avant publication.</div>
+     <div class="fb-preview-media"><canvas id="artCanvas" width="1080" height="1350"></canvas></div>
+     <div class="fb-preview-reactions"><span>👍 ❤️ 😮</span><span id="fbPreviewEngagement">Aperçu des réactions · commentaires · partages</span></div>
+     <div class="fb-preview-actions"><span>♡ J’aime</span><span>▢ Commenter</span><span>↗ Partager</span></div>
+    </article>
+    <div class="preview-specs"><div class="stat"><small>Dimensions export</small><b id="artDimension">1080 × 1350</b></div><div class="stat"><small>Format</small><b id="artDestination">Fil Facebook</b></div></div>
+    <p class="footnote">Aperçu de conception uniquement : les réactions sont illustratives. Cette prévisualisation ne publie rien sur Facebook.</p>
+   </div>
   </div>
- </div>
-</div>
+ </section>
 </section>
 
 <section class="page" id="p-reels">
