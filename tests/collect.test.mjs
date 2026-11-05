@@ -116,8 +116,8 @@ test("isRelevantNews filtre les résultats Google Actualités hors sujet", () =>
 });
 test("clusterSimilar reconnaît les titres alternatifs connus sans fusionner les annonces de casting", () => {
   const result = clusterSimilar([
-    { title: "Otaku Vampire's Love Bite Anime Adaptation Announced", summary: "Manga by Julietta Suzuki (Kamisama Kiss) is getting an anime", source: "Anime Corner", url: "https://example.com/otaku", score: 12 },
-    { title: "Manga Oshi ni Amagami Receives TV Anime Adaptation", summary: "Julietta Suzuki's Oshi ni Amagami manga gets a television anime", source: "MyAnimeList", url: "https://example.com/oshi", score: 11 },
+    { title: "Otaku Vampire's Love Bite Anime Adaptation Announced", summary: "Manga by Julietta Suzuki (Kamisama Kiss) is getting an anime. " + "Additional unrelated background details ".repeat(45), source: "Anime Corner", url: "https://example.com/otaku", score: 12 },
+    { title: "Manga Oshi ni Amagami Receives TV Anime Adaptation", summary: "Julietta Suzuki's Oshi ni Amagami manga gets a television anime. " + "Different editorial context and production information ".repeat(45), source: "MyAnimeList", url: "https://example.com/oshi", score: 11 },
     { title: "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash", summary: "Mackenyu cast as Mash Burnedead", source: "Anime News Network", url: "https://example.com/mashle-cast", score: 13 },
     { title: "'Mashle' Gets Live-Action Movie Adaptation", summary: "Warner Bros Japan announced the live-action movie adaptation", source: "MyAnimeList", url: "https://example.com/mashle-film", score: 10 }
   ]);
