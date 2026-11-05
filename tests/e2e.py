@@ -117,7 +117,7 @@ async def main():
         check('visuel affiché dans la médiathèque', await pg.evaluate("document.querySelectorAll('#mediaGrid img').length")==1)
 
         # 9. Calendrier : ajout et suppression sans erreur
-        await pg.evaluate("navigate('calendar')")
+        await pg.evaluate("navigate('calendar');calView='list';renderCalendar()")
         await pg.fill('#calTitle','Test échéance'); await pg.fill('#calDate','2026-12-01')
         await pg.click('#addCal'); await pg.wait_for_timeout(150)
         n=await pg.evaluate("db.calendar.length")
