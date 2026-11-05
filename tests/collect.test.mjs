@@ -163,6 +163,7 @@ test("clean décode aussi les entités HTML encodées deux fois", () => {
     "Hajime Koumoto's Mashle — film"
   );
   assert.equal(clean("Titre &amp;amp; suite &#039;spéciale&#039;"), "Titre & suite 'spéciale'");
+  assert.equal(clean("SK&infin; &amp; Julieta Col&aacute;s"), "SK∞ & Julieta Colás");
 });
 
 test("clean retire les balises dangereuses après leur décodage", () => {
