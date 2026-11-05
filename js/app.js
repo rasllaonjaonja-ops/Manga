@@ -14,7 +14,7 @@ function isSafeImage(d){return typeof d==='string'&&/^data:image\/(png|jpeg|webp
 function normalizeDb(x){
  const src=isObj(x)?x:{};
 const out={posts:[],calendar:[],media:[],news:[],settings:{pageName:blank.settings.pageName,fontSize:14,density:'comfortable',workerUrl:'https://wild-field-da5f.rasllaonjaonja.workers.dev'}};
- if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString(),dailyDate:validDay(p.dailyDate)?p.dailyDate:null,dailySlot:Number.isInteger(+p.dailySlot)&&+p.dailySlot>=1&&+p.dailySlot<=4?+p.dailySlot:null,sourceUrl:/^https?:\/\//i.test(String(p.sourceUrl||''))?String(p.sourceUrl):'',sourceName:cut(p.sourceName||'',100),visualExports:Array.isArray(p.visualExports)?p.visualExports.filter(v=>typeof v==='string').slice(0,20):[]}));
+ if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString(),dailyDate:validDay(p.dailyDate)?p.dailyDate:null,dailySlot:Number.isInteger(+p.dailySlot)&&+p.dailySlot>=1&&+p.dailySlot<=4?+p.dailySlot:null,sourceUrl:/^https?:\/\//i.test(String(p.sourceUrl||''))?String(p.sourceUrl):'',sourceName:cut(p.sourceName||'',100),visualExports:Array.isArray(p.visualExports)?p.visualExports.filter(v=>typeof v==='string').slice(0,20):[],visualMediaId:typeof p.visualMediaId==='string'?p.visualMediaId:''}));
 if(Array.isArray(src.calendar))out.calendar=src.calendar.filter(c=>isObj(c)&&validDay(c.date)).slice(0,2000).map(c=>({id:c.id!=null&&String(c.id)!==''?String(c.id):uid(),title:cut(c.title,200),date:c.date,time:/^([01]\d|2[0-3]):[0-5]\d$/.test(String(c.time||''))?c.time:'',type:cut(c.type||'Publication',40),status:calendarStatuses().includes(c.status)?c.status:'Brouillon'}));
  if(Array.isArray(src.news))out.news=src.news.filter(n=>isObj(n)&&typeof n.title==='string'&&/^https?:\/\//i.test(String(n.url||''))).slice(0,500).map(n=>({id:n.id!=null&&String(n.id)!==''?String(n.id):uid(),title:cut(n.title,300),source:cut(n.source||'Source',80),url:String(n.url),publishedAt:validIso(n.publishedAt)?n.publishedAt:null,summary:cut(n.summary,400),savedAt:validIso(n.savedAt)?n.savedAt:new Date().toISOString(),verified:n.verified===true}));
  if(Array.isArray(src.media))out.media=src.media.filter(m=>isObj(m)&&isSafeImage(m.data)).slice(0,300).map(m=>({id:m.id!=null&&String(m.id)!==''?String(m.id):uid(),name:cut(m.name||'visuel',120),data:m.data}));
@@ -64,7 +64,7 @@ function runSelfTest(){
  size>4000000?warn(`Données volumineuses (${Math.round(size/1024)} Ko) : exportez une sauvegarde.`):ok(`Taille des données : ${Math.round(size/1024)} Ko`);
  const cv=document.createElement('canvas');(cv.getContext&&cv.getContext('2d'))?ok('Canevas 2D disponible (PNG)'):ko('Canevas 2D indisponible : exports PNG impossibles');
  ((navigator.clipboard&&window.isSecureContext)||(document.queryCommandSupported&&document.queryCommandSupported('copy')))?ok('Copie dans le presse-papiers disponible'):warn('Copie automatique limitée : sélectionnez le texte manuellement');
- const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','reelTopic','buildReel','artCanvas','artFormat','renderArt','downloadArt','artPostSelect','loadArtPost','artCaption','copyArtCaption','artLinkedStatus','artExportHistory','campTopic','buildCampaign','newsList','queueList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
+ const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','reelTopic','buildReel','artCanvas','artFormat','renderArt','downloadArt','openChatGPTImage','openGeminiImage','imageAiPrompt','copyImagePrompt','artPostSelect','loadArtPost','artCaption','copyArtCaption','artLinkedStatus','artExportHistory','campTopic','buildCampaign','newsList','queueList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
  const missing=required.filter(id=>!document.getElementById(id));
  missing.length?ko('Éléments manquants : '+missing.join(', ')):ok(`Interface : ${required.length} éléments requis présents`);
  const round=normalizeDb(JSON.parse(JSON.stringify(db)));
@@ -472,6 +472,9 @@ function loadArtPostById(id){
  document.getElementById('artTitle').value=p.title||'PUBLICATION MANGA / ANIME';
  document.getElementById('artSubtitle').value=[p.type,p.dailySlot?'PUBLICATION DU JOUR '+p.dailySlot+'/4':''].filter(Boolean).join(' • ').toUpperCase().slice(0,90);
  document.getElementById('artCaption').value=p.text||'';
+ artImage=null;
+ const savedVisual=db.media.find(m=>m.id===p.visualMediaId);
+ if(savedVisual&&isSafeImage(savedVisual.data)){const restored=new Image();restored.onload=()=>{artImage=restored;drawArt();};restored.src=savedVisual.data;}
  document.getElementById('artLinkedStatus').textContent='Lié à : '+(p.title||p.type)+' · '+p.status+'. Les modifications du texte seront enregistrées dans ce brouillon.';
  renderArtPostLinks();drawArt();
 }
@@ -568,14 +571,42 @@ function saveCanvasPNG(c,name){
  const a=document.createElement('a');a.download=name;a.href=c.toDataURL('image/png');
  document.body.appendChild(a);a.click();a.remove();
 }
+function buildImagePrompt(){
+ const p=db.posts.find(x=>x.id===activeArtPostId),title=(document.getElementById('artTitle').value||'Actualité manga et anime').trim(),caption=(document.getElementById('artCaption').value||'').trim(),format=document.getElementById('artFormat').value;
+ const ratio={portrait:'4:5 vertical (1080 × 1350)',square:'1:1 carré',story:'9:16 vertical (1080 × 1920)',landscape:'16:9 paysage'}[format]||'4:5 vertical';
+ const source=p&&p.sourceUrl?'Source à respecter : '+p.sourceUrl:'Aucune source URL enregistrée dans le brouillon.';
+ return 'Crée une image éditoriale professionnelle originale pour la page Facebook « Manga, Animé et Actualités ».\\nSujet exact : '+title+'.\\nContexte du brouillon : '+(caption?caption.slice(0,2200):'Aucun texte de publication fourni.')+'\\n'+source+'\\nDirection artistique : illustration anime/manga originale de haute qualité, composition cinématographique, éclairage maîtrisé, détails soignés, contraste lisible. Ne copie aucun personnage protégé ni aucune image officielle.\\nFormat : '+ratio+'. Prévoir une zone de respiration pour le recadrage.\\nIMPORTANT : ne pas inventer de logos, dates, citations ou détails factuels. Ne pas écrire de texte, lettres ni watermark dans l’image. Le texte sera ajouté séparément dans le studio. Produire une seule image nette, prête pour Facebook.';
+}
+function prepareExternalImageAI(provider){
+ const prompt=buildImagePrompt(),box=document.getElementById('imageAiPrompt');box.value=prompt;box.focus();box.select();
+ window.open(provider==='gemini'?'https://gemini.google.com/':'https://chatgpt.com/','_blank','noopener');
+ const label=provider==='gemini'?'Gemini':'ChatGPT';
+ try{if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(prompt).then(()=>{document.getElementById('imageAiStatus').textContent='Prompt copié. '+label+' est ouvert : collez-le, générez l’image puis revenez l’importer ici.';}).catch(()=>{document.getElementById('imageAiStatus').textContent='Service ouvert. Copiez le prompt affiché ci-dessous manuellement.';});}else document.getElementById('imageAiStatus').textContent='Service ouvert. Copiez le prompt affiché ci-dessous manuellement.';}catch(err){document.getElementById('imageAiStatus').textContent='Copiez le prompt affiché ci-dessous manuellement.';}
+}
+document.getElementById('openChatGPTImage').onclick=()=>prepareExternalImageAI('chatgpt');
+document.getElementById('openGeminiImage').onclick=()=>prepareExternalImageAI('gemini');
+document.getElementById('copyImagePrompt').onclick=()=>copyText(document.getElementById('imageAiPrompt').value.trim());
 document.getElementById('artFile').onchange=e=>{
  const f=e.target.files[0];if(!f)return;
  if(!f.type.startsWith('image/'))return alert('Choisissez un fichier image.');
  if(f.size>12*1024*1024)return alert('Image trop lourde. Choisissez une image de moins de 12 Mo.');
  const u=URL.createObjectURL(f),im=new Image();
- im.onload=()=>{artImage=im;drawArt();URL.revokeObjectURL(u);};
- im.onerror=()=>{URL.revokeObjectURL(u);alert('Impossible de lire cette image.');};
- im.src=u;
+ im.onload=()=>{
+  artImage=im;drawArt();URL.revokeObjectURL(u);
+  const p=db.posts.find(x=>x.id===activeArtPostId);
+  if(!p){document.getElementById('visualStatus').textContent='Image chargée pour l’aperçu. Sélectionnez un brouillon pour la conserver avec sa publication.';return;}
+  try{
+   const c=document.createElement('canvas'),scale=Math.min(1,1280/Math.max(im.width,im.height));
+   c.width=Math.max(1,Math.round(im.width*scale));c.height=Math.max(1,Math.round(im.height*scale));
+   c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+   let data=c.toDataURL('image/jpeg',.78);
+   if(data.length>1800000)data=c.toDataURL('image/jpeg',.62);
+   if(data.length>2200000)throw new Error('Image encore trop volumineuse après optimisation.');
+   const mediaId=uid();db.media.unshift({id:mediaId,name:cut(f.name||'visuel importé',120),data});db.media=db.media.slice(0,300);p.visualMediaId=mediaId;
+   if(save())document.getElementById('visualStatus').textContent='Image optimisée et enregistrée avec le brouillon : '+p.title;
+  }catch(err){showIssue('Image affichée mais non enregistrée : '+err.message+' Exportez-la avant de quitter le studio.');}
+ };
+ im.onerror=()=>{URL.revokeObjectURL(u);alert('Impossible de lire cette image.');};im.src=u;
 };
 ['artFormat','artTitle','artSubtitle','artSignature'].forEach(id=>document.getElementById(id).addEventListener('input',drawArt));
 document.getElementById('renderArt').onclick=drawArt;
