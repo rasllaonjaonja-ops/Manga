@@ -12,22 +12,22 @@ const required = [
 
 const errors = [];
 for (const file of required) {
-  if (!fs.existsSync(file)) errors.push(`Fichier requis manquant : ${file}`);
-  else if (!fs.statSync(file).isFile()) errors.push(`Le chemin requis n'est pas un fichier : ${file}`);
+  if (!fs.existsSync(file)) errors.push(\`Fichier requis manquant : \${file}\`);
+  else if (!fs.statSync(file).isFile()) errors.push(\`Le chemin requis n'est pas un fichier : \${file}\`);
 }
 
 if (fs.existsSync("index.html")) {
   const html = fs.readFileSync("index.html", "utf8");
-  if (!/<html\\b/i.test(html)) errors.push("index.html ne contient pas de balise html.");
-  if (!/<meta\\s+charset=/i.test(html)) errors.push("Encodage charset absent de index.html.");
-  if (!/css\\/style\\.css/i.test(html)) errors.push("La feuille css/style.css n'est pas référencée.");
-  if (!/js\\/app\\.js/i.test(html)) errors.push("Le script js/app.js n'est pas référencé.");
+  if (!/<html\b/i.test(html)) errors.push("index.html ne contient pas de balise html.");
+  if (!/<meta\s+charset=/i.test(html)) errors.push("Encodage charset absent de index.html.");
+  if (!/css\/style\.css/i.test(html)) errors.push("La feuille css/style.css n'est pas référencée.");
+  if (!/js\/app\.js/i.test(html)) errors.push("Le script js/app.js n'est pas référencé.");
 }
 
 if (fs.existsSync("js/app.js")) {
   const app = fs.readFileSync("js/app.js", "utf8");
   if (!app.trim()) errors.push("js/app.js est vide.");
-  if (/\\beval\\s*\\(/.test(app) || /\\bnew\\s+Function\\s*\\(/.test(app)) {
+  if (/\beval\s*\(/.test(app) || /\bnew\s+Function\s*\(/.test(app)) {
     errors.push("Usage interdit de eval() ou new Function() détecté dans js/app.js.");
   }
   if (!/localStorage/.test(app)) errors.push("Le stockage local attendu n'est pas détecté.");
@@ -42,7 +42,7 @@ if (fs.existsSync("scripts/collect-rss.mjs")) {
 
 if (errors.length) {
   for (const error of errors) console.error("❌ " + error);
-  console.error(`Contrôle échoué : ${errors.length} problème(s).`);
+  console.error(\`Contrôle échoué : \${errors.length} problème(s).\`);
   process.exit(1);
 }
 
