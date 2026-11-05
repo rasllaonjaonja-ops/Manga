@@ -275,6 +275,14 @@ document.getElementById('generateWithAI').onclick=generateWithCloudflare;
 
 /* Programme quotidien : quatre sujets RSS distincts, sans inventer d’actualité. */
 let dailyPack=[];
+let dailyRejected=new Set();
+function dailyKey(item){return String(item.url||item.title||'').trim().toLowerCase()}
+function dailyCandidates(){
+ const used=new Set(dailyPack.map(p=>dailyKey(p.item)));
+ return newsItems.map((item,index)=>({item,index}))
+  .filter(o=>/^https?:\/\//i.test(String(o.item.url||''))&&!dailyRejected.has(dailyKey(o.item))&&!used.has(dailyKey(o.item)))
+  .sort((a,b)=>(Number(b.item.trendScore)||0)-(Number(a.item.trendScore)||0)||Date.parse(b.item.publishedAt||0)-Date.parse(a.item.publishedAt||0));
+}
 function dailyType(item){
  const t=(String(item.title||'')+' '+String(item.summary||'')).toLowerCase();
  if(/adaptation|live.action|film|movie|anime adaptation/.test(t))return 'Découverte manga / anime';
@@ -296,15 +304,15 @@ function renderDailyPack(){
   <div class="field"><label for="dailyText${i}">Texte Facebook modifiable</label><textarea id="dailyText${i}" data-daily-text="${i}" rows="7" placeholder="Générez ce brouillon avec l’IA…">${safe(p.text||'')}</textarea></div>
   <div class="daily-preview" id="dailyPreview${i}" hidden><div class="preview"><div class="previewtop"><b>◉ Manga, Animé et Actualités</b><span class="muted">· Aperçu du fil</span></div><div class="caption">${safe(p.text||'Le texte généré apparaîtra ici.')}</div></div></div>
   <p class="footnote" id="dailyStatus${i}" aria-live="polite">${safe(p.status||'En attente de génération')}</p>
-  <div class="actions"><button class="btn sm" data-daily-act="preview" data-index="${i}">Aperçu Facebook</button><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button></div>
+  <div class="actions"><button class="btn sm" data-daily-act="preview" data-index="${i}">Aperçu Facebook</button><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button><button class="btn sm danger" data-daily-act="replace" data-index="${i}">Refuser / remplacer</button></div>
  </article>`).join('');
 }
 document.getElementById('prepareDailyPack').onclick=()=>{
- const unique=[],seen=new Set();
- getTopNews().forEach(({x})=>{const key=String(x.title||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();if(!key||seen.has(key)||!/^https?:\/\//i.test(String(x.url||'')))return;seen.add(key);unique.push(x)});
+ dailyRejected=new Set();
+ const unique=dailyCandidates();
  if(unique.length<4){document.getElementById('dailyPackStatus').textContent='Seulement '+unique.length+' actualité(s) distincte(s) disponible(s). Le programme attend quatre sujets fiables ; aucune actualité ne sera inventée.';dailyPack=[];renderDailyPack();return}
- dailyPack=unique.slice(0,4).map(item=>({item,type:dailyType(item),text:'',saved:false,generating:false,status:'Prêt à générer · source à vérifier'}));
- document.getElementById('dailyPackStatus').textContent='4 sujets distincts sélectionnés selon les tendances du Radar. Les résumés RSS sont des extraits : ouvrez chaque source et vérifiez les faits avant validation.';
+ dailyPack=unique.slice(0,4).map(({item})=>({item,type:dailyType(item),text:'',saved:false,generating:false,status:'Prêt à générer · source à vérifier'}));
+ document.getElementById('dailyPackStatus').textContent='4 sujets distincts sélectionnés selon les tendances du Radar. Chaque sujet peut être remplacé individuellement.';
  renderDailyPack();
 };
 document.getElementById('generateDailyPack').onclick=async()=>{
@@ -335,6 +343,14 @@ document.getElementById('dailyPackList').addEventListener('input',e=>{
 document.getElementById('dailyPackList').addEventListener('click',async e=>{
  const b=e.target.closest('[data-daily-act]');if(!b)return;const i=Number(b.dataset.index),p=dailyPack[i];if(!p)return;
  if(b.dataset.dailyAct==='preview'){const box=document.getElementById('dailyPreview'+i);box.hidden=!box.hidden;b.textContent=box.hidden?'Aperçu Facebook':'Masquer l’aperçu';return}
+ if(b.dataset.dailyAct==='replace'){
+  dailyRejected.add(dailyKey(p.item));
+  const next=dailyCandidates()[0];
+  if(!next){dailyRejected.delete(dailyKey(p.item));document.getElementById('dailyPackStatus').textContent='Aucun autre sujet distinct disponible dans le Radar. Lancez une nouvelle collecte RSS pour trouver un remplacement fiable.';return}
+  dailyPack[i]={item:next.item,type:dailyType(next.item),text:'',saved:false,generating:false,status:'Sujet de remplacement sélectionné · prêt à générer'};
+  document.getElementById('dailyPackStatus').textContent='Le sujet refusé a été écarté pour ce programme et remplacé par une autre actualité tendance. Aucun contenu n’a été publié.';
+  renderDailyPack();return;
+ }
  const textValue=document.getElementById('dailyText'+i).value.trim();p.text=textValue;
  if(b.dataset.dailyAct==='copy'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');copyText(textValue);return}
  if(b.dataset.dailyAct==='save'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');if(p.saved)return;if(addPost(p.item.title,p.type,textValue)){const saved=db.posts[0];saved.status='À vérifier';save();p.saved=true;p.status='Enregistré dans la file · À vérifier';renderDailyPack()}return}
