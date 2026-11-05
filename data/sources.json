@@ -16,10 +16,6 @@
     "url": "https://animecorner.me/feed/"
   },
   {
-    "name": "Tokyo Otaku Mode",
-    "url": "https://otakumode.com/news/feed"
-  },
-  {
     "name": "Crunchyroll (Google Actualités)",
     "url": "https://news.google.com/rss/search?q=site%3Acrunchyroll.com%2Fnews+anime&hl=fr&gl=FR&ceid=FR:fr"
   }
