@@ -40,7 +40,7 @@ try {
     else {
       const ageH = Math.max(0, Math.round((Date.now() - stamp) / 3600000));
       lines.push(`ℹ️ Radar : ${items.length} article(s), mis à jour il y a ${ageH} h.`);
-      if (ageH > 12) problems.push(`Radar non mis à jour depuis ${ageH} h (cycle attendu toutes les 5 h).`);
+      if (ageH > 12) warnings.push(`Radar non mis à jour depuis ${ageH} h (cycle attendu toutes les 5 h). Le contrôle du code et les tests de l’interface continuent ; relancez séparément le workflow RSS pour rafraîchir les actualités.`);
     }
   } else warnings.push("Aucune collecte RSS enregistrée pour le moment.");
   lines.push("✅ Articles contrôlés : titres, liens et indicateurs d'extrait RSS.");
