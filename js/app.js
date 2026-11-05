@@ -657,16 +657,6 @@ document.getElementById('downloadCarousel').onclick=()=>{
  drawArt();
 };
 drawArt();
-let campaignPack = [];
-function buildCampaign(){
- const topic=document.getElementById('campTopic').value.trim();
- if(!topic){alert('Ajoutez le thème de la campagne.');return;}
- const goal=document.getElementById('campGoal').value, mood=document.getElementById('campMood').value;
- const audience=document.getElementById('campAudience').value.trim()||'Fans de manga et d’anime';
- const facts=document.getElementById('campFacts').value.trim();
- const selected={post:document.getElementById('campPost').checked,reel:document.getElementById('campReel').checked,story:document.getElementById('campStory').checked,carousel:document.getElementById('campCarousel').checked,visual:document.getElementById('campVisual').checked};
- if(!Object.values(selected).some(Boolean)){alert('Sélectionnez au moins un format.');return;}
- const opener=mood==='Émotionnelle'?'Certaines histoires nous touchent bien au-delà de l’écran.':mood==='Énergique'?'La communauté anime, on lance le débat !':mood==='Mystérieuse'?'Et si un détail changeait toute notre lecture de cette histoire ?':mood==='Éducative'?'Prenons un instant pour explorer ce sujet avec nuance.':'Dans l’univers manga et anime, certains thèmes méritent une vraie disc
 async function loadNews(){let status=document.getElementById('newsStatus');status.textContent='Lecture du fichier du radar…';try{let r=await fetch('data/latest-news.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('Fichier absent ('+r.status+')');let data=await r.json();newsItems=Array.isArray(data.items)?data.items.filter(x=>isObj(x)&&typeof x.title==='string'):[];status.textContent=`${newsItems.length} article(s) · dernière collecte : ${data.updatedAt?new Date(data.updatedAt).toLocaleString('fr-FR'):'inconnue'}`;renderNews();renderAll()}catch(e){status.textContent='Radar non initialisé';document.getElementById('newsList').innerHTML='<div class="empty">Aucune collecte disponible pour le moment.<br>Déployez la V4 puis lancez le workflow « Anime Trend RSS Radar » dans GitHub Actions.</div>'}}
 function getTopNews(){
  return newsItems.map((x,i)=>({x,i}))
