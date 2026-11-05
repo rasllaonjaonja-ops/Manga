@@ -305,3 +305,63 @@ img,canvas{max-width:100%}
 #artCaption{background:#fbfdff}
 .daily-card [data-daily-act="art"]{border-color:#9d8bea;color:#5636a9;background:#f5f1ff}
 @media(max-width:580px){.linked-publication{padding:11px}.linked-head{display:block}}
+
+/* V4 — refonte complète du Studio visuel : publication éditoriale et aperçu Facebook */
+.studio-cover{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:25px 26px;margin:0 0 17px;border-radius:18px;background:linear-gradient(120deg,#111629 0%,#24213c 62%,#4a2340 100%);color:#fff;overflow:hidden;position:relative}
+.studio-cover-copy{max-width:760px;position:relative;z-index:1}
+.studio-cover .kicker{color:#efb4c8;letter-spacing:.12em}
+.studio-cover h2{font-size:clamp(25px,4vw,34px);line-height:1.12;margin:7px 0 9px;color:#fff}
+.studio-cover p{max-width:650px;color:#e2e4ec;line-height:1.55;margin:0}
+.studio-steps{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;color:#f2bdcf;font-size:12px}
+.studio-steps span{padding:7px 10px;border:1px solid #ffffff30;border-radius:999px;background:#ffffff0d}
+.studio-steps b{color:#fff;margin-left:3px}
+.studio-steps i{font-style:normal;color:#d9a6bb}
+.studio-cover-mark{width:100px;height:100px;flex:0 0 100px;border:1px solid #ffffff45;border-radius:26px;display:grid;place-items:center;font-size:55px;font-weight:900;color:#fff;transform:rotate(8deg);background:#ffffff10}
+.studio-cover-mark span{font-size:17px;color:#f2b4ca;position:absolute;margin:0 0 0 52px}
+.studio-section-title{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.studio-section-title h3{margin:4px 0;font-size:20px;color:var(--title)}
+.studio-section-title p{margin:4px 0}
+.visual-workspace{padding:clamp(13px,2.2vw,22px)}
+.linked-publication{border:1px solid var(--line);background:#f7f8fb;border-radius:14px;padding:16px;margin:14px 0 20px}
+.linked-head h4{font-size:16px;margin:3px 0}
+.linked-head p{margin:4px 0 12px}
+.linked-controls{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:end}
+.linked-controls .field{margin:0}
+.linked-publication textarea{min-height:130px;line-height:1.6;background:#fff}
+.studio-editor-grid{display:grid;grid-template-columns:minmax(280px,.88fr) minmax(320px,1.12fr);gap:18px;align-items:start}
+.studio-editor-panel,.studio-preview-panel{min-width:0;border:1px solid var(--line);border-radius:15px;padding:16px;background:var(--card,#fff)}
+.studio-step-heading{display:flex;align-items:flex-start;gap:10px;margin-bottom:16px}
+.studio-step-heading h4{font-size:16px;margin:1px 0 3px;color:var(--title)}
+.studio-step-heading p{font-size:12px;color:var(--muted);margin:0;line-height:1.45}
+.step-number{width:30px;height:30px;flex:0 0 30px;border-radius:10px;display:grid;place-items:center;background:#f7e9ef;color:#9b3158;font-weight:800}
+.studio-editor-panel .field{margin:0 0 13px}
+.studio-editor-panel input,.studio-editor-panel select{min-height:43px}
+.studio-export-primary{display:grid;gap:8px;margin-top:18px}
+.studio-export-primary .block{width:100%;justify-content:center}
+.studio-export-secondary{border-top:1px solid var(--line);margin-top:18px;padding-top:14px}
+.studio-export-secondary h4{font-size:14px;margin:0 0 9px}
+.studio-carousel-tools{margin-top:15px;border-top:1px solid var(--line);padding-top:13px}
+.studio-carousel-tools summary{font-size:13px;font-weight:700;cursor:pointer;color:var(--title)}
+.studio-carousel-tools .field{margin-top:12px}
+.studio-preview-panel{background:#f1f2f5}
+.facebook-preview{width:100%;max-width:560px;margin:0 auto;background:#fff;border:1px solid #d9dce2;border-radius:12px;overflow:hidden;box-shadow:0 5px 20px #12182712;color:#20232a}
+.fb-preview-header{display:flex;align-items:center;gap:10px;padding:13px 14px}
+.fb-page-avatar{width:42px;height:42px;flex:0 0 42px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#1b2034,#8c315c);color:#fff;font-weight:900;font-size:20px;border:2px solid #f1d5df}
+.fb-page-identity{display:flex;flex-direction:column;gap:3px;min-width:0}
+.fb-page-identity strong{font-size:13px;color:#17191e}
+.fb-page-identity small{font-size:11px;color:#777d87}
+.fb-more{margin-left:auto;color:#6c727d;letter-spacing:2px}
+.fb-preview-caption{padding:0 14px 13px;color:#252830;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;max-height:340px;overflow:auto}
+.fb-preview-media{width:100%;background:#0d1220;line-height:0}
+.fb-preview-media canvas{display:block;width:100%;height:auto;max-height:760px;object-fit:contain;background:#0d1220}
+.fb-preview-reactions{display:flex;justify-content:space-between;gap:8px;padding:10px 13px;color:#6b717b;font-size:11px;border-bottom:1px solid #e7e8eb}
+.fb-preview-actions{display:grid;grid-template-columns:repeat(3,1fr);padding:11px 5px;color:#626975;font-size:12px;font-weight:650;text-align:center}
+.preview-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.preview-specs .stat{background:#fff;border:1px solid #e1e3e8;border-radius:10px;padding:10px}
+.preview-specs .stat small{display:block;color:#7a808a;font-size:10px;margin-bottom:4px}
+.preview-specs .stat b{font-size:12px;color:#252a35}
+.preview-disclaimer{font-size:11px;color:var(--muted);line-height:1.5;margin:10px 0 0}
+.daily-studio{margin-bottom:17px}
+.daily-card [data-daily-act="art"]{border-color:#b85a7b;color:#8f294f;background:#fff4f7}
+@media(max-width:850px){.studio-editor-grid{grid-template-columns:1fr}.studio-preview-panel{order:2}.studio-editor-panel{order:1}}
+@media(max-width:600px){.studio-cover{padding:19px 16px;border-radius:14px}.studio-cover-mark{width:64px;height:64px;flex-basis:64px;font-size:34px;border-radius:17px}.studio-cover-mark span{margin-left:35px;font-size:13px}.studio-steps{gap:6px}.studio-steps span{padding:6px 8px;font-size:10px}.linked-controls{grid-template-columns:1fr}.linked-controls .actions{display:grid;grid-template-columns:1fr 1fr}.linked-publication{padding:12px}.studio-editor-panel,.studio-preview-panel{padding:12px}.fb-preview-caption{max-height:280px;font-size:12px}.fb-preview-actions{font-size:10px}}
