@@ -58,7 +58,7 @@ async def main():
         errors.clear()
 
         # Transfert d'une actualité vérifiée : la source doit rester attachée au brouillon.
-        await page.evaluate("navigate('radar')")
+        await page.evaluate("navigate('visual')")
         await page.evaluate("""()=>{
           db.news.unshift({id:'news-e2e',title:'Annonce officielle Mashle',source:'MyAnimeList',url:'https://myanimelist.net/news/test',publishedAt:null,summary:'Résumé de test',savedAt:new Date().toISOString(),verified:false});
           renderSavedNews()
