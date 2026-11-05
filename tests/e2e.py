@@ -90,6 +90,19 @@ async def main():
         counts=await page.evaluate("({all:db.posts.length,project:document.querySelectorAll('#projectPosts .publication-entry').length,published:document.querySelectorAll('#publishedPosts .publication-entry').length})")
         check("publications : listes projet/publiées cohérentes",counts["project"]+counts["published"]==counts["all"],counts)
 
+        # Les brouillons quotidiens doivent survivre à un rechargement et rester modifiables.
+        await page.evaluate("""()=>{
+          db.posts.unshift({id:'daily-restore-e2e',title:'Brouillon quotidien restauré',type:'Actualité vérifiée',text:'Texte initial',status:'Brouillon',created:new Date().toISOString(),dailyDate:dayKey(new Date()),dailySlot:1,sourceUrl:'https://example.com/anime-news',sourceName:'Source test',workflowStage:'redaction',visualExports:[],visualMediaId:''});
+          save()
+        }""")
+        await page.reload(); await page.wait_for_timeout(200)
+        restored_daily=await page.evaluate("""()=>({count:dailyPack.length,id:dailyPack[0]?.postId,text:document.querySelector('#dailyText0')?.value||''})""")
+        check("brouillons du jour : restauration après rechargement",restored_daily["id"]=="daily-restore-e2e" and restored_daily["text"]=="Texte initial",restored_daily)
+        await page.fill("#dailyText0","Texte modifié durablement")
+        await page.reload(); await page.wait_for_timeout(150)
+        edited_daily=await page.evaluate("db.posts.find(x=>x.id==='daily-restore-e2e')?.text")
+        check("brouillons du jour : édition conservée après rechargement",edited_daily=="Texte modifié durablement",edited_daily)
+
         # Réglages : un échec de sauvegarde ne doit ni conserver la modification ni afficher un succès.
         await page.evaluate("navigate('settings')")
         settings_result=await page.evaluate("""()=>{
