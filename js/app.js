@@ -242,7 +242,7 @@ async function generateWithCloudflare(){
  const lengthLabel=length==='short'?'courte':length==='long'?'détaillée':'moyenne';
  const question=document.getElementById('postQuestion').value.trim();
  const sources=document.getElementById('aiSources').value.trim()||'Aucune source officielle fournie. Ne pas inventer de faits, de dates, de citations ni d’annonces.';
- const enrichedTopic=topic+'\nFormat demandé : '+type+'. Ton : '+tone+'. Longueur : '+lengthLabel+'. Langue : français naturel, adapté à Facebook. Termine par '+(question?'cette question : '+question:'une question engageante pour la communauté')+'. RÈGLES DE FIABILITÉ : utilise uniquement les faits explicitement présents dans les sources transmises. N’invente aucun nom, rôle, date, chiffre, casting, citation ou annonce. Ne transforme jamais une hypothèse en fait confirmé. Le résumé RSS peut être incomplet : ne le présente pas comme l’article intégral et n’ajoute aucun détail absent. Si une information manque ou reste incertaine, omets-la ou signale clairement qu’elle n’est pas précisée. Conserve le média source et le lien original. N’affirme jamais avoir consulté une page si son contenu n’a pas été fourni.';
+ const enrichedTopic=topic+'\nFormat demandé : '+type+'. Ton : '+tone+'. Longueur : '+lengthLabel+'. Langue : français naturel, adapté à Facebook. Termine par '+(question?'cette question : '+question:'une question engageante pour la communauté')+'. RÈGLES DE FIABILITÉ : utilise uniquement les faits explicitement présents dans les sources transmises. N’invente aucun nom, rôle, date, chiffre, casting, citation ou annonce. Ne transforme jamais une hypothèse en fait confirmé. Le résumé RSS peut être incomplet : ne le présente pas comme l’article intégral et n’ajoute aucun détail absent. Si une information manque ou reste incertaine, omets-la ou signale clairement qu’elle n’est pas précisée. Conserve les liens originaux et attribue les informations au média correspondant. Plusieurs reprises d’un même communiqué ne sont pas des confirmations indépendantes. En cas de divergence, signale-la. N’affirme jamais avoir consulté une page si son contenu n’a pas été fourni.';
  if(button){button.disabled=true;button.textContent='Génération en cours…'}
  setWorkerStatus('⏳ L’IA prépare votre publication…');
  try{
@@ -498,17 +498,31 @@ window.useNewsByIndex=(index)=>{
  document.getElementById('postType').value='Actualité vérifiée';
  document.getElementById('postTopic').value=item.title;
  document.getElementById('postQuestion').value='Qu’en pensez-vous ?';
+ const related=Array.isArray(item.trendArticles)&&item.trendArticles.length
+  ?item.trendArticles.slice(0,5)
+  :[{title:item.title,source:item.source||'Source',url:item.url,summary:item.summary||'',summaryTruncated:item.summaryTruncated===true}];
+ const sourceDetails=related.map((a,i)=>[
+  'MÉDIA '+(i+1)+' : '+(a.source||'Source non précisée'),
+  'TITRE : '+(a.title||item.title),
+  'LIEN : '+(a.url||'Non fourni'),
+  'EXTRAIT RSS : '+(String(a.summary||'Résumé non fourni').slice(0,700)),
+  'EXTRAIT COUPÉ PAR LE COLLECTEUR : '+(a.summaryTruncated===true?'OUI':'NON')
+ ].join('\n')).join('\n\n');
  document.getElementById('aiSources').value=[
-  'SOURCE : '+(item.source||'Non précisée'),
-  'TITRE : '+item.title,
-  'DATE : '+(item.publishedAt||'Non précisée'),
-  'LIEN ORIGINAL : '+item.url,
+  'SUJET REGROUPÉ : '+item.title,
+  'DATE LA PLUS RÉCENTE : '+(item.publishedAt||'Non précisée'),
+  'NOMBRE DE MÉDIAS RÉPERTORIÉS : '+(Number(item.trendSourceCount)||related.length),
   '',
-  'EXTRAIT DU FLUX RSS :',
-  item.summary||'Aucun résumé disponible.',
+  'SOURCES ET EXTRAITS DISPONIBLES :',
+  sourceDetails,
   '',
-  'IMPORTANT : cet extrait peut être incomplet.',
-  'Il ne représente pas nécessairement l’article intégral.'
+  'RÈGLES DE FIABILITÉ OBLIGATOIRES :',
+  'Ces contenus sont des extraits RSS, pas nécessairement les articles intégraux.',
+  'Ne complète jamais un résumé coupé et ne déduis aucun détail absent.',
+  'Conserve les liens originaux et attribue chaque information au média qui la rapporte.',
+  'Plusieurs reprises du même communiqué ne constituent pas automatiquement plusieurs confirmations indépendantes.',
+  'En cas de divergence entre les médias, signale-la au lieu de choisir arbitrairement.',
+  'Si une information n’est pas présente dans les extraits, omets-la.'
  ].join('\n');
 };
 document.getElementById('reloadNews').onclick=loadNews;document.getElementById('newsFilter').onchange=renderNews;
