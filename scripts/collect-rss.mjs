@@ -211,6 +211,16 @@ function eventKind(item) {
   return "general";
 }
 
+// Deux sources peuvent décrire le même dévoilement du casting de Mashle avec des titres très différents.
+ // On exige les mêmes repères factuels (franchise, acteur principal et réalisateur) pour éviter une fusion trop large.
+function sameMashleCastAnnouncement(a, b) {
+  if (eventKind(a) !== "cast" || eventKind(b) !== "cast") return false;
+  const titleA = normTitle(a.title || ""), titleB = normTitle(b.title || "");
+  if (!titleA.includes("mashle") || !titleB.includes("mashle")) return false;
+  const detailsA = normTitle(storyText(a)), detailsB = normTitle(storyText(b));
+  return ["mackenyu", "yuichi fukuda"].every(name => detailsA.includes(name) && detailsB.includes(name));
+}
+
 function titleSimilarity(a, b) {
   const aa = new Set(trendTokens(a)), bb = new Set(trendTokens(b));
   if (!aa.size || !bb.size) return 0;
@@ -240,7 +250,7 @@ export function clusterSimilar(list) {
     for (const group of groups) {
       if (kind !== group.kind) continue;
       // Compare les titres normalisés : les résumés longs et différents ne doivent pas diluer les alias de titres traduits.
-      const similarity = titleSimilarity(canonicalStoryText(item.title || ""), canonicalStoryText(group.item.title || ""));
+      const similarity = sameMashleCastAnnouncement(item, group.item) ? 1 : titleSimilarity(canonicalStoryText(item.title || ""), canonicalStoryText(group.item.title || ""));
       if (similarity > best) { best = similarity; match = group; }
     }
     if (match && best >= 0.24) {
