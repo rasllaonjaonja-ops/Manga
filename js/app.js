@@ -84,7 +84,7 @@ function saveNewsItem(n){
 }
 function renderSavedNews(){
  const el=document.getElementById('savedNewsList');if(!el)return;
- el.innerHTML=db.news.length?db.news.map(n=>`<div class="item"><div style="min-width:0"><strong>${safe(n.title)}</strong><small>${safe(n.source)} · ${validIso(n.publishedAt)?new Date(n.publishedAt).toLocaleDateString('fr-FR'):'date inconnue'} · <span class="badge ${n.verified?'green':'orange'}">${n.verified?'Vérifiée':'À vérifier'}</span></small><small><a href="${safe(n.url)}" target="_blank" rel="noopener noreferrer">Source originale ↗</a></small></div><div class="actions"><button class="btn sm" data-saved="verify" data-id="${safe(n.id)}">${n.verified?'Marquer à revérifier':'Marquer vérifiée'}</button><button class="btn sm" data-saved="draft" data-id="${safe(n.id)}" ${n.verified?'':'disabled title="Vérifiez d’abord l’actualité"'}>Créer un brouillon</button><button class="btn sm" data-saved="remove" data-id="${safe(n.id)}">×</button></div></div>`).join(''):'<div class="empty">Aucune actualité enregistrée.</div>';
+ el.innerHTML=db.news.length?db.news.map(n=>`<div class="item"><div style="min-width:0"><strong>${safe(n.title)}</strong><small>${safe(n.source)} · ${validIso(n.publishedAt)?new Date(n.publishedAt).toLocaleDateString('fr-FR'):'date inconnue'} · <span class="badge ${n.verified?'green':'orange'}">${n.verified?'Vérifiée':'À vérifier'}</span></small><small><a href="${safe(n.url)}" target="_blank" rel="noopener noreferrer">Source originale ↗</a></small></div><div class="actions"><button class="btn sm" data-saved="verify" data-id="${safe(n.id)}">${n.verified?'Marquer à revérifier':'Marquer vérifiée'}</button><button class="btn sm" data-saved="draft" data-id="${safe(n.id)}" ${n.verified?'':'disabled title="Vérifiez d’abord l’actualité"'}>Marquer pour rédaction →</button><button class="btn sm" data-saved="remove" data-id="${safe(n.id)}">×</button></div></div>`).join(''):'<div class="empty">Aucune actualité enregistrée.</div>';
 }
 document.getElementById('savedNewsList').addEventListener('click',e=>{
  const b=e.target.closest('[data-saved]');if(!b)return;const n=db.news.find(x=>x.id===b.dataset.id);if(!n)return;
@@ -94,14 +94,18 @@ document.getElementById('savedNewsList').addEventListener('click',e=>{
  }else if(b.dataset.saved==='draft'){
   if(!n.verified)return alert('Vérifiez d’abord l’actualité.');
   const text=`${n.title}\n\nSource : ${n.source}\nLien : ${n.url}\n\nÀ compléter : votre commentaire original, avec attribution de la source.`;
-  if(addPost(n.title,'Actualité vérifiée',text))alert('Brouillon créé dans la file éditoriale.');
+  if(addPost(n.title,'Actualité vérifiée',text)){
+   const created=db.posts.find(x=>x.title===cut(n.title,200)&&x.text===cut(text,20000));
+   if(created){created.sourceUrl=n.url;created.sourceName=n.source;created.workflowStage='redaction';save();}
+   alert('Actualité transférée en rédaction. La source originale reste associée au brouillon.');
+  }
  }else if(b.dataset.saved==='remove'){
   if(confirm('Retirer cette actualité de la liste enregistrée ?')){db.news=db.news.filter(x=>x!==n);save()}
  }
 });
 document.getElementById('publishedPosts').addEventListener('click',handlePublicationAction);
 document.getElementById('projectPosts').addEventListener('click',handlePublicationAction);
-function handlePublicationAction(e){const b=e.target.closest('[data-hub-act]');if(!b)return;const id=b.dataset.id;if(b.dataset.hubAct==='copy')copyPostId(id);else if(b.dataset.hubAct==='status')cyclePost(id);else if(b.dataset.hubAct==='remove')removePost(id);}
+function handlePublicationAction(e){const b=e.target.closest('[data-hub-act]');if(!b)return;const id=b.dataset.id;if(b.dataset.hubAct==='copy')copyPostId(id);else if(b.dataset.hubAct==='status')cyclePost(id);else if(b.dataset.hubAct==='next')advanceWorkflow(id);else if(b.dataset.hubAct==='remove')removePost(id);}
 
 document.getElementById('mediaGrid').addEventListener('click',e=>{const b=e.target.closest('[data-media]');if(b&&confirm('Supprimer ce visuel ?')){db.media=db.media.filter(x=>x.id!==b.dataset.media);save()}});
 
@@ -292,7 +296,7 @@ function dailyType(item){
 function saveDailyDraft(p,slot){
  const today=dayKey(new Date());
  const existing=db.posts.find(x=>x.dailyDate===today&&x.dailySlot===slot);
- const record={id:existing?existing.id:uid(),title:cut(p.item.title,200),type:cut(p.type,80),text:cut(p.text,20000),status:existing?existing.status:'Brouillon',created:existing?existing.created:new Date().toISOString(),dailyDate:today,dailySlot:slot,sourceUrl:String(p.item.url||''),sourceName:cut(p.item.source||'Source RSS',100)};
+ const record={id:existing?existing.id:uid(),title:cut(p.item.title,200),type:cut(p.type,80),text:cut(p.text,20000),status:existing?existing.status:'Brouillon',workflowStage:existing?.workflowStage||'redaction',created:existing?existing.created:new Date().toISOString(),dailyDate:today,dailySlot:slot,sourceUrl:String(p.item.url||''),sourceName:cut(p.item.source||'Source RSS',100)};
  if(existing)Object.assign(existing,record);else db.posts.unshift(record);
  if(!save())return false;
  p.saved=true;p.postId=record.id;p.status='Brouillon enregistré automatiquement dans Publications';
@@ -395,6 +399,7 @@ document.getElementById('dailyPackList').addEventListener('click',async e=>{
  if(b.dataset.dailyAct==='art'){
   if(!textValue)return alert('Générez ou saisissez d’abord le texte de cette publication.');
   p.text=textValue;if(!saveDailyDraft(p,i+1))return;
+  const linkedPost=db.posts.find(x=>x.id===p.postId);if(linkedPost){linkedPost.workflowStage='visuel';if(!save())return;}
   const panel=document.getElementById('dailyInlinePreview'+i);if(!panel)return;
   const opening=panel.hidden;panel.hidden=!opening;
   b.textContent=opening?'Masquer l’aperçu':'Créer le visuel associé →';
@@ -626,8 +631,8 @@ document.getElementById('artFile').onchange=e=>{
    let data=c.toDataURL('image/jpeg',.78);
    if(data.length>1800000)data=c.toDataURL('image/jpeg',.62);
    if(data.length>2200000)throw new Error('Image encore trop volumineuse après optimisation.');
-   const mediaId=uid();db.media.unshift({id:mediaId,name:cut(f.name||'visuel importé',120),data});db.media=db.media.slice(0,300);p.visualMediaId=mediaId;
-   if(save())document.getElementById('visualStatus').textContent='Image optimisée et enregistrée avec le brouillon : '+p.title;
+   const mediaId=uid();db.media.unshift({id:mediaId,name:cut(f.name||'visuel importé',120),data});db.media=db.media.slice(0,300);p.visualMediaId=mediaId;p.workflowStage='projet';
+   if(save())document.getElementById('visualStatus').textContent='Visuel associé : la publication est maintenant dans l’étape « Publication projet » : '+p.title;
   }catch(err){showIssue('Image affichée mais non enregistrée : '+err.message+' Exportez-la avant de quitter le studio.');}
  };
  im.onerror=()=>{URL.revokeObjectURL(u);alert('Impossible de lire cette image.');};im.src=u;
@@ -714,12 +719,22 @@ window.useNewsByIndex=(index)=>{
  ].join('\n');
 };
 document.getElementById('reloadNews').onclick=loadNews;document.getElementById('newsFilter').onchange=renderNews;
+const workflowLabels={actualite:'Actualité à vérifier',redaction:'À rédiger',visuel:'À illustrer',projet:'Publication projet',pret:'Prête à publier'};
+function workflowStageOf(p){return workflowLabels[p.workflowStage]||workflowLabels.redaction}
+function advanceWorkflow(id){
+ const p=db.posts.find(x=>x.id===id);if(!p)return;
+ const stages=['redaction','visuel','projet','pret'];
+ const current=stages.indexOf(p.workflowStage||'redaction');
+ p.workflowStage=stages[Math.min(stages.length-1,current+1)];
+ if(p.workflowStage==='projet'&&p.status==='Brouillon')p.status='En projet';
+ if(save())showIssue('Étape mise à jour : '+workflowLabels[p.workflowStage]+'.');
+}
 function renderPublications(){
  const today=dayKey(new Date());
  const daily=db.posts.filter(p=>p.dailyDate===today&&p.dailySlot).sort((a,b)=>a.dailySlot-b.dailySlot);
  const published=db.posts.filter(p=>p.status==='Publié manuellement');
  const projects=db.posts.filter(p=>p.status!=='Publié manuellement');
- const card=p=>`<article class="publication-entry"><div class="publication-entry-head"><strong>${safe(p.title||p.type||'Publication')}</strong><span class="badge ${p.status==='Publié manuellement'?'green':p.status==='Prêt'?'green':'orange'}">${safe(p.status)}</span></div><small class="muted">${safe(p.type)} · ${new Date(p.created).toLocaleDateString('fr-FR')}${p.dailySlot?' · Publication du jour '+p.dailySlot+'/4':''}</small><details><summary>Voir le texte complet</summary><p class="publication-text">${safe(p.text)}</p></details>${p.sourceUrl?`<small><a href="${safe(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source : ${safe(p.sourceName||'article original')} ↗</a></small>`:''}<div class="actions"><button class="btn sm" data-hub-act="copy" data-id="${safe(p.id)}">Copier</button><button class="btn sm" data-hub-act="status" data-id="${safe(p.id)}">Statut</button><button class="btn sm" data-hub-act="remove" data-id="${safe(p.id)}">Supprimer</button></div></article>`;
+ const card=p=>`<article class="publication-entry"><div class="publication-entry-head"><strong>${safe(p.title||p.type||'Publication')}</strong><span class="badge ${p.status==='Publié manuellement'?'green':p.status==='Prêt'?'green':'orange'}">${safe(p.status)}</span></div><small class="muted">${safe(p.type)} · ${new Date(p.created).toLocaleDateString('fr-FR')}${p.dailySlot?' · Publication du jour '+p.dailySlot+'/4':''}</small><span class="badge">${safe(workflowStageOf(p))}</span><details><summary>Voir le texte complet</summary><p class="publication-text">${safe(p.text)}</p></details>${p.sourceUrl?`<small><a href="${safe(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Source : ${safe(p.sourceName||'article original')} ↗</a></small>`:''}<div class="actions"><button class="btn sm primary" data-hub-act="next" data-id="${safe(p.id)}">Marquer pour l’étape suivante →</button><button class="btn sm" data-hub-act="copy" data-id="${safe(p.id)}">Copier</button><button class="btn sm" data-hub-act="status" data-id="${safe(p.id)}">Statut</button><button class="btn sm" data-hub-act="remove" data-id="${safe(p.id)}">Supprimer</button></div></article>`;
  const dailyEl=document.getElementById('dailyDraftPosts');
  if(dailyEl){
   document.getElementById('dailyDraftCount').textContent=daily.length+'/4 brouillons';
