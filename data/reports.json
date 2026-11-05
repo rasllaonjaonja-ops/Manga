@@ -1,6 +1,21 @@
 {
   "runs": [
     {
+      "runAt": "2026-11-05T06:11:34.533Z",
+      "durationSeconds": 1,
+      "status": "partiel",
+      "sourcesTotal": 6,
+      "sourcesOk": 5,
+      "articlesFound": 101,
+      "articlesKept": 91,
+      "errors": [
+        {
+          "source": "Tokyo Otaku Mode",
+          "message": "HTTP 403"
+        }
+      ]
+    },
+    {
       "runAt": "2026-11-04T21:08:54.683Z",
       "durationSeconds": 1,
       "status": "ok",
