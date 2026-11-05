@@ -12,8 +12,11 @@ const required = [
 
 const errors = [];
 for (const file of required) {
-  if (!fs.existsSync(file)) errors.push(\`Fichier requis manquant : \${file}\`);
-  else if (!fs.statSync(file).isFile()) errors.push(\`Le chemin requis n'est pas un fichier : \${file}\`);
+  if (!fs.existsSync(file)) {
+    errors.push("Fichier requis manquant : " + file);
+  } else if (!fs.statSync(file).isFile()) {
+    errors.push("Le chemin requis n'est pas un fichier : " + file);
+  }
 }
 
 if (fs.existsSync("index.html")) {
@@ -32,17 +35,21 @@ if (fs.existsSync("js/app.js")) {
   }
   if (!/localStorage/.test(app)) errors.push("Le stockage local attendu n'est pas détecté.");
   const syntax = spawnSync(process.execPath, ["--check", "js/app.js"], { encoding: "utf8" });
-  if (syntax.status !== 0) errors.push("Erreur de syntaxe JavaScript : " + (syntax.stderr || syntax.stdout).trim());
+  if (syntax.status !== 0) {
+    errors.push("Erreur de syntaxe JavaScript : " + (syntax.stderr || syntax.stdout).trim());
+  }
 }
 
 if (fs.existsSync("scripts/collect-rss.mjs")) {
   const syntax = spawnSync(process.execPath, ["--check", "scripts/collect-rss.mjs"], { encoding: "utf8" });
-  if (syntax.status !== 0) errors.push("Erreur de syntaxe du collecteur : " + (syntax.stderr || syntax.stdout).trim());
+  if (syntax.status !== 0) {
+    errors.push("Erreur de syntaxe du collecteur : " + (syntax.stderr || syntax.stdout).trim());
+  }
 }
 
 if (errors.length) {
   for (const error of errors) console.error("❌ " + error);
-  console.error(\`Contrôle échoué : \${errors.length} problème(s).\`);
+  console.error("Contrôle échoué : " + errors.length + " problème(s).");
   process.exit(1);
 }
 
