@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { clean, dedupe, parseFeed } from "../scripts/collect-rss.mjs";
+import { clean, dedupe, parseFeed, clusterSimilar } from "../scripts/collect-rss.mjs";
 
 test("clean removes markup and decodes common entities", () => {
   assert.equal(clean("<p>Un <b>manga</b> &amp; un anime</p>"), "Un manga & un anime");
@@ -66,4 +66,18 @@ test("dedupe keeps distinct titles and URLs", () => {
     { title: "Anime 2", url: "https://example.com/2" }
   ];
   assert.equal(dedupe(items).length, 2);
+});
+
+test("clusterSimilar merges near-identical stories and counts independent sources", () => {
+  const items = [
+    { title: "'Mashle' Gets Live-Action Movie Adaptation", source: "MyAnimeList", url: "https://example.com/mal", score: 12, publishedAt: "2026-11-04T08:00:00.000Z" },
+    { title: "Mashle Live-Action Movie Adaptation Announced", source: "Anime News Network", url: "https://example.com/ann", score: 11, publishedAt: "2026-11-04T09:00:00.000Z" },
+    { title: "A Different Anime Announces New Season", source: "Anime Corner", url: "https://example.com/other", score: 10, publishedAt: "2026-11-04T10:00:00.000Z" }
+  ];
+  const result = clusterSimilar(items);
+  const mashle = result.find(item => item.trendSources?.includes("MyAnimeList"));
+  assert.ok(mashle);
+  assert.equal(mashle.trendSourceCount, 2);
+  assert.ok(mashle.trendScore > mashle.score);
+  assert.equal(result.length, 2);
 });
