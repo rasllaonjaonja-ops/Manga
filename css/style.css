@@ -291,3 +291,6 @@ img,canvas{max-width:100%}
 .daily-preview{margin:10px 0}
 .daily-card .actions{gap:6px}
 @media(max-width:700px){.daily-pack-list{grid-template-columns:1fr}.daily-head{display:block}.daily-head>.badge{margin-top:8px;display:inline-block}}
+
+/* Publications : programme quotidien et liste générale synchronisés */
+.daily-publications{margin:16px 0}.daily-draft-list{display:grid;gap:9px}.daily-draft-row{display:flex;align-items:flex-start;gap:11px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--card)}.daily-draft-number{width:30px;height:30px;flex:0 0 30px;display:grid;place-items:center;border-radius:8px;background:var(--soft);font-weight:800}.daily-draft-content{min-width:0;flex:1}.daily-draft-content strong{display:block;font-size:12px;overflow-wrap:anywhere}.daily-draft-content small,.daily-draft-content>a{display:block;font-size:10px;color:var(--muted);margin-top:3px}.daily-draft-content details{margin-top:6px}.daily-draft-content .publication-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px}.daily-draft-row .actions{flex-wrap:wrap}@media(max-width:620px){.daily-draft-row{flex-wrap:wrap}.daily-draft-row .actions{width:100%;padding-left:41px}}
