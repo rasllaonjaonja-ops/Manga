@@ -1,8 +1,8 @@
-# ANIME TREND STUDIO V3
+# ANIME TREND STUDIO V4
 
 Studio éditorial local et gratuit pour la page **Manga, Animé et Actualités** : rédaction de publications, campagnes, visuels PNG, Reels, file éditoriale, calendrier, médiathèque et radar d'actualités RSS.
 
-Aucune clé API, aucun serveur payant, aucune publication automatique sur Facebook. Les publications restent manuelles (Meta Business Suite).
+Aucune clé API à saisir dans l’interface. La génération IA passe par le Worker Cloudflare configuré ; ses quotas gratuits peuvent évoluer. Aucune publication automatique sur Facebook : les publications restent manuelles via Meta Business Suite.
 
 ## Structure du projet
 
@@ -24,7 +24,7 @@ tests/
   e2e.py                Tests de bout en bout dans un navigateur
 .github/workflows/
   radar.yml             Collecte RSS toutes les 5 heures
-  deploy.yml            Contrôle, tests puis publication GitHub Pages
+  deploy.yml            Déploiement historique V3 (main/master uniquement)
   diagnostics.yml       Diagnostic quotidien
 ```
 
@@ -55,7 +55,7 @@ Ouvrez l'adresse GitHub Pages dans Chrome, puis utilisez le menu ☰ pour change
 - `python tests/e2e.py` : tests de bout en bout dans un navigateur réel (instructions dans l'en-tête du fichier).
 - Dans l'application : **Réglages → Vérifier l'application** affiche un contrôle local du stockage, des exports, de l'interface et des données.
 
-Ces contrôles tournent aussi dans les workflows : le déploiement ne publie rien si un contrôle échoue.
+Les contrôles Node.js tournent dans le workflow de diagnostic V4. Les tests navigateur sont exécutés séparément par ce même workflow. Le déploiement historique GitHub Pages reste limité à main/master afin de protéger la V3.
 
 ## Connexion IA Cloudflare (branche V4)
 
@@ -81,7 +81,7 @@ Ces contrôles tournent aussi dans les workflows : le déploiement ne publie rie
 
 ## Radar d'actualités
 
-- Sources : Anime News Network, MyAnimeList, Google Actualités (manga et anime), modifiables dans `data/sources.json`. Seules les adresses HTTPS sont acceptées.
+- Sources actives : Anime News Network, MyAnimeList, Google Actualités, Anime Corner et Crunchyroll via Google Actualités. Elles sont modifiables dans `data/sources.json`. Le flux Tokyo Otaku Mode a été retiré après des réponses HTTP 403 répétées. Seules les adresses HTTPS sont acceptées.
 - Toutes les 5 heures, GitHub Actions collecte les titres, résumés, dates et liens. Les doublons (URL ou titre) sont retirés.
 - Si aucun flux ne répond, les actualités précédentes sont conservées et le run est signalé en erreur.
 - **Enregistrer** une actualité la place dans « Actualités enregistrées ». Elle reste « À vérifier » tant que vous n'avez pas consulté la source originale et confirmé l'information.
