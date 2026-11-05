@@ -365,3 +365,30 @@ img,canvas{max-width:100%}
 .daily-card [data-daily-act="art"]{border-color:#b85a7b;color:#8f294f;background:#fff4f7}
 @media(max-width:850px){.studio-editor-grid{grid-template-columns:1fr}.studio-preview-panel{order:2}.studio-editor-panel{order:1}}
 @media(max-width:600px){.studio-cover{padding:19px 16px;border-radius:14px}.studio-cover-mark{width:64px;height:64px;flex-basis:64px;font-size:34px;border-radius:17px}.studio-cover-mark span{margin-left:35px;font-size:13px}.studio-steps{gap:6px}.studio-steps span{padding:6px 8px;font-size:10px}.linked-controls{grid-template-columns:1fr}.linked-controls .actions{display:grid;grid-template-columns:1fr 1fr}.linked-publication{padding:12px}.studio-editor-panel,.studio-preview-panel{padding:12px}.fb-preview-caption{max-height:280px;font-size:12px}.fb-preview-actions{font-size:10px}}
+
+/* V4 — distinction des quatre publications et aperçus Facebook en contexte */
+.daily-card{position:relative;overflow:hidden;border-left:5px solid var(--daily-tone,#315fbd);padding-left:17px}
+.daily-card.daily-tone-1{--daily-tone:#2878d0;--daily-soft:#eaf3ff}
+.daily-card.daily-tone-2{--daily-tone:#8b5bc7;--daily-soft:#f3edff}
+.daily-card.daily-tone-3{--daily-tone:#d17a2e;--daily-soft:#fff2e5}
+.daily-card.daily-tone-4{--daily-tone:#25866a;--daily-soft:#e8f7f1}
+.daily-publication-label{display:inline-flex;align-items:center;gap:7px;padding:6px 10px;border-radius:999px;background:var(--daily-soft);color:var(--daily-tone);font-size:11px;font-weight:800}
+.daily-publication-label i{width:8px;height:8px;border-radius:50%;background:var(--daily-tone);display:inline-block}
+.daily-card h4{color:var(--daily-tone)}
+.daily-facebook-preview,.manual-facebook-preview{margin:14px 0 4px;background:#fff;border:1px solid #dfe2e8;border-radius:12px;overflow:hidden;color:#20232a;box-shadow:0 4px 16px #1720330d}
+.daily-fb-head,.manual-fb-head{display:flex;align-items:center;gap:10px;padding:12px 13px}
+.daily-fb-avatar{width:40px;height:40px;flex:0 0 40px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#17233e,#8d315d);color:#fff;font-weight:900;font-size:19px;border:2px solid #f2dce5}
+.daily-fb-head>div:nth-child(2),.manual-fb-head>div{display:flex;flex-direction:column;gap:3px;min-width:0}
+.daily-fb-head strong,.manual-fb-head strong{font-size:12px;color:#17191e}
+.daily-fb-head small,.manual-fb-head small{font-size:10px;color:#777d87}
+.daily-fb-head>span,.manual-fb-head>span{margin-left:auto;color:#777d87;letter-spacing:2px}
+.daily-fb-caption,.manual-fb-caption{padding:0 13px 12px;font-size:12px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere;max-height:340px;overflow:auto;color:#252830}
+.daily-fb-source{padding:0 13px 12px;font-size:10px;color:#747b86}
+.daily-fb-source a{color:#216fca;text-decoration:none}
+.daily-fb-engagement,.manual-fb-engagement{display:flex;justify-content:space-between;gap:8px;padding:9px 12px;border-bottom:1px solid #e7e8eb;color:#6d737d;font-size:10px}
+.daily-fb-actions,.manual-fb-actions{display:grid;grid-template-columns:repeat(3,1fr);padding:10px 4px;color:#626975;font-size:11px;font-weight:650;text-align:center}
+.manual-post-editor{min-width:0}
+.manual-post-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:12px}
+.manual-post-heading h3{margin:3px 0 4px}
+.manual-fb-avatar{width:42px;height:42px;object-fit:cover;border-radius:50%;border:1px solid #e3e5e9}
+@media(max-width:650px){.daily-card{padding-left:13px}.daily-fb-actions,.manual-fb-actions{font-size:10px}.manual-post-heading{flex-wrap:wrap}}
