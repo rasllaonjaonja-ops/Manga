@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { clean, dedupe, parseFeed, clusterSimilar } from "../scripts/collect-rss.mjs";
+import { clean, dedupe, parseFeed, clusterSimilar, isRelevantNews } from "../scripts/collect-rss.mjs";
 
 test("clean removes markup and decodes common entities", () => {
   assert.equal(clean("<p>Un <b>manga</b> &amp; un anime</p>"), "Un manga & un anime");
@@ -80,4 +80,35 @@ test("clusterSimilar merges near-identical stories and counts independent source
   assert.equal(mashle.trendSourceCount, 2);
   assert.ok(mashle.trendScore > mashle.score);
   assert.equal(result.length, 2);
+});
+
+test("clusterSimilar regroupe les variantes de titres Mashle mais sépare une annonce de casting", () => {
+  const items = [
+    { title: "'Mashle' Gets Live-Action Movie Adaptation", summary: "Hajime Koumoto Mashle Magic and Muscles manga live-action movie adaptation announced", source: "MyAnimeList", url: "https://example.com/mal", score: 12, publishedAt: "2026-11-04T08:00:00.000Z" },
+    { title: "Mashle: Magic and Muscles Live-Action Film Adaptation Announced", summary: "Japanese theatrical premiere March 19 2027", source: "Anime Corner", url: "https://example.com/ac", score: 14, publishedAt: "2026-11-04T09:00:00.000Z" },
+    { title: "Mashle: Magic and Muscles Manga Gets Live-Action Film on March 19", summary: "Warner Brothers Fuji TV Credeus collaborate on project", source: "Anime News Network", url: "https://example.com/ann", score: 13, publishedAt: "2026-11-04T10:00:00.000Z" },
+    { title: "Mashle Live-Action Film Reveals Cast and Director", summary: "Mackenyu stars as Mash Burnedead", source: "Anime News Network", url: "https://example.com/cast", score: 15, publishedAt: "2026-11-04T11:00:00.000Z" }
+  ];
+  const result = clusterSimilar(items);
+  const announcement = result.find(x => x.trendSources.includes("MyAnimeList"));
+  assert.ok(announcement);
+  assert.equal(announcement.trendSourceCount, 3);
+  assert.equal(announcement.trendArticles.length, 3);
+  assert.ok(result.some(x => x.title.includes("Reveals Cast")));
+});
+
+test("clusterSimilar utilise aussi le résumé pour reconnaître un titre traduit", () => {
+  const result = clusterSimilar([
+    { title: "Manga Oshi ni Amagami Receives TV Anime Adaptation", summary: "Oshi ni Amagami Otaku Vampire Love Bite by Julietta Suzuki", source: "MyAnimeList", url: "https://example.com/oshi", score: 10 },
+    { title: "Otaku Vampire Love Bite Manga Gets TV Anime", summary: "Bloody romantic comedy from Kamisama Kiss creator Julietta Suzuki", source: "Anime News Network", url: "https://example.com/vampire", score: 11 }
+  ]);
+  assert.equal(result.length, 1);
+  assert.equal(result[0].trendSourceCount, 2);
+});
+
+test("isRelevantNews filtre les résultats Google Actualités hors sujet", () => {
+  assert.equal(isRelevantNews({ source: "Google Actualités", title: "Parassy : un défilé de petits monstres anime les rues à la recherche de bonbons" }), false);
+  assert.equal(isRelevantNews({ source: "Google Actualités", title: "-24% sur cette figurine One Piece Bandai Anime Heroes" }), false);
+  assert.equal(isRelevantNews({ source: "Google Actualités", title: "Anime - Chitose Is in the Ramune Bottle - Episode 17" }), true);
+  assert.equal(isRelevantNews({ source: "Anime News Network", title: "Figurine hors sujet" }), true);
 });
