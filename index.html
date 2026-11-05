@@ -117,14 +117,29 @@
   <div class="studio-cover-mark" aria-hidden="true">M<span>✦</span></div>
  </header>
 
- <section class="card daily-studio" aria-labelledby="dailyStudioTitle">
+ <section class="card studio-pipeline" aria-label="Parcours de publication">
+  <div class="pipeline-heading"><div><div class="kicker">PARCOURS SIMPLIFIÉ</div><h3>De l’actualité à la publication projet</h3><p class="small muted">Avancez étape par étape. Chaque contenu conserve sa source et son brouillon.</p></div><span class="badge green">4 étapes</span></div>
+  <div class="pipeline-steps">
+   <a class="pipeline-step pipeline-news" href="#pipeline-news"><b>01</b><strong>Actualité</strong><small>Enregistrer et vérifier</small></a>
+   <a class="pipeline-step pipeline-writing" href="#pipeline-drafts"><b>02</b><strong>Rédaction</strong><small>Préparer le texte</small></a>
+   <a class="pipeline-step pipeline-visual" href="#pipeline-visual"><b>03</b><strong>Visuel</strong><small>Créer et importer</small></a>
+   <button class="pipeline-step pipeline-project" type="button" data-go="publications"><b>04</b><strong>Publication projet</strong><small>Contrôler et conserver</small></button>
+  </div>
+ </section>
+
+ <section class="card pipeline-news-panel" id="pipeline-news" aria-labelledby="pipelineNewsTitle">
+  <div class="studio-section-title"><div><div class="kicker">ÉTAPE 01 · ACTUALITÉS</div><h3 id="pipelineNewsTitle">Actualités à traiter</h3><p class="small muted">Enregistrez les sujets du Radar ici. Consultez toujours la source originale avant de les transformer en publication.</p></div><button class="btn sm" type="button" data-go="radar">Ouvrir le Radar ↗</button></div>
+  <div id="savedNewsList" class="list"><div class="empty">Aucune actualité enregistrée.</div></div>
+ </section>
+
+ <section class="card daily-studio" id="pipeline-drafts" aria-labelledby="dailyStudioTitle">
   <div class="studio-section-title"><div><div class="kicker">VOTRE PROGRAMME ÉDITORIAL</div><h3 id="dailyStudioTitle">Publications du jour</h3><p class="small muted">Quatre propositions liées au Radar. Chaque texte reste un brouillon à vérifier avant toute diffusion.</p></div><span class="badge">Brouillons uniquement</span></div>
   <div class="actions"><button class="btn" id="prepareDailyPack">① Sélectionner 4 sujets tendance</button><button class="btn primary" id="generateDailyPack" disabled>✦ Générer les 4 brouillons</button></div>
   <p class="footnote" id="dailyPackStatus" role="status" aria-live="polite">Chargez le Radar puis sélectionnez les sujets du jour. Si quatre actualités fiables ne sont pas disponibles, le studio ne les invente pas.</p>
   <div id="dailyPackList" class="daily-pack-list"><div class="empty">Aucun programme préparé.</div></div>
  </section>
 
- <section class="card visual-workspace" id="artWorkspace" aria-labelledby="artWorkspaceTitle">
+ <section class="card visual-workspace" id="pipeline-visual" aria-labelledby="artWorkspaceTitle">
   <div class="studio-section-title"><div><div class="kicker">ATELIER DE CRÉATION</div><h3 id="artWorkspaceTitle">Construire la publication</h3><p class="small muted">Le texte et le visuel restent rattachés au même brouillon. Une seule identité graphique est appliquée automatiquement.</p></div><span class="badge green">Identité unifiée</span></div>
 
   <section class="linked-publication" aria-labelledby="artLinkTitle">
@@ -175,7 +190,7 @@ Et vous, quel est votre anime préféré ?</textarea></div><button class="btn" i
    </section>
   </div>
  </section>
-<section class="card" aria-labelledby="qualityInlineTitle" style="margin-top:14px">
+<section class="card" id="pipeline-quality" aria-labelledby="qualityInlineTitle" style="margin-top:14px">
  <div class="studio-section-title"><div><div class="kicker">DERNIÈRE VÉRIFICATION</div><h3 id="qualityInlineTitle">Contrôle qualité avant export</h3><p class="small muted">Vérifiez les faits, les droits de l’image et les formulations avant de publier.</p></div><span class="badge">Checklist</span></div>
  <div class="field"><label for="qualityText">Texte à vérifier</label><textarea id="qualityText" rows="4" placeholder="Le texte de votre brouillon apparaîtra ici ou collez votre texte à contrôler."></textarea></div>
  <div class="actions"><button class="btn sm" type="button" id="useArtTextForQuality">Reprendre le texte du brouillon</button></div>
@@ -194,9 +209,6 @@ Et vous, quel est votre anime préféré ?</textarea></div><button class="btn" i
  <div id="topNewsList" class="grid2"><div class="empty">Le TOP 5 apparaîtra après la prochaine collecte.</div></div>
  <div class="rowhead"><h3>Toutes les actualités</h3></div>
  <div id="newsList" class="grid2"><div class="empty">Aucune actualité chargée. Lancez le cycle GitHub.</div></div>
- <div class="rowhead"><h3>Actualités enregistrées</h3></div>
- <p class="small muted" style="margin:0 0 10px">Une actualité reste « À vérifier » jusqu'à ce que vous ayez consulté la source originale. Seule une actualité vérifiée peut devenir un brouillon.</p>
- <div id="savedNewsList" class="list"><div class="empty">Aucune actualité enregistrée.</div></div>
 </section>
 
 
