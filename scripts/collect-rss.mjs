@@ -43,7 +43,9 @@ export async function collect() {
         .filter(x => !x.publishedAt || (now - Date.parse(x.publishedAt)) <= MAX_AGE_DAYS * 86400000)
         .map(x => ({ ...x, score: rank(x) }))
         .sort((a, b) => b.score - a.score || Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0));
-      const items = dedupe(ranked).slice(0, MAX_ITEMS);
+      // Regroupe les titres proches : plusieurs sources parlant du même sujet renforcent sa tendance,
+      // sans créer plusieurs places artificielles dans le TOP 5.
+      const items = clusterSimilar(ranked).slice(0, MAX_ITEMS);
       status = okSources === sources.length ? "ok" : "partiel";
       await fs.writeFile(OUTPUT_FILE, JSON.stringify({ updatedAt: new Date().toISOString(), count: items.length, items }, null, 2) + "\n");
       articlesKept = items.length;
@@ -176,6 +178,46 @@ export function dedupe(list) {
     out.push(item);
   }
   return out;
+}
+
+function trendTokens(value) {
+  const stop = new Set(["the","and","for","with","from","gets","get","new","anime","manga","de","des","les","une","un","du","la","le","to","of","on","in"]);
+  return normTitle(value).split(" ").filter(t => t.length > 2 && !stop.has(t));
+}
+
+function titleSimilarity(a, b) {
+  const aa = new Set(trendTokens(a));
+  const bb = new Set(trendTokens(b));
+  if (!aa.size || !bb.size) return 0;
+  let common = 0;
+  for (const token of aa) if (bb.has(token)) common++;
+  return common / (aa.size + bb.size - common);
+}
+
+export function clusterSimilar(list) {
+  const groups = [];
+  for (const item of list) {
+    let match = null;
+    let best = 0;
+    for (const group of groups) {
+      const similarity = titleSimilarity(item.title, group.item.title);
+      if (similarity > best) { best = similarity; match = group; }
+    }
+    if (match && best >= 0.52) {
+      if (item.source && !match.sources.includes(item.source)) match.sources.push(item.source);
+      if (item.score > match.item.score) match.item = item;
+      if (item.publishedAt && (!match.latest || Date.parse(item.publishedAt) > Date.parse(match.latest))) match.latest = item.publishedAt;
+    } else {
+      groups.push({ item, sources: item.source ? [item.source] : [], latest: item.publishedAt || null });
+    }
+  }
+  return groups.map(group => ({
+    ...group.item,
+    publishedAt: group.latest || group.item.publishedAt || null,
+    trendSources: group.sources,
+    trendSourceCount: group.sources.length || 1,
+    trendScore: Math.round((group.item.score + Math.max(0, group.sources.length - 1) * 5) * 10) / 10
+  })).sort((a,b) => b.trendScore-a.trendScore || Date.parse(b.publishedAt || 0)-Date.parse(a.publishedAt || 0));
 }
 
 function rank(item) {
