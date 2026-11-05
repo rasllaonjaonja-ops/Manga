@@ -111,6 +111,13 @@
  <p class="sub">Créez des visuels adaptés à Facebook et Instagram : publication, Story, couverture et carrousel. Importez une image que vous possédez ou que vous êtes autorisé à utiliser, personnalisez le texte puis exportez en PNG.</p>
  <div class="grid2">
   <div class="card">
+   <section class="linked-publication" aria-labelledby="artLinkTitle">
+    <div class="linked-head"><div><div class="kicker">LIAISON ÉDITORIALE</div><h3 id="artLinkTitle">Publication associée</h3><p class="small muted">Choisissez un brouillon ou chargez directement l’une des quatre publications du jour. Le titre et le texte seront repris automatiquement.</p></div><span class="badge green">Synchronisation locale</span></div>
+    <div class="field"><label for="artPostSelect">Brouillon à illustrer</label><select id="artPostSelect"><option value="">Choisir une publication enregistrée…</option></select></div>
+    <div class="actions"><button class="btn primary" id="loadArtPost">Charger dans le studio graphique</button><button class="btn" id="copyArtCaption">Copier le texte Facebook</button></div>
+    <p class="footnote" id="artLinkedStatus" role="status" aria-live="polite">Aucune publication associée. Sélectionnez un brouillon pour commencer.</p>
+    <div class="field"><label for="artCaption">Texte Facebook lié (conservé avec le brouillon)</label><textarea id="artCaption" rows="5" placeholder="Le texte complet de la publication sélectionnée apparaîtra ici."></textarea></div>
+   </section>
    <h3>1. Paramètres du visuel</h3>
    <div class="field"><label>Format de sortie</label><select id="artFormat"><option value="portrait">Publication portrait · 4:5</option><option value="square">Carré · 1:1</option><option value="story">Story / Reel · 9:16</option><option value="landscape">Paysage · 16:9</option></select></div>
    <div class="field"><label>Image personnelle ou autorisée</label><input type="file" id="artFile" accept="image/*"></div>
@@ -132,7 +139,7 @@ Des histoires qui nous inspirent.
 Des univers à découvrir.
 Et vous, quel est votre anime préféré ?</textarea></div>
    <button class="btn primary" id="downloadCarousel">⬇ Préparer les 5 cartes du carrousel</button>
-   <p class="footnote" id="visualStatus" aria-live="polite">Aperçu prêt. Aucun contenu n'est publié automatiquement.</p>
+   <p class="footnote" id="visualStatus" aria-live="polite">Aperçu prêt. Aucun contenu n'est publié automatiquement.</p><p class="footnote" id="artExportHistory">Aucun export enregistré pour le moment.</p>
   </div>
   <div class="card">
    <div class="rowhead"><h3>3. Aperçu en direct</h3><span class="tag">PNG haute résolution</span></div>
@@ -141,7 +148,7 @@ Et vous, quel est votre anime préféré ?</textarea></div>
     <div class="stat"><small>Format</small><b id="artDimension">1080 × 1350</b></div>
     <div class="stat"><small>Destination</small><b id="artDestination">Fil Facebook</b></div>
    </div>
-   <p class="footnote">Conseil : gardez le titre court, utilisez un contraste fort et vérifiez la lisibilité sur téléphone. Les illustrations importées doivent être originales, licenciées ou autorisées.</p>
+   <p class="footnote">Le texte Facebook complet reste associé au brouillon ; le visuel exporté est un fichier distinct. Gardez le titre court, vérifiez sa lisibilité sur téléphone et utilisez uniquement des images autorisées.</p>
   </div>
  </div>
 </div>
