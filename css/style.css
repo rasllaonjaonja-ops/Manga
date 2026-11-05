@@ -437,3 +437,99 @@ img,canvas{max-width:100%}
 #pipeline-visual{border-top:4px solid #c66d25}
 #pipeline-quality{border-top:4px solid #218064}
 @media(max-width:650px){.pipeline-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.pipeline-step{padding:10px}.pipeline-heading{display:block}.pipeline-heading>.badge{margin-top:8px;display:inline-block}}
+
+
+/* V4.4 — identité visuelle inspirée de la maquette, en conservant les médias et modules V4 */
+:root{
+ --bg:#eef3ff;--panel:#fff;--panel-2:#f3f6ff;--line:#d8e1f5;--line-strong:#c6d4f1;
+ --text:#172443;--title:#101d40;--blue:#075bea;--blue-2:#397df5;--violet:#6630b8;
+ --shadow:0 8px 24px #132a5712;
+}
+.shell{grid-template-columns:230px minmax(0,1fr);background:linear-gradient(135deg,#f4f7ff,#eaf0ff)}
+.side{background:linear-gradient(180deg,#101a35 0%,#101a30 65%,#171e46 100%);border-right:1px solid #26365f;box-shadow:5px 0 25px #0b17352b;color:#f5f7ff;padding:15px 10px}
+.brand{border-bottom-color:#344264;padding:5px 7px 15px}
+.brand img{width:54px;height:54px;border:2px solid #6c8ff8;box-shadow:0 0 0 3px #ffffff12}
+.brand b{color:#fff;font-size:13px;letter-spacing:.7px}
+.brand small{color:#aebde2}
+.group-title{color:#ffc83d;font-size:11px;letter-spacing:.8px;padding:8px 10px 4px}
+.nav button{color:#e5ebff;border-radius:9px;padding:10px 11px;font-size:12px}
+.nav button:hover:not(.active){background:#25345a;color:#fff}
+.nav button.active{background:linear-gradient(100deg,#075bea,#347af4);box-shadow:0 5px 16px #075bea55;color:#fff}
+.mode-test{background:#172d39;border-color:#287e65;color:#c5f5df}
+.mode-test b{color:#5de3a2}
+.side-foot{background:#182543;border-color:#354568;color:#d1dcf6}
+.online{background:#26d477}
+.top{background:#101b37;color:#fff;border-bottom-color:#26365f}
+.top h1{color:#fff}
+.topright{color:#c4d1ef}
+.tag{background:#173c32;color:#6af0b0}
+.hamb{background:#1d2a4c;color:#fff;border-color:#40547e}
+body.home-mode .wrap{padding:12px 16px 22px}
+.dash-top{position:relative;isolation:isolate;overflow:hidden;min-height:112px;padding:15px 18px;border:1px solid #263e78;border-radius:16px;background:linear-gradient(100deg,#07132f 0%,#102a62 52%,#111b3c 100%);box-shadow:0 9px 26px #102a6040;margin-bottom:12px}
+.dash-top:before{content:"";position:absolute;z-index:-1;inset:0;background:url('../assets/hero-generated.jpg') right 38%/cover no-repeat;opacity:.52}
+.dash-top:after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#07132ff5 0%,#0b1c42e8 48%,#0b1c4230 100%)}
+.dash-brand img{width:62px;height:62px;flex-basis:62px;border:2px solid #f4c94b;box-shadow:0 0 0 3px #ffffff18}
+.dash-brand b{font-size:clamp(18px,2vw,25px);color:#fff;letter-spacing:.6px}
+.dash-brand b em{color:#ffc928}
+.dash-brand small{color:#d8e5ff;font-size:12px}
+.dash-tools{color:#e9efff}
+.dash-version{background:#182d59;border:1px solid #526ca6;color:#ffdc62;border-radius:18px;padding:5px 10px}
+.sys-pill{color:#8af0b6}
+.profile{background:#172b52;border:1px solid #49639a;color:#fff;border-radius:24px;padding:7px 12px}
+.profile small{color:#b8c8eb}
+.workflow-ribbon{display:flex;align-items:center;justify-content:space-between;gap:4px;padding:9px 10px;margin:0 0 13px;background:#fff;border:1px solid #d7e1f8;border-radius:40px;box-shadow:0 5px 18px #284c8b10;overflow-x:auto}
+.workflow-node{display:flex;align-items:center;gap:7px;flex:1 0 auto;min-width:0;border:0;background:transparent;color:#27375c;border-radius:28px;padding:6px 9px;text-align:left}
+.workflow-node b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:#e6ecf9;color:#62718e;font-size:12px}
+.workflow-node span{font-size:11px;font-weight:800;white-space:nowrap}
+.workflow-node small{display:none}
+.workflow-node:hover{background:#edf3ff}
+.workflow-arrow{color:#a9b7d3;font-size:20px}
+.node-news b,.node-select b{background:#dff7e9;color:#12844c}
+.node-check b,.node-quality b{background:#e4f6eb;color:#13834e}
+.node-write b{background:#eee5ff;color:#743bc0}
+.node-visual b{background:#fff0dd;color:#bd6a13}
+.node-publish b{background:#e1ecff;color:#145acb}
+.node-follow b{background:#e4f7ed;color:#16824c}
+.dash-grid{gap:13px}
+.banner{border:1px solid #253d78;box-shadow:0 9px 25px #122b5a22}
+.banner:before{background:linear-gradient(90deg,#07132ff5 0%,#0b1d43e8 45%,#0b1d4320 100%)}
+.banner h2,.banner p{color:#fff}
+.banner h2 em{color:#ffd13b}
+.banner .banner-sub{color:#bcd4ff}
+.kpi,.mod,.panel,.side-panel,.card{border-radius:14px;box-shadow:var(--shadow)}
+.kpi{border-top-width:4px}
+.panel-head h3,.side-panel h3{color:#17264b}
+.mod{overflow:hidden}
+.btn.primary{background:linear-gradient(100deg,#075bea,#397df5);box-shadow:0 5px 13px #075bea25}
+.btn.primary:hover{filter:brightness(1.06)}
+.studio-cover{background:linear-gradient(110deg,#07132f 0%,#172b61 58%,#522c8b 100%);border:1px solid #263d79;box-shadow:0 10px 28px #13295722}
+.studio-cover:before{content:"";position:absolute;inset:0;background:url('../assets/hero-generated.jpg') right center/cover no-repeat;opacity:.25}
+.studio-cover-mark{background:#ffffff12;border-color:#ffffff55}
+.studio-pipeline{background:#fff;border-color:#d7e1f8}
+.pipeline-step{box-shadow:0 3px 10px #18315a0a;transition:transform .16s,box-shadow .16s}
+.pipeline-step:hover{transform:translateY(-2px);box-shadow:0 7px 16px #18315a18}
+.pipeline-news-panel{border-left-color:#1675e8}
+#pipeline-drafts{border-top-color:#7444c4}
+#pipeline-visual{border-top-color:#d88728}
+#pipeline-quality{border-top-color:#18a567}
+.facebook-preview{box-shadow:0 8px 24px #172b4d14}
+@media(max-width:900px){
+ .shell{grid-template-columns:1fr}
+ .side{background:linear-gradient(180deg,#101a35,#171e46)}
+ .workflow-ribbon{border-radius:16px;justify-content:flex-start}
+ .workflow-node{min-width:max-content}
+}
+@media(max-width:600px){
+ body.home-mode .wrap{padding:9px}
+ .dash-top{padding:12px;min-height:90px}
+ .dash-brand img{width:48px;height:48px;flex-basis:48px}
+ .dash-brand b{font-size:17px}
+ .dash-brand small{font-size:10px}
+ .dash-tools{gap:5px}
+ .workflow-ribbon{padding:7px;border-radius:13px}
+ .workflow-node{padding:6px 8px}
+ .workflow-node b{width:25px;height:25px;flex-basis:25px}
+ .workflow-node span{font-size:10px}
+ .workflow-arrow{font-size:16px}
+}
+@media(prefers-reduced-motion:reduce){.pipeline-step{transition:none}.pipeline-step:hover{transform:none}}
