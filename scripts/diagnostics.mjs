@@ -5,6 +5,7 @@ import { execFileSync } from "node:child_process";
 const problems = [];
 const warnings = [];
 const lines = [];
+let configuredSourceCount = null;
 const required = [
   "index.html", "css/style.css", "js/app.js", "package.json",
   "data/sources.json", "data/latest-news.json", "data/reports.json",
@@ -27,7 +28,7 @@ for (const file of ["scripts/collect-rss.mjs", "scripts/diagnostics.mjs", "scrip
 try {
   const sources = JSON.parse(await fs.readFile("data/sources.json", "utf8"));
   if (!Array.isArray(sources) || !sources.length) problems.push("Aucune source RSS configurée.");
-  else lines.push(`ℹ️ Sources RSS configurées : ${sources.length}.`);
+  else { configuredSourceCount = sources.length; lines.push(`ℹ️ Sources RSS configurées : ${sources.length}.`); }
   const news = JSON.parse(await fs.readFile("data/latest-news.json", "utf8"));
   const items = Array.isArray(news.items) ? news.items : [];
   if (Number(news.count) !== items.length) problems.push(`Le compteur du radar (${news.count}) ne correspond pas aux données (${items.length}).`);
@@ -49,8 +50,12 @@ try {
   const reports = JSON.parse(await fs.readFile("data/reports.json", "utf8"));
   const latest = Array.isArray(reports.runs) ? reports.runs[0] : null;
   if (latest) {
-    if (latest.status !== "ok") warnings.push(`Dernière collecte RSS : statut ${latest.status} (${latest.sourcesOk}/${latest.sourcesTotal} flux disponibles).`);
-    if (Array.isArray(latest.errors) && latest.errors.length) warnings.push(...latest.errors.map(e => `Source ${e.source} : ${e.message}`));
+    if (configuredSourceCount !== null && Number(latest.sourcesTotal) !== configuredSourceCount) {
+      warnings.push(`Le dernier rapport concerne ${latest.sourcesTotal} source(s), mais la configuration actuelle en contient ${configuredSourceCount}. Relancez le radar pour actualiser ce rapport.`);
+    } else {
+      if (latest.status !== "ok") warnings.push(`Dernière collecte RSS : statut ${latest.status} (${latest.sourcesOk}/${latest.sourcesTotal} flux disponibles).`);
+      if (Array.isArray(latest.errors) && latest.errors.length) warnings.push(...latest.errors.map(e => `Source ${e.source} : ${e.message}`));
+    }
   }
 } catch { /* erreurs JSON déjà signalées */ }
 
