@@ -110,5 +110,6 @@ test("isRelevantNews filtre les résultats Google Actualités hors sujet", () =>
   assert.equal(isRelevantNews({ source: "Google Actualités", title: "Parassy : un défilé de petits monstres anime les rues à la recherche de bonbons" }), false);
   assert.equal(isRelevantNews({ source: "Google Actualités", title: "-24% sur cette figurine One Piece Bandai Anime Heroes" }), false);
   assert.equal(isRelevantNews({ source: "Google Actualités", title: "Anime - Chitose Is in the Ramune Bottle - Episode 17" }), true);
+  assert.equal(isRelevantNews({ source: "Crunchyroll (Google Actualités)", title: "Une actualité sans rapport sur Halloween et les figurines" }), false);
   assert.equal(isRelevantNews({ source: "Anime News Network", title: "Figurine hors sujet" }), true);
 });
