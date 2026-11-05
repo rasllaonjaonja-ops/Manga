@@ -149,6 +149,7 @@ async def main():
         check('réglages : échec de stockage annulé', before==after, (before,after))
         check('réglages : aucun faux message de succès', not false_success)
         await pg.evaluate("Storage.prototype.setItem=window.__settingsSet;document.getElementById('pageName').value=db.settings.pageName")
+        errs.clear()  # l'erreur console est volontaire pendant le test du quota
         await pg.evaluate("document.getElementById('issueBanner')&&document.getElementById('issueBanner').remove()")
 
         # 10. Export PNG : long texte signalé, court texte non tronqué
