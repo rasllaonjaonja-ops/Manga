@@ -194,7 +194,11 @@ export function clean(value) {
     if (s === previous) break;
   }
 
+  // Après décodage, retirer aussi le contenu des scripts/styles
+  // qui étaient éventuellement masqués derrière des entités HTML.
   return s
+    .replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi, " ")
+    .replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi, " ")
     .replace(/<[^>]*>/g, " ")
     .replace(/\s+/g, " ")
     .trim();
