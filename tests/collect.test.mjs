@@ -109,7 +109,22 @@ test("clusterSimilar utilise aussi le résumé pour reconnaître un titre tradui
 test("isRelevantNews filtre les résultats Google Actualités hors sujet", () => {
   assert.equal(isRelevantNews({ source: "Google Actualités", title: "Parassy : un défilé de petits monstres anime les rues à la recherche de bonbons" }), false);
   assert.equal(isRelevantNews({ source: "Google Actualités", title: "-24% sur cette figurine One Piece Bandai Anime Heroes" }), false);
-  assert.equal(isRelevantNews({ source: "Google Actualités", title: "Anime - Chitose Is in the Ramune Bottle - Episode 17" }), true);
+  assert.equal(isRelevantNews({ source: "Google Actualités", title: "Anime - Chitose Is in the Ramune Bottle - Episode 17" }), false);
+  assert.equal(isRelevantNews({ source: "Google Actualités", title: "Le retour du manga Dragon Ball Super se complique" }), true);
   assert.equal(isRelevantNews({ source: "Crunchyroll (Google Actualités)", title: "Une actualité sans rapport sur Halloween et les figurines" }), false);
   assert.equal(isRelevantNews({ source: "Anime News Network", title: "Figurine hors sujet" }), true);
+});
+test("clusterSimilar reconnaît les titres alternatifs connus sans fusionner les annonces de casting", () => {
+  const result = clusterSimilar([
+    { title: "Otaku Vampire's Love Bite Anime Adaptation Announced", summary: "Manga by Julietta Suzuki (Kamisama Kiss) is getting an anime", source: "Anime Corner", url: "https://example.com/otaku", score: 12 },
+    { title: "Manga Oshi ni Amagami Receives TV Anime Adaptation", summary: "Julietta Suzuki's Oshi ni Amagami manga gets a television anime", source: "MyAnimeList", url: "https://example.com/oshi", score: 11 },
+    { title: "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash", summary: "Mackenyu cast as Mash Burnedead", source: "Anime News Network", url: "https://example.com/mashle-cast", score: 13 },
+    { title: "'Mashle' Gets Live-Action Movie Adaptation", summary: "Warner Bros Japan announced the live-action movie adaptation", source: "MyAnimeList", url: "https://example.com/mashle-film", score: 10 }
+  ]);
+  const vampire = result.find(x => x.trendSources.includes("Anime Corner"));
+  assert.ok(vampire);
+  assert.equal(vampire.trendSourceCount, 2);
+  assert.equal(result.length, 3);
+  assert.ok(result.some(x => /Reveals Mackenyu Cast/.test(x.title)));
+  assert.ok(result.some(x => /Gets Live-Action Movie Adaptation/.test(x.title)));
 });
