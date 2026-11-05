@@ -207,7 +207,7 @@ function titleSimilarity(a, b) {
 }
 
 export function isRelevantNews(item) {
-  if (item.source !== "Google Actualités") return true;
+  if (item.source !== "Google Actualités" && item.source !== "Crunchyroll (Google Actualités)") return true;
   const title = normTitle(item.title || ""), combined = title + " " + normTitle(item.summary || "");
   const offTopic = /\b(halloween|figurine|figurines|soldes|reduction|reductions|promo|promotion|condamne|condamnes|pilleurs|tronconneuse|defile|deguise|fete|service civique|seniors|librairie momie|parassy|guerigny|place coquilleau)\b/;
   if (offTopic.test(combined)) return false;
