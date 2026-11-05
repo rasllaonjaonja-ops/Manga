@@ -335,7 +335,7 @@ function renderDailyPack(){
    <div class="daily-fb-actions"><span>♡ J’aime</span><span>▢ Commenter</span><span>↗ Partager</span></div>
   </div>
   <p class="footnote" id="dailyStatus${i}" aria-live="polite">${safe(p.status||'En attente de génération')}</p>
-  <div class="actions"><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="art" data-index="${i}" ${p.text?'':'disabled'}>Créer le visuel associé →</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button><button class="btn sm danger" data-daily-act="replace" data-index="${i}">Refuser / remplacer</button></div>
+  <div class="actions"><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="art" data-index="${i}" ${p.text?'':'disabled'}>Marquer pour l’étape suivante : visuel →</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button><button class="btn sm danger" data-daily-act="replace" data-index="${i}">Refuser / remplacer</button></div>
   <section class="daily-inline-preview" id="dailyInlinePreview${i}" hidden aria-label="Aperçu du visuel de la publication ${i+1}">
    <div class="daily-inline-preview-head"><strong>Prévisualisation du visuel · Publication ${i+1}/4</strong><span>Maquette non publiée</span></div>
    <div class="daily-inline-facebook">
@@ -723,6 +723,7 @@ const workflowLabels={actualite:'Actualité à vérifier',redaction:'À rédiger
 function workflowStageOf(p){return workflowLabels[p.workflowStage]||workflowLabels.redaction}
 function advanceWorkflow(id){
  const p=db.posts.find(x=>x.id===id);if(!p)return;
+ if(p.status==='Publié manuellement')return alert('Cette publication est déjà marquée comme publiée manuellement.');
  const stages=['redaction','visuel','projet','pret'];
  const current=stages.indexOf(p.workflowStage||'redaction');
  p.workflowStage=stages[Math.min(stages.length-1,current+1)];
@@ -738,7 +739,7 @@ function renderPublications(){
  const dailyEl=document.getElementById('dailyDraftPosts');
  if(dailyEl){
   document.getElementById('dailyDraftCount').textContent=daily.length+'/4 brouillons';
-  dailyEl.innerHTML=daily.length?daily.map(p=>`<article class="daily-draft-row"><div class="daily-draft-number">${p.dailySlot}</div><div class="daily-draft-content"><strong>${safe(p.title)}</strong><small>${safe(p.type)} · ${safe(p.status)}</small><details><summary>Lire le brouillon</summary><p class="publication-text">${safe(p.text)}</p></details>${p.sourceUrl?`<a href="${safe(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Consulter la source ↗</a>`:''}</div><div class="actions"><button class="btn sm" data-hub-act="copy" data-id="${safe(p.id)}">Copier</button><button class="btn sm" data-hub-act="status" data-id="${safe(p.id)}">Statut</button></div></article>`).join(''):'<div class="empty">Aucun brouillon quotidien enregistré pour aujourd’hui. Générez les quatre textes depuis l’Atelier.</div>';
+  dailyEl.innerHTML=daily.length?daily.map(p=>`<article class="daily-draft-row"><div class="daily-draft-number">${p.dailySlot}</div><div class="daily-draft-content"><strong>${safe(p.title)}</strong><small>${safe(p.type)} · ${safe(p.status)}</small><details><summary>Lire le brouillon</summary><p class="publication-text">${safe(p.text)}</p></details>${p.sourceUrl?`<a href="${safe(p.sourceUrl)}" target="_blank" rel="noopener noreferrer">Consulter la source ↗</a>`:''}</div><div class="actions"><button class="btn sm primary" data-hub-act="next" data-id="${safe(p.id)}">Étape suivante →</button><button class="btn sm" data-hub-act="copy" data-id="${safe(p.id)}">Copier</button><button class="btn sm" data-hub-act="status" data-id="${safe(p.id)}">Statut</button></div></article>`).join(''):'<div class="empty">Aucun brouillon quotidien enregistré pour aujourd’hui. Générez les quatre textes depuis l’Atelier.</div>';
  }
  document.getElementById('publishedCount').textContent=published.length+' publiée(s)';
  document.getElementById('projectCount').textContent=projects.length+' en projet';
