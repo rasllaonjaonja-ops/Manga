@@ -82,6 +82,12 @@
 
 <section class="page" id="p-writer">
  <div class="kicker">ATELIER DE CONTENU</div><h2>Créer une publication</h2><p class="sub">Générateur éditorial local : choisissez le format, le sujet, le ton et la longueur. Plusieurs formulations sont proposées sans API payante ; relisez et personnalisez avant publication.</p>
+ <section class="card daily-studio" aria-labelledby="dailyStudioTitle">
+  <div class="daily-head"><div><div class="kicker">PROGRAMME ÉDITORIAL QUOTIDIEN</div><h3 id="dailyStudioTitle">Les 4 publications du jour</h3><p class="small muted">Sélectionnées à partir des tendances RSS. Chaque texte reste un brouillon à relire et vérifier avant publication.</p></div><span class="badge">Mode TEST · manuel</span></div>
+  <div class="actions"><button class="btn" id="prepareDailyPack">① Sélectionner 4 sujets tendance</button><button class="btn primary" id="generateDailyPack" disabled>✦ Générer les 4 brouillons avec l’IA</button></div>
+  <p class="footnote" id="dailyPackStatus" role="status" aria-live="polite">Chargez le Radar d’actualités puis sélectionnez les sujets du jour. Si moins de quatre actualités distinctes sont disponibles, le studio ne complète pas artificiellement le programme.</p>
+  <div id="dailyPackList" class="daily-pack-list"><div class="empty">Aucun programme préparé. Sélectionnez les sujets tendance pour commencer.</div></div>
+ </section>
  <div class="grid2"><div class="card">
  <div class="field"><label>Type de publication</label><select id="postType"><option>Débat communautaire</option><option>Présentation de personnage</option><option>Citation / réflexion</option><option>Comparaison</option><option>Classement</option><option>Théorie de fan</option><option>Actualité vérifiée</option><option>Découverte manga / anime</option><option>Sondage</option></select></div>
  <div class="field"><label>Sujet principal</label><input id="postTopic" placeholder="Ex. : pourquoi les héros solitaires nous marquent"></div>
