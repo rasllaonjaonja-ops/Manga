@@ -104,6 +104,7 @@ async def main():
         }""")
         check("réglages : rollback si stockage plein",settings_result["same"])
         check("réglages : aucun faux succès",not any("Réglages enregistrés" in msg for _,msg in dialogs))
+        errors.clear()  # échec de quota volontaire, déjà contrôlé ci-dessus
 
         # Calendrier et dates.
         await page.evaluate("navigate('calendar')")
