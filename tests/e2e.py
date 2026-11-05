@@ -121,7 +121,7 @@ async def main():
         await pg.fill('#calTitle','Test échéance'); await pg.fill('#calDate','2026-12-01')
         await pg.click('#addCal'); await pg.wait_for_timeout(150)
         n=await pg.evaluate("db.calendar.length")
-        await pg.click('#calList button[data-cal]'); await pg.wait_for_timeout(150)
+        await pg.click('#calList button[data-cal-act="remove"]'); await pg.wait_for_timeout(150)
         check('calendrier : ajout puis suppression', n==1 and await pg.evaluate("db.calendar.length")==0)
 
         # 10. Dates calendaires réelles et impossibles
