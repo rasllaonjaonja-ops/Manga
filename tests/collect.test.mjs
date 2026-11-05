@@ -114,6 +114,34 @@ test("isRelevantNews filtre les résultats Google Actualités hors sujet", () =>
   assert.equal(isRelevantNews({ source: "Crunchyroll (Google Actualités)", title: "Une actualité sans rapport sur Halloween et les figurines" }), false);
   assert.equal(isRelevantNews({ source: "Anime News Network", title: "Figurine hors sujet" }), true);
 });
+test("clusterSimilar regroupe les deux sources du même dévoilement du casting de Mashle", () => {
+  const result = clusterSimilar([
+    {
+      title: "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
+      summary: "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
+      source: "Anime Corner", url: "https://example.com/mashle-cast-ac", score: 13
+    },
+    {
+      title: "Live-Action Mashle: Magic and Muscles Film Reveals Cast, Director",
+      summary: "Mackenyu Maeda stars as Mash Burnedead with Gintama's Yūichi Fukuda directing",
+      source: "Anime News Network", url: "https://example.com/mashle-cast-ann", score: 12
+    },
+    {
+      title: "'Mashle' Gets Live-Action Movie Adaptation",
+      summary: "Warner Bros Japan announced the live-action movie adaptation",
+      source: "MyAnimeList", url: "https://example.com/mashle-film", score: 11
+    }
+  ]);
+  const casting = result.find(x => x.trendSources.includes("Anime Corner"));
+  const adaptation = result.find(x => x.trendSources.includes("MyAnimeList"));
+  assert.ok(casting);
+  assert.equal(casting.trendSourceCount, 2);
+  assert.equal(casting.trendArticles.length, 2);
+  assert.ok(adaptation);
+  assert.equal(adaptation.trendSourceCount, 1);
+  assert.equal(result.length, 2);
+});
+
 test("clusterSimilar reconnaît les titres alternatifs connus sans fusionner les annonces de casting", () => {
   const result = clusterSimilar([
     { title: "Otaku Vampire's Love Bite Anime Adaptation Announced", summary: "Manga by Julietta Suzuki (Kamisama Kiss) is getting an anime. " + "Additional unrelated background details ".repeat(45), source: "Anime Corner", url: "https://example.com/otaku", score: 12 },
