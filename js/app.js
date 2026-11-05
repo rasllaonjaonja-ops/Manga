@@ -1,7 +1,8 @@
 const STORE='animeTrendStudio.v2'; // conserve les données V2
 const blank={posts:[],calendar:[],media:[],news:[],settings:{pageName:'Manga, Animé et Actualités',fontSize:14,density:'comfortable'}};
 let db=readStore(),newsItems=[];
-let lastPersisted='';
+// Instantané fiable de l'état chargé : sert au retour arrière si le quota local est dépassé.
+let lastPersisted=JSON.stringify(db);
 function statuses(){return['Brouillon','À vérifier','Prêt','Publié manuellement','Archivé'];}
 function calendarStatuses(){return['Brouillon','À vérifier','Prêt','Programmé','Publié manuellement','Archivé'];}
 function uid(){try{if(window.crypto&&crypto.randomUUID)return crypto.randomUUID();}catch(e){}return Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10);}
@@ -14,7 +15,7 @@ function isSafeImage(d){return typeof d==='string'&&/^data:image\/(png|jpeg|webp
 function normalizeDb(x){
  const src=isObj(x)?x:{};
 const out={posts:[],calendar:[],media:[],news:[],settings:{pageName:blank.settings.pageName,fontSize:14,density:'comfortable',workerUrl:'https://wild-field-da5f.rasllaonjaonja.workers.dev'}};
- if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString(),dailyDate:validDay(p.dailyDate)?p.dailyDate:null,dailySlot:Number.isInteger(+p.dailySlot)&&+p.dailySlot>=1&&+p.dailySlot<=4?+p.dailySlot:null,sourceUrl:/^https?:\/\//i.test(String(p.sourceUrl||''))?String(p.sourceUrl):'',sourceName:cut(p.sourceName||'',100),visualExports:Array.isArray(p.visualExports)?p.visualExports.filter(v=>typeof v==='string').slice(0,20):[],visualMediaId:typeof p.visualMediaId==='string'?p.visualMediaId:''}));
+ if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString(),dailyDate:validDay(p.dailyDate)?p.dailyDate:null,dailySlot:Number.isInteger(+p.dailySlot)&&+p.dailySlot>=1&&+p.dailySlot<=4?+p.dailySlot:null,sourceUrl:/^https?:\/\//i.test(String(p.sourceUrl||''))?String(p.sourceUrl):'',sourceName:cut(p.sourceName||'',100),workflowStage:['redaction','visuel','projet','pret'].includes(p.workflowStage)?p.workflowStage:'redaction',visualExports:Array.isArray(p.visualExports)?p.visualExports.filter(v=>typeof v==='string').slice(0,20):[],visualMediaId:typeof p.visualMediaId==='string'?p.visualMediaId:''}));
 if(Array.isArray(src.calendar))out.calendar=src.calendar.filter(c=>isObj(c)&&validDay(c.date)).slice(0,2000).map(c=>({id:c.id!=null&&String(c.id)!==''?String(c.id):uid(),title:cut(c.title,200),date:c.date,time:/^([01]\d|2[0-3]):[0-5]\d$/.test(String(c.time||''))?c.time:'',type:cut(c.type||'Publication',40),status:calendarStatuses().includes(c.status)?c.status:'Brouillon'}));
  if(Array.isArray(src.news))out.news=src.news.filter(n=>isObj(n)&&typeof n.title==='string'&&/^https?:\/\//i.test(String(n.url||''))).slice(0,500).map(n=>({id:n.id!=null&&String(n.id)!==''?String(n.id):uid(),title:cut(n.title,300),source:cut(n.source||'Source',80),url:String(n.url),publishedAt:validIso(n.publishedAt)?n.publishedAt:null,summary:cut(n.summary,400),savedAt:validIso(n.savedAt)?n.savedAt:new Date().toISOString(),verified:n.verified===true}));
  if(Array.isArray(src.media))out.media=src.media.filter(m=>isObj(m)&&isSafeImage(m.data)).slice(0,300).map(m=>({id:m.id!=null&&String(m.id)!==''?String(m.id):uid(),name:cut(m.name||'visuel',120),data:m.data}));
@@ -37,7 +38,7 @@ function save(){
  try{localStorage.setItem(STORE,payload);lastPersisted=payload}
  catch(e){
   console.error(e);
-  db=normalizeDb(JSON.parse(lastPersisted||'null'));
+  db=JSON.parse(lastPersisted||'null');
   showIssue('Enregistrement impossible : le stockage du navigateur est plein. Vos dernières modifications ont été annulées. Exportez une sauvegarde puis supprimez des visuels.');
   return false;
  }
@@ -727,7 +728,7 @@ function advanceWorkflow(id){
  const stages=['redaction','visuel','projet','pret'];
  const current=stages.indexOf(p.workflowStage||'redaction');
  p.workflowStage=stages[Math.min(stages.length-1,current+1)];
- if(p.workflowStage==='projet'&&p.status==='Brouillon')p.status='En projet';
+ if(p.workflowStage==='pret')p.status='Prêt';
  if(save())showIssue('Étape mise à jour : '+workflowLabels[p.workflowStage]+'.');
 }
 function renderPublications(){
