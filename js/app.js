@@ -270,7 +270,77 @@ async function generateWithCloudflare(){
   setWorkerStatus('❌ Génération impossible : '+msg+'.'+cors,'error');
  }finally{if(button){button.disabled=false;button.textContent='✦ Générer avec l’IA Cloudflare'}}
 }
+
 document.getElementById('generateWithAI').onclick=generateWithCloudflare;
+
+/* Programme quotidien : quatre sujets RSS distincts, sans inventer d’actualité. */
+let dailyPack=[];
+function dailyType(item){
+ const t=(String(item.title||'')+' '+String(item.summary||'')).toLowerCase();
+ if(/adaptation|live.action|film|movie|anime adaptation/.test(t))return 'Découverte manga / anime';
+ if(/trailer|teaser|cast|staff|opening|ending|visual|premiere|release date|announc/.test(t))return 'Actualité vérifiée';
+ if(/ranking|ranked|top \d|poll|survey|versus|vs\./.test(t))return 'Comparaison';
+ return 'Débat communautaire';
+}
+function renderDailyPack(){
+ const el=document.getElementById('dailyPackList');if(!el)return;
+ const btn=document.getElementById('generateDailyPack');
+ if(btn)btn.disabled=dailyPack.length!==4||dailyPack.some(p=>p.generating);
+ if(!dailyPack.length){el.innerHTML='<div class="empty">Aucun programme préparé.</div>';return}
+ el.innerHTML=dailyPack.map((p,i)=>`<article class="daily-card" data-daily-card="${i}">
+  <div class="daily-card-head"><span class="badge">Publication ${i+1}/4</span><span class="badge orange">${safe(p.type)}</span></div>
+  <h4>${safe(p.item.title)}</h4>
+  <p class="small muted">${safe(p.item.source||'Source RSS')} · ${safe(p.item.publishedAt?new Date(p.item.publishedAt).toLocaleDateString('fr-FR'):'Date non précisée')}</p>
+  <p class="daily-summary">${safe(clip(p.item.summary||'Résumé non fourni.',260))}</p>
+  <p class="small"><a href="${safe(p.item.url)}" target="_blank" rel="noopener noreferrer">Consulter la source originale ↗</a></p>
+  <div class="field"><label for="dailyText${i}">Texte Facebook modifiable</label><textarea id="dailyText${i}" data-daily-text="${i}" rows="7" placeholder="Générez ce brouillon avec l’IA…">${safe(p.text||'')}</textarea></div>
+  <div class="daily-preview" id="dailyPreview${i}" hidden><div class="preview"><div class="previewtop"><b>◉ Manga, Animé et Actualités</b><span class="muted">· Aperçu du fil</span></div><div class="caption">${safe(p.text||'Le texte généré apparaîtra ici.')}</div></div></div>
+  <p class="footnote" id="dailyStatus${i}" aria-live="polite">${safe(p.status||'En attente de génération')}</p>
+  <div class="actions"><button class="btn sm" data-daily-act="preview" data-index="${i}">Aperçu Facebook</button><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button></div>
+ </article>`).join('');
+}
+document.getElementById('prepareDailyPack').onclick=()=>{
+ const unique=[],seen=new Set();
+ getTopNews().forEach(({x})=>{const key=String(x.title||'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();if(!key||seen.has(key)||!/^https?:\/\//i.test(String(x.url||'')))return;seen.add(key);unique.push(x)});
+ if(unique.length<4){document.getElementById('dailyPackStatus').textContent='Seulement '+unique.length+' actualité(s) distincte(s) disponible(s). Le programme attend quatre sujets fiables ; aucune actualité ne sera inventée.';dailyPack=[];renderDailyPack();return}
+ dailyPack=unique.slice(0,4).map(item=>({item,type:dailyType(item),text:'',saved:false,generating:false,status:'Prêt à générer · source à vérifier'}));
+ document.getElementById('dailyPackStatus').textContent='4 sujets distincts sélectionnés selon les tendances du Radar. Les résumés RSS sont des extraits : ouvrez chaque source et vérifiez les faits avant validation.';
+ renderDailyPack();
+};
+document.getElementById('generateDailyPack').onclick=async()=>{
+ if(dailyPack.length!==4)return;
+ const btn=document.getElementById('generateDailyPack');btn.disabled=true;
+ for(let i=0;i<dailyPack.length;i++){
+  const p=dailyPack[i];p.generating=true;p.status='Génération IA en cours…';renderDailyPack();
+  try{
+   const sourceArticles=Array.isArray(p.item.trendArticles)?p.item.trendArticles.slice(0,4):[];
+   const sourceText='Titre RSS : '+p.item.title+'\nRésumé RSS (extrait, non intégral) : '+(p.item.summary||'Non fourni')+'\nSource principale : '+(p.item.source||'Source RSS')+'\nLien principal : '+p.item.url+'\nSources associées : '+sourceArticles.map(a=>(a.source||'Source')+' — '+(a.title||'')+' — '+(a.url||'')).join('\n');
+   const topic='Rédige une publication Facebook en français sur cette actualité manga/anime. Sujet exact : '+p.item.title+'. Format éditorial : '+p.type+'. Ton naturel, engageant, précis et non sensationnaliste. Longueur moyenne. Accroche forte, paragraphes courts, question finale communautaire et 3 à 6 hashtags pertinents. Attribue clairement la source et conserve son lien. Ne dis pas que tu as lu l’article complet. N’ajoute aucun détail absent des éléments fournis. Si l’extrait est insuffisant, reste prudent et limite-toi aux faits visibles. N’invente ni casting, ni date, ni chiffre, ni citation, ni annonce. Distingue les faits des opinions. Le texte doit être spécifique à cette actualité et ne pas devenir un discours générique.';
+   const response=await fetch(getWorkerBase()+'/generate',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({topic,sources:sourceText})});
+   const raw=await response.text();let data;try{data=raw?JSON.parse(raw):{}}catch(_){data={text:raw}}
+   if(!response.ok||data.success===false)throw new Error(data.error||('Erreur HTTP '+response.status));
+   p.text=String(data.article||data.content||data.text||data.output||data.result||data.response||(data.data&&(data.data.article||data.data.content||data.data.text))||'').trim();
+   if(!p.text)throw new Error('Réponse IA vide');
+   p.status='Texte généré · vérification humaine obligatoire';
+  }catch(err){p.status='Échec : '+(err.message||'erreur inconnue');}
+  p.generating=false;renderDailyPack();
+ }
+ document.getElementById('dailyPackStatus').textContent='Traitement terminé. Relisez les quatre textes et ouvrez les sources originales. Aucun contenu n’a été publié sur Facebook.';
+};
+document.getElementById('dailyPackList').addEventListener('input',e=>{
+ const i=Number(e.target.dataset.dailyText);if(!Number.isInteger(i)||!dailyPack[i])return;
+ dailyPack[i].text=e.target.value;const preview=document.querySelector('#dailyPreview'+i+' .caption');if(preview)preview.textContent=e.target.value;
+ const png=document.querySelector('[data-daily-act="png"][data-index="'+i+'"]');if(png)png.disabled=!e.target.value.trim();
+});
+document.getElementById('dailyPackList').addEventListener('click',async e=>{
+ const b=e.target.closest('[data-daily-act]');if(!b)return;const i=Number(b.dataset.index),p=dailyPack[i];if(!p)return;
+ if(b.dataset.dailyAct==='preview'){const box=document.getElementById('dailyPreview'+i);box.hidden=!box.hidden;b.textContent=box.hidden?'Aperçu Facebook':'Masquer l’aperçu';return}
+ const textValue=document.getElementById('dailyText'+i).value.trim();p.text=textValue;
+ if(b.dataset.dailyAct==='copy'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');copyText(textValue);return}
+ if(b.dataset.dailyAct==='save'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');if(p.saved)return;if(addPost(p.item.title,p.type,textValue)){const saved=db.posts[0];saved.status='À vérifier';save();p.saved=true;p.status='Enregistré dans la file · À vérifier';renderDailyPack()}return}
+ if(b.dataset.dailyAct==='png'){if(!textValue)return;try{await downloadPostCapture(p.item.title,p.type,textValue);alert('Visuel PNG téléchargé. Le texte complet reste dans le brouillon.')}catch(err){alert('Échec du téléchargement PNG : '+(err.message||'erreur'))}}
+});
+
 
 document.getElementById('copyPost').onclick=()=>copyText(document.getElementById('postResult').value);
 document.getElementById('postResult').addEventListener('input',e=>document.getElementById('postPreview').textContent=e.target.value||'Aperçu de la publication.');
