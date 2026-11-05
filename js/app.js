@@ -13,7 +13,7 @@ function validIso(s){return typeof s==='string'&&s!==''&&!Number.isNaN(Date.pars
 function isSafeImage(d){return typeof d==='string'&&/^data:image\/(png|jpeg|webp|gif);base64,[A-Za-z0-9+\/=]+$/.test(d);}
 function normalizeDb(x){
  const src=isObj(x)?x:{};
-const out={posts:[],calendar:[],media:[],news:[],settings:{pageName:blank.settings.pageName,fontSize:14,density:'comfortable'}};
+const out={posts:[],calendar:[],media:[],news:[],settings:{pageName:blank.settings.pageName,fontSize:14,density:'comfortable',workerUrl:'https://wild-field-da5f.rasllaonjaonja.workers.dev'}};
  if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString()}));
 if(Array.isArray(src.calendar))out.calendar=src.calendar.filter(c=>isObj(c)&&validDay(c.date)).slice(0,2000).map(c=>({id:c.id!=null&&String(c.id)!==''?String(c.id):uid(),title:cut(c.title,200),date:c.date,time:/^([01]\d|2[0-3]):[0-5]\d$/.test(String(c.time||''))?c.time:'',type:cut(c.type||'Publication',40),status:calendarStatuses().includes(c.status)?c.status:'Brouillon'}));
  if(Array.isArray(src.news))out.news=src.news.filter(n=>isObj(n)&&typeof n.title==='string'&&/^https?:\/\//i.test(String(n.url||''))).slice(0,500).map(n=>({id:n.id!=null&&String(n.id)!==''?String(n.id):uid(),title:cut(n.title,300),source:cut(n.source||'Source',80),url:String(n.url),publishedAt:validIso(n.publishedAt)?n.publishedAt:null,summary:cut(n.summary,400),savedAt:validIso(n.savedAt)?n.savedAt:new Date().toISOString(),verified:n.verified===true}));
@@ -22,6 +22,8 @@ if(Array.isArray(src.calendar))out.calendar=src.calendar.filter(c=>isObj(c)&&val
  out.settings.pageName=cut(st.pageName||blank.settings.pageName,80);
  const fs=+st.fontSize;out.settings.fontSize=[13,14,15,16].includes(fs)?fs:14;
  out.settings.density=['comfortable','compact'].includes(st.density)?st.density:'comfortable';
+ const workerUrl=typeof st.workerUrl==='string'?st.workerUrl.trim():'';
+ out.settings.workerUrl=/^https:\/\/[a-z0-9.-]+(?::\d+)?$/i.test(workerUrl)?workerUrl:'https://wild-field-da5f.rasllaonjaonja.workers.dev';
  return out;
 }
 function readStore(){
@@ -197,6 +199,75 @@ function composePost(){
  if(tab)tab.click();
 }
 document.getElementById('buildPost').onclick=composePost;
+
+function getWorkerBase(){
+ const raw=(document.getElementById('workerUrl')?.value||db.settings.workerUrl||'').trim().replace(/\/+$/,'');
+ if(!/^https:\/\/[a-z0-9.-]+(?::\d+)?$/i.test(raw))throw new Error('Adresse Worker invalide. Utilisez une adresse HTTPS sans chemin.');
+ return raw;
+}
+function setWorkerStatus(message,kind){
+ const el=document.getElementById('workerStatus');
+ if(el){el.textContent=message;el.className='small '+(kind==='ok'?'ok':kind==='error'?'error':'muted')}
+ const ai=document.getElementById('aiStatus');
+ if(ai)ai.textContent=message;
+}
+async function testCloudflareWorker(){
+ const button=document.getElementById('testWorker');
+ if(button){button.disabled=true;button.textContent='Test en cours…'}
+ setWorkerStatus('Connexion au Worker en cours…');
+ try{
+  const response=await fetch(getWorkerBase()+'/health',{method:'GET',headers:{'Accept':'application/json'}});
+  const raw=await response.text();
+  let data={};try{data=raw?JSON.parse(raw):{}}catch(_){}
+  if(!response.ok)throw new Error('Le Worker répond avec HTTP '+response.status+'.');
+  if(data&&data.success===false)throw new Error(data.error||'Le Worker signale un échec.');
+  setWorkerStatus('✅ Worker accessible (HTTP '+response.status+'). Vous pouvez générer un contenu.', 'ok');
+  return true;
+ }catch(error){
+  const msg=(error&&error.message)||'Erreur inconnue';
+  const cors=/Failed to fetch|NetworkError|Load failed/i.test(msg)?' Vérifiez aussi les règles CORS du Worker.':'';
+  setWorkerStatus('❌ Connexion impossible : '+msg+'.'+cors,'error');
+  return false;
+ }finally{if(button){button.disabled=false;button.textContent='Tester la connexion IA'}}
+}
+document.getElementById('testWorker').onclick=testCloudflareWorker;
+async function generateWithCloudflare(){
+ const topic=document.getElementById('postTopic').value.trim();
+ if(!topic){alert('Ajoutez d’abord un sujet principal.');document.getElementById('postTopic').focus();return}
+ const button=document.getElementById('generateWithAI');
+ const type=document.getElementById('postType').value;
+ const tone=document.getElementById('postTone').value;
+ const length=document.getElementById('postLength').value;
+ const lengthLabel=length==='short'?'courte':length==='long'?'détaillée':'moyenne';
+ const question=document.getElementById('postQuestion').value.trim();
+ const sources=document.getElementById('aiSources').value.trim()||'Aucune source officielle fournie. Ne pas inventer de faits, de dates, de citations ni d’annonces.';
+ const enrichedTopic=topic+'\nFormat demandé : '+type+'. Ton : '+tone+'. Longueur : '+lengthLabel+'. Langue : français naturel, adapté à Facebook. Termine par '+(question?'cette question : '+question:'une question engageante pour la communauté')+'. Distingue clairement les faits des hypothèses et n’invente aucune information.';
+ if(button){button.disabled=true;button.textContent='Génération en cours…'}
+ setWorkerStatus('⏳ L’IA prépare votre publication…');
+ try{
+  const response=await fetch(getWorkerBase()+'/generate',{
+   method:'POST',
+   headers:{'Content-Type':'application/json','Accept':'application/json'},
+   body:JSON.stringify({topic:enrichedTopic,sources})
+  });
+  const raw=await response.text();
+  let data;try{data=raw?JSON.parse(raw):{}}catch(_){data={text:raw}}
+  if(!response.ok)throw new Error((data&&data.error)||('Erreur HTTP '+response.status));
+  if(data&&data.success===false)throw new Error(data.error||'Le Worker n’a pas pu générer le texte.');
+  const generated=(data.article||data.content||data.text||data.output||data.result||data.response||(data.data&&(data.data.article||data.data.content||data.data.text))||'').toString().trim();
+  if(!generated)throw new Error('Réponse reçue, mais aucun texte exploitable trouvé. Vérifiez le format de réponse du Worker.');
+  document.getElementById('postResult').value=generated;
+  document.getElementById('postPreview').textContent=generated;
+  const tab=document.querySelector('[data-tab="postText"]');if(tab)tab.click();
+  setWorkerStatus('✅ Publication générée. Relisez les faits et modifiez le texte avant de l’enregistrer.','ok');
+ }catch(error){
+  const msg=(error&&error.message)||'Erreur inconnue';
+  const cors=/Failed to fetch|NetworkError|Load failed/i.test(msg)?' Vérifiez les en-têtes CORS du Worker (OPTIONS, POST et Content-Type).':'';
+  setWorkerStatus('❌ Génération impossible : '+msg+'.'+cors,'error');
+ }finally{if(button){button.disabled=false;button.textContent='✦ Générer avec l’IA Cloudflare'}}
+}
+document.getElementById('generateWithAI').onclick=generateWithCloudflare;
+
 document.getElementById('copyPost').onclick=()=>copyText(document.getElementById('postResult').value);
 document.getElementById('postResult').addEventListener('input',e=>document.getElementById('postPreview').textContent=e.target.value||'Aperçu de la publication.');
 
@@ -474,7 +545,7 @@ function compressImage(file){return new Promise((resolve,reject)=>{const u=URL.c
 document.getElementById('mediaFiles').onchange=async e=>{const files=[...e.target.files];e.target.value='';let added=0;for(const f of files){if(!/^image\/(png|jpeg|webp|gif)$/.test(f.type)){alert(f.name+' : format non pris en charge (PNG, JPEG, WebP ou GIF).');continue}if(f.size>12*1024*1024){alert(f.name+' dépasse 12 Mo.');continue}try{const data=await compressImage(f);if(!isSafeImage(data))throw new Error('format');db.media.push({id:uid(),name:cut(f.name,120),data});added++}catch(err){alert('Impossible d’importer '+f.name+'.')}}if(added)save()};
 function renderMedia(){const el=document.getElementById('mediaGrid');el.innerHTML=db.media.map(m=>`<div class="card"><img src="${safe(m.data)}" alt="${safe(m.name)}" style="width:100%;height:130px;object-fit:cover;border-radius:8px"><p class="small">${safe(m.name)}</p><button class="btn sm" data-media="${safe(m.id)}">Supprimer</button></div>`).join('')||'<div class="empty">Aucun visuel importé.</div>'}
 document.getElementById('runQuality').onclick=()=>{let t=document.getElementById('qualityText').value.trim(),rights=document.getElementById('mediaRights').value,fact=document.getElementById('factStatus').value;if(!t)return alert('Ajoutez le texte à contrôler.');let checks=[];if(/urgent!!!|partagez 20 fois|cliquez immédiatement|abonnez-vous sinon/i.test(t))checks.push('Réécrire les formulations insistantes ou assimilables à du spam.');if(/officiel|confirmé|annonce|date de sortie|décès|scandale/i.test(t))checks.push('Vérifier chaque fait, la date et la source originale avant publication.');if(rights==='unknown')checks.push('Origine des médias inconnue : ne pas publier avant vérification des droits.');if(rights==='official')checks.push('Une image officielle n’est pas automatiquement libre de réutilisation.');if(fact==='unchecked')checks.push('Actualité non vérifiée : rechercher une confirmation indépendante et la source primaire.');let out='CHECKLIST DE PRÉVENTION\n\n'+(checks.length?checks.map(x=>'• '+x).join('\n'):'• Aucun signal automatique évident. Cela ne signifie pas que le contenu est garanti conforme.')+'\n\nÀ contrôler manuellement : exactitude, spoilers, respect des personnes, musique, droits des images, licence, source et date.\n\nCe contrôle ne prédit pas les décisions de Facebook et ne garantit pas l’absence de réclamation.';document.getElementById('qualityResult').textContent=out};
-document.getElementById('saveSettings').onclick=()=>{db.settings={pageName:document.getElementById('pageName').value,fontSize:+document.getElementById('fontSize').value,density:document.getElementById('density').value};save();applySettings();alert('Réglages enregistrés.')};function applySettings(){document.documentElement.style.setProperty('--font',(db.settings.fontSize||14)+'px');if(db.settings.density==='compact')document.documentElement.style.setProperty('--radius','10px');document.getElementById('pageName').value=db.settings.pageName||blank.settings.pageName;document.getElementById('fontSize').value=db.settings.fontSize||14;document.getElementById('density').value=db.settings.density||'comfortable'}
+document.getElementById('saveSettings').onclick=()=>{db.settings={...db.settings,pageName:document.getElementById('pageName').value,fontSize:+document.getElementById('fontSize').value,density:document.getElementById('density').value,workerUrl:document.getElementById('workerUrl').value.trim()};save();applySettings();alert('Réglages enregistrés.')};function applySettings(){document.documentElement.style.setProperty('--font',(db.settings.fontSize||14)+'px');if(db.settings.density==='compact')document.documentElement.style.setProperty('--radius','10px');document.getElementById('pageName').value=db.settings.pageName||blank.settings.pageName;document.getElementById('fontSize').value=db.settings.fontSize||14;document.getElementById('density').value=db.settings.density||'comfortable';document.getElementById('workerUrl').value=db.settings.workerUrl||'https://wild-field-da5f.rasllaonjaonja.workers.dev'}
 document.getElementById('resetData').onclick=()=>{if(confirm('Effacer toutes les données locales ? Exportez d’abord une sauvegarde.')){localStorage.removeItem(STORE);db=JSON.parse(JSON.stringify(blank));save();applySettings();alert('Données locales effacées.')}};
 function renderAll(){document.getElementById('sPosts').textContent=db.posts.length;document.getElementById('sDrafts').textContent=db.posts.filter(p=>p.status==='Brouillon'||p.status==='À vérifier').length;document.getElementById('sNews').textContent=newsItems.length;document.getElementById('sMedia').textContent=db.media.length;renderQueue();renderCalendar();renderMedia();let r=document.getElementById('homeRecent');r.innerHTML=db.posts.slice(0,4).map(p=>`<div class="item"><div><strong>${safe(p.title)}</strong><small>${safe(p.type)} · ${safe(p.status)}</small></div><span class="badge">${new Date(p.created).toLocaleDateString('fr-FR')}</span></div>`).join('')||'<div class="empty">Vos créations apparaîtront ici.</div>'}
 function renderHomeExtras(){
