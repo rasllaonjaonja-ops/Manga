@@ -276,3 +276,18 @@ img,canvas{max-width:100%}
 .publication-entry details summary{padding:5px 0;font-weight:650}
 .publication-text{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;color:var(--text);margin:5px 0}
 #publishedPosts,#projectPosts{display:grid;gap:9px}
+
+/* V4 — programme éditorial de quatre publications */
+.daily-studio{margin-bottom:16px;border-color:#cbd8f2;background:linear-gradient(135deg,#fbfaff,#f7fbff)}
+.daily-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.daily-head h3{margin:4px 0;font-size:19px;color:var(--title)}
+.daily-head p{margin:4px 0}
+.daily-pack-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.daily-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;min-width:0;box-shadow:var(--shadow)}
+.daily-card-head{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.daily-card h4{margin:10px 0 5px;font-size:14px;color:var(--title)}
+.daily-card .daily-summary{font-size:12px;color:var(--muted);line-height:1.5}
+.daily-card textarea{min-height:150px;font-size:12px;line-height:1.55}
+.daily-preview{margin:10px 0}
+.daily-card .actions{gap:6px}
+@media(max-width:700px){.daily-pack-list{grid-template-columns:1fr}.daily-head{display:block}.daily-head>.badge{margin-top:8px;display:inline-block}}
