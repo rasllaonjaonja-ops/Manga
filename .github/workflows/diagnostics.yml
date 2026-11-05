@@ -1,6 +1,9 @@
 name: Anime Trend Diagnostics
 
 on:
+  push:
+    branches:
+      - manga-trend-studio-v4-work
   workflow_dispatch:
   schedule:
     # Chaque jour à 06h UTC, en dehors des cycles du radar.
