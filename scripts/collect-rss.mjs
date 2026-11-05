@@ -40,6 +40,7 @@ export async function collect() {
     } else {
       const now = Date.now();
       const ranked = merged
+        .filter(isRelevantNews)
         .filter(x => !x.publishedAt || (now - Date.parse(x.publishedAt)) <= MAX_AGE_DAYS * 86400000)
         .map(x => ({ ...x, score: rank(x) }))
         .sort((a, b) => b.score - a.score || Date.parse(b.publishedAt || 0) - Date.parse(a.publishedAt || 0));
@@ -181,45 +182,67 @@ export function dedupe(list) {
 }
 
 function trendTokens(value) {
-  const stop = new Set(["the","and","for","with","from","gets","get","new","anime","manga","de","des","les","une","un","du","la","le","to","of","on","in"]);
+  const stop = new Set(["the","and","for","with","from","gets","get","new","anime","manga","de","des","les","une","un","du","la","le","to","of","on","in","a","an","is","by","as","its","their","this","that","reveals","revealed","reveal","unveils","unveiled","announced","announcement","adaptation","live","action","film","movie","teaser","trailer","promo","promotional","video","visual","cast","casting","director","staff","main","additional","season","series","tv","arc","second","third","fourth","part","premiere","premieres","release","released","march","january","november"]);
   return normTitle(value).split(" ").filter(t => t.length > 2 && !stop.has(t));
 }
 
+function storyText(item) { return String(item.title || "") + " " + String(item.summary || ""); }
+
+function eventKind(item) {
+  const text = normTitle(storyText(item));
+  if (/\b(cast|casting|director|voice actor|voice actress)\b/.test(text)) return "cast";
+  if (/\b(trailer|teaser|promo|promotional|pv)\b/.test(text)) return "promo";
+  if (/\b(final arc|climax|ends|ending|final chapter)\b/.test(text)) return "ending";
+  if (/\b(adaptation|adapted|gets anime|gets tv anime|live action|movie adaptation|film adaptation)\b/.test(text)) return "adaptation";
+  if (/\b(premiere|premieres|release date|opens in|debut)\b/.test(text)) return "release";
+  return "general";
+}
+
 function titleSimilarity(a, b) {
-  const aa = new Set(trendTokens(a));
-  const bb = new Set(trendTokens(b));
+  const aa = new Set(trendTokens(a)), bb = new Set(trendTokens(b));
   if (!aa.size || !bb.size) return 0;
   let common = 0;
   for (const token of aa) if (bb.has(token)) common++;
   return common / (aa.size + bb.size - common);
 }
 
+export function isRelevantNews(item) {
+  if (item.source !== "Google Actualités") return true;
+  const title = normTitle(item.title || ""), combined = title + " " + normTitle(item.summary || "");
+  const offTopic = /\b(halloween|figurine|figurines|soldes|reduction|reductions|promo|promotion|condamne|condamnes|pilleurs|tronconneuse|defile|deguise|fete|service civique|seniors|librairie momie|parassy|guerigny|place coquilleau)\b/;
+  if (offTopic.test(combined)) return false;
+  const explicitTopic = /\b(manga|mangas|anime|animes|shonen|seinen|shojo|manhwa|webtoon|light novel|otaku|crunchyroll|myanimelist|animenewsnetwork)\b/;
+  if (!explicitTopic.test(combined)) return false;
+  if (/\banime les rues\b|\banime la fete\b/.test(title)) return false;
+  return true;
+}
+
 export function clusterSimilar(list) {
   const groups = [];
   for (const item of list) {
-    let match = null;
-    let best = 0;
+    let match = null, best = 0;
+    const text = storyText(item), kind = eventKind(item);
     for (const group of groups) {
-      const similarity = titleSimilarity(item.title, group.item.title);
+      if (kind !== group.kind) continue;
+      const similarity = titleSimilarity(text, storyText(group.item));
       if (similarity > best) { best = similarity; match = group; }
     }
-    if (match && best >= 0.52) {
+    if (match && best >= 0.24) {
       if (item.source && !match.sources.includes(item.source)) match.sources.push(item.source);
-      if (item.score > match.item.score) match.item = item;
+      match.articles.push({ title: item.title, source: item.source || "Source", url: item.url, summary: item.summary || "", publishedAt: item.publishedAt || null });
+      if ((item.summary || "").length > (match.item.summary || "").length || (item.score || 0) > (match.item.score || 0)) match.item = item;
       if (item.publishedAt && (!match.latest || Date.parse(item.publishedAt) > Date.parse(match.latest))) match.latest = item.publishedAt;
     } else {
-      groups.push({ item, sources: item.source ? [item.source] : [], latest: item.publishedAt || null });
+      groups.push({ item, kind, sources: item.source ? [item.source] : [], articles: [{ title: item.title, source: item.source || "Source", url: item.url, summary: item.summary || "", publishedAt: item.publishedAt || null }], latest: item.publishedAt || null });
     }
   }
   return groups.map(group => ({
-    ...group.item,
-    publishedAt: group.latest || group.item.publishedAt || null,
-    trendSources: group.sources,
+    ...group.item, publishedAt: group.latest || group.item.publishedAt || null,
+    trendSources: group.sources, trendArticles: group.articles,
     trendSourceCount: group.sources.length || 1,
-    trendScore: Math.round((group.item.score + Math.max(0, group.sources.length - 1) * 5) * 10) / 10
+    trendScore: Math.round(((group.item.score || 0) + Math.max(0, group.sources.length - 1) * 5) * 10) / 10
   })).sort((a,b) => b.trendScore-a.trendScore || Date.parse(b.publishedAt || 0)-Date.parse(a.publishedAt || 0));
 }
-
 function rank(item) {
   const text = (item.title + " " + item.summary).toLowerCase();
   let score = 0;
