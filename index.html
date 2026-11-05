@@ -12,7 +12,7 @@
  <div class="brand"><img src="assets/logo-manga-anime-actualites.png" alt="Logo Manga Anime et Actualités"><div><b>ANIME TREND</b><small>CONTENT STUDIO</small></div></div>
  <nav class="nav sec-first"><button class="active" data-page="home"><i>⌂</i>Accueil</button></nav>
  <div><div class="group-title">CRÉER</div><nav class="nav"><button data-page="writer"><i>✎</i>Atelier de publications</button><button data-page="campaign"><i>✦</i>Studio de campagnes</button><button data-page="reels"><i>▶</i>Studio Reels</button><button data-page="quiz"><i>❖</i>Quiz & communauté</button></nav></div>
- <div><div class="group-title">ACTUALITÉS</div><nav class="nav"><button data-page="radar"><i>◉</i>Radar d'actualités</button><button data-page="queue"><i>▤</i>File éditoriale</button><button data-page="calendar"><i>▦</i>Calendrier éditorial</button></nav></div>
+ <div><div class="group-title">ACTUALITÉS</div><nav class="nav"><button data-page="radar"><i>◉</i>Radar d'actualités</button><button data-page="queue"><i>▤</i>File éditoriale</button><button data-page="calendar"><i>▦</i>Calendrier éditorial</button></nav></div><div><div class="group-title">SUIVI DES CONTENUS</div><nav class="nav"><button data-page="publications"><i>▣</i>Publications</button></nav></div>
  <div><div class="group-title">VISUELS</div><nav class="nav"><button data-page="visual"><i>▧</i>Studio visuel</button><button data-page="library"><i>▣</i>Médiathèque</button></nav></div>
  <div><div class="group-title">PILOTAGE</div><nav class="nav"><button data-page="quality"><i>✓</i>Contrôle qualité</button><button data-page="automation"><i>⌘</i>GitHub & automatisation</button></nav></div>
  <div><div class="group-title">CONFIGURATION</div><nav class="nav"><button data-page="settings"><i>⚙</i>Réglages</button><button data-page="help"><i>?</i>Aide & support</button><button data-page="about"><i>ⓘ</i>À propos</button></nav></div>
@@ -199,6 +199,24 @@ Et vous, quel est votre anime préféré ?</textarea></div>
 <section class="page" id="p-queue">
  <div class="kicker">PRODUCTION</div><h2>File éditoriale</h2><p class="sub">Retrouvez les contenus enregistrés, copiez-les, changez leur statut et exportez une sauvegarde.</p>
  <div class="actions" style="margin-bottom:12px"><select id="queueFilter" style="max-width:190px"><option value="all">Tous les contenus</option><option value="Brouillon">Brouillons</option><option value="À vérifier">À vérifier</option><option value="Prêt">Prêts à publier</option><option value="Publié manuellement">Publiés manuellement</option><option value="Archivé">Archivés</option></select><button class="btn" id="exportBackup">Exporter la sauvegarde JSON</button><button class="btn" id="importBackupBtn">Importer une sauvegarde</button><input type="file" id="importBackup" accept="application/json" hidden></div><div id="queueList" class="list"></div>
+</section>
+
+<section class="page" id="p-publications">
+ <div class="kicker">SUIVI ÉDITORIAL</div><h2>Publications</h2>
+ <p class="sub">Retrouvez séparément les contenus déjà publiés manuellement sur Facebook et les publications encore en préparation. Le studio ne publie rien automatiquement.</p>
+ <div class="grid2">
+  <div class="card">
+   <div class="panel-head"><h3>✓ Publications faites</h3><span class="badge green" id="publishedCount">0 publiée</span></div>
+   <p class="small muted">Contenus que vous avez confirmés comme publiés manuellement sur votre page Facebook.</p>
+   <div id="publishedPosts" class="list"><div class="empty">Aucune publication confirmée pour le moment.</div></div>
+  </div>
+  <div class="card">
+   <div class="panel-head"><h3>✎ Publications en projet</h3><span class="badge orange" id="projectCount">0 en projet</span></div>
+   <p class="small muted">Brouillons, contenus à vérifier, prêts à publier et contenus archivés.</p>
+   <div id="projectPosts" class="list"><div class="empty">Aucun projet enregistré pour le moment.</div></div>
+  </div>
+ </div>
+ <div class="note" style="margin-top:14px">Pour déplacer un contenu dans « Publications faites », utilisez son bouton « Statut » puis confirmez qu’il a bien été publié manuellement. Aucune publication Facebook n’est déclenchée par cette action.</div>
 </section>
 
 <section class="page" id="p-calendar">
