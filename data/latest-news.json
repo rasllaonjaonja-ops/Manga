@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-05T06:47:11.186Z",
-  "count": 69,
+  "updatedAt": "2026-11-05T06:53:26.310Z",
+  "count": 68,
   "items": [
     {
       "id": "8f058c127f6715f09ab56568cc6e4989a33d722a",
@@ -118,6 +118,37 @@
       ],
       "trendSourceCount": 3,
       "trendScore": 29.7
+    },
+    {
+      "id": "0f039dcce794fe8920357ceaf73b23bf97701960",
+      "title": "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
+      "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
+      "source": "Anime Corner",
+      "publishedAt": "2026-11-04T23:39:46.000Z",
+      "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
+      "score": 20.4,
+      "trendSources": [
+        "Anime Corner",
+        "Anime News Network"
+      ],
+      "trendArticles": [
+        {
+          "title": "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
+          "source": "Anime Corner",
+          "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
+          "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
+          "publishedAt": "2026-11-04T23:39:46.000Z"
+        },
+        {
+          "title": "Live-Action Mashle: Magic and Muscles Film Reveals Cast, Director",
+          "source": "Anime News Network",
+          "url": "https://www.animenewsnetwork.com/news/2026-11-04/live-action-mashle-magic-and-muscles-film-reveals-cast-director/.243531",
+          "summary": "Mackenyu Maeda stars as Mash Burnedead with Gintama's Yūichi Fukuda directing",
+          "publishedAt": "2026-11-04T23:26:04.000Z"
+        }
+      ],
+      "trendSourceCount": 2,
+      "trendScore": 25.4
     },
     {
       "id": "0ba5772177ad7a6c11e1e008b5bfebd68d8cd5e1",
@@ -311,29 +342,6 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 20.5
-    },
-    {
-      "id": "0f039dcce794fe8920357ceaf73b23bf97701960",
-      "title": "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
-      "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
-      "source": "Anime Corner",
-      "publishedAt": "2026-11-04T23:39:46.000Z",
-      "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
-      "score": 20.4,
-      "trendSources": [
-        "Anime Corner"
-      ],
-      "trendArticles": [
-        {
-          "title": "Mashle Live-Action Film Teaser Reveals Mackenyu Cast as Mash, Yuichi Fukuda Directs",
-          "source": "Anime Corner",
-          "url": "https://animecorner.me/mashle-live-action-film-teaser-reveals-mackenyu-cast-as-mash-yuichi-fukuda-directs/",
-          "summary": "The live-action film adaptation of MASHLE: MAGIC AND MUSCLES has cast Mackenyu as protagonist Mash Burnedead.",
-          "publishedAt": "2026-11-04T23:39:46.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 20.4
     },
     {
       "id": "56fa9b48b47c854a250e1c43227c9a0b99e99f6a",
@@ -571,29 +579,6 @@
       ],
       "trendSourceCount": 1,
       "trendScore": 14.5
-    },
-    {
-      "id": "d65f13a012cb3483782aec0f82627d3dfed0ac0d",
-      "title": "Live-Action Mashle: Magic and Muscles Film Reveals Cast, Director",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-04/live-action-mashle-magic-and-muscles-film-reveals-cast-director/.243531",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-04T23:26:04.000Z",
-      "summary": "Mackenyu Maeda stars as Mash Burnedead with Gintama's Yūichi Fukuda directing",
-      "score": 13.4,
-      "trendSources": [
-        "Anime News Network"
-      ],
-      "trendArticles": [
-        {
-          "title": "Live-Action Mashle: Magic and Muscles Film Reveals Cast, Director",
-          "source": "Anime News Network",
-          "url": "https://www.animenewsnetwork.com/news/2026-11-04/live-action-mashle-magic-and-muscles-film-reveals-cast-director/.243531",
-          "summary": "Mackenyu Maeda stars as Mash Burnedead with Gintama's Yūichi Fukuda directing",
-          "publishedAt": "2026-11-04T23:26:04.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 13.4
     },
     {
       "id": "740699eaa264e4fef204a7c6da9c9fa3496b58d8",
@@ -849,29 +834,6 @@
       "trendScore": 11.8
     },
     {
-      "id": "9d0685007471e1bbced470061c6af703deda9ae8",
-      "title": "Godzilla Minus Zero Earns Highest-Ever Opening Day for Live-Action Film in Japan",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-04/godzilla-minus-zero-earns-highest-ever-opening-day-for-live-action-film-in-japan/.243535",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-05T01:28:12.000Z",
-      "summary": "Film sold 590,000 tickets for 910 million yen on Tuesday opening",
-      "score": 11.6,
-      "trendSources": [
-        "Anime News Network"
-      ],
-      "trendArticles": [
-        {
-          "title": "Godzilla Minus Zero Earns Highest-Ever Opening Day for Live-Action Film in Japan",
-          "source": "Anime News Network",
-          "url": "https://www.animenewsnetwork.com/news/2026-11-04/godzilla-minus-zero-earns-highest-ever-opening-day-for-live-action-film-in-japan/.243535",
-          "summary": "Film sold 590,000 tickets for 910 million yen on Tuesday opening",
-          "publishedAt": "2026-11-05T01:28:12.000Z"
-        }
-      ],
-      "trendSourceCount": 1,
-      "trendScore": 11.6
-    },
-    {
       "id": "85b9f51cd7f34fe382d4931c08205f640bea7f69",
       "title": "Sakamoto Holidays Manga Heads Towards Climax",
       "url": "https://www.animenewsnetwork.com/news/2026-11-04/sakamoto-holidays-manga-heads-towards-climax/.243496",
@@ -895,13 +857,36 @@
       "trendScore": 11.6
     },
     {
+      "id": "9d0685007471e1bbced470061c6af703deda9ae8",
+      "title": "Godzilla Minus Zero Earns Highest-Ever Opening Day for Live-Action Film in Japan",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-04/godzilla-minus-zero-earns-highest-ever-opening-day-for-live-action-film-in-japan/.243535",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-05T01:28:12.000Z",
+      "summary": "Film sold 590,000 tickets for 910 million yen on Tuesday opening",
+      "score": 11.5,
+      "trendSources": [
+        "Anime News Network"
+      ],
+      "trendArticles": [
+        {
+          "title": "Godzilla Minus Zero Earns Highest-Ever Opening Day for Live-Action Film in Japan",
+          "source": "Anime News Network",
+          "url": "https://www.animenewsnetwork.com/news/2026-11-04/godzilla-minus-zero-earns-highest-ever-opening-day-for-live-action-film-in-japan/.243535",
+          "summary": "Film sold 590,000 tickets for 910 million yen on Tuesday opening",
+          "publishedAt": "2026-11-05T01:28:12.000Z"
+        }
+      ],
+      "trendSourceCount": 1,
+      "trendScore": 11.5
+    },
+    {
       "id": "9b18f87614c5082d2f198e0afc944bea877d89d0",
       "title": "'Rock wa Lady no Tashinami deshite' Creator Launches New Manga",
       "url": "https://myanimelist.net/news/74893568?_location=rss",
       "source": "MyAnimeList",
       "publishedAt": "2026-11-01T09:53:25.000Z",
       "summary": "The official X (formerly Twitter) account of Comic Heaven announced on Friday that manga creator Hiroshi Fukuda will launch a new manga, titled Koko wa Kagari no Territory (Here is Kagari&#039;s territory), in the magazine next issue, scheduled for a November 30 release. Fukuda is best known for Rock wa Lady no Tashinami deshite (Rock Is a Lady&#039;s Modesty), which began serializing in Young Animal from October 2022. Hakusensha published the eighth volume in August 2025. Yen Press licensed the...",
-      "score": 11.3,
+      "score": 11.2,
       "trendSources": [
         "MyAnimeList"
       ],
@@ -915,7 +900,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 11.3
+      "trendScore": 11.2
     },
     {
       "id": "3c366bd8007f02e7c5718d1c3fd9f58f754ca1c5",
@@ -1039,7 +1024,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-03T23:00:00.000Z",
       "summary": "Spy romance manga launched in March earlier this year",
-      "score": 10.4,
+      "score": 10.3,
       "trendSources": [
         "Anime News Network"
       ],
@@ -1053,7 +1038,7 @@
         }
       ],
       "trendSourceCount": 1,
-      "trendScore": 10.4
+      "trendScore": 10.3
     },
     {
       "id": "e71f8e1381a9b377583903abe00805afe327ac9e",
