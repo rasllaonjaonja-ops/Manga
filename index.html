@@ -35,7 +35,7 @@
    </div>
    <div class="kpis">
     <div class="kpi blue"><div class="k-ico">▤</div><div><b id="sNews">0</b><span>Actualités collectées</span><small>dans le radar</small></div></div>
-    <div class="kpi red"><div class="k-ico">✎</div><div><b id="sPosts">0</b><span>Contenus enregistrés</span><small>file éditoriale</small></div></div>
+    <div class="kpi red"><div class="k-ico">✎</div><div><b id="sPosts">0</b><span>Contenus enregistrés</span><small>Publications</small></div></div>
     <div class="kpi green"><div class="k-ico">◷</div><div><b id="sDrafts">0</b><span>À préparer</span><small>brouillons et à vérifier</small></div></div>
     <div class="kpi violet"><div class="k-ico">▣</div><div><b id="sMedia">0</b><span>Visuels importés</span><small>médiathèque locale</small></div></div>
    </div>
@@ -47,12 +47,12 @@
    <div class="panel"><div class="panel-head"><h3>🔥 Tendances du moment</h3><small class="muted">mots les plus fréquents dans les titres du radar</small></div><div id="homeTrends"><div class="empty">Les tendances apparaîtront après la collecte du radar.</div></div></div>
    <div class="two-col">
     <div class="panel"><div class="panel-head"><h3>Dernières actualités</h3><button data-go="radar">Voir tout →</button></div><div id="homeNews"><div class="empty">Chargement du radar…</div></div></div>
-    <div class="panel"><div class="panel-head"><h3>Projets récents</h3><button data-go="queue">Voir tout →</button></div><div id="homeRecent"><div class="empty">Vos créations apparaîtront ici.</div></div></div>
+    <div class="panel"><div class="panel-head"><h3>Projets récents</h3><button data-go="publications">Voir tout →</button></div><div id="homeRecent"><div class="empty">Vos créations apparaîtront ici.</div></div></div>
    </div>
    <div class="three-col">
     <div class="panel"><div class="panel-head"><h3>Flux d'activité</h3></div><div id="homeActivity"></div></div>
     <div class="panel"><div class="panel-head"><h3>Aperçu d'une publication</h3></div><div id="homePreview"></div></div>
-    <div class="panel"><div class="panel-head"><h3>Prochaines étapes</h3></div><div class="small muted">Rédigez un contenu, préparez son visuel, puis ajoutez-le à la file éditoriale. La publication reste manuelle.</div><button class="btn" data-go="campaign" style="margin-top:12px;width:100%">✦ Créer une campagne →</button></div>
+    <div class="panel"><div class="panel-head"><h3>Prochaines étapes</h3></div><div class="small muted">Rédigez un contenu, préparez son visuel, puis ajoutez-le à la Publications. La publication reste manuelle.</div><button class="btn" data-go="campaign" style="margin-top:12px;width:100%">✦ Créer une campagne →</button></div>
    </div>
   </div>
   <aside class="dash-side">
@@ -96,7 +96,7 @@
  <p class="footnote" id="aiStatus" role="status" aria-live="polite">IA non testée. Configurez puis testez le Worker dans Réglages.</p>
  </div><div class="card manual-post-editor">
  <div class="manual-post-heading"><div><div class="kicker">APERÇU EN DIRECT</div><h3>Publication manuelle</h3><p class="small muted">Le rendu Facebook reste visible juste sous votre texte pendant la rédaction.</p></div><span class="badge">Non publié</span></div>
- <div id="postText"><textarea id="postResult" style="min-height:220px" placeholder="Le texte généré apparaîtra ici. Vous pourrez le modifier."></textarea><div class="actions" style="margin-top:10px"><button class="btn" id="copyPost">Copier</button><button class="btn primary" id="savePost">📥 Enregistrer la publication + PNG</button></div><p class="footnote">Le contenu est enregistré dans la file éditoriale. La publication Facebook reste manuelle.</p></div>
+ <div id="postText"><textarea id="postResult" style="min-height:220px" placeholder="Le texte généré apparaîtra ici. Vous pourrez le modifier."></textarea><div class="actions" style="margin-top:10px"><button class="btn" id="copyPost">Copier</button><button class="btn primary" id="savePost">📥 Enregistrer la publication + PNG</button></div><p class="footnote">Le contenu est enregistré dans la Publications. La publication Facebook reste manuelle.</p></div>
  <div class="manual-facebook-preview" id="postView" aria-label="Aperçu fidèle du fil Facebook, non publié">
   <div class="manual-fb-head"><img src="assets/logo-manga-anime-actualites.png" alt="" class="manual-fb-avatar"><div><strong>Manga, Animé et Actualités</strong><small>À l’instant · 🌐</small></div><span>•••</span></div>
   <div class="manual-fb-caption" id="postPreview">Votre publication apparaîtra ici pendant la rédaction.</div>
@@ -221,7 +221,7 @@ Et vous, quel est votre anime préféré ?</textarea></div><button class="btn" i
    <div class="note">V4 crée des brouillons originaux et des prompts à utiliser dans votre outil de création visuelle/vidéo. Il ne génère pas lui-même les images ou les vidéos.</div>
    <div class="list">
     <div class="item"><div><strong>1. Cohérence</strong><small>Un seul angle éditorial décliné sur plusieurs formats.</small></div><span class="badge green">Inclus</span></div>
-    <div class="item"><div><strong>2. Réutilisation</strong><small>Enregistrer chaque élément dans la file éditoriale.</small></div><span class="badge green">Inclus</span></div>
+    <div class="item"><div><strong>2. Réutilisation</strong><small>Enregistrer chaque élément dans la Publications.</small></div><span class="badge green">Inclus</span></div>
     <div class="item"><div><strong>3. Contrôle</strong><small>Vérifier les faits, droits, spoilers et sources avant publication.</small></div><span class="badge orange">À faire</span></div>
     <div class="item"><div><strong>4. Publication</strong><small>Programmer manuellement via les outils Facebook disponibles.</small></div><span class="badge orange">Manuel</span></div>
    </div>
