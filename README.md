@@ -104,3 +104,18 @@ Les contrôles Node.js tournent dans le workflow de diagnostic V4. Les tests nav
 - Chaque carte permet de consulter le texte complet, de le copier, de faire évoluer son statut ou de supprimer le contenu.
 - Le statut « Publié manuellement » exige une confirmation explicite : cette action ne publie rien sur Facebook.
 - Les publications restent dans le stockage local du navigateur, comme les autres créations. Exportez régulièrement une sauvegarde JSON ; elles ne sont pas synchronisées entre appareils.
+
+
+## Passerelle IA gratuite multi-moteurs (branche V4)
+
+Le dossier `cloudflare-ai/` contient une passerelle compatible avec les routes déjà utilisées par l'application (`GET /health` et `POST /generate`). Elle tente dans cet ordre :
+1. Cloudflare Workers AI (binding `AI`, sans clé API dans le navigateur) ;
+2. Gemini API si le secret `GEMINI_API_KEY` est configuré ;
+3. OpenRouter si le secret `OPENROUTER_API_KEY` est configuré.
+
+Le basculement ne cherche que les fournisseurs configurés et n'appelle aucun fournisseur payant volontairement. Les quotas gratuits, l'éligibilité et les conditions des fournisseurs peuvent changer. Il n'existe aucune garantie de disponibilité continue. Claude n'est pas inclus comme API gratuite permanente ; il reste utilisable manuellement sur claude.ai.
+
+### Déploiement requis une seule fois
+Le Worker Cloudflare actuellement configuré dans l'application est hébergé séparément : modifier le dépôt GitHub ne le remplace pas automatiquement. Pour activer cette passerelle, déployez le contenu de `cloudflare-ai/worker.js` comme Worker, configurez le binding Workers AI nommé `AI`, puis ajoutez facultativement les secrets `GEMINI_API_KEY` et `OPENROUTER_API_KEY`. Vous pouvez ne configurer aucune clé facultative : Cloudflare AI seul sera utilisé.
+
+Après déploiement, gardez la même adresse Worker dans Réglages V4 si vous remplacez le Worker existant. Testez `/health`, puis `/generate`. N'enregistrez jamais les clés API dans GitHub, dans `wrangler.toml`, dans `index.html` ou dans `js/app.js`. Le Worker renvoie le fournisseur réellement utilisé et les erreurs des moteurs précédents.
