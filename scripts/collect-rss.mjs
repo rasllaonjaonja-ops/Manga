@@ -145,7 +145,7 @@ function tag(block, name) {
 
 // Décodage sûr : balises retirées, entités décodées, &amp; en dernier, puis nouvelle suppression des balises.
 export function clean(value) {
-  let s = String(value || "").replace(/<!\\[CDATA\\[|\\]\\]>/g, "");
+  let s = String(value || "").replace(/<!\[CDATA\[|\]\]>/g, "");
   const named = {
     amp: "&", nbsp: " ", quot: '"', apos: "'", lt: "<", gt: ">",
     hellip: "…", mdash: "—", ndash: "–", laquo: "«", raquo: "»",
@@ -169,13 +169,13 @@ export function clean(value) {
   // Plusieurs passes bornées décodent ces cas sans boucle infinie.
   for (let pass = 0; pass < 4; pass++) {
     const before = s;
-    s = s.replace(/&(#x[0-9a-f]+|#\\d+|[a-z]+);/gi, decodeEntity)
-      .replace(/<script[\\s\\S]*?<\\/script>/gi, " ")
-      .replace(/<style[\\s\\S]*?<\\/style>/gi, " ")
+    s = s.replace(/&(#x[0-9a-f]+|#\d+|[a-z]+);/gi, decodeEntity)
+      .replace(/<script[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style[\s\S]*?<\/style>/gi, " ")
       .replace(/<[^>]*>/g, " ");
     if (s === before) break;
   }
-  return s.replace(/\\s+/g, " ").trim();
+  return s.replace(/\s+/g, " ").trim();
 }
 function normTitle(t) {
   return String(t).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]+/g, " ").trim();
