@@ -64,7 +64,7 @@ function runSelfTest(){
  size>4000000?warn(`Données volumineuses (${Math.round(size/1024)} Ko) : exportez une sauvegarde.`):ok(`Taille des données : ${Math.round(size/1024)} Ko`);
  const cv=document.createElement('canvas');(cv.getContext&&cv.getContext('2d'))?ok('Canevas 2D disponible (PNG)'):ko('Canevas 2D indisponible : exports PNG impossibles');
  ((navigator.clipboard&&window.isSecureContext)||(document.queryCommandSupported&&document.queryCommandSupported('copy')))?ok('Copie dans le presse-papiers disponible'):warn('Copie automatique limitée : sélectionnez le texte manuellement');
- const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','reelTopic','buildReel','artCanvas','artFormat','renderArt','downloadArt','openChatGPTImage','openGeminiImage','imageAiPrompt','copyImagePrompt','artPostSelect','loadArtPost','artCaption','copyArtCaption','artLinkedStatus','artExportHistory','campTopic','buildCampaign','newsList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
+ const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','artCanvas','artFormat','renderArt','downloadArt','openChatGPTImage','openGeminiImage','imageAiPrompt','copyImagePrompt','artPostSelect','loadArtPost','artCaption','copyArtCaption','artLinkedStatus','artExportHistory','newsList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
  const missing=required.filter(id=>!document.getElementById(id));
  missing.length?ko('Éléments manquants : '+missing.join(', ')):ok(`Interface : ${required.length} éléments requis présents`);
  const round=normalizeDb(JSON.parse(JSON.stringify(db)));
@@ -298,6 +298,19 @@ function saveDailyDraft(p,slot){
  p.saved=true;p.postId=record.id;p.status='Brouillon enregistré automatiquement dans Publications';
  return true;
 }
+function renderDailyInlineVisual(index){
+ const p=dailyPack[index];if(!p)return;
+ const canvasEl=document.getElementById('dailyArtCanvas'+index);
+ const captionEl=document.getElementById('dailyInlineCaption'+index);
+ if(!canvasEl)return;
+ if(captionEl)captionEl.textContent=p.text||'Le texte de la publication apparaîtra ici.';
+ const savedPost=p.postId?db.posts.find(x=>x.id===p.postId):null;
+ const media=savedPost&&savedPost.visualMediaId?db.media.find(x=>x.id===savedPost.visualMediaId):null;
+ const paint=(image)=>paintArt(canvasEl,{format:'portrait',title:p.item.title||'Actualité manga et anime',subtitle:p.type||'MANGA · ANIME · ACTUALITÉS',image:image||null});
+ if(media&&isSafeImage(media.data)){
+  const image=new Image();image.onload=()=>paint(image);image.onerror=()=>paint(null);image.src=media.data;
+ }else paint(null);
+}
 function renderDailyPack(){
  const el=document.getElementById('dailyPackList');if(!el)return;
  const btn=document.getElementById('generateDailyPack');
@@ -319,6 +332,16 @@ function renderDailyPack(){
   </div>
   <p class="footnote" id="dailyStatus${i}" aria-live="polite">${safe(p.status||'En attente de génération')}</p>
   <div class="actions"><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="art" data-index="${i}" ${p.text?'':'disabled'}>Créer le visuel associé →</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button><button class="btn sm danger" data-daily-act="replace" data-index="${i}">Refuser / remplacer</button></div>
+  <section class="daily-inline-preview" id="dailyInlinePreview${i}" hidden aria-label="Aperçu du visuel de la publication ${i+1}">
+   <div class="daily-inline-preview-head"><strong>Prévisualisation du visuel · Publication ${i+1}/4</strong><span>Maquette non publiée</span></div>
+   <div class="daily-inline-facebook">
+    <div class="daily-inline-fb-head"><span class="daily-inline-avatar">M</span><div><strong>Manga, Animé et Actualités</strong><small>À l’instant · 🌐</small></div><span class="daily-inline-more">•••</span></div>
+    <div class="daily-inline-caption" id="dailyInlineCaption${i}"></div>
+    <canvas id="dailyArtCanvas${i}" width="1080" height="1350" aria-label="Visuel généré pour cette publication"></canvas>
+    <div class="daily-inline-fb-actions"><span>♡ J’aime</span><span>▢ Commenter</span><span>↗ Partager</span></div>
+   </div>
+   <p class="footnote">Aperçu du visuel réellement rendu par le studio. Pour utiliser une image créée avec ChatGPT, importez-la dans le Studio de publication : elle sera ensuite associée à ce brouillon.</p>
+  </section>
  </article>`).join('');
 }
 document.getElementById('prepareDailyPack').onclick=()=>{
@@ -372,9 +395,14 @@ document.getElementById('dailyPackList').addEventListener('click',async e=>{
  if(b.dataset.dailyAct==='art'){
   if(!textValue)return alert('Générez ou saisissez d’abord le texte de cette publication.');
   p.text=textValue;if(!saveDailyDraft(p,i+1))return;
-  loadArtPostById(p.postId);
-  document.getElementById('artLinkedStatus').textContent='Publication du jour '+(i+1)+'/4 liée au studio graphique. Le texte complet reste associé au brouillon.';
-  document.getElementById('artWorkspace').scrollIntoView({behavior:'smooth',block:'start'});
+  const panel=document.getElementById('dailyInlinePreview'+i);if(!panel)return;
+  const opening=panel.hidden;panel.hidden=!opening;
+  b.textContent=opening?'Masquer l’aperçu':'Créer le visuel associé →';
+  if(opening){
+   renderDailyInlineVisual(i);
+   loadArtPostById(p.postId);
+   document.getElementById('artLinkedStatus').textContent='Publication du jour '+(i+1)+'/4 liée au studio graphique. Le texte complet reste associé au brouillon.';
+  }
   return;
  }
  if(b.dataset.dailyAct==='png'){if(!textValue)return;try{await downloadPostCapture(p.item.title,p.type,textValue);alert('Visuel PNG téléchargé. Le texte complet reste dans le brouillon.')}catch(err){alert('Échec du téléchargement PNG : '+(err.message||'erreur'))}}
@@ -449,10 +477,6 @@ document.getElementById('savePost').onclick=async()=>{
  }finally{btn.disabled=false}
 };
 document.getElementById('postPreview').textContent=document.getElementById('postResult').value||'Votre publication apparaîtra ici pendant la rédaction.';
-function composeReel(){let topic=document.getElementById('reelTopic').value.trim();if(!topic)return alert('Indiquez le concept du Reel.');let d=+document.getElementById('reelDuration').value,style=document.getElementById('reelStyle').value,voice=document.getElementById('reelVoice').value,n=d<=7?2:d<=15?4:d<=30?5:7,step=d/n;let scenes=['Accroche visuelle : installer le lieu et attirer l’attention dès la première seconde.','Révélation : montrer le sujet et créer une émotion claire.','Montée : rapproché caméra, mouvement fluide, tension ou énergie.','Moment fort : image mémorable, changement de rythme ou détail symbolique.','Conclusion : laisser une question ou une image qui donne envie de commenter.'];let out=`TITRE : ${topic}\nFORMAT : vertical 9:16 | DURÉE : ${d}s | STYLE : ${style}\nAUDIO : ${voice}\n\n`;for(let i=0;i<n;i++){let a=Math.round(i*step),b=Math.round((i+1)*step);out+=`SCÈNE ${i+1} — ${a}-${b}s\n${scenes[i%scenes.length]}\nVisuel : ${topic}, esthétique anime originale, ${style.toLowerCase()}, cadrage vertical, cohérence du personnage et du décor.\nCaméra : ${i===0?'plan d’ensemble dynamique':i===1?'travelling lent':'mouvement maîtrisé avec transition douce'}.\nTexte écran : ${i===0?'UNE HISTOIRE À DÉCOUVRIR':i===n-1?'ET VOUS, QU’EN PENSEZ-VOUS ?':''}\n\n`}out+=`FIN — Vérifier la musique, les droits des images et la lisibilité des textes avant publication.`;document.getElementById('reelResult').value=out}
-document.getElementById('buildReel').onclick=composeReel;document.getElementById('copyReel').onclick=()=>copyText(document.getElementById('reelResult').value);document.getElementById('saveReel').onclick=()=>{let t=document.getElementById('reelResult').value;if(!t)return alert('Créez d’abord un storyboard.');if(addPost(document.getElementById('reelTopic').value.trim()||'Reel','Script Reel',t))alert('Script enregistré dans la file éditoriale.')};
-
-
 let activeArtPostId='';
 function renderArtPostLinks(){
  const select=document.getElementById('artPostSelect');if(!select)return;
@@ -518,9 +542,10 @@ function paintArt(target,opts={}){
  const signature=document.getElementById('artSignature').value;
  const ink='#101322',accent='#b83263',paper='#ffffff';
  x.fillStyle=ink;x.fillRect(0,0,w,h);
- if(artImage){
-  const scale=Math.max(w/artImage.width,h/artImage.height),iw=artImage.width*scale,ih=artImage.height*scale;
-  x.drawImage(artImage,(w-iw)/2,(h-ih)/2,iw,ih);
+ const sourceImage=Object.prototype.hasOwnProperty.call(opts,'image')?opts.image:artImage;
+ if(sourceImage){
+  const scale=Math.max(w/sourceImage.width,h/sourceImage.height),iw=sourceImage.width*scale,ih=sourceImage.height*scale;
+  x.drawImage(sourceImage,(w-iw)/2,(h-ih)/2,iw,ih);
  }else{
   const g=x.createLinearGradient(0,0,w,h);
   g.addColorStop(0,'#22243a');g.addColorStop(.55,'#17182a');g.addColorStop(1,'#0b1020');
@@ -632,8 +657,6 @@ document.getElementById('downloadCarousel').onclick=()=>{
  drawArt();
 };
 drawArt();
-document.getElementById('buildQuiz').onclick=()=>{let t=document.getElementById('quizTopic').value.trim();if(!t)return alert('Ajoutez un thème.');let f=document.getElementById('quizFormat').value,n=+document.getElementById('quizCount').value,out=`${f.toUpperCase()} — ${t}\n\n`;for(let i=1;i<=n;i++){if(f==='Sondage communautaire')out+=`Question ${i} : Quel est votre choix concernant ${t} ?\nA. Option 1\nB. Option 2\nC. Option 3\nD. Autre (expliquez)\n\n`;else if(f==='Question débat')out+=`Débat ${i} : Que pensez-vous de ${t} ? Donnez un argument et respectez les avis différents.\n\n`;else if(f==='Vrai ou faux')out+=`Affirmation ${i} à vérifier : ${t}.\nRéponse : à compléter après vérification d'une source fiable.\n\n`;else out+=`Question ${i} : Quel fait vérifié connaissez-vous à propos de ${t} ?\nA. Proposition à compléter\nB. Proposition à compléter\nC. Proposition à compléter\nRéponse correcte : à confirmer à partir d'une source fiable.\n\n`}out+='Modération : éviter les insultes, les spoilers non annoncés et les affirmations inventées.';document.getElementById('quizResult').value=out};document.getElementById('copyQuiz').onclick=()=>copyText(document.getElementById('quizResult').value);
-
 let campaignPack = [];
 function buildCampaign(){
  const topic=document.getElementById('campTopic').value.trim();
@@ -643,23 +666,7 @@ function buildCampaign(){
  const facts=document.getElementById('campFacts').value.trim();
  const selected={post:document.getElementById('campPost').checked,reel:document.getElementById('campReel').checked,story:document.getElementById('campStory').checked,carousel:document.getElementById('campCarousel').checked,visual:document.getElementById('campVisual').checked};
  if(!Object.values(selected).some(Boolean)){alert('Sélectionnez au moins un format.');return;}
- const opener=mood==='Émotionnelle'?'Certaines histoires nous touchent bien au-delà de l’écran.':mood==='Énergique'?'La communauté anime, on lance le débat !':mood==='Mystérieuse'?'Et si un détail changeait toute notre lecture de cette histoire ?':mood==='Éducative'?'Prenons un instant pour explorer ce sujet avec nuance.':'Dans l’univers manga et anime, certains thèmes méritent une vraie discussion.';
- const context=facts?'\n\nÉléments fournis à vérifier/attribuer : '+facts:'';
- campaignPack=[];
- if(selected.post) campaignPack.push({type:'Post Facebook',text:`${opener}\n\nAujourd’hui, parlons de : ${topic}.\n\n${goal}. L’objectif est de partager des points de vue, des expériences et des arguments sans imposer une seule réponse.${context}\n\nEt vous, quel est votre avis ? Expliquez votre point de vue dans le respect de chacun.\n\n#Manga #Anime #CommunautéAnime`});
- if(selected.reel) campaignPack.push({type:'Script Reel 20 secondes',text:`CONCEPT : ${topic}\nFORMAT : 9:16 · 20 secondes · ${mood}\nPUBLIC : ${audience}\n\n0–3 s — ACCROCHE\nTexte écran : « Et si on parlait de ${topic} ? »\nVisuel : plan fort original, composition verticale, mouvement immédiat.\n\n3–8 s — CONTEXTE\nVoix off : « Ce sujet suscite des réactions différentes dans la communauté. »\nVisuel : détails symboliques et plans rapprochés.\n\n8–15 s — IDÉE CENTRALE\nVoix off : « Voici un angle à explorer : ${goal.toLowerCase()}. »\nVisuel : progression visuelle, changement de cadrage, rythme maîtrisé.\n\n15–20 s — CONCLUSION\nTexte écran : « Et vous, qu’en pensez-vous ? »\nVisuel : plan final lisible, fondu propre.\n\nPRODUCTION : utiliser des visuels originaux/licenciés et une musique autorisée. Ne pas reprendre des extraits protégés sans autorisation.`});
- if(selected.story) campaignPack.push({type:'Story en 3 écrans',text:`STORY 1 — ACCROCHE\n« Parlons de ${topic} »\nVisuel : fond original cinématique, titre court.\n\nSTORY 2 — INTERACTION\n« Quel aspect vous intéresse le plus ? »\nAjouter un sticker sondage avec deux options réellement pertinentes.\n\nSTORY 3 — COMMUNAUTÉ\n« Votre avis compte : partagez votre analyse. »\nAjouter une boîte à questions. Modérer les réponses et éviter les spoilers non annoncés.`});
- if(selected.carousel) campaignPack.push({type:'Carrousel 5 cartes',text:`CARTE 1 — TITRE\n${topic}\n\nCARTE 2 — CONTEXTE\nPrésenter le sujet en une phrase simple, sans spoiler.\n\nCARTE 3 — PREMIER ANGLE\nUne idée ou un fait vérifié qui aide à comprendre le sujet.\n\nCARTE 4 — AUTRE PERSPECTIVE\nPrésenter une nuance ou un contrepoint honnête.\n\nCARTE 5 — DISCUSSION\n« Quel est votre point de vue ? »\n\nDIRECTION ARTISTIQUE : format carré 1:1, typographie lisible, contraste élevé, marges régulières, identité de page discrète. Utiliser des illustrations originales ou des médias autorisés.`});
- if(selected.visual) campaignPack.push({type:'Prompt visuel original',text:`Créer une illustration originale pour une publication de la page « Manga, Animé et Actualités ».\nSUJET : ${topic}\nAMBIANCE : ${mood}\nOBJECTIF : ${goal}\nPUBLIC : ${audience}\nFORMAT : vertical 4:5, composition adaptée au fil Facebook.\nDIRECTION : esthétique anime contemporaine, personnage entièrement original, silhouette expressive, décor narratif cohérent, lumière cinématographique, profondeur, détails soignés, espace négatif pour ajouter le titre ensuite.\nCONTRAINTES : ne pas copier un personnage, une scène, un logo ou un style distinctif protégé ; aucun texte illisible, aucun filigrane, aucune marque tierce. Prévoir une version sans texte pour ajouter la typographie dans le Studio visuel.`});
- const all=campaignPack.map((x,i)=>`===== ${i+1}. ${x.type.toUpperCase()} =====\n${x.text}`).join('\n\n');
- document.getElementById('campaignOutput').textContent=all;
- document.getElementById('campaignStatus').textContent=`${campaignPack.length} format(s) prêt(s) · Sujet : ${topic} · Rien n’est publié automatiquement.`;
-}
-document.getElementById('buildCampaign').onclick=buildCampaign;
-document.getElementById('copyCampaign').onclick=()=>{if(!campaignPack.length)return alert('Générez d’abord un pack.');copyText(campaignPack.map(x=>x.type+'\n'+x.text).join('\n\n'))};
-document.getElementById('downloadCampaign').onclick=()=>{if(!campaignPack.length)return alert('Générez d’abord un pack.');download('anime-trend-pack-campagne.txt',campaignPack.map(x=>x.type+'\n'+x.text).join('\n\n'+'—'.repeat(24)+'\n\n'),'text/plain;charset=utf-8')};
-document.getElementById('saveCampaign').onclick=()=>{if(!campaignPack.length)return alert('Générez d’abord un pack.');campaignPack.forEach(x=>db.posts.unshift({id:uid(),title:document.getElementById('campTopic').value.trim()+' — '+x.type,type:x.type,text:x.text,status:'Brouillon',created:new Date().toISOString()}));save();alert(campaignPack.length+' format(s) enregistré(s) dans la file éditoriale.')};
-
+ const opener=mood==='Émotionnelle'?'Certaines histoires nous touchent bien au-delà de l’écran.':mood==='Énergique'?'La communauté anime, on lance le débat !':mood==='Mystérieuse'?'Et si un détail changeait toute notre lecture de cette histoire ?':mood==='Éducative'?'Prenons un instant pour explorer ce sujet avec nuance.':'Dans l’univers manga et anime, certains thèmes méritent une vraie disc
 async function loadNews(){let status=document.getElementById('newsStatus');status.textContent='Lecture du fichier du radar…';try{let r=await fetch('data/latest-news.json?ts='+Date.now(),{cache:'no-store'});if(!r.ok)throw new Error('Fichier absent ('+r.status+')');let data=await r.json();newsItems=Array.isArray(data.items)?data.items.filter(x=>isObj(x)&&typeof x.title==='string'):[];status.textContent=`${newsItems.length} article(s) · dernière collecte : ${data.updatedAt?new Date(data.updatedAt).toLocaleString('fr-FR'):'inconnue'}`;renderNews();renderAll()}catch(e){status.textContent='Radar non initialisé';document.getElementById('newsList').innerHTML='<div class="empty">Aucune collecte disponible pour le moment.<br>Déployez la V4 puis lancez le workflow « Anime Trend RSS Radar » dans GitHub Actions.</div>'}}
 function getTopNews(){
  return newsItems.map((x,i)=>({x,i}))
