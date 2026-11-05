@@ -156,3 +156,15 @@ test("clusterSimilar reconnaît les titres alternatifs connus sans fusionner les
   assert.ok(result.some(x => /Reveals Mackenyu Cast/.test(x.title)));
   assert.ok(result.some(x => /Gets Live-Action Movie Adaptation/.test(x.title)));
 });
+
+test("clean décode aussi les entités HTML encodées deux fois", () => {
+  assert.equal(
+    clean("Hajime Koumoto&amp;#039;s Mashle &amp;mdash; &amp;nbsp; film"),
+    "Hajime Koumoto's Mashle — film"
+  );
+  assert.equal(clean("Titre &amp;amp; suite &#039;spéciale&#039;"), "Titre & suite 'spéciale'");
+});
+
+test("clean retire les balises dangereuses après leur décodage", () => {
+  assert.equal(clean("Texte &amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt; utile"), "Texte utile");
+});
