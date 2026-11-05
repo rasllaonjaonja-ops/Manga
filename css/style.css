@@ -416,3 +416,24 @@ img,canvas{max-width:100%}
 .daily-inline-facebook canvas{display:block;width:100%;height:auto;background:#111629}
 .daily-inline-fb-actions{display:grid;grid-template-columns:repeat(3,1fr);padding:10px 4px;color:#626975;font-size:11px;font-weight:650;text-align:center}
 @media(max-width:600px){.daily-inline-preview{padding:8px}.daily-inline-caption{font-size:11px}.daily-inline-fb-actions{font-size:10px}}
+
+
+/* V4.3 — parcours de publication simplifié */
+.studio-pipeline{margin:0 0 15px;padding:16px;border-color:#d8deeb;background:#fbfcff}
+.pipeline-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:13px}
+.pipeline-heading h3{font-size:18px;margin:4px 0;color:var(--title)}
+.pipeline-heading p{margin:4px 0}
+.pipeline-steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px}
+.pipeline-step{display:flex;flex-direction:column;align-items:flex-start;gap:5px;min-width:0;padding:12px;border:1px solid var(--line);border-radius:11px;text-decoration:none;text-align:left;background:#fff;color:var(--title);cursor:pointer}
+.pipeline-step b{font-size:11px;opacity:.8}
+.pipeline-step strong{font-size:12px}
+.pipeline-step small{font-size:10px;color:var(--muted);line-height:1.35}
+.pipeline-news{border-top:4px solid #2878d0}.pipeline-writing{border-top:4px solid #8052b8}.pipeline-visual{border-top:4px solid #c66d25}.pipeline-project{border-top:4px solid #218064}
+.pipeline-news-panel{margin-bottom:15px;border-left:4px solid #2878d0}
+.pipeline-news-panel .item{flex-wrap:wrap}
+.pipeline-news-panel .item .actions{flex-wrap:wrap;justify-content:flex-end}
+.pipeline-news-panel .item>div:first-child{flex:1}
+#pipeline-drafts{border-top:4px solid #8052b8}
+#pipeline-visual{border-top:4px solid #c66d25}
+#pipeline-quality{border-top:4px solid #218064}
+@media(max-width:650px){.pipeline-steps{grid-template-columns:repeat(2,minmax(0,1fr))}.pipeline-step{padding:10px}.pipeline-heading{display:block}.pipeline-heading>.badge{margin-top:8px;display:inline-block}}
