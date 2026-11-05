@@ -6,7 +6,6 @@ on:
       - manga-trend-studio-v4-work
   workflow_dispatch:
   schedule:
-    # Chaque jour à 06h UTC, en dehors des cycles du radar.
     - cron: '0 6 * * *'
 
 permissions:
@@ -15,7 +14,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 15
     steps:
       - name: Récupérer le dépôt
         uses: actions/checkout@v6
@@ -31,5 +30,27 @@ jobs:
       - name: Contrôler l'application
         run: node scripts/check-app.mjs
 
-      - name: Tester le collecteur
+      - name: Tester le collecteur RSS
         run: npm test
+
+      - name: Installer Python et Playwright
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+
+      - name: Installer Chromium pour les tests navigateur
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
+
+      - name: Lancer les tests de bout en bout
+        run: |
+          python -m http.server 8790 --bind 127.0.0.1 > /tmp/anime-trend-http.log 2>&1 &
+          for attempt in $(seq 1 20); do
+            if curl --fail --silent http://127.0.0.1:8790/index.html > /dev/null; then
+              break
+            fi
+            sleep 1
+          done
+          APP_URL=http://127.0.0.1:8790/index.html python tests/e2e.py
