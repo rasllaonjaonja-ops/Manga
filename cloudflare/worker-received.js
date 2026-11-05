@@ -24,7 +24,7 @@ IDENTITÉ DE MARQUE :
 Manga Trend Studio V4 – L'actualité manga et anime autrement
 `;
 
-const MODEL = "@cf/meta/llama-3-8b-instruct";
+const MODEL = "@cf/meta/llama-3.1-8b-instruct-fp8";
 
 export default {
   async fetch(request, env) {
