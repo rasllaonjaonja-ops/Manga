@@ -124,6 +124,33 @@ async def main():
         await pg.click('#calList button[data-cal]'); await pg.wait_for_timeout(150)
         check('calendrier : ajout puis suppression', n==1 and await pg.evaluate("db.calendar.length")==0)
 
+        # 10. Dates calendaires réelles et impossibles
+        check('calendrier : date impossible refusée', await pg.evaluate("validDay('2026-02-31')===false"))
+        check('calendrier : année bissextile acceptée', await pg.evaluate("validDay('2028-02-29')===true"))
+
+        # 11. Réglages : taille de police et densité réversibles
+        await pg.evaluate("navigate('settings');document.getElementById('fontSize').value='16';document.getElementById('density').value='compact';document.getElementById('saveSettings').click()")
+        await pg.wait_for_timeout(100)
+        compact=await pg.evaluate("({font:getComputedStyle(document.documentElement).fontSize,radius:getComputedStyle(document.documentElement).getPropertyValue('--radius').trim()})")
+        check('réglages : police grande appliquée', compact['font']=='16px', compact)
+        check('réglages : densité compacte appliquée', compact['radius']=='10px', compact)
+        await pg.evaluate("document.getElementById('fontSize').value='14';document.getElementById('density').value='comfortable';document.getElementById('saveSettings').click()")
+        await pg.wait_for_timeout(100)
+        normal=await pg.evaluate("({font:getComputedStyle(document.documentElement).fontSize,radius:getComputedStyle(document.documentElement).getPropertyValue('--radius').trim()})")
+        check('réglages : retour au confort réinitialise les styles', normal['font']=='14px' and normal['radius']=='14px', normal)
+
+        # 12. Une sauvegarde refusée ne doit pas afficher un faux succès
+        before=await pg.evaluate("JSON.stringify(db.settings)")
+        dialog_count=len(dialogs)
+        await pg.evaluate("window.__settingsSet=Storage.prototype.setItem;Storage.prototype.setItem=function(){throw new Error('QuotaExceededError')};document.getElementById('pageName').value='Ne doit pas être enregistré';document.getElementById('saveSettings').click()")
+        await pg.wait_for_timeout(100)
+        after=await pg.evaluate("JSON.stringify(db.settings)")
+        false_success=any('Réglages enregistrés' in msg for typ,msg in dialogs[dialog_count:])
+        check('réglages : échec de stockage annulé', before==after, (before,after))
+        check('réglages : aucun faux message de succès', not false_success)
+        await pg.evaluate("Storage.prototype.setItem=window.__settingsSet;document.getElementById('pageName').value=db.settings.pageName")
+        await pg.evaluate("document.getElementById('issueBanner')&&document.getElementById('issueBanner').remove()")
+
         # 10. Export PNG : long texte signalé, court texte non tronqué
         r=await pg.evaluate("downloadPostCapture('Court','Débat communautaire','Un texte court.').then(r=>r)")
         check('PNG texte court non tronqué', r['truncated'] is False, r)
