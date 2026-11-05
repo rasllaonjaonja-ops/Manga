@@ -169,3 +169,58 @@ test("clean décode aussi les entités HTML encodées deux fois", () => {
 test("clean retire les balises dangereuses après leur décodage", () => {
   assert.equal(clean("Texte &amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt; utile"), "Texte utile");
 });
+
+
+test("clean décode les entités HTML courantes des flux manga et anime", () => {
+  assert.equal(
+    clean("Koumoto&#039;s Mashle &mdash; SK&infin; · Col&aacute;s · Pok&eacute;mon"),
+    "Koumoto's Mashle — SK∞ · Colás · Pokémon"
+  );
+  assert.equal(clean("A&nbsp;B &hellip; &ldquo;C&rsquo;est bon&rdquo;"), "A B … “C’est bon”");
+});
+
+test("parseFeed marque les résumés comme extraits et détecte sa propre limite de longueur", () => {
+  const longSummary = "x".repeat(2100);
+  const xml = `<rss><channel><item>
+    <title>Actualité test</title>
+    <link>https://example.com/test</link>
+    <description>${longSummary}</description>
+  </item></channel></rss>`;
+  const [item] = parseFeed(xml, { name: "Source test" });
+  assert.equal(item.summary.length, 2000);
+  assert.equal(item.summaryIsExcerpt, true);
+  assert.equal(item.summaryTruncated, true);
+  assert.match(item.summaryNotice, /Extrait RSS uniquement/);
+});
+
+test("clusterSimilar conserve les liens et résumés de plusieurs médias pour le même événement", () => {
+  const result = clusterSimilar([
+    {
+      title: "'Mashle' Gets Live-Action Movie Adaptation",
+      summary: "Warner Bros. Japan annonce une adaptation live-action.",
+      source: "MyAnimeList", url: "https://example.com/mal-mashle", score: 20,
+      summaryIsExcerpt: true, summaryTruncated: false
+    },
+    {
+      title: "Mashle: Magic and Muscles Manga Gets Live-Action Film on March 19",
+      summary: "Warner Brothers, Fuji TV, Credeus, Toho collaborate on project",
+      source: "Anime News Network", url: "https://example.com/ann-mashle", score: 18,
+      summaryIsExcerpt: true, summaryTruncated: false
+    },
+    {
+      title: "Mashle Live-Action Film Reveals Cast, Director",
+      summary: "Mackenyu stars as Mash Burnedead.",
+      source: "Anime News Network", url: "https://example.com/ann-cast", score: 17,
+      summaryIsExcerpt: true, summaryTruncated: false
+    }
+  ]);
+  const adaptation = result.find(x => x.trendSources.includes("MyAnimeList"));
+  assert.ok(adaptation);
+  assert.equal(adaptation.trendSourceCount, 2);
+  assert.equal(adaptation.trendArticles.length, 2);
+  assert.deepEqual(
+    adaptation.trendArticles.map(x => x.url).sort(),
+    ["https://example.com/ann-mashle", "https://example.com/mal-mashle"]
+  );
+  assert.ok(result.some(x => /Reveals Cast/.test(x.title)), "l’annonce de casting doit rester un événement distinct");
+});
