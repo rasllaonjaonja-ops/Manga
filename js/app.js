@@ -14,7 +14,7 @@ function isSafeImage(d){return typeof d==='string'&&/^data:image\/(png|jpeg|webp
 function normalizeDb(x){
  const src=isObj(x)?x:{};
 const out={posts:[],calendar:[],media:[],news:[],settings:{pageName:blank.settings.pageName,fontSize:14,density:'comfortable',workerUrl:'https://wild-field-da5f.rasllaonjaonja.workers.dev'}};
- if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString(),dailyDate:validDay(p.dailyDate)?p.dailyDate:null,dailySlot:Number.isInteger(+p.dailySlot)&&+p.dailySlot>=1&&+p.dailySlot<=4?+p.dailySlot:null,sourceUrl:/^https?:\/\//i.test(String(p.sourceUrl||''))?String(p.sourceUrl):'',sourceName:cut(p.sourceName||'',100)}));
+ if(Array.isArray(src.posts))out.posts=src.posts.filter(isObj).slice(0,2000).map(p=>({id:p.id!=null&&String(p.id)!==''?String(p.id):uid(),title:cut(p.title,200),type:cut(p.type||'Publication',80),text:cut(p.text,20000),status:statuses().includes(p.status)?p.status:'Brouillon',created:validIso(p.created)?p.created:new Date().toISOString(),dailyDate:validDay(p.dailyDate)?p.dailyDate:null,dailySlot:Number.isInteger(+p.dailySlot)&&+p.dailySlot>=1&&+p.dailySlot<=4?+p.dailySlot:null,sourceUrl:/^https?:\/\//i.test(String(p.sourceUrl||''))?String(p.sourceUrl):'',sourceName:cut(p.sourceName||'',100),visualExports:Array.isArray(p.visualExports)?p.visualExports.filter(v=>typeof v==='string').slice(0,20):[]}));
 if(Array.isArray(src.calendar))out.calendar=src.calendar.filter(c=>isObj(c)&&validDay(c.date)).slice(0,2000).map(c=>({id:c.id!=null&&String(c.id)!==''?String(c.id):uid(),title:cut(c.title,200),date:c.date,time:/^([01]\d|2[0-3]):[0-5]\d$/.test(String(c.time||''))?c.time:'',type:cut(c.type||'Publication',40),status:calendarStatuses().includes(c.status)?c.status:'Brouillon'}));
  if(Array.isArray(src.news))out.news=src.news.filter(n=>isObj(n)&&typeof n.title==='string'&&/^https?:\/\//i.test(String(n.url||''))).slice(0,500).map(n=>({id:n.id!=null&&String(n.id)!==''?String(n.id):uid(),title:cut(n.title,300),source:cut(n.source||'Source',80),url:String(n.url),publishedAt:validIso(n.publishedAt)?n.publishedAt:null,summary:cut(n.summary,400),savedAt:validIso(n.savedAt)?n.savedAt:new Date().toISOString(),verified:n.verified===true}));
  if(Array.isArray(src.media))out.media=src.media.filter(m=>isObj(m)&&isSafeImage(m.data)).slice(0,300).map(m=>({id:m.id!=null&&String(m.id)!==''?String(m.id):uid(),name:cut(m.name||'visuel',120),data:m.data}));
@@ -64,7 +64,7 @@ function runSelfTest(){
  size>4000000?warn(`Données volumineuses (${Math.round(size/1024)} Ko) : exportez une sauvegarde.`):ok(`Taille des données : ${Math.round(size/1024)} Ko`);
  const cv=document.createElement('canvas');(cv.getContext&&cv.getContext('2d'))?ok('Canevas 2D disponible (PNG)'):ko('Canevas 2D indisponible : exports PNG impossibles');
  ((navigator.clipboard&&window.isSecureContext)||(document.queryCommandSupported&&document.queryCommandSupported('copy')))?ok('Copie dans le presse-papiers disponible'):warn('Copie automatique limitée : sélectionnez le texte manuellement');
- const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','reelTopic','buildReel','artCanvas','artFormat','renderArt','downloadArt','campTopic','buildCampaign','newsList','queueList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
+ const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','reelTopic','buildReel','artCanvas','artFormat','renderArt','downloadArt','artPostSelect','loadArtPost','artCaption','copyArtCaption','artLinkedStatus','artExportHistory','campTopic','buildCampaign','newsList','queueList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
  const missing=required.filter(id=>!document.getElementById(id));
  missing.length?ko('Éléments manquants : '+missing.join(', ')):ok(`Interface : ${required.length} éléments requis présents`);
  const round=normalizeDb(JSON.parse(JSON.stringify(db)));
@@ -313,7 +313,7 @@ function renderDailyPack(){
   <div class="field"><label for="dailyText${i}">Texte Facebook modifiable</label><textarea id="dailyText${i}" data-daily-text="${i}" rows="7" placeholder="Générez ce brouillon avec l’IA…">${safe(p.text||'')}</textarea></div>
   <div class="daily-preview" id="dailyPreview${i}" hidden><div class="preview"><div class="previewtop"><b>◉ Manga, Animé et Actualités</b><span class="muted">· Aperçu du fil</span></div><div class="caption">${safe(p.text||'Le texte généré apparaîtra ici.')}</div></div></div>
   <p class="footnote" id="dailyStatus${i}" aria-live="polite">${safe(p.status||'En attente de génération')}</p>
-  <div class="actions"><button class="btn sm" data-daily-act="preview" data-index="${i}">Aperçu Facebook</button><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button><button class="btn sm danger" data-daily-act="replace" data-index="${i}">Refuser / remplacer</button></div>
+  <div class="actions"><button class="btn sm" data-daily-act="preview" data-index="${i}">Aperçu Facebook</button><button class="btn sm" data-daily-act="copy" data-index="${i}">Copier</button><button class="btn sm" data-daily-act="save" data-index="${i}" ${p.saved?'disabled':''}>Enregistrer le brouillon</button><button class="btn sm" data-daily-act="art" data-index="${i}" ${p.text?'':'disabled'}>Créer le visuel associé →</button><button class="btn sm" data-daily-act="png" data-index="${i}" ${p.text?'':'disabled'}>Télécharger PNG</button><button class="btn sm danger" data-daily-act="replace" data-index="${i}">Refuser / remplacer</button></div>
  </article>`).join('');
 }
 document.getElementById('prepareDailyPack').onclick=()=>{
@@ -365,6 +365,14 @@ document.getElementById('dailyPackList').addEventListener('click',async e=>{
  const textValue=document.getElementById('dailyText'+i).value.trim();p.text=textValue;
  if(b.dataset.dailyAct==='copy'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');copyText(textValue);return}
  if(b.dataset.dailyAct==='save'){if(!textValue)return alert('Générez ou saisissez d’abord le texte.');p.text=textValue;if(!saveDailyDraft(p,i+1))return;renderDailyPack();return}
+ if(b.dataset.dailyAct==='art'){
+  if(!textValue)return alert('Générez ou saisissez d’abord le texte de cette publication.');
+  p.text=textValue;if(!saveDailyDraft(p,i+1))return;
+  loadArtPostById(p.postId);
+  document.getElementById('artLinkedStatus').textContent='Publication du jour '+(i+1)+'/4 liée au studio graphique. Le texte complet reste associé au brouillon.';
+  document.getElementById('artWorkspace').scrollIntoView({behavior:'smooth',block:'start'});
+  return;
+ }
  if(b.dataset.dailyAct==='png'){if(!textValue)return;try{await downloadPostCapture(p.item.title,p.type,textValue);alert('Visuel PNG téléchargé. Le texte complet reste dans le brouillon.')}catch(err){alert('Échec du téléchargement PNG : '+(err.message||'erreur'))}}
 });
 
@@ -441,6 +449,50 @@ function composeReel(){let topic=document.getElementById('reelTopic').value.trim
 document.getElementById('buildReel').onclick=composeReel;document.getElementById('copyReel').onclick=()=>copyText(document.getElementById('reelResult').value);document.getElementById('saveReel').onclick=()=>{let t=document.getElementById('reelResult').value;if(!t)return alert('Créez d’abord un storyboard.');if(addPost(document.getElementById('reelTopic').value.trim()||'Reel','Script Reel',t))alert('Script enregistré dans la file éditoriale.')};
 
 
+let activeArtPostId='';
+function renderArtPostLinks(){
+ const select=document.getElementById('artPostSelect');if(!select)return;
+ const keep=activeArtPostId||select.value;
+ const sorted=db.posts.slice().sort((a,b)=>new Date(b.created)-new Date(a.created));
+ select.innerHTML='<option value="">Choisir une publication enregistrée…</option>'+sorted.map(p=>'<option value="'+safe(p.id)+'">'+safe((p.dailySlot?'Jour '+p.dailySlot+'/4 · ':'')+(p.title||p.type||'Publication')+' · '+p.status)+'</option>').join('');
+ if(keep&&db.posts.some(p=>p.id===keep))select.value=keep;
+ const post=db.posts.find(p=>p.id===activeArtPostId);
+ const history=document.getElementById('artExportHistory');
+ if(history)history.textContent=post&&post.visualExports&&post.visualExports.length?'Exports liés : '+post.visualExports.slice(-5).join(' · '):'Aucun export enregistré pour cette publication.';
+}
+function loadArtPostById(id){
+ const p=db.posts.find(x=>x.id===String(id));if(!p)return alert('Cette publication est introuvable dans les brouillons.');
+ activeArtPostId=p.id;
+ document.getElementById('artPostSelect').value=p.id;
+ document.getElementById('artTitle').value=p.title||'PUBLICATION MANGA / ANIME';
+ document.getElementById('artSubtitle').value=[p.type,p.dailySlot?'PUBLICATION DU JOUR '+p.dailySlot+'/4':''].filter(Boolean).join(' • ').toUpperCase().slice(0,90);
+ document.getElementById('artCaption').value=p.text||'';
+ document.getElementById('artLinkedStatus').textContent='Lié à : '+(p.title||p.type)+' · '+p.status+'. Les modifications du texte seront enregistrées dans ce brouillon.';
+ renderArtPostLinks();drawArt();
+}
+function artExportName(kind){
+ const p=db.posts.find(x=>x.id===activeArtPostId);
+ const base=String(p&&p.title||'publication').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,48)||'publication';
+ return 'manga-anime-'+base+'-'+kind+'.png';
+}
+function markArtExport(format,name){
+ const p=db.posts.find(x=>x.id===activeArtPostId);
+ if(!p){document.getElementById('visualStatus').textContent='Export téléchargé. Il n’est pas associé à un brouillon.';return}
+ if(!Array.isArray(p.visualExports))p.visualExports=[];
+ p.visualExports.push(format+' · '+name+' · '+new Date().toLocaleString('fr-FR'));
+ p.visualExports=p.visualExports.slice(-20);
+ if(!save())return;
+ document.getElementById('visualStatus').textContent='Export téléchargé et rattaché au brouillon : '+p.title;
+}
+document.getElementById('loadArtPost').onclick=()=>{const id=document.getElementById('artPostSelect').value;if(!id)return alert('Sélectionnez d’abord un brouillon.');loadArtPostById(id)};
+document.getElementById('artPostSelect').onchange=()=>{const id=document.getElementById('artPostSelect').value;if(id)loadArtPostById(id)};
+document.getElementById('artCaption').addEventListener('input',e=>{
+ const p=db.posts.find(x=>x.id===activeArtPostId);if(!p)return;
+ p.text=cut(e.target.value,20000);
+ try{const payload=JSON.stringify(db);localStorage.setItem(STORE,payload);lastPersisted=payload;document.getElementById('artLinkedStatus').textContent='Texte synchronisé avec le brouillon : '+p.title;}
+ catch(err){showIssue('Impossible de synchroniser le texte avec le brouillon : stockage local indisponible.');}
+});
+document.getElementById('copyArtCaption').onclick=()=>{const t=document.getElementById('artCaption').value.trim();if(!t)return alert('Aucun texte Facebook à copier.');copyText(t)};
 let artImage=null;
 const canvas=document.getElementById('artCanvas'),ctx=canvas.getContext('2d');
 const artSizes={portrait:[1080,1350,'Fil Facebook'],square:[1080,1080,'Publication carrée'],story:[1080,1920,'Story / Reel'],landscape:[1920,1080,'Couverture paysage']};
@@ -518,16 +570,14 @@ document.getElementById('artFile').onchange=e=>{
 ['artFormat','artTitle','artSubtitle','artAccent','artTheme','artSignature'].forEach(id=>document.getElementById(id).addEventListener('input',drawArt));
 document.getElementById('renderArt').onclick=drawArt;
 document.getElementById('downloadArt').onclick=()=>{
- drawArt();saveCanvasPNG(canvas,'anime-trend-publication-'+document.getElementById('artFormat').value+'.png');
- document.getElementById('visualStatus').textContent='Visuel PNG téléchargé.';
+ drawArt();const kind=document.getElementById('artFormat').value,name=artExportName(kind);
+ saveCanvasPNG(canvas,name);markArtExport(kind,name);
 };
 document.getElementById('downloadStory').onclick=()=>{
- const c=document.createElement('canvas');paintArt(c,{format:'story'});saveCanvasPNG(c,'anime-trend-story-9x16.png');
- document.getElementById('visualStatus').textContent='Story 9:16 exportée.';drawArt();
+ const c=document.createElement('canvas');paintArt(c,{format:'story'});const name=artExportName('story-9x16');saveCanvasPNG(c,name);markArtExport('Story 9:16',name);drawArt();
 };
 document.getElementById('downloadSquare').onclick=()=>{
- const c=document.createElement('canvas');paintArt(c,{format:'square'});saveCanvasPNG(c,'anime-trend-carre-1x1.png');
- document.getElementById('visualStatus').textContent='Visuel carré exporté.';drawArt();
+ const c=document.createElement('canvas');paintArt(c,{format:'square'});const name=artExportName('carre-1x1');saveCanvasPNG(c,name);markArtExport('Carré 1:1',name);drawArt();
 };
 document.getElementById('downloadCarousel').onclick=()=>{
  const lines=document.getElementById('carouselText').value.split(/\n+/).map(s=>s.trim()).filter(Boolean).slice(0,5);
@@ -535,9 +585,10 @@ document.getElementById('downloadCarousel').onclick=()=>{
  lines.forEach((line,i)=>{
   const c=document.createElement('canvas');
   paintArt(c,{format:'square',title:line,subtitle:`CARTE ${i+1} / ${lines.length}`});
-  saveCanvasPNG(c,`anime-trend-carrousel-${String(i+1).padStart(2,'0')}.png`);
+  saveCanvasPNG(c,artExportName('carrousel-'+String(i+1).padStart(2,'0')));
  });
- document.getElementById('visualStatus').textContent=`${lines.length} cartes PNG préparées. Vérifiez les téléchargements dans Chrome.`;
+ const name=artExportName('carrousel-'+lines.length+'-cartes');markArtExport('Carrousel '+lines.length+' cartes',name);
+ document.getElementById('visualStatus').textContent=`${lines.length} cartes PNG préparées et associées au brouillon sélectionné si disponible.`;
  drawArt();
 };
 drawArt();
@@ -713,7 +764,7 @@ function renderMedia(){const el=document.getElementById('mediaGrid');el.innerHTM
 document.getElementById('runQuality').onclick=()=>{let t=document.getElementById('qualityText').value.trim(),rights=document.getElementById('mediaRights').value,fact=document.getElementById('factStatus').value;if(!t)return alert('Ajoutez le texte à contrôler.');let checks=[];if(/urgent!!!|partagez 20 fois|cliquez immédiatement|abonnez-vous sinon/i.test(t))checks.push('Réécrire les formulations insistantes ou assimilables à du spam.');if(/officiel|confirmé|annonce|date de sortie|décès|scandale/i.test(t))checks.push('Vérifier chaque fait, la date et la source originale avant publication.');if(rights==='unknown')checks.push('Origine des médias inconnue : ne pas publier avant vérification des droits.');if(rights==='official')checks.push('Une image officielle n’est pas automatiquement libre de réutilisation.');if(fact==='unchecked')checks.push('Actualité non vérifiée : rechercher une confirmation indépendante et la source primaire.');let out='CHECKLIST DE PRÉVENTION\n\n'+(checks.length?checks.map(x=>'• '+x).join('\n'):'• Aucun signal automatique évident. Cela ne signifie pas que le contenu est garanti conforme.')+'\n\nÀ contrôler manuellement : exactitude, spoilers, respect des personnes, musique, droits des images, licence, source et date.\n\nCe contrôle ne prédit pas les décisions de Facebook et ne garantit pas l’absence de réclamation.';document.getElementById('qualityResult').textContent=out};
 document.getElementById('saveSettings').onclick=()=>{const workerUrl=document.getElementById('workerUrl').value.trim().replace(/\/+$/,'');if(!/^https:\/\/[a-z0-9.-]+(?::\d+)?$/i.test(workerUrl))return alert('Adresse Worker invalide. Utilisez une adresse HTTPS sans chemin.');db.settings={...db.settings,pageName:document.getElementById('pageName').value,fontSize:+document.getElementById('fontSize').value,density:document.getElementById('density').value,workerUrl};if(!save())return;applySettings();alert('Réglages enregistrés.')};function applySettings(){document.documentElement.style.setProperty('--font-size',(db.settings.fontSize||14)+'px');document.documentElement.style.setProperty('--radius',db.settings.density==='compact'?'10px':'14px');document.getElementById('pageName').value=db.settings.pageName||blank.settings.pageName;document.getElementById('fontSize').value=db.settings.fontSize||14;document.getElementById('density').value=db.settings.density||'comfortable';document.getElementById('workerUrl').value=db.settings.workerUrl||'https://wild-field-da5f.rasllaonjaonja.workers.dev'}
 document.getElementById('resetData').onclick=()=>{if(confirm('Effacer toutes les données locales ? Exportez d’abord une sauvegarde.')){db=normalizeDb(null);if(!save())return;applySettings();alert('Données locales effacées.')}};
-function renderAll(){document.getElementById('sPosts').textContent=db.posts.length;document.getElementById('sDrafts').textContent=db.posts.filter(p=>p.status==='Brouillon'||p.status==='À vérifier').length;document.getElementById('sNews').textContent=newsItems.length;document.getElementById('sMedia').textContent=db.media.length;renderQueue();renderPublications();renderCalendar();renderMedia();let r=document.getElementById('homeRecent');r.innerHTML=db.posts.slice(0,4).map(p=>`<div class="item"><div><strong>${safe(p.title)}</strong><small>${safe(p.type)} · ${safe(p.status)}</small></div><span class="badge">${new Date(p.created).toLocaleDateString('fr-FR')}</span></div>`).join('')||'<div class="empty">Vos créations apparaîtront ici.</div>'}
+function renderAll(){document.getElementById('sPosts').textContent=db.posts.length;document.getElementById('sDrafts').textContent=db.posts.filter(p=>p.status==='Brouillon'||p.status==='À vérifier').length;document.getElementById('sNews').textContent=newsItems.length;document.getElementById('sMedia').textContent=db.media.length;renderQueue();renderPublications();renderCalendar();renderMedia();renderArtPostLinks();let r=document.getElementById('homeRecent');r.innerHTML=db.posts.slice(0,4).map(p=>`<div class="item"><div><strong>${safe(p.title)}</strong><small>${safe(p.type)} · ${safe(p.status)}</small></div><span class="badge">${new Date(p.created).toLocaleDateString('fr-FR')}</span></div>`).join('')||'<div class="empty">Vos créations apparaîtront ici.</div>'}
 function renderHomeExtras(){
  const sysRss=document.getElementById('sysRss'),sysSrc=document.getElementById('sysSources'),sysSt=document.getElementById('sysStorage');
  if(sysRss)sysRss.textContent=newsItems.length?newsItems.length+' article(s)':'En attente';
