@@ -57,6 +57,15 @@ Ouvrez l'adresse GitHub Pages dans Chrome, puis utilisez le menu ☰ pour change
 
 Ces contrôles tournent aussi dans les workflows : le déploiement ne publie rien si un contrôle échoue.
 
+## Connexion IA Cloudflare (branche V4)
+
+- Dans **Réglages → Connexion IA Cloudflare**, vérifiez l'adresse du Worker puis utilisez **Tester la connexion IA**.
+- Dans **Atelier de publications**, saisissez un sujet et, si possible, collez les sources ou faits vérifiés dans le champ dédié.
+- Cliquez sur **Générer avec l'IA Cloudflare**. La requête transmet uniquement `topic` et `sources` au point d'accès `/generate`.
+- Le test de connexion utilise `/health`. Le Worker doit autoriser les requêtes du site GitHub Pages avec CORS, y compris les requêtes `OPTIONS` nécessaires au POST JSON.
+- Le texte généré reste modifiable. Relisez les informations et les sources avant de l'enregistrer. Aucune publication Facebook automatique n'est déclenchée.
+- L'adresse du Worker est un point d'accès public, pas un secret. Ne placez aucun jeton privé dans le code HTML ou JavaScript public.
+
 ## Données et confidentialité
 
 - Les créations sont enregistrées dans le **stockage local du navigateur**. Elles ne sont pas synchronisées entre appareils.
