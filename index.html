@@ -90,9 +90,15 @@
  <button class="btn primary" id="buildPost">Composer le texte localement</button>
  <button class="btn" id="generateWithAI" style="width:100%;margin-top:8px">✦ Générer avec l’IA Cloudflare</button>
  <p class="footnote" id="aiStatus" role="status" aria-live="polite">IA non testée. Configurez puis testez le Worker dans Réglages.</p>
- </div><div class="card"><div class="tabs"><button class="tab active" data-tab="postText">Texte</button><button class="tab" data-tab="postView">Aperçu Facebook</button></div>
- <div id="postText"><textarea id="postResult" style="min-height:260px" placeholder="Le texte généré apparaîtra ici. Vous pourrez le modifier."></textarea><div class="actions" style="margin-top:10px"><button class="btn" id="copyPost">Copier</button><button class="btn primary" id="savePost">📥 Enregistrer la publication + PNG</button></div><p class="footnote">Au clic, le texte est ajouté à la file éditoriale et un visuel PNG est téléchargé. Sur Android, vérifiez le dossier Téléchargements.</p></div>
- <div id="postView" hidden><div class="preview"><div class="previewtop"><b>◉ Manga, Animé et Actualités</b></div><div class="caption" id="postPreview">Aperçu de la publication.</div></div></div>
+ </div><div class="card manual-post-editor">
+ <div class="manual-post-heading"><div><div class="kicker">APERÇU EN DIRECT</div><h3>Publication manuelle</h3><p class="small muted">Le rendu Facebook reste visible juste sous votre texte pendant la rédaction.</p></div><span class="badge">Non publié</span></div>
+ <div id="postText"><textarea id="postResult" style="min-height:220px" placeholder="Le texte généré apparaîtra ici. Vous pourrez le modifier."></textarea><div class="actions" style="margin-top:10px"><button class="btn" id="copyPost">Copier</button><button class="btn primary" id="savePost">📥 Enregistrer la publication + PNG</button></div><p class="footnote">Le contenu est enregistré dans la file éditoriale. La publication Facebook reste manuelle.</p></div>
+ <div class="manual-facebook-preview" id="postView" aria-label="Aperçu fidèle du fil Facebook, non publié">
+  <div class="manual-fb-head"><img src="assets/logo-manga-anime-actualites.png" alt="" class="manual-fb-avatar"><div><strong>Manga, Animé et Actualités</strong><small>À l’instant · 🌐</small></div><span>•••</span></div>
+  <div class="manual-fb-caption" id="postPreview">Votre publication apparaîtra ici pendant la rédaction.</div>
+  <div class="manual-fb-engagement"><span>👍 ❤️ 😮</span><span>J’aime · Commentaires · Partages</span></div>
+  <div class="manual-fb-actions"><span>♡ J’aime</span><span>▢ Commenter</span><span>↗ Partager</span></div>
+ </div>
  </div></div>
 </section>
 
