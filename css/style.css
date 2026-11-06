@@ -609,7 +609,14 @@ body.home-mode .wrap{padding:12px 16px 22px}
 .comment-reply-kit .actions{display:flex;gap:8px;flex-wrap:wrap}
 .comment-reply-kit .actions .btn{flex:1 1 150px;min-height:42px}
 @media(max-width:600px){.comment-reply-kit{padding:12px}.comment-reply-controls{display:grid;grid-template-columns:1fr}.comment-reply-controls .btn{width:100%}}
-\n\n/* V4 — extraction d’images depuis liens vidéo et vidéos locales */\n.video-frame-tools{margin:14px 0;padding:14px;border:1px solid #c8d8f3;background:#f4f8ff;border-radius:13px}\n#videoFramePlayer{width:100%;max-width:560px;max-height:320px;background:#101322;border-radius:10px;margin:10px 0}\n#videoFrameTimeWrap[hidden],#videoFramePlayer[hidden]{display:none}\n@media(max-width:600px){.video-frame-tools{padding:10px}}\n
+
+
+/* V4 — extraction d’images depuis liens vidéo et vidéos locales */
+.video-frame-tools{margin:14px 0;padding:14px;border:1px solid #c8d8f3;background:#f4f8ff;border-radius:13px}
+#videoFramePlayer{width:100%;max-width:560px;max-height:320px;background:#101322;border-radius:10px;margin:10px 0}
+#videoFrameTimeWrap[hidden],#videoFramePlayer[hidden]{display:none}
+@media(max-width:600px){.video-frame-tools{padding:10px}}
+
 /* Galerie des captures vidéo automatiques — V4 */
 .auto-capture-results{margin-top:12px}.auto-capture-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:10px}.auto-capture-grid figure{margin:0;min-width:0;background:var(--card,#fff);border:1px solid var(--line,#dce3ef);border-radius:10px;padding:7px}.auto-capture-grid img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:7px}.auto-capture-grid figcaption{font-size:11px;margin-top:6px;color:var(--muted,#667085)}@media(min-width:700px){.auto-capture-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
@@ -655,7 +662,8 @@ body.home-mode .wrap{padding:12px 16px 22px}
  .side .nav button.active{color:#fff}
  .side .side-foot{background:#ffffff0c;border-color:#ffffff28;color:#d8e4fa}
 }
-\n
+
+
 /* V4.3 — assistant IA hybride global */
 #at-ai-launch{font-family:inherit}
 #at-ai-panel{font-family:inherit}
