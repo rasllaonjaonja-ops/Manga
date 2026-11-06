@@ -609,3 +609,4 @@ body.home-mode .wrap{padding:12px 16px 22px}
 .comment-reply-kit .actions{display:flex;gap:8px;flex-wrap:wrap}
 .comment-reply-kit .actions .btn{flex:1 1 150px;min-height:42px}
 @media(max-width:600px){.comment-reply-kit{padding:12px}.comment-reply-controls{display:grid;grid-template-columns:1fr}.comment-reply-controls .btn{width:100%}}
+\n\n/* V4 — extraction d’images depuis liens vidéo et vidéos locales */\n.video-frame-tools{margin:14px 0;padding:14px;border:1px solid #c8d8f3;background:#f4f8ff;border-radius:13px}\n#videoFramePlayer{width:100%;max-width:560px;max-height:320px;background:#101322;border-radius:10px;margin:10px 0}\n#videoFrameTimeWrap[hidden],#videoFramePlayer[hidden]{display:none}\n@media(max-width:600px){.video-frame-tools{padding:10px}}\n
