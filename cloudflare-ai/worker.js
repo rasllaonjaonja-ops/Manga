@@ -107,15 +107,27 @@ export default {
         billing: "Aucun fournisseur payant configuré par ce Worker."
       });
     }
-    const assistantRoute = url.pathname.endsWith("/assistant");\n    if (request.method !== "POST" || (!url.pathname.endsWith("/generate") && !assistantRoute)) return json({ success: false, error: "Route inconnue." }, 404);
+    const assistantRoute = url.pathname.endsWith("/assistant");
+    if (request.method !== "POST" || (!url.pathname.endsWith("/generate") && !assistantRoute)) return json({ success: false, error: "Route inconnue." }, 404);
     const length = Number(request.headers.get("content-length") || 0);
     if (length > MAX_BODY) return json({ success: false, error: "Requête trop volumineuse." }, 413);
     let body;
     try { body = await request.json(); } catch (_) { return json({ success: false, error: "JSON invalide." }, 400); }
+    const message = assistantRoute && typeof body.message === "string" ? body.message.trim().slice(0, 8000) : "";
+    const context = assistantRoute && body.context && typeof body.context === "object" ? JSON.stringify(body.context).slice(0, 14000) : "";
     const topic = typeof body.topic === "string" ? body.topic.trim().slice(0, 12000) : "";
     const sources = typeof body.sources === "string" ? body.sources.trim().slice(0, 16000) : "";
-    if (!topic) return json({ success: false, error: "Le sujet est obligatoire." }, 400);
-    const prompt = promptFor(topic, sources || "Aucune source fournie. Ne pas inventer de faits.");
+    if (assistantRoute && !message) return json({ success: false, error: "Le message est obligatoire." }, 400);
+    if (!assistantRoute && !topic) return json({ success: false, error: "Le sujet est obligatoire." }, 400);
+    const prompt = assistantRoute ? [
+      "Tu es ANIME TREND INTELLIGENT ASSISTANT, copilote éditorial du studio Manga, Animé et Actualités.",
+      "Réponds en français, de façon concrète, structurée et honnête. Tu es un assistant de conseil et de rédaction, pas un agent ayant accès au navigateur ou aux fichiers.",
+      "Tu peux proposer des étapes, analyser les titres et brouillons présents dans le contexte, rédiger et contrôler un contenu. N’affirme jamais avoir exécuté une action dans le Studio si tu ne l’as pas réellement faite.",
+      "N’invente aucun fait d’actualité, date, chiffre, annonce ou source. Les titres et liens du contexte ne remplacent pas la lecture des sources originales.",
+      "La publication Facebook reste manuelle et doit être validée par l’utilisateur. Ne demande jamais de mot de passe, jeton ou clé secrète.",
+      "\nMESSAGE UTILISATEUR :\n" + message,
+      "\nCONTEXTE DU STUDIO :\n" + (context || "Aucun contexte disponible.")
+    ].join("\n") : promptFor(topic, sources || "Aucune source fournie. Ne pas inventer de faits.");
     const providers = [
       ["Cloudflare Workers AI", () => cloudflare(prompt, env)],
       ["Gemini", () => gemini(prompt, env)],
