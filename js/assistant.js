@@ -35,7 +35,7 @@
   function add(text,who='bot',meta=''){const el=document.createElement('div');el.className='at-ai-msg '+who;el.textContent=text;if(meta){const m=document.createElement('div');m.className='at-ai-meta';m.textContent=meta;el.appendChild(m)}log.appendChild(el);log.scrollTop=log.scrollHeight;return el}
   function currentContext(){
     const page=$('.page.active');const title=$('#title')?.textContent||page?.querySelector('h2')?.textContent||'Studio';
-    const news=read('animeTrendNews',[]);const headlines=Array.isArray(news)?news.slice(0,12).map(n=>({title:n.title,url:n.url,source:n.source})): [];
+    const stored=read('animeTrendStudio.v2',{});const news=Array.isArray(stored.news)?stored.news:[];const headlines=news.slice(0,12).map(n=>({title:n.title,url:n.url,source:n.source}));
     const topic=$('#postTopic')?.value||$('#pipelineTopic')?.value||'';
     const draft=$('#postResult')?.value||$('#pipelineWritingText')?.value||'';
     return {module:title,headlines,topic,draft:draft.slice(0,5000),history:memory.slice(-6)};
@@ -64,7 +64,7 @@
   }
   async function ask(message){
     add(message,'user');input.value='';const ctx=currentContext();const wait=add('Je traite ta demande…','bot');
-    const worker=(read('animeTrendSettings',{})||{}).workerUrl||$('#workerUrl')?.value||'';
+    const stored=read('animeTrendStudio.v2',{});const worker=(stored.settings||{}).workerUrl||$('#workerUrl')?.value||'';
     try{
       if(worker){
         const response=await fetch(worker.replace(/\/$/,'')+'/assistant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,context:ctx,language:'fr'})});
