@@ -586,3 +586,11 @@ body.home-mode .wrap{padding:12px 16px 22px}
 .editorial-intake>.daily-studio{margin:0;padding:13px;border:1px solid #d8c9f5;border-top:4px solid #8052b8;border-radius:12px;background:#f6f2ff}
 .editorial-intake .studio-section-title{margin-bottom:11px}
 @media(max-width:600px){.editorial-intake{padding:9px}.editorial-intake>.pipeline-news-panel,.editorial-intake>.daily-studio{padding:10px}}
+
+/* V4 — retouches locales dans le studio visuel */
+.local-image-tools{margin:12px 0;padding:13px;border-color:#cbd8f1;background:#f7f9ff}
+.local-image-tools .studio-step-heading{margin-bottom:10px}
+.local-image-tools input[type="range"]{width:100%;accent-color:#245fcb;min-height:30px}
+.image-edit-actions{display:flex;flex-wrap:wrap;gap:7px}
+.image-edit-actions .btn{flex:1 1 42%;min-height:40px}
+@media(max-width:600px){.local-image-tools{padding:10px}.image-edit-actions .btn{flex:1 1 42%}}
