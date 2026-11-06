@@ -205,6 +205,15 @@
      <div class="actions"><button class="btn sm" type="button" id="copyImagePrompt">Copier le prompt</button></div>
      <p class="footnote" id="imageAiStatus" role="status" aria-live="polite">Après génération, téléchargez l’image puis importez-la ci-dessous pour l’associer au brouillon.</p>
     </section>
+    <section class="card video-frame-tools" aria-label="Récupérer une image depuis une vidéo">
+     <div class="studio-step-heading"><span class="step-number">▶</span><div><h4>Récupérer une image depuis une vidéo</h4><p>Depuis un lien vidéo ou un fichier présent sur votre téléphone.</p></div></div>
+     <div class="field"><label for="videoSourceUrl">Lien vidéo (YouTube ou lien direct vers une image)</label><input id="videoSourceUrl" type="url" inputmode="url" placeholder="https://youtu.be/…"></div>
+     <button class="btn sm" type="button" id="loadVideoThumbnail">Récupérer la miniature</button>
+     <p class="footnote" id="videoSourceStatus" role="status" aria-live="polite">Les miniatures YouTube publiques sont prises en charge. Les autres plateformes peuvent bloquer la récupération automatique.</p>
+     <div class="field"><label for="videoFile">Ou importer une vidéo depuis le téléphone</label><input type="file" id="videoFile" accept="video/*"></div>
+     <video id="videoFramePlayer" controls playsinline preload="metadata" hidden></video>
+     <div class="field" id="videoFrameTimeWrap" hidden><label for="videoFrameTime">Instant de la capture (secondes)</label><input id="videoFrameTime" type="number" min="0" step="0.5" value="1"><button class="btn sm" type="button" id="captureVideoFrame">Capturer cette image</button></div>
+    </section>
     <div class="field"><label for="artFile">Importer l’image générée ou autorisée</label><input type="file" id="artFile" accept="image/png,image/jpeg,image/webp,image/*"><small class="muted">Après import, l’image est optimisée et associée au brouillon sélectionné. Privilégiez les créations IA originales, vos propres images ou les visuels dont la licence autorise la réutilisation.</small></div>
     <section class="card local-image-tools" aria-label="Outils de retouche d’image">
      <div class="studio-step-heading"><span class="step-number">✎</span><div><h4>Retoucher l’image dans le Studio</h4><p>Modifications locales, sans abonnement ni envoi vers un service externe.</p></div></div>
