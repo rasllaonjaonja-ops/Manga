@@ -658,7 +658,7 @@ function buildWritingPrompt(){
   'TYPE DE CONTENU : '+(p.type||'Actualité vérifiée'),
   'DATE : '+(news&&news.publishedAt||p.created||'Non précisée'),
   'RÉSUMÉ DISPONIBLE : '+(news&&news.summary||'Aucun résumé RSS enregistré.'),
-  'BROUILLON / NOTES INITIALES : '+(p.text||'Aucune note complémentaire.')
+  'BROUILLON / NOTES INITIALES : '+((document.getElementById('artCaption')?.value||p.text)||'Aucune note complémentaire.')
  ].join('\n');
  const sourceBlock=refs.length?refs.map((a,i)=>[
   (i+1)+'. MÉDIA : '+a.name,
