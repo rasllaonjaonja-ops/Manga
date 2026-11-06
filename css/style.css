@@ -533,3 +533,24 @@ body.home-mode .wrap{padding:12px 16px 22px}
  .workflow-arrow{font-size:16px}
 }
 @media(prefers-reduced-motion:reduce){.pipeline-step{transition:none}.pipeline-step:hover{transform:none}}
+
+
+/* V4 — repères colorés et navigation guidée du parcours éditorial */
+#pipeline-news{background:#eef6ff;border:1px solid #b9d8ff;border-left:6px solid #2878d0}
+#pipeline-drafts{background:#f6f2ff;border:1px solid #d8c9f5;border-left:6px solid #8052b8}
+#pipeline-writing{background:#f5f0ff;border:1px solid #d8c6f5;border-left:6px solid #8052b8;border-radius:14px;padding:16px;margin:0 0 16px;scroll-margin-top:18px}
+#pipeline-visual{background:#fff8ed;border:1px solid #f0d4ad;border-left:6px solid #c66d25;scroll-margin-top:18px}
+#pipeline-visual-editor .studio-editor-panel{background:#fff8ed;border-color:#efcf9f}
+#pipeline-visual-editor .studio-preview-panel{background:#fff3df;border-color:#efcf9f}
+#pipeline-quality{background:#effaf5;border:1px solid #bde6d2;border-left:6px solid #218064;scroll-margin-top:18px}
+.pipeline-step{min-height:100px}
+.pipeline-news{background:#eaf3ff;border-color:#a9cdf8;border-top-color:#2878d0}
+.pipeline-writing{background:#f1eaff;border-color:#d0baf3;border-top-color:#8052b8}
+.pipeline-visual{background:#fff0dc;border-color:#f0c58f;border-top-color:#c66d25}
+.pipeline-project{background:#e8f7ef;border-color:#a9dec0;border-top-color:#218064}
+.pipeline-step:focus-visible{outline:3px solid #263d79;outline-offset:3px}
+#pipeline-writing .kicker{color:#7040a5}
+#pipeline-visual .kicker{color:#a75a18}
+#pipeline-news .kicker{color:#1d65b2}
+#pipeline-quality .kicker{color:#18734f}
+@media(prefers-reduced-motion:reduce){#pipeline-writing,#pipeline-visual,#pipeline-quality{scroll-behavior:auto}}
