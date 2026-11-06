@@ -107,7 +107,7 @@ function openNewsDraft(n){
  loadArtPostById(post.id);
  navigate('visual');
  document.getElementById('artLinkedStatus').textContent='Publication ouverte : étape 2/4 — Rédaction. Votre actualité et ses sources restent associées au brouillon.';
- const target=document.getElementById('pipeline-visual');
+ const target=document.getElementById('pipeline-writing');
  if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
 }
 document.getElementById('savedNewsList').addEventListener('click',e=>{
