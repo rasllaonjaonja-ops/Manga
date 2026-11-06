@@ -32,7 +32,7 @@
   document.body.appendChild(panel);
   const launch=document.createElement('button');launch.id='at-ai-launch';launch.type='button';launch.textContent='✦ Assistant IA';document.body.appendChild(launch);
   const log=$('#at-ai-log'),input=$('#at-ai-input'),form=$('#at-ai-form');
-  function add(text,who='bot',meta=''){const el=document.createElement('div');el.className='at-ai-msg '+who;el.textContent=text;if(meta){const m=document.createElement('div');m.className='at-ai-meta';m.textContent=meta;el.appendChild(m)}log.appendChild(el);log.scrollTop=log.scrollHeight;return el}
+  function add(text,who='bot',meta=''){const el=document.createElement('div');el.className='at-ai-msg '+who;el.textContent=text;if(meta){const m=document.createElement('div');m.className='at-ai-meta';m.textContent=meta;el.appendChild(m)}log.appendChild(el);log.scrollTop=log.scrollHeight;return el}\n  function attachTransfer(el,text){const b=document.createElement('button');b.type='button';b.textContent='Utiliser cette réponse dans l’Atelier';b.style.cssText='display:block;margin-top:9px;padding:7px 10px;border:1px solid #b9d8c8;border-radius:8px;background:#eefaf4;color:#176b48;font-size:11px;font-weight:700;cursor:pointer';b.addEventListener('click',()=>{const field=$('#postResult');if(field){field.value=text;field.dispatchEvent(new Event('input',{bubbles:true}));const preview=$('#postPreview');if(preview)preview.textContent=text;const nav=document.querySelector('[data-page="create"]');if(nav)nav.click();b.textContent='Transféré dans l’Atelier';}else b.textContent='Champ de rédaction introuvable';});el.appendChild(b)}
   function currentContext(){
     const page=$('.page.active');const title=$('#title')?.textContent||page?.querySelector('h2')?.textContent||'Studio';
     const stored=read('animeTrendStudio.v2',{});const news=Array.isArray(stored.news)?stored.news:[];const headlines=news.slice(0,12).map(n=>({title:n.title,url:n.url,source:n.source}));
@@ -69,7 +69,7 @@
       if(worker){
         const response=await fetch(worker.replace(/\/$/,'')+'/assistant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,context:ctx,language:'fr'})});
         const data=await response.json();if(!response.ok||!data.success)throw new Error(data.error||'Service IA indisponible');
-        wait.textContent=data.answer||data.article||'Réponse vide';const meta='IA : '+(data.provider||'connectée')+(data.fallback?' · basculement effectué':'');const m=document.createElement('div');m.className='at-ai-meta';m.textContent=meta;wait.appendChild(m);
+        wait.textContent=data.answer||data.article||'Réponse vide';const meta='IA : '+(data.provider||'connectée')+(data.fallback?' · basculement effectué':'');const m=document.createElement('div');m.className='at-ai-meta';m.textContent=meta;wait.appendChild(m);attachTransfer(wait,wait.textContent);
       }else{wait.textContent=localAnswer(message,ctx);const m=document.createElement('div');m.className='at-ai-meta';m.textContent='Mode local · configure le Worker pour activer les modèles IA';wait.appendChild(m)}
     }catch(error){wait.textContent=localAnswer(message,ctx)+'\n\nConnexion IA : '+String(error.message||error)+'. Le mode local reste disponible.'}
     memory.push({at:new Date().toISOString(),message,answer:wait.textContent.slice(0,1200)});while(memory.length>30)memory.shift();write(KEY,memory);
