@@ -1143,3 +1143,27 @@ async function loadSourceCatalog(){
   el.innerHTML=sources.map(source=>'<div class="item"><div><strong>'+safe(source.name||'Source')+'</strong><small>'+safe(source.category||'Flux RSS')+'</small></div><a class="btn sm" href="'+safe(source.url)+'" target="_blank" rel="noopener noreferrer">Ouvrir le flux ↗</a></div>').join('')||'<div class="empty">Aucune source configurée.</div>';
  }catch(error){el.innerHTML='<div class="empty">Impossible de lire data/sources.json. Le radar peut tout de même utiliser les articles déjà collectés.</div>';}
 }
+
+// Guide pratique accessible depuis l'accueil et la page Aide.
+(function addManualGuideShortcut(){
+ const makeLink=()=>{
+  const link=document.createElement('a');
+  link.href='./guide.html';
+  link.className='btn';
+  link.textContent='📘 Guide d’utilisation';
+  link.setAttribute('aria-label','Ouvrir le guide d’utilisation manuelle du Studio');
+  link.style.textDecoration='none';
+  link.style.display='inline-flex';
+  link.style.alignItems='center';
+  return link;
+ };
+ const tools=document.querySelector('#p-home .dash-tools');
+ if(tools && !tools.querySelector('a[href="./guide.html"]')) tools.appendChild(makeLink());
+ const help=document.querySelector('#p-help .card');
+ if(help && !help.querySelector('a[href="./guide.html"]')){
+  const link=makeLink();
+  link.classList.add('primary');
+  link.style.marginBottom='14px';
+  help.insertBefore(link,help.firstChild);
+ }
+})();
