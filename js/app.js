@@ -932,6 +932,7 @@ function canvasToCompactJpeg(source){
  if(!isSafeImage(data))throw new Error('Une capture n’a pas pu être convertie en JPEG.');
  return data;
 }
+let activeVideoSourceMeta={url:'',credit:'',licensed:false,license:''};
 autoCaptureButton.onclick=async()=>{
  let originalTime=0;
  if(!videoPlayer.src||!Number.isFinite(videoPlayer.duration)||videoPlayer.duration<=0){autoCaptureStatus.textContent='Importez d’abord une vidéo locale lisible.';return}
@@ -968,7 +969,7 @@ autoCaptureButton.onclick=async()=>{
   const saved=[];
   frames.forEach((frame,index)=>{
    const mediaId=uid(),name='Capture vidéo '+(index+1)+' - '+Math.floor(frame.time)+'s.jpg';
-   db.media.unshift({id:mediaId,name,data:frame.data,origin:'capture vidéo automatique',credit:'',sourceUrl:'',rights:'unknown'});
+   db.media.unshift({id:mediaId,name,data:frame.data,origin:'capture vidéo automatique',credit:activeVideoSourceMeta.credit||'',sourceUrl:activeVideoSourceMeta.url||'',rights:activeVideoSourceMeta.licensed?'licensed':'unknown'});
    saved.push({id:mediaId,name,data:frame.data,time:frame.time,score:frame.score});
   });
   db.media=db.media.slice(0,300);
@@ -981,6 +982,52 @@ autoCaptureButton.onclick=async()=>{
  }catch(error){autoCaptureStatus.textContent='Analyse non terminée : '+(error&&error.message?error.message:'erreur inconnue');}
  finally{autoCaptureButton.disabled=false;try{await waitVideoSeek(Math.min(originalTime,Math.max(0,duration-.1)))}catch(e){}}
 };
+
+// Recherche automatique de vidéos ouvertes liées au titre de la publication.
+// Source : Wikimedia Commons. Le navigateur lit le média distant si le serveur autorise CORS.
+const autoFindVideoButton=document.getElementById('autoFindVideo');
+const autoFindVideoStatus=document.getElementById('autoFindVideoStatus');
+const autoFindVideoResults=document.getElementById('autoFindVideoResults');
+videoPlayer.addEventListener('loadedmetadata',()=>{
+ if(videoPlayer.src&&Number.isFinite(videoPlayer.duration)&&videoPlayer.duration>0)autoCaptureButton.disabled=false;
+});
+autoFindVideoButton.onclick=async()=>{
+ const post=db.posts.find(x=>x.id===activeArtPostId);
+ const query=(post&&post.title?post.title+' ':'')+'anime manga';
+ if(!post){autoFindVideoStatus.textContent='Sélectionnez d’abord une publication dans « Publication liée ». ';return}
+ autoFindVideoButton.disabled=true;autoFindVideoResults.innerHTML='';
+ autoFindVideoStatus.textContent='Recherche de vidéos ouvertes correspondant à : '+(post.title||query)+'…';
+ try{
+  const endpoint='https://commons.wikimedia.org/w/api.php?action=query&generator=search&gsrnamespace=6&gsrlimit=12&gsrsearch='+encodeURIComponent('filetype:video '+query)+'&prop=imageinfo&iiprop=url|mime|extmetadata&format=json&origin=*';
+  const response=await fetch(endpoint,{headers:{Accept:'application/json'}});
+  if(!response.ok)throw new Error('Le catalogue vidéo est temporairement inaccessible.');
+  const data=await response.json();
+  const pages=Object.values(data.query&&data.query.pages||{}).filter(p=>p.imageinfo&&p.imageinfo[0]&&/^video\//i.test(p.imageinfo[0].mime||''));
+  if(!pages.length){autoFindVideoStatus.textContent='Aucune vidéo libre correspondante trouvée. Essayez un titre plus court ou une recherche manuelle.';return}
+  autoFindVideoResults.innerHTML=pages.slice(0,8).map((p,i)=>{
+   const info=p.imageinfo[0],meta=info.extmetadata||{},license=(meta.LicenseShortName&&meta.LicenseShortName.value||meta.License&&meta.License.value||'Licence non précisée').replace(/<[^>]*>/g,'').slice(0,100);
+   const artist=(meta.Artist&&meta.Artist.value||'Auteur non indiqué').replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').slice(0,140);
+   const licensed=!!(meta.LicenseShortName&&meta.LicenseShortName.value||meta.License&&meta.License.value);
+   const filePage='https://commons.wikimedia.org/wiki/'+encodeURIComponent(p.title.replace(/ /g,'_'));
+   return '<article class="item video-result"><div><strong>'+safe(p.title.replace(/^File:/,''))+'</strong><small>'+safe(license)+' · '+safe(artist)+'</small><a href="'+filePage+'" target="_blank" rel="noopener noreferrer">Voir la source et les conditions ↗</a></div><button class="btn sm" type="button" data-video-index="'+i+'">Utiliser et capturer</button></article>';
+  }).join('');
+  const selected=pages.slice(0,8);
+  autoFindVideoResults.querySelectorAll('[data-video-index]').forEach(btn=>btn.addEventListener('click',()=>{
+   const p=selected[Number(btn.dataset.videoIndex)],info=p&&p.imageinfo&&p.imageinfo[0];if(!info)return;
+   const meta=info.extmetadata||{},license=(meta.LicenseShortName&&meta.LicenseShortName.value||meta.License&&meta.License.value||'').replace(/<[^>]*>/g,'').slice(0,100);
+   const artist=(meta.Artist&&meta.Artist.value||'').replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').slice(0,140);
+   activeVideoSourceMeta={url:'https://commons.wikimedia.org/wiki/'+p.title.replace(/ /g,'_'),credit:artist+(license?' · '+license:''),licensed:!!license,license};
+   videoPlayer.crossOrigin='anonymous';videoPlayer.src=info.url;videoPlayer.hidden=false;videoPlayer.load();
+   document.getElementById('videoSourceStatus').textContent='Vidéo chargée depuis Wikimedia Commons. Source et licence conservées dans la médiathèque. La capture dépend du format et de l’accès autorisé par le serveur.';
+   autoFindVideoStatus.textContent='Vidéo sélectionnée : '+p.title.replace(/^File:/,'')+'. Préparation des captures dès que la vidéo est lisible…';
+   videoPlayer.addEventListener('loadeddata',()=>{autoCaptureButton.disabled=false;autoCaptureButton.click();},{once:true});
+   videoPlayer.addEventListener('error',()=>{autoFindVideoStatus.textContent='Cette vidéo ne peut pas être lue ou capturée directement dans ce navigateur. Ouvrez sa page source pour vérifier les options disponibles.';},{once:true});
+  }));
+  autoFindVideoStatus.textContent=pages.length+' vidéo(s) trouvée(s). Vérifiez la source et la licence, puis choisissez « Utiliser et capturer ».';
+ }catch(error){autoFindVideoStatus.textContent='Recherche impossible : '+(error&&error.message?error.message:'erreur réseau');}
+ finally{autoFindVideoButton.disabled=false}
+};
+
 document.getElementById('loadVideoThumbnail').onclick=()=>{
  const raw=document.getElementById('videoSourceUrl').value.trim();if(!raw){alert('Collez un lien vidéo.');return;}
  let id='';try{const u=new URL(raw);if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||'';else if(/youtube\.com$|youtube-nocookie\.com$/.test(u.hostname.replace(/^www\./,'')))id=u.searchParams.get('v')||u.pathname.match(/\/(?:shorts|embed|live)\/([^/?]+)/)?.[1]||'';}catch(e){}
