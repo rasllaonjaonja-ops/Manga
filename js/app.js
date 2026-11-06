@@ -533,6 +533,7 @@ function loadArtPostById(id){
  document.getElementById('artCaption').value=p.text||'';
  artImage=null;
  const savedVisual=db.media.find(m=>m.id===p.visualMediaId);
+ document.getElementById('artImageOrigin').value='chatgpt';document.getElementById('artImageCredit').value='';document.getElementById('artImageSource').value='';document.getElementById('artImageRights').value='ai';
  if(savedVisual&&isSafeImage(savedVisual.data)){document.getElementById('artImageOrigin').value=savedVisual.origin||'importée';document.getElementById('artImageCredit').value=savedVisual.credit||'';document.getElementById('artImageSource').value=savedVisual.sourceUrl||'';document.getElementById('artImageRights').value=savedVisual.rights||'unknown';const restored=new Image();restored.onload=()=>{artImage=restored;drawArt();};restored.src=savedVisual.data;}
  document.getElementById('artLinkedStatus').textContent='Lié à : '+(p.title||p.type)+' · '+p.status+'. Les modifications du texte seront enregistrées dans ce brouillon.';
  renderArtPostLinks();drawArt();
