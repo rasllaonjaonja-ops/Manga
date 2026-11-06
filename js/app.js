@@ -933,6 +933,7 @@ function canvasToCompactJpeg(source){
  return data;
 }
 let activeVideoSourceMeta={url:'',credit:'',licensed:false,license:''};
+videoFileInput.addEventListener('change',()=>{activeVideoSourceMeta={url:'',credit:'',licensed:false,license:''};});
 autoCaptureButton.onclick=async()=>{
  let originalTime=0;
  if(!videoPlayer.src||!Number.isFinite(videoPlayer.duration)||videoPlayer.duration<=0){autoCaptureStatus.textContent='Importez d’abord une vidéo locale lisible.';return}
