@@ -182,6 +182,14 @@
     <p class="footnote" id="combinedAiStatus" role="status" aria-live="polite">Un seul prompt demandera le texte Facebook puis une image originale liée à la même actualité. Vérifiez le texte et importez l’image après génération.</p>
     <p class="footnote" id="writingPromptStatus" role="status" aria-live="polite">Sélectionnez une actualité vérifiée : le prompt sera préparé ici. Les boutons IA copient le prompt puis ouvrent le service correspondant.</p>
    </section>
+   <section class="comment-reply-kit" aria-labelledby="commentReplyTitle">
+    <div class="writing-prompt-head"><div><div class="kicker">COMMUNAUTÉ · ASSISTANT LOCAL</div><h4 id="commentReplyTitle">Répondre aux commentaires</h4><p class="small muted">Collez un commentaire reçu sur Facebook. Le Studio prépare une réponse instantanée, sans IA ni connexion Meta.</p></div><span class="badge green">Sans API</span></div>
+    <div class="field"><label for="commentReplyInput">Commentaire de l’abonné</label><textarea id="commentReplyInput" rows="3" maxlength="2000" placeholder="Collez ici le commentaire auquel vous souhaitez répondre…"></textarea></div>
+    <div class="comment-reply-controls"><div class="field"><label for="commentReplyTone">Style de réponse</label><select id="commentReplyTone"><option value="warm">Chaleureux et communautaire</option><option value="short">Court et direct</option><option value="professional">Calme et professionnel</option><option value="playful">Léger et enthousiaste</option></select></div><button class="btn primary" type="button" id="generateCommentReply">⚡ Préparer une réponse</button></div>
+    <div class="field"><label for="commentReplyOutput">Réponse proposée</label><textarea id="commentReplyOutput" rows="4" maxlength="2000" placeholder="La réponse proposée apparaîtra ici. Relisez-la avant de la publier."></textarea></div>
+    <div class="actions"><button class="btn" type="button" id="regenerateCommentReply">↻ Autre formulation</button><button class="btn primary" type="button" id="copyCommentReply">Copier la réponse</button></div>
+    <p class="footnote" id="commentReplyStatus" role="status" aria-live="polite">Le Studio ne lit pas les commentaires Facebook. Collez un commentaire, vérifiez la réponse, puis publiez-la vous-même.</p>
+   </section>
   </section>
 
   <div class="studio-editor-grid" id="pipeline-visual-editor">
