@@ -208,6 +208,9 @@
     <section class="card video-frame-tools" aria-label="Récupérer une image depuis une vidéo">
      <div class="studio-step-heading"><span class="step-number">▶</span><div><h4>Récupérer une image depuis une vidéo</h4><p>Depuis un lien vidéo ou un fichier présent sur votre téléphone.</p></div></div>
      <div class="field"><label for="videoSourceUrl">Lien vidéo (YouTube ou lien direct vers une image)</label><input id="videoSourceUrl" type="url" inputmode="url" placeholder="https://youtu.be/…"></div>
+     <button class="btn sm" type="button" id="autoFindVideo">⌕ Rechercher une vidéo libre correspondant à cette publication</button>
+     <p class="footnote" id="autoFindVideoStatus" role="status" aria-live="polite">Recherche dans Wikimedia Commons (vidéos réutilisables selon leur licence). La meilleure correspondance sera proposée pour capture.</p>
+     <div id="autoFindVideoResults" class="video-search-results"></div>
      <button class="btn sm" type="button" id="loadVideoThumbnail">Récupérer la miniature</button>
      <p class="footnote" id="videoSourceStatus" role="status" aria-live="polite">Récupération automatique des miniatures YouTube. Les liens Facebook, Instagram et autres plateformes peuvent être protégés : utilisez alors l’import vidéo depuis votre téléphone ou importez une image autorisée.</p>
      <div class="field"><label for="videoFile">Ou importer une vidéo depuis le téléphone</label><input type="file" id="videoFile" accept="video/*"></div>
