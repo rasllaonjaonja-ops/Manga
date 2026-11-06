@@ -89,19 +89,36 @@ function renderSavedNews(){
  const el=document.getElementById('savedNewsList');if(!el)return;
  el.innerHTML=db.news.length?db.news.map(n=>{const refs=Array.isArray(n.trendArticles)&&n.trendArticles.length?n.trendArticles:[{source:n.source,url:n.url}];const links=refs.slice(0,5).map(a=>/^https?:\/\//i.test(String(a.url||''))?'<a href="'+safe(a.url)+'" target="_blank" rel="noopener noreferrer">'+safe(a.source||'Source')+' ↗</a>':safe(a.source||'Source')).join(' · ');return `<div class="item"><div style="min-width:0"><strong>${safe(n.title)}</strong><small>${safe(n.source)} · ${validIso(n.publishedAt)?new Date(n.publishedAt).toLocaleDateString('fr-FR'):'date inconnue'} · <span class="badge ${n.verified?'green':'orange'}">${n.verified?'Vérifiée':'À vérifier'}</span></small><small>Sources associées : ${links}</small></div><div class="actions"><button class="btn sm" data-saved="verify" data-id="${safe(n.id)}">${n.verified?'Marquer à revérifier':'Marquer vérifiée'}</button><button class="btn sm" data-saved="draft" data-id="${safe(n.id)}" ${n.verified?'':'disabled title="Vérifiez d’abord l’actualité"'}>Marquer pour rédaction →</button><button class="btn sm" data-saved="remove" data-id="${safe(n.id)}">×</button></div></div>`}).join(''):'<div class="empty">Aucune actualité enregistrée.</div>';
 }
+function openNewsDraft(n){
+ if(!n||!n.verified)return alert('Vérifiez d’abord l’actualité.');
+ let post=db.posts.find(p=>p.sourceUrl===n.url);
+ if(!post){
+  const refs=Array.isArray(n.trendArticles)&&n.trendArticles.length?n.trendArticles:[{source:n.source,url:n.url}];
+  const attribution=refs.map((a,i)=>(i+1)+'. '+(a.source||'Source')+' : '+(a.url||'')).join('\\n');
+  const text=n.title+'\\n\\nSources consultées :\\n'+attribution+'\\n\\nÀ compléter : votre commentaire original. Vérifiez chaque source et distinguez les confirmations indépendantes des reprises de communiqué.';
+  if(!addPost(n.title,'Actualité vérifiée',text))return;
+  post=db.posts.find(p=>p.title===cut(n.title,200)&&p.text===cut(text,20000));
+  if(!post)return;
+  post.sourceUrl=n.url;
+  post.sourceName=(Array.isArray(n.trendSources)&&n.trendSources.length?n.trendSources:[n.source]).join(' · ').slice(0,100);
+  post.workflowStage='redaction';
+  if(!save())return;
+ }
+ loadArtPostById(post.id);
+ navigate('visual');
+ document.getElementById('artLinkedStatus').textContent='Publication ouverte : étape 2/5 — Rédaction. Votre actualité et ses sources restent associées au brouillon.';
+ const target=document.getElementById('pipeline-visual');
+ if(target)target.scrollIntoView({behavior:'smooth',block:'start'});
+}
 document.getElementById('savedNewsList').addEventListener('click',e=>{
  const b=e.target.closest('[data-saved]');if(!b)return;const n=db.news.find(x=>x.id===b.dataset.id);if(!n)return;
  if(b.dataset.saved==='verify'){
   if(!n.verified&&!confirm('Confirmez-vous avoir consulté les sources associées et vérifié les faits essentiels ? Une simple reprise du même communiqué ne compte pas comme confirmation indépendante.'))return;
-  n.verified=!n.verified;save();
+  n.verified=!n.verified;
+  if(!save())return;
+  if(n.verified)openNewsDraft(n);
  }else if(b.dataset.saved==='draft'){
-  if(!n.verified)return alert('Vérifiez d’abord l’actualité.');
-  const refs=Array.isArray(n.trendArticles)&&n.trendArticles.length?n.trendArticles:[{source:n.source,url:n.url}];const attribution=refs.map((a,i)=>`${i+1}. ${a.source||'Source'} : ${a.url||''}`).join('\n');const text=`${n.title}\n\nSources consultées :\n${attribution}\n\nÀ compléter : votre commentaire original. Vérifiez chaque source et distinguez les confirmations indépendantes des reprises de communiqué.`;
-  if(addPost(n.title,'Actualité vérifiée',text)){
-   const created=db.posts.find(x=>x.title===cut(n.title,200)&&x.text===cut(text,20000));
-   if(created){created.sourceUrl=n.url;created.sourceName=(Array.isArray(n.trendSources)&&n.trendSources.length?n.trendSources:[n.source]).join(' · ').slice(0,100);created.workflowStage='redaction';save();}
-   alert('Actualité transférée en rédaction. La source originale reste associée au brouillon.');
-  }
+  openNewsDraft(n);
  }else if(b.dataset.saved==='remove'){
   if(confirm('Retirer cette actualité de la liste enregistrée ?')){db.news=db.news.filter(x=>x!==n);save()}
  }
