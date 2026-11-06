@@ -71,6 +71,15 @@ async def main():
         }""")
         check("actualité vérifiée : transfert avec source originale conservée",transferred)
 
+        dedupe_result=await page.evaluate("""()=>{
+          const before=db.news.filter(n=>n.title==='Annonce officielle Mashle').length;
+          const merged=saveNewsItem({title:'Annonce officielle Mashle',source:'Anime Herald',url:'https://animeherald.com/news/test?utm_source=radar',summary:'Troisième source indépendante'},true);
+          const matches=db.news.filter(n=>n.title==='Annonce officielle Mashle');
+          const urls=matches[0]?.trendArticles?.map(a=>a.url)||[];
+          return {before,after:matches.length,merged,sourceCount:urls.length,hasNew:urls.some(u=>u.includes('animeherald.com'))};
+        }""")
+        check("radar : doublon de titre fusionné sans créer une seconde actualité",dedupe_result["before"]==1 and dedupe_result["after"]==1 and dedupe_result["hasNew"],dedupe_result)
+
         prompt_preview=await page.evaluate("""()=>{
           const p=db.posts.find(x=>x.sourceUrl==='https://myanimelist.net/news/test');
           loadArtPostById(p.id);
