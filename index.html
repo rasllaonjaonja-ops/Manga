@@ -138,8 +138,8 @@
   <div class="pipeline-heading"><div><div class="kicker">PARCOURS SIMPLIFIÉ</div><h3>De l’actualité à la publication projet</h3><p class="small muted">Avancez étape par étape. Chaque contenu conserve sa source et son brouillon.</p></div><span class="badge green">4 étapes</span></div>
   <div class="pipeline-steps">
    <a class="pipeline-step pipeline-news" href="#pipeline-news"><b>01</b><strong>Actualité</strong><small>Enregistrer et vérifier</small></a>
-   <a class="pipeline-step pipeline-writing" href="#pipeline-drafts"><b>02</b><strong>Rédaction</strong><small>Préparer le texte</small></a>
-   <a class="pipeline-step pipeline-visual" href="#pipeline-visual"><b>03</b><strong>Visuel</strong><small>Créer et importer</small></a>
+   <a class="pipeline-step pipeline-writing" href="#pipeline-writing"><b>02</b><strong>Rédaction</strong><small>Corriger le texte Facebook</small></a>
+   <a class="pipeline-step pipeline-visual" href="#pipeline-visual-editor"><b>03</b><strong>Visuel</strong><small>Créer et importer</small></a>
    <button class="pipeline-step pipeline-project" type="button" data-go="publications"><b>04</b><strong>Publication projet</strong><small>Contrôler et conserver</small></button>
   </div>
  </section>
@@ -159,16 +159,16 @@
  <section class="card visual-workspace" id="pipeline-visual" aria-labelledby="artWorkspaceTitle">
   <div class="studio-section-title"><div><div class="kicker">ATELIER DE CRÉATION</div><h3 id="artWorkspaceTitle">Construire la publication</h3><p class="small muted">Le texte et le visuel restent rattachés au même brouillon. Une seule identité graphique est appliquée automatiquement.</p></div><span class="badge green">Identité unifiée</span></div>
 
-  <section class="linked-publication" aria-labelledby="artLinkTitle">
-   <div class="linked-head"><div><div class="kicker">ÉTAPE 1 · CONTENU SOURCE</div><h4 id="artLinkTitle">Choisir une publication</h4><p class="small muted">Chargez l’un des brouillons du jour ou une publication déjà enregistrée.</p></div></div>
+  <section class="linked-publication" id="pipeline-writing" aria-labelledby="artLinkTitle">
+   <div class="linked-head"><div><div class="kicker">ÉTAPE 02 · RÉDACTION</div><h4 id="artLinkTitle">Choisir une publication</h4><p class="small muted">Chargez l’un des brouillons du jour ou une publication déjà enregistrée.</p></div></div>
    <div class="linked-controls"><div class="field"><label for="artPostSelect">Brouillon à préparer</label><select id="artPostSelect"><option value="">Choisir une publication enregistrée…</option></select></div><div class="actions"><button class="btn primary" id="loadArtPost">Charger le brouillon</button><button class="btn" id="copyArtCaption">Copier le texte Facebook</button></div></div>
    <p class="footnote" id="artLinkedStatus" role="status" aria-live="polite">Aucune publication associée. Sélectionnez un brouillon pour commencer.</p>
    <div class="field"><label for="artCaption">Texte final de la publication</label><textarea id="artCaption" rows="7" placeholder="Le texte Facebook complet apparaîtra ici. Vous pourrez le corriger avant l’export."></textarea><small class="muted">Le texte saisi ici est synchronisé avec le brouillon sélectionné.</small></div>
   </section>
 
-  <div class="studio-editor-grid">
+  <div class="studio-editor-grid" id="pipeline-visual-editor">
    <section class="studio-editor-panel" aria-labelledby="artEditorTitle">
-    <div class="studio-step-heading"><span class="step-number">02</span><div><h4 id="artEditorTitle">Créer le visuel</h4><p>Un modèle éditorial unique, sans choix de thème ni de palette.</p></div></div>
+    <div class="studio-step-heading"><span class="step-number">03</span><div><h4 id="artEditorTitle">Créer le visuel</h4><p>Un modèle éditorial unique, sans choix de thème ni de palette.</p></div></div>
     <div class="field"><label for="artTitle">Titre principal sur l’image</label><input id="artTitle" maxlength="100" value="L’ACTUALITÉ MANGA DU JOUR" placeholder="Titre court et accrocheur"></div>
     <div class="field"><label for="artSubtitle">Rubrique ou accroche</label><input id="artSubtitle" maxlength="100" value="MANGA · ANIME · ACTUALITÉS" placeholder="Ex. : ACTUALITÉ · ANNONCE · DOSSIER"></div>
     <section class="card image-ai-assistant" aria-labelledby="imageAiTitle">
