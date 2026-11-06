@@ -198,6 +198,25 @@
      <p class="footnote" id="imageAiStatus" role="status" aria-live="polite">Après génération, téléchargez l’image puis importez-la ci-dessous pour l’associer au brouillon.</p>
     </section>
     <div class="field"><label for="artFile">Importer l’image générée ou autorisée</label><input type="file" id="artFile" accept="image/png,image/jpeg,image/webp,image/*"><small class="muted">Après import, l’image est optimisée et associée au brouillon sélectionné. Privilégiez les créations IA originales, vos propres images ou les visuels dont la licence autorise la réutilisation.</small></div>
+    <section class="card local-image-tools" aria-label="Outils de retouche d’image">
+     <div class="studio-step-heading"><span class="step-number">✎</span><div><h4>Retoucher l’image dans le Studio</h4><p>Modifications locales, sans abonnement ni envoi vers un service externe.</p></div></div>
+     <div class="two">
+      <div class="field"><label for="artFit">Cadrage</label><select id="artFit"><option value="cover">Remplir le cadre</option><option value="contain">Afficher toute l’image</option></select></div>
+      <div class="field"><label for="artFilter">Style de couleur</label><select id="artFilter"><option value="normal">Original</option><option value="vivid">Vif</option><option value="mono">Noir et blanc</option><option value="warm">Chaud</option><option value="cool">Froid</option><option value="soft">Doux</option></select></div>
+     </div>
+     <div class="field"><label for="artZoom">Zoom / recadrage</label><input id="artZoom" type="range" min="100" max="180" value="100"><small class="muted" id="artZoomValue">100 %</small></div>
+     <div class="two">
+      <div class="field"><label for="artBrightness">Luminosité</label><input id="artBrightness" type="range" min="50" max="150" value="100"></div>
+      <div class="field"><label for="artSaturation">Saturation</label><input id="artSaturation" type="range" min="0" max="200" value="100"></div>
+     </div>
+     <div class="actions image-edit-actions">
+      <button class="btn sm" type="button" id="rotateArtLeft">↶ Tourner</button>
+      <button class="btn sm" type="button" id="rotateArtRight">↷ Tourner</button>
+      <button class="btn sm" type="button" id="flipArt">⇋ Miroir</button>
+      <button class="btn sm" type="button" id="resetArtEdits">Réinitialiser</button>
+     </div>
+     <p class="footnote" id="artEditStatus" role="status" aria-live="polite">Les réglages s’appliquent à l’aperçu et au PNG exporté. L’image originale importée reste conservée.</p>
+    </section>
     <div class="two"><div class="field"><label for="artImageOrigin">Origine du visuel</label><select id="artImageOrigin"><option value="chatgpt">Générée avec ChatGPT</option><option value="gemini">Générée avec Gemini</option><option value="own">Création personnelle</option><option value="official">Visuel officiel / média</option><option value="licensed">Image sous licence</option><option value="unknown">Autre / origine inconnue</option></select></div><div class="field"><label for="artImageRights">Droits d’utilisation</label><select id="artImageRights"><option value="ai">Création IA originale</option><option value="own">Création personnelle</option><option value="licensed">Licence / autorisation confirmée</option><option value="official">Officielle, droits à vérifier</option><option value="unknown">Inconnus — ne pas publier</option></select></div></div>
     <div class="field"><label for="artImageCredit">Crédit / auteur / titulaire (si nécessaire)</label><input id="artImageCredit" maxlength="160" placeholder="Ex. : Nom de l’artiste ou du média"></div>
     <div class="field"><label for="artImageSource">Lien de provenance ou de licence (facultatif)</label><input id="artImageSource" type="url" inputmode="url" placeholder="https://…"></div>
