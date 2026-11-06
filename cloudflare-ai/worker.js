@@ -107,7 +107,7 @@ export default {
         billing: "Aucun fournisseur payant configuré par ce Worker."
       });
     }
-    if (request.method !== "POST" || !url.pathname.endsWith("/generate")) return json({ success: false, error: "Route inconnue." }, 404);
+    const assistantRoute = url.pathname.endsWith("/assistant");\n    if (request.method !== "POST" || (!url.pathname.endsWith("/generate") && !assistantRoute)) return json({ success: false, error: "Route inconnue." }, 404);
     const length = Number(request.headers.get("content-length") || 0);
     if (length > MAX_BODY) return json({ success: false, error: "Requête trop volumineuse." }, 413);
     let body;
@@ -125,7 +125,7 @@ export default {
     for (const [name, run] of providers) {
       try {
         const result = await run();
-        return json({ success: true, provider: result.provider, article: result.text, fallback: errors.length > 0, notices: errors });
+        return assistantRoute ? json({ success: true, provider: result.provider, answer: result.text, fallback: errors.length > 0, notices: errors }) : json({ success: true, provider: result.provider, article: result.text, fallback: errors.length > 0, notices: errors });
       } catch (error) {
         errors.push(name + " : " + String(error && error.message || error).slice(0, 220));
       }
