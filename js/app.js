@@ -933,13 +933,14 @@ function canvasToCompactJpeg(source){
  return data;
 }
 autoCaptureButton.onclick=async()=>{
+ let originalTime=0;
  if(!videoPlayer.src||!Number.isFinite(videoPlayer.duration)||videoPlayer.duration<=0){autoCaptureStatus.textContent='Importez d’abord une vidéo locale lisible.';return}
  const duration=videoPlayer.duration;
  if(!Number.isFinite(duration)||duration<1){autoCaptureStatus.textContent='La vidéo est trop courte pour préparer 5 captures.';return}
  autoCaptureButton.disabled=true;autoCaptureResults.innerHTML='';
  try{
   const sampleCount=18,candidates=[];
-  const originalTime=videoPlayer.currentTime||0;
+  originalTime=videoPlayer.currentTime||0;
   autoCaptureStatus.textContent='Analyse de 18 moments de la vidéo… gardez cette page ouverte.';
   for(let i=0;i<sampleCount;i++){
    const t=Math.min(duration-.08,Math.max(.05,duration*(i+.5)/sampleCount));
