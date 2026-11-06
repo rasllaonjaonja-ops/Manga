@@ -725,6 +725,33 @@ function openWritingAI(provider){
   navigator.clipboard.writeText(prompt).then(()=>{status.textContent='Prompt copié et '+labels[provider]+' ouvert. Collez-le dans la conversation puis relisez la réponse avant de l’enregistrer.';}).catch(()=>{box.focus();box.select();status.textContent=labels[provider]+' ouvert. La copie automatique a échoué : le prompt est sélectionné, copiez-le manuellement.';});
  }else{box.focus();box.select();status.textContent=labels[provider]+' ouvert. Le prompt est sélectionné : utilisez Copier si le presse-papiers n’est pas disponible.';}
 }
+function buildWritingAndImagePrompt(){
+ const writing=buildWritingPrompt();if(!writing)return '';
+ const p=activeWritingPost();if(!p)return '';
+ const format=document.getElementById('artFormat')?.value||'portrait';
+ const ratio={portrait:'4:5 vertical, 1080 × 1350',square:'1:1 carré',story:'9:16 vertical, 1080 × 1920',landscape:'16:9 paysage'}[format]||'4:5 vertical, 1080 × 1350';
+ const title=p.title||'Actualité manga et anime';
+ const combined=writing.replace(
+  'SORTIE\\nDonne uniquement le texte final de la publication Facebook, prêt à copier. Ne fournis ni introduction, ni explication de ta méthode, ni liste de sources séparée, ni commentaire sur les limites.',
+  'SORTIE 1 — TEXTE FACEBOOK\\nRédige le texte final selon toutes les règles ci-dessus. Affiche-le clairement dans un bloc distinct, prêt à copier.\\n\\nSORTIE 2 — IMAGE\\nAprès le texte, utilise réellement ta fonction de génération d’image si elle est disponible dans cette conversation. Crée exactement UNE image originale directement liée à cette actualité et au texte que tu viens de rédiger. Ne réponds pas seulement avec un prompt d’image : génère l’image. Si la génération d’image n’est pas disponible, indique-le clairement et fournis un prompt visuel prêt à utiliser dans Gemini.'
+ );
+ return combined+'\\n\\nDIRECTIVES VISUELLES\\nSujet : '+title+'.\\nCréer une illustration éditoriale anime/manga originale, cinématographique et professionnelle, fidèle uniquement aux faits confirmés dans les sources. Ne reproduis aucun personnage protégé, aucune affiche officielle, aucun logo ni aucune image existante. N’invente aucun détail factuel. Aucun texte, lettre, signature ou watermark dans l’image : le texte sera ajouté dans le Studio.\\nFORMAT : '+ratio+'.\\nQUANTITÉ : une seule image pour cette publication. Pas de variantes ni d’images supplémentaires. Objectif du Studio : au maximum deux images générées par jour au total; cette consigne ne remplace pas le suivi manuel du quota.\\n';
+}
+function openWritingAndImageAI(provider){
+ const prompt=buildWritingAndImagePrompt();
+ if(!prompt)return alert('Sélectionnez d’abord une actualité vérifiée et chargez son brouillon.');
+ const urls={chatgpt:'https://chatgpt.com/',gemini:'https://gemini.google.com/'};
+ const labels={chatgpt:'ChatGPT',gemini:'Gemini'};
+ const box=document.getElementById('artWritingPrompt');
+ box.value=prompt;
+ window.open(urls[provider]||urls.chatgpt,'_blank','noopener');
+ const status=document.getElementById('combinedAiStatus');
+ if(navigator.clipboard&&window.isSecureContext){
+  navigator.clipboard.writeText(prompt).then(()=>{status.textContent='Prompt combiné copié. '+labels[provider]+' est ouvert : collez-le une fois. L’IA doit rédiger le texte puis générer une image.';}).catch(()=>{box.focus();box.select();status.textContent='Copie automatique indisponible : le prompt combiné est sélectionné. Copiez-le manuellement dans '+labels[provider]+'.';});
+ }else{box.focus();box.select();status.textContent='Le prompt combiné est sélectionné. Copiez-le dans '+labels[provider]+'.';}
+}
+document.getElementById('openWritingAndImageChatGPT').onclick=()=>openWritingAndImageAI('chatgpt');
+document.getElementById('openWritingAndImageGemini').onclick=()=>openWritingAndImageAI('gemini');
 document.getElementById('copyWritingPrompt').onclick=()=>{const t=buildWritingPrompt();if(!t)return alert('Sélectionnez d’abord une actualité vérifiée.');document.getElementById('artWritingPrompt').value=t;copyText(t);};
 document.getElementById('openWritingChatGPT').onclick=()=>openWritingAI('chatgpt');
 document.getElementById('openWritingGemini').onclick=()=>openWritingAI('gemini');
