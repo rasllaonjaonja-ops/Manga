@@ -578,3 +578,11 @@ body.home-mode .wrap{padding:12px 16px 22px}
  #artWritingPrompt{min-height:210px;font-size:11px}
  .fb-preview-sources{padding:0 12px 10px}
 }
+
+
+/* V4 — un seul cadre d'entrée éditoriale pour les actualités et les propositions du jour */
+.editorial-intake{margin:0 0 15px;padding:14px;border:1px solid #d6e0f4;background:#fff;box-shadow:0 7px 22px #17305a0d}
+.editorial-intake>.pipeline-news-panel{margin:0 0 13px;padding:13px;border-radius:12px}
+.editorial-intake>.daily-studio{margin:0;padding:13px;border:1px solid #d8c9f5;border-top:4px solid #8052b8;border-radius:12px;background:#f6f2ff}
+.editorial-intake .studio-section-title{margin-bottom:11px}
+@media(max-width:600px){.editorial-intake{padding:9px}.editorial-intake>.pipeline-news-panel,.editorial-intake>.daily-studio{padding:10px}}
