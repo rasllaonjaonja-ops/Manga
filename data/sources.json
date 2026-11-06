@@ -1,7 +1,7 @@
 [
   {
     "name": "Anime News Network",
-    "url": "https://www.animenewsnetwork.com/news/rss.xml?ann-edition=us"
+    "url": "https://www.animenewsnetwork.com/all/rss.xml"
   },
   {
     "name": "MyAnimeList",
@@ -18,5 +18,21 @@
   {
     "name": "Crunchyroll (Google Actualités)",
     "url": "https://news.google.com/rss/search?q=site%3Acrunchyroll.com%2Fnews+anime&hl=fr&gl=FR&ceid=FR:fr"
+  },
+  {
+    "name": "Anime Herald",
+    "url": "https://animeherald.com/feed/"
+  },
+  {
+    "name": "Anime UK News",
+    "url": "https://animeuknews.net/feed/"
+  },
+  {
+    "name": "Annonces officielles (Google Actualités)",
+    "url": "https://news.google.com/rss/search?q=anime+OR+manga+site%3Aaniplex.co.jp+OR+site%3Atoei-anim.co.jp+OR+site%3Ashueisha.co.jp&hl=en-US&gl=US&ceid=US:en"
+  },
+  {
+    "name": "Otaku USA (Google Actualités)",
+    "url": "https://news.google.com/rss/search?q=site%3Aotakuusamagazine.com+anime+OR+manga&hl=en-US&gl=US&ceid=US:en"
   }
 ]
