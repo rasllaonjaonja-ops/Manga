@@ -1,0 +1,64 @@
+name: Manga Trend Studio V4 Preview
+
+on:
+  push:
+    branches:
+      - manga-trend-studio-v4-work
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: v4-preview
+  cancel-in-progress: true
+
+jobs:
+  build-preview:
+    name: Construire l'aperçu isolé V4
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer la branche V4
+        uses: actions/checkout@v4
+        with:
+          ref: manga-trend-studio-v4-work
+
+      - name: Installer Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Contrôler l'application
+        run: npm run check
+
+      - name: Tester le collecteur RSS
+        run: npm test
+
+      - name: Préparer le dossier d'aperçu
+        run: |
+          set -e
+          rm -rf _v4_preview
+          mkdir -p _v4_preview
+          test -f index.html
+          cp index.html _v4_preview/
+          for dir in assets data css js; do
+            if [ -d "$dir" ]; then cp -r "$dir" _v4_preview/; fi
+          done
+          touch _v4_preview/.nojekyll
+          cat > _v4_preview/OUVRIR-APERÇU.txt <<'EOF'
+          MANGA TREND STUDIO V4 — APERÇU ISOLÉ
+          
+          Ouvrez index.html dans un navigateur récent.
+          Cette copie provient de la branche manga-trend-studio-v4-work.
+          Elle ne remplace pas le site public et ne modifie pas main ni la V3.
+          Les données locales du navigateur restent séparées du site déjà installé.
+          Certaines fonctions en ligne peuvent nécessiter une connexion Internet.
+          EOF
+
+      - name: Publier l'archive d'aperçu comme artefact
+        uses: actions/upload-artifact@v4
+        with:
+          name: manga-trend-studio-v4-preview
+          path: _v4_preview/
+          if-no-files-found: error
+          retention-days: 7
