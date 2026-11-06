@@ -892,6 +892,94 @@ document.getElementById('captureVideoFrame').onclick=()=>{
  }catch(err){document.getElementById('videoSourceStatus').textContent='Capture bloquée par le navigateur ou le format vidéo.';}};
  if(Math.abs(videoPlayer.currentTime-t)<.05)capture();else{videoPlayer.currentTime=t;videoPlayer.onseeked=capture;}
 };
+
+// Capture automatique : échantillonnage local, score de netteté/contraste et sauvegarde de 5 images.
+const autoCaptureButton=document.getElementById('autoCaptureVideo');
+const autoCaptureStatus=document.getElementById('autoCaptureStatus');
+const autoCaptureResults=document.getElementById('autoCaptureResults');
+videoFileInput.addEventListener('change',()=>{
+ autoCaptureButton.disabled=!(videoPlayer.src&&Number.isFinite(videoPlayer.duration)&&videoPlayer.duration>0);
+ autoCaptureResults.innerHTML='';
+});
+function waitVideoSeek(time){
+ return new Promise((resolve,reject)=>{
+  const done=()=>{cleanup();resolve()};
+  const fail=()=>{cleanup();reject(new Error('Impossible de lire une image à cet instant.'))};
+  const cleanup=()=>{videoPlayer.removeEventListener('seeked',done);videoPlayer.removeEventListener('error',fail);clearTimeout(timer)};
+  const timer=setTimeout(fail,9000);
+  videoPlayer.addEventListener('seeked',done,{once:true});
+  videoPlayer.addEventListener('error',fail,{once:true});
+  try{videoPlayer.currentTime=time;if(Math.abs(videoPlayer.currentTime-time)<.04&&videoPlayer.readyState>=2)done()}catch(e){cleanup();reject(e)}
+ });
+}
+function frameQuality(canvas){
+ const small=document.createElement('canvas');small.width=64;small.height=36;
+ const cx=small.getContext('2d',{willReadFrequently:true});cx.drawImage(canvas,0,0,64,36);
+ const px=cx.getImageData(0,0,64,36).data,gray=[];
+ let sum=0,contrast=0,edges=0,count=0;
+ for(let i=0;i<px.length;i+=4){const y=.2126*px[i]+.7152*px[i+1]+.0722*px[i+2];gray.push(y);sum+=y}
+ const mean=sum/(gray.length||1);
+ for(let i=0;i<gray.length;i++){contrast+=Math.abs(gray[i]-mean);if(i%64!==0&&i>=64){edges+=Math.abs(gray[i]-gray[i-1])+Math.abs(gray[i]-gray[i-64]);count++}}
+ const exposure=mean<18||mean>238?.35:1;
+ return exposure*(contrast/(gray.length||1)*.45+edges/(count||1)*.55);
+}
+function canvasToCompactJpeg(source){
+ const scale=Math.min(1,1280/Math.max(source.width,source.height));
+ const c=document.createElement('canvas');c.width=Math.max(1,Math.round(source.width*scale));c.height=Math.max(1,Math.round(source.height*scale));
+ c.getContext('2d').drawImage(source,0,0,c.width,c.height);
+ let data=c.toDataURL('image/jpeg',.68);
+ if(data.length>850000)data=c.toDataURL('image/jpeg',.56);
+ if(!isSafeImage(data))throw new Error('Une capture n’a pas pu être convertie en JPEG.');
+ return data;
+}
+autoCaptureButton.onclick=async()=>{
+ if(!videoPlayer.src||!Number.isFinite(videoPlayer.duration)||videoPlayer.duration<=0){autoCaptureStatus.textContent='Importez d’abord une vidéo locale lisible.';return}
+ const duration=videoPlayer.duration;
+ if(!Number.isFinite(duration)||duration<1){autoCaptureStatus.textContent='La vidéo est trop courte pour préparer 5 captures.';return}
+ autoCaptureButton.disabled=true;autoCaptureResults.innerHTML='';
+ try{
+  const sampleCount=18,candidates=[];
+  const originalTime=videoPlayer.currentTime||0;
+  autoCaptureStatus.textContent='Analyse de 18 moments de la vidéo… gardez cette page ouverte.';
+  for(let i=0;i<sampleCount;i++){
+   const t=Math.min(duration-.08,Math.max(.05,duration*(i+.5)/sampleCount));
+   await waitVideoSeek(t);
+   if(!videoPlayer.videoWidth||!videoPlayer.videoHeight)continue;
+   const c=document.createElement('canvas');c.width=videoPlayer.videoWidth;c.height=videoPlayer.videoHeight;
+   c.getContext('2d').drawImage(videoPlayer,0,0,c.width,c.height);
+   candidates.push({time:t,score:frameQuality(c)});
+  }
+  if(candidates.length<5)throw new Error('Le navigateur n’a fourni que '+candidates.length+' images analysables. Essayez une autre vidéo.');
+  const minGap=Math.max(.45,duration/14),chosen=[];
+  for(const item of [...candidates].sort((a,b)=>b.score-a.score)){
+   if(chosen.every(x=>Math.abs(x.time-item.time)>=minGap))chosen.push(item);
+   if(chosen.length===5)break;
+  }
+  if(chosen.length<5)for(const item of [...candidates].sort((a,b)=>a.time-b.time)){if(!chosen.some(x=>x.time===item.time)){chosen.push(item);if(chosen.length===5)break}}
+  const ordered=chosen.sort((a,b)=>b.score-a.score),frames=[];
+  for(let i=0;i<ordered.length;i++){
+   await waitVideoSeek(ordered[i].time);
+   const c=document.createElement('canvas');c.width=videoPlayer.videoWidth;c.height=videoPlayer.videoHeight;
+   c.getContext('2d').drawImage(videoPlayer,0,0,c.width,c.height);
+   frames.push({time:ordered[i].time,score:ordered[i].score,data:canvasToCompactJpeg(c)});
+  }
+  const post=db.posts.find(x=>x.id===activeArtPostId);
+  const saved=[];
+  frames.forEach((frame,index)=>{
+   const mediaId=uid(),name='Capture vidéo '+(index+1)+' - '+Math.floor(frame.time)+'s.jpg';
+   db.media.unshift({id:mediaId,name,data:frame.data,origin:'capture vidéo automatique',credit:'',sourceUrl:'',rights:'unknown'});
+   saved.push({id:mediaId,name,data:frame.data,time:frame.time,score:frame.score});
+  });
+  db.media=db.media.slice(0,300);
+  if(post){post.visualMediaId=saved[0].id;post.workflowStage='projet'}
+  if(!save())throw new Error('Le stockage local est plein : aucune confirmation de sauvegarde. Exportez une sauvegarde et libérez de l’espace avant de recommencer.');
+  const best=new Image();best.onload=()=>{artImage=best;drawArt()};
+  best.src=saved[0].data;
+  autoCaptureResults.innerHTML='<div class="small"><strong>Image principale sélectionnée</strong> · '+Math.floor(saved[0].time)+' s</div><div class="auto-capture-grid">'+saved.map((m,i)=>'<figure><img src="'+m.data+'" alt="Capture '+(i+1)+'"><figcaption>'+(i===0?'★ Principale':'Capture '+(i+1))+' · '+Math.floor(m.time)+' s</figcaption></figure>').join('')+'</div>';
+  autoCaptureStatus.textContent='Terminé : 5 captures enregistrées dans la médiathèque.'+(post?' La meilleure est associée au brouillon actif.':' Sélectionnez un brouillon pour associer l’image principale à une publication.');
+ }catch(error){autoCaptureStatus.textContent='Analyse non terminée : '+(error&&error.message?error.message:'erreur inconnue');}
+ finally{autoCaptureButton.disabled=false;try{await waitVideoSeek(Math.min(originalTime,Math.max(0,duration-.1)))}catch(e){}}
+};
 document.getElementById('loadVideoThumbnail').onclick=()=>{
  const raw=document.getElementById('videoSourceUrl').value.trim();if(!raw){alert('Collez un lien vidéo.');return;}
  let id='';try{const u=new URL(raw);if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||'';else if(/youtube\.com$|youtube-nocookie\.com$/.test(u.hostname.replace(/^www\./,'')))id=u.searchParams.get('v')||u.pathname.match(/\/(?:shorts|embed|live)\/([^/?]+)/)?.[1]||'';}catch(e){}
