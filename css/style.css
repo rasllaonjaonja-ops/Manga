@@ -641,3 +641,17 @@ body.home-mode .wrap{padding:12px 16px 22px}
  .workflow-node b{width:25px;height:25px;flex-basis:25px}
  .side .nav button{font-size:12px}
 }
+
+
+/* V4.2 — contraste lisible du menu latéral sombre sur mobile */
+@media(max-width:900px){
+ .side .brand{border-bottom-color:#ffffff24}
+ .side .brand b{color:#f4f7ff}
+ .side .brand small{color:#b9c9e8}
+ .side .group-title{color:#a9bddf}
+ .side .nav button{color:#e7efff}
+ .side .nav button i{color:#b9c9e8}
+ .side .nav button:hover:not(.active){background:#ffffff18;color:#fff}
+ .side .nav button.active{color:#fff}
+ .side .side-foot{background:#ffffff0c;border-color:#ffffff28;color:#d8e4fa}
+}
