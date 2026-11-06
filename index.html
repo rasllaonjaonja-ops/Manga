@@ -212,7 +212,10 @@
      <p class="footnote" id="videoSourceStatus" role="status" aria-live="polite">Récupération automatique des miniatures YouTube. Les liens Facebook, Instagram et autres plateformes peuvent être protégés : utilisez alors l’import vidéo depuis votre téléphone ou importez une image autorisée.</p>
      <div class="field"><label for="videoFile">Ou importer une vidéo depuis le téléphone</label><input type="file" id="videoFile" accept="video/*"></div>
      <video id="videoFramePlayer" controls playsinline preload="metadata" hidden></video>
-     <div class="field" id="videoFrameTimeWrap" hidden><label for="videoFrameTime">Instant de la capture (secondes)</label><input id="videoFrameTime" type="number" min="0" step="0.5" value="1"><button class="btn sm" type="button" id="captureVideoFrame">Capturer cette image</button></div>
+     <div class="field" id="videoFrameTimeWrap" hidden><label for="videoFrameTime">Instant de la capture manuelle (secondes, optionnel)</label><input id="videoFrameTime" type="number" min="0" step="0.5" value="1"><button class="btn sm" type="button" id="captureVideoFrame">Capture manuelle</button></div>
+     <button class="btn primary" type="button" id="autoCaptureVideo" disabled>✦ Analyser la vidéo et préparer 5 captures</button>
+     <p class="footnote" id="autoCaptureStatus" role="status" aria-live="polite">Importez une vidéo locale : le Studio sélectionnera automatiquement 5 images, dont une image principale.</p>
+     <div id="autoCaptureResults" class="auto-capture-results" aria-live="polite"></div>
     </section>
     <div class="field"><label for="artFile">Importer l’image générée ou autorisée</label><input type="file" id="artFile" accept="image/png,image/jpeg,image/webp,image/*"><small class="muted">Après import, l’image est optimisée et associée au brouillon sélectionné. Privilégiez les créations IA originales, vos propres images ou les visuels dont la licence autorise la réutilisation.</small></div>
     <section class="card local-image-tools" aria-label="Outils de retouche d’image">
