@@ -65,7 +65,7 @@ function runSelfTest(){
  size>4000000?warn(`Données volumineuses (${Math.round(size/1024)} Ko) : exportez une sauvegarde.`):ok(`Taille des données : ${Math.round(size/1024)} Ko`);
  const cv=document.createElement('canvas');(cv.getContext&&cv.getContext('2d'))?ok('Canevas 2D disponible (PNG)'):ko('Canevas 2D indisponible : exports PNG impossibles');
  ((navigator.clipboard&&window.isSecureContext)||(document.queryCommandSupported&&document.queryCommandSupported('copy')))?ok('Copie dans le presse-papiers disponible'):warn('Copie automatique limitée : sélectionnez le texte manuellement');
- const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','artCanvas','artFormat','renderArt','downloadArt','openChatGPTImage','openGeminiImage','imageAiPrompt','copyImagePrompt','artPostSelect','loadArtPost','artCaption','generateLocalCaption','regenerateLocalCaption','localCaptionStatus','artWritingPrompt','copyWritingPrompt','openWritingChatGPT','openWritingGemini','openWritingClaude','fbPreviewSources','copyArtCaption','artLinkedStatus','artExportHistory','newsList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
+ const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','artCanvas','artFormat','renderArt','downloadArt','openChatGPTImage','openGeminiImage','imageAiPrompt','copyImagePrompt','artPostSelect','loadArtPost','artCaption','generateLocalCaption','regenerateLocalCaption','localCaptionStatus','commentReplyInput','commentReplyTone','generateCommentReply','regenerateCommentReply','commentReplyOutput','copyCommentReply','commentReplyStatus','artWritingPrompt','copyWritingPrompt','openWritingChatGPT','openWritingGemini','openWritingClaude','fbPreviewSources','copyArtCaption','artLinkedStatus','artExportHistory','newsList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
  const missing=required.filter(id=>!document.getElementById(id));
  missing.length?ko('Éléments manquants : '+missing.join(', ')):ok(`Interface : ${required.length} éléments requis présents`);
  const round=normalizeDb(JSON.parse(JSON.stringify(db)));
@@ -610,6 +610,10 @@ function markArtExport(format,name){
  document.getElementById('visualStatus').textContent='Export téléchargé et rattaché au brouillon : '+p.title;
 }
 document.getElementById('generateLocalCaption').onclick=applyLocalNewsCaption;
+document.getElementById('generateCommentReply').onclick=()=>{document.getElementById('generateCommentReply').dataset.variant='0';generateLocalCommentReply()};
+document.getElementById('regenerateCommentReply').onclick=()=>{const b=document.getElementById('generateCommentReply');b.dataset.variant=String((Number(b.dataset.variant||0)+1)%3);generateLocalCommentReply()};
+document.getElementById('copyCommentReply').onclick=()=>{const t=document.getElementById('commentReplyOutput').value.trim();if(!t)return alert('Aucune réponse à copier.');copyText(t);document.getElementById('commentReplyStatus').textContent='Réponse copiée. Collez-la dans Facebook après vérification.'};
+
 document.getElementById('regenerateLocalCaption').onclick=applyLocalNewsCaption;
 document.getElementById('loadArtPost').onclick=()=>{const id=document.getElementById('artPostSelect').value;if(!id)return alert('Sélectionnez d’abord un brouillon.');loadArtPostById(id)};
 document.getElementById('artPostSelect').onchange=()=>{const id=document.getElementById('artPostSelect').value;if(id)loadArtPostById(id)};
@@ -746,6 +750,39 @@ function applyLocalNewsCaption(){
  if(status)status.textContent='Texte créé instantanément sur votre appareil et enregistré dans le brouillon. Vérifiez le résumé et la source avant publication.';
  const postResult=document.getElementById('postResult');if(postResult)postResult.value=text;
  const postPreview=document.getElementById('postPreview');if(postPreview)postPreview.textContent=text;
+}
+function classifyCommentIntent(value){
+ const t=String(value||'').toLocaleLowerCase('fr');
+ if(/\\b(spoil|spoiler|ne racontez pas|gâch(e|er)|fin révélée)\\b/.test(t))return 'spoiler';
+ if(/\\b(faux|fake|mensonge|source\\?|preuve|pas vrai|incorrect|erreur|vous vous trompez)\\b/.test(t))return 'correction';
+ if(/\\b(pourquoi|quand|où|comment|combien|quel(le)?|est[- ]ce que|source|date de sortie)\\b/.test(t)||t.includes('?'))return 'question';
+ if(/\\b(nul|horrible|déçu|décevant|arnaque|ridicule|incompétent|idiot|stupide|hate)\\b/.test(t))return 'criticism';
+ if(/\\b(insulte|ta gueule|ferme-la|débile|ordure|menace)\\b/.test(t))return 'abuse';
+ if(/\\b(bravo|merci|super|génial|excellent|j'adore|incroyable|hâte|vivement)\\b/.test(t))return 'positive';
+ return 'general';
+}
+function buildLocalCommentReply(comment,tone,variant){
+ const intent=classifyCommentIntent(comment);
+ const openings=tone==='short'?['Merci pour ton commentaire !','Merci pour ton retour !','Merci d’avoir réagi !']:tone==='professional'?['Merci d’avoir pris le temps de partager votre avis.','Merci pour ce retour.','Nous apprécions votre remarque.']:tone==='playful'?['Merci pour ta réaction, la team !','On aime voir la communauté réagir !','Merci pour cette énergie !']:['Merci beaucoup pour ton commentaire !','Merci de faire vivre la discussion avec nous !','Ravi de te lire dans la communauté !'];
+ const open=openings[variant%openings.length];
+ if(intent==='abuse')return tone==='short'?'On préfère garder un échange respectueux. Merci de rester courtois.':'Nous sommes ouverts aux avis différents, mais souhaitons garder un espace respectueux pour toute la communauté. Merci de reformuler sans attaque personnelle.';
+ if(intent==='spoiler')return 'Merci pour le signalement ! Nous faisons attention aux spoilers afin que chacun puisse profiter de la découverte. N’hésite pas à nous préciser le passage concerné.';
+ if(intent==='correction')return 'Merci d’avoir attiré notre attention. Nous allons revérifier les éléments auprès de la source avant de corriger si nécessaire. Si tu as un lien fiable, tu peux le partager ici.';
+ if(intent==='question')return 'Bonne question ! Nous ne voulons pas te donner une information incertaine. Nous allons vérifier ce point dans la source officielle ; si tu as un lien ou un détail précis, partage-le avec nous.';
+ if(intent==='criticism')return tone==='short'?'Merci pour ton avis. Tous les points de vue sont les bienvenus tant que l’échange reste respectueux.':'Merci d’avoir partagé ton ressenti. Les avis peuvent être différents dans la communauté, et c’est justement l’occasion d’en discuter calmement. Qu’est-ce qui t’a le plus déçu ?';
+ if(intent==='positive')return open+' Quel est le prochain anime ou manga que tu aimerais voir à l’honneur sur la page ?';
+ return open+' Quel est ton point de vue sur cette actualité manga/anime ?';
+}
+function generateLocalCommentReply(){
+ const input=document.getElementById('commentReplyInput'),output=document.getElementById('commentReplyOutput'),status=document.getElementById('commentReplyStatus');
+ const comment=String(input&&input.value||'').trim();if(!comment){if(status)status.textContent='Collez d’abord le commentaire auquel vous souhaitez répondre.';return;}
+ const tone=document.getElementById('commentReplyTone')?.value||'warm';
+ const variant=Number(document.getElementById('generateCommentReply')?.dataset.variant||0);
+ const reply=buildLocalCommentReply(comment,tone,variant);
+ output.value=reply;
+ const p=activeWritingPost();
+ if(p){if(!Array.isArray(p.commentReplies))p.commentReplies=[];p.commentReplies.unshift({comment:comment.slice(0,2000),reply,createdAt:new Date().toISOString(),intent:classifyCommentIntent(comment)});p.commentReplies=p.commentReplies.slice(0,30);save();}
+ if(status)status.textContent='Réponse préparée localement. Vérifiez le contexte et les faits, puis copiez-la pour la publier manuellement sur Facebook.';
 }
 function renderWritingPrompt(){
  const box=document.getElementById('artWritingPrompt');if(!box)return;
