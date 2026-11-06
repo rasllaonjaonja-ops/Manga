@@ -600,3 +600,12 @@ body.home-mode .wrap{padding:12px 16px 22px}
 .local-caption-actions .btn{min-height:42px}
 #generateLocalCaption{flex:1 1 100%}
 #localCaptionStatus{margin-top:6px}
+
+/* V4 — assistant local de réponses aux commentaires */
+.comment-reply-kit{margin:18px 0;padding:16px;border:1px solid var(--line,#d9dee8);border-radius:14px;background:var(--surface,rgba(127,127,127,.035))}
+.comment-reply-controls{display:flex;align-items:end;gap:10px;flex-wrap:wrap}
+.comment-reply-controls .field{flex:1 1 220px;margin:0}
+.comment-reply-controls .btn{min-height:42px;flex:1 1 180px}
+.comment-reply-kit .actions{display:flex;gap:8px;flex-wrap:wrap}
+.comment-reply-kit .actions .btn{flex:1 1 150px;min-height:42px}
+@media(max-width:600px){.comment-reply-kit{padding:12px}.comment-reply-controls{display:grid;grid-template-columns:1fr}.comment-reply-controls .btn{width:100%}}
