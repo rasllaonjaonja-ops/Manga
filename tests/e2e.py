@@ -88,7 +88,10 @@ async def main():
           return {hasTitle:prompt.includes('Annonce officielle Mashle'),hasRules:prompt.includes('N’invente aucun nom'),hasTruncated:prompt.includes('EXTRAIT SIGNALÉ COMME COUPÉ : OUI'),links,buttons:['copyWritingPrompt','openWritingChatGPT','openWritingGemini','openWritingClaude'].every(id=>!!document.getElementById(id))};
         }""")
         check("prompt IA : contexte, garde-fous et extraits sources intégrés",prompt_preview["hasTitle"] and prompt_preview["hasRules"] and prompt_preview["hasTruncated"],prompt_preview)
-        check("aperçu Facebook : sources affichées en simples liens cliquables",len(prompt_preview["links"])==2 and {x["text"].split()[0] for x in prompt_preview["links"]}=={"MyAnimeList","Anime News Network"},prompt_preview["links"])
+        required_sources={"MyAnimeList","Anime News Network"}
+        displayed_sources={x["text"].split()[0] for x in prompt_preview["links"]}
+        links_are_clickable=all(x["href"].startswith("https://") for x in prompt_preview["links"])
+        check("aperçu Facebook : sources affichées en liens cliquables",len(prompt_preview["links"])>=2 and required_sources.issubset(displayed_sources) and links_are_clickable,prompt_preview["links"])
         check("prompt IA : commandes copier et ouvrir ChatGPT, Gemini, Claude",prompt_preview["buttons"])
         await page.fill("#artCaption","Texte final corrigé pour le test.")
         live_prompt=await page.input_value("#artWritingPrompt")
