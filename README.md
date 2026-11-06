@@ -81,12 +81,20 @@ Les contrôles Node.js tournent dans le workflow de diagnostic V4. Les tests nav
 
 ## Radar d'actualités
 
-- Sources actives : Anime News Network, MyAnimeList, Google Actualités, Anime Corner et Crunchyroll via Google Actualités. Elles sont modifiables dans `data/sources.json`. Le flux Tokyo Otaku Mode a été retiré après des réponses HTTP 403 répétées. Seules les adresses HTTPS sont acceptées.
+- Sources actives : Anime News Network (flux général), MyAnimeList, Google Actualités, Anime Corner, Crunchyroll via Google Actualités, Anime Herald, Anime UK News, recherches ciblées d'annonces officielles (Aniplex, Toei, Shueisha) et Otaku USA via Google Actualités. Soit 9 flux configurés dans `data/sources.json`. La liste est affichée dans le Radar et le filtre des articles est construit automatiquement à partir des sources réellement présentes. Le flux Tokyo Otaku Mode a été retiré après des réponses HTTP 403 répétées. Seules les adresses HTTPS sont acceptées.
 - Toutes les 5 heures, GitHub Actions collecte les titres, résumés, dates et liens. Les doublons (URL ou titre) sont retirés.
 - Si aucun flux ne répond, les actualités précédentes sont conservées et le run est signalé en erreur.
 - **Enregistrer** une actualité la place dans « Actualités enregistrées ». Elle reste « À vérifier » tant que vous n'avez pas consulté la source originale et confirmé l'information.
 - **Créer un brouillon** n'est possible qu'après vérification ; le brouillon reprend le titre, la source et le lien, avec un espace pour votre commentaire original.
 - Les articles ne sont pas recopiés intégralement : chaque actualité renvoie vers sa source. Vérifiez toujours l'information avant publication.
+
+## Sources multiples et contrôle éditorial (V4)
+
+- Le Radar lit neuf flux RSS publics, dont des médias spécialisés et des recherches ciblées vers des sites officiels/éditeurs. Les résultats des agrégateurs restent à ouvrir et à vérifier sur leur page d'origine.
+- Les articles qui semblent couvrir le même événement sont regroupés ; les liens et noms de médias associés sont conservés dans le Radar, dans les actualités enregistrées et lors du transfert vers la rédaction.
+- Le nombre de sources indique des publications repérées, pas nécessairement des confirmations indépendantes : plusieurs médias peuvent reprendre un même communiqué. Le contrôle humain reste obligatoire.
+- Les résumés RSS sont des extraits. Le studio ne prétend pas avoir lu l'article intégral lorsqu'il n'est pas fourni dans le flux.
+- Les images liées à un brouillon peuvent conserver leur origine (ChatGPT, Gemini, personnelle, média/officielle ou licence), leur crédit, leur URL de provenance et un statut de droits. « Officielle » ne signifie pas libre de réutilisation ; « droits inconnus » signifie ne pas publier avant vérification.
 
 ## Limites connues
 
