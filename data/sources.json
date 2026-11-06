@@ -1,38 +1,47 @@
 [
   {
     "name": "Anime News Network",
-    "url": "https://www.animenewsnetwork.com/all/rss.xml"
+    "url": "https://www.animenewsnetwork.com/all/rss.xml",
+    "category": "Média spécialisé · actualités anime et manga"
   },
   {
     "name": "MyAnimeList",
-    "url": "https://myanimelist.net/rss/news.xml"
+    "url": "https://myanimelist.net/rss/news.xml",
+    "category": "Base communautaire · actualités et annonces"
   },
   {
     "name": "Google Actualités",
-    "url": "https://news.google.com/rss/search?q=manga+OR+anime&hl=fr&gl=FR&ceid=FR:fr"
+    "url": "https://news.google.com/rss/search?q=manga+OR+anime&hl=fr&gl=FR&ceid=FR:fr",
+    "category": "Agrégateur · veille générale à vérifier"
   },
   {
     "name": "Anime Corner",
-    "url": "https://animecorner.me/feed/"
+    "url": "https://animecorner.me/feed/",
+    "category": "Média spécialisé · anime et manga"
   },
   {
     "name": "Crunchyroll (Google Actualités)",
-    "url": "https://news.google.com/rss/search?q=site%3Acrunchyroll.com%2Fnews+anime&hl=fr&gl=FR&ceid=FR:fr"
+    "url": "https://news.google.com/rss/search?q=site%3Acrunchyroll.com%2Fnews+anime&hl=fr&gl=FR&ceid=FR:fr",
+    "category": "Veille ciblée · actualités Crunchyroll"
   },
   {
     "name": "Anime Herald",
-    "url": "https://animeherald.com/feed/"
+    "url": "https://animeherald.com/feed/",
+    "category": "Média spécialisé · industrie, anime et manga"
   },
   {
     "name": "Anime UK News",
-    "url": "https://animeuknews.net/feed/"
+    "url": "https://animeuknews.net/feed/",
+    "category": "Média spécialisé · anime, manga et licences"
   },
   {
     "name": "Annonces officielles (Google Actualités)",
-    "url": "https://news.google.com/rss/search?q=anime+OR+manga+site%3Aaniplex.co.jp+OR+site%3Atoei-anim.co.jp+OR+site%3Ashueisha.co.jp&hl=en-US&gl=US&ceid=US:en"
+    "url": "https://news.google.com/rss/search?q=anime+OR+manga+site%3Aaniplex.co.jp+OR+site%3Atoei-anim.co.jp+OR+site%3Ashueisha.co.jp&hl=en-US&gl=US&ceid=US:en",
+    "category": "Veille ciblée · sites officiels et éditeurs"
   },
   {
     "name": "Otaku USA (Google Actualités)",
-    "url": "https://news.google.com/rss/search?q=site%3Aotakuusamagazine.com+anime+OR+manga&hl=en-US&gl=US&ceid=US:en"
+    "url": "https://news.google.com/rss/search?q=site%3Aotakuusamagazine.com+anime+OR+manga&hl=en-US&gl=US&ceid=US:en",
+    "category": "Média spécialisé · anime, manga et culture japonaise"
   }
 ]
