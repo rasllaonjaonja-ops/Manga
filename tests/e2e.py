@@ -16,7 +16,7 @@ async def main():
         ctx=await browser.new_context(viewport={"width":1366,"height":900},accept_downloads=True)
         page=await ctx.new_page()
         errors=[]; dialogs=[]
-        page.on("pageerror",lambda e: errors.append(str(e)))
+        page.on("pageerror",lambda e: errors.append(str(e)+" | stack: "+str(getattr(e, "stack", "non disponible"))))
         page.on("console",lambda m: errors.append(m.text) if m.type=="error" and "Failed to load resource" not in m.text else None)
         async def dialog_handler(d):
             dialogs.append((d.type,d.message))
@@ -89,7 +89,7 @@ async def main():
         }""")
         check("prompt IA : contexte, garde-fous et extraits sources intégrés",prompt_preview["hasTitle"] and prompt_preview["hasRules"] and prompt_preview["hasTruncated"],prompt_preview)
         required_sources={"MyAnimeList","Anime News Network"}
-        displayed_sources={x["text"].split()[0] for x in prompt_preview["links"]}
+        displayed_sources={x["text"].strip().replace("↗", "").strip() for x in prompt_preview["links"]}
         links_are_clickable=all(x["href"].startswith("https://") for x in prompt_preview["links"])
         check("aperçu Facebook : sources affichées en liens cliquables",len(prompt_preview["links"])>=2 and required_sources.issubset(displayed_sources) and links_are_clickable,prompt_preview["links"])
         check("prompt IA : commandes copier et ouvrir ChatGPT, Gemini, Claude",prompt_preview["buttons"])
