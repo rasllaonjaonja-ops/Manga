@@ -594,3 +594,9 @@ body.home-mode .wrap{padding:12px 16px 22px}
 .image-edit-actions{display:flex;flex-wrap:wrap;gap:7px}
 .image-edit-actions .btn{flex:1 1 42%;min-height:40px}
 @media(max-width:600px){.local-image-tools{padding:10px}.image-edit-actions .btn{flex:1 1 42%}}
+
+/* V4 — génération locale instantanée du texte de publication */
+.local-caption-actions{display:flex;flex-wrap:wrap;gap:7px;margin:7px 0}
+.local-caption-actions .btn{min-height:42px}
+#generateLocalCaption{flex:1 1 100%}
+#localCaptionStatus{margin-top:6px}
