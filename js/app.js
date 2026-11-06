@@ -92,14 +92,14 @@ function renderSavedNews(){
 document.getElementById('savedNewsList').addEventListener('click',e=>{
  const b=e.target.closest('[data-saved]');if(!b)return;const n=db.news.find(x=>x.id===b.dataset.id);if(!n)return;
  if(b.dataset.saved==='verify'){
-  if(!n.verified&&!confirm('Confirmez-vous avoir consulté la source originale et vérifié cette information ?'))return;
+  if(!n.verified&&!confirm('Confirmez-vous avoir consulté les sources associées et vérifié les faits essentiels ? Une simple reprise du même communiqué ne compte pas comme confirmation indépendante.'))return;
   n.verified=!n.verified;save();
  }else if(b.dataset.saved==='draft'){
   if(!n.verified)return alert('Vérifiez d’abord l’actualité.');
-  const text=`${n.title}\n\nSource : ${n.source}\nLien : ${n.url}\n\nÀ compléter : votre commentaire original, avec attribution de la source.`;
+  const refs=Array.isArray(n.trendArticles)&&n.trendArticles.length?n.trendArticles:[{source:n.source,url:n.url}];const attribution=refs.map((a,i)=>`${i+1}. ${a.source||'Source'} : ${a.url||''}`).join('\n');const text=`${n.title}\n\nSources consultées :\n${attribution}\n\nÀ compléter : votre commentaire original. Vérifiez chaque source et distinguez les confirmations indépendantes des reprises de communiqué.`;
   if(addPost(n.title,'Actualité vérifiée',text)){
    const created=db.posts.find(x=>x.title===cut(n.title,200)&&x.text===cut(text,20000));
-   if(created){created.sourceUrl=n.url;created.sourceName=n.source;created.workflowStage='redaction';save();}
+   if(created){created.sourceUrl=n.url;created.sourceName=(Array.isArray(n.trendSources)&&n.trendSources.length?n.trendSources:[n.source]).join(' · ').slice(0,100);created.workflowStage='redaction';save();}
    alert('Actualité transférée en rédaction. La source originale reste associée au brouillon.');
   }
  }else if(b.dataset.saved==='remove'){
@@ -711,8 +711,8 @@ function renderTopNews(){
  }).join(''):'<div class="empty">Aucune tendance disponible pour le moment.</div>';
 }function renderNews(){
  const f=document.getElementById('newsFilter').value,el=document.getElementById('newsList');
- const arr=newsItems.map((x,i)=>({x,i})).filter(o=>f==='all'||o.x.source===f);
- el.innerHTML=arr.length?arr.map(({x,i})=>{const u=/^https?:\/\//i.test(String(x.url||''))?x.url:'#';return `<article class="card news-card"><div class="news-meta"><span class="badge">${safe(x.source)}</span><span>${validIso(x.publishedAt)?safe(new Date(x.publishedAt).toLocaleDateString('fr-FR')):'Date inconnue'}</span></div><h4>${safe(x.title)}</h4><p>${safe(clip(x.summary,220))}</p><div class="actions"><a class="btn sm" href="${safe(u)}" target="_blank" rel="noopener noreferrer">Lire la source ↗</a><button class="btn sm" data-news-save="${safe(i)}">Enregistrer</button><button class="btn sm" data-news="${safe(i)}">Préparer un post</button></div></article>`}).join(''):'<div class="empty">Aucun article pour ce filtre.</div>';
+ const filter=document.getElementById('newsFilter');const current=filter.value;const sources=[...new Set(newsItems.map(x=>x.source).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'fr'));filter.innerHTML='<option value="all">Toutes les sources</option>'+sources.map(v=>'<option value="'+safe(v)+'">'+safe(v)+'</option>').join('');if(sources.includes(current))filter.value=current;const arr=newsItems.map((x,i)=>({x,i})).filter(o=>filter.value==='all'||o.x.source===filter.value);
+ el.innerHTML=arr.length?arr.map(({x,i})=>{const u=/^https?:\/\//i.test(String(x.url||''))?x.url:'#';const refs=Array.isArray(x.trendArticles)&&x.trendArticles.length?x.trendArticles:[{source:x.source||'Source',url:x.url}];const links=refs.slice(0,5).map(a=>/^https?:\/\//i.test(String(a.url||''))?'<a href="'+safe(a.url)+'" target="_blank" rel="noopener noreferrer">'+safe(a.source||'Source')+' ↗</a>':safe(a.source||'Source')).join(' · ');return `<article class="card news-card"><div class="news-meta"><span class="badge">${safe(x.source)}</span><span>${validIso(x.publishedAt)?safe(new Date(x.publishedAt).toLocaleDateString('fr-FR')):'Date inconnue'}</span></div><h4>${safe(x.title)}</h4><p>${safe(clip(x.summary,220))}</p><p class="small muted">${Number(x.trendSourceCount)||refs.length} source(s) associée(s) : ${links}</p><div class="actions"><a class="btn sm" href="${safe(u)}" target="_blank" rel="noopener noreferrer">Lire la source ↗</a><button class="btn sm" data-news-save="${safe(i)}">Enregistrer</button><button class="btn sm" data-news="${safe(i)}">Préparer un post</button></div></article>`}).join(''):'<div class="empty">Aucun article pour ce filtre.</div>';
  renderTopNews();
 }
 window.useNewsByIndex=(index)=>{
