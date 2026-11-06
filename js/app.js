@@ -870,3 +870,14 @@ lastPersisted=JSON.stringify(db);
 restoreDailyPack();
 applySettings();renderAll();renderDailyPack();
 loadNews();
+loadSourceCatalog();
+async function loadSourceCatalog(){
+ const el=document.getElementById('sourceCatalog');if(!el)return;
+ try{
+  const response=await fetch('data/sources.json?ts='+Date.now(),{cache:'no-store'});
+  if(!response.ok)throw new Error('sources indisponibles');
+  const sources=await response.json();
+  if(!Array.isArray(sources))throw new Error('format invalide');
+  el.innerHTML=sources.map(source=>'<div class="item"><div><strong>'+safe(source.name||'Source')+'</strong><small>'+safe(source.category||'Flux RSS')+'</small></div><a class="btn sm" href="'+safe(source.url)+'" target="_blank" rel="noopener noreferrer">Ouvrir le flux ↗</a></div>').join('')||'<div class="empty">Aucune source configurée.</div>';
+ }catch(error){el.innerHTML='<div class="empty">Impossible de lire data/sources.json. Le radar peut tout de même utiliser les articles déjà collectés.</div>';}
+}
