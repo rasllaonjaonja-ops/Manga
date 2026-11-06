@@ -60,7 +60,7 @@ async def main():
         # Transfert d'une actualité vérifiée : la source doit rester attachée au brouillon.
         await page.evaluate("navigate('visual')")
         await page.evaluate("""()=>{
-          db.news.unshift({id:'news-e2e',title:'Annonce officielle Mashle',source:'MyAnimeList',url:'https://myanimelist.net/news/test',publishedAt:null,summary:'Résumé de test',savedAt:new Date().toISOString(),verified:false});
+          db.news.unshift({id:'news-e2e',title:'Annonce officielle Mashle',source:'MyAnimeList',url:'https://myanimelist.net/news/test',publishedAt:null,summary:'Résumé de test',savedAt:new Date().toISOString(),verified:false,trendArticles:[{title:'Annonce officielle Mashle',source:'MyAnimeList',url:'https://myanimelist.net/news/test',summary:'Résumé vérifié de test',summaryTruncated:false},{title:'Mashle coverage',source:'Anime News Network',url:'https://www.animenewsnetwork.com/news/test',summary:'Secondaire extrait',summaryTruncated:true}]});
           renderSavedNews()
         }""")
         await page.locator('#savedNewsList [data-saved="verify"][data-id="news-e2e"]').click()
@@ -70,6 +70,20 @@ async def main():
           return !!p&&p.sourceName==='MyAnimeList'&&p.workflowStage==='redaction'
         }""")
         check("actualité vérifiée : transfert avec source originale conservée",transferred)
+
+        prompt_preview=await page.evaluate("""()=>{
+          const p=db.posts.find(x=>x.sourceUrl==='https://myanimelist.net/news/test');
+          loadArtPostById(p.id);
+          const prompt=document.getElementById('artWritingPrompt').value;
+          const links=[...document.querySelectorAll('#fbPreviewSources a')].map(a=>({text:a.textContent,href:a.href}));
+          return {hasTitle:prompt.includes('Annonce officielle Mashle'),hasRules:prompt.includes('N’invente aucun nom'),hasTruncated:prompt.includes('EXTRAIT SIGNALÉ COMME COUPÉ : OUI'),links,buttons:['copyWritingPrompt','openWritingChatGPT','openWritingGemini','openWritingClaude'].every(id=>!!document.getElementById(id))};
+        }""")
+        check("prompt IA : contexte, garde-fous et extraits sources intégrés",prompt_preview["hasTitle"] and prompt_preview["hasRules"] and prompt_preview["hasTruncated"],prompt_preview)
+        check("aperçu Facebook : sources affichées en simples liens cliquables",len(prompt_preview["links"])==2 and {x["text"].split()[0] for x in prompt_preview["links"]}=={"MyAnimeList","Anime News Network"},prompt_preview["links"])
+        check("prompt IA : commandes copier et ouvrir ChatGPT, Gemini, Claude",prompt_preview["buttons"])
+        await page.fill("#artCaption","Texte final corrigé pour le test.")
+        live_prompt=await page.input_value("#artWritingPrompt")
+        check("prompt IA : synchronisation avec les corrections du texte", "Texte final corrigé pour le test." in live_prompt)
 
         # Progression de workflow et persistance après rechargement.
         pid=await page.evaluate("db.posts.find(x=>x.sourceUrl==='https://myanimelist.net/news/test').id")
