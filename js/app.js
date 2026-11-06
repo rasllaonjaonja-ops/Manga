@@ -65,7 +65,7 @@ function runSelfTest(){
  size>4000000?warn(`Données volumineuses (${Math.round(size/1024)} Ko) : exportez une sauvegarde.`):ok(`Taille des données : ${Math.round(size/1024)} Ko`);
  const cv=document.createElement('canvas');(cv.getContext&&cv.getContext('2d'))?ok('Canevas 2D disponible (PNG)'):ko('Canevas 2D indisponible : exports PNG impossibles');
  ((navigator.clipboard&&window.isSecureContext)||(document.queryCommandSupported&&document.queryCommandSupported('copy')))?ok('Copie dans le presse-papiers disponible'):warn('Copie automatique limitée : sélectionnez le texte manuellement');
- const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','artCanvas','artFormat','renderArt','downloadArt','openChatGPTImage','openGeminiImage','imageAiPrompt','copyImagePrompt','artPostSelect','loadArtPost','artCaption','artWritingPrompt','copyWritingPrompt','openWritingChatGPT','openWritingGemini','openWritingClaude','fbPreviewSources','copyArtCaption','artLinkedStatus','artExportHistory','newsList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
+ const required=['postTopic','postType','postTone','postLength','postQuestion','buildPost','postResult','savePost','postPreview','aiSources','generateWithAI','aiStatus','workerUrl','testWorker','workerStatus','artCanvas','artFormat','renderArt','downloadArt','openChatGPTImage','openGeminiImage','imageAiPrompt','copyImagePrompt','artPostSelect','loadArtPost','artCaption','generateLocalCaption','regenerateLocalCaption','localCaptionStatus','artWritingPrompt','copyWritingPrompt','openWritingChatGPT','openWritingGemini','openWritingClaude','fbPreviewSources','copyArtCaption','artLinkedStatus','artExportHistory','newsList','calList','mediaGrid','qualityText','runQuality','qualityResult','pageName','saveSettings','exportBackup','importBackup','sPosts','sDrafts','sNews','sMedia','homeRecent','homeNews','homeActivity','homePreview','homeTrends','publishedCount','projectCount','publishedPosts','projectPosts'];
  const missing=required.filter(id=>!document.getElementById(id));
  missing.length?ko('Éléments manquants : '+missing.join(', ')):ok(`Interface : ${required.length} éléments requis présents`);
  const round=normalizeDb(JSON.parse(JSON.stringify(db)));
@@ -609,6 +609,8 @@ function markArtExport(format,name){
  if(!save())return;
  document.getElementById('visualStatus').textContent='Export téléchargé et rattaché au brouillon : '+p.title;
 }
+document.getElementById('generateLocalCaption').onclick=applyLocalNewsCaption;
+document.getElementById('regenerateLocalCaption').onclick=applyLocalNewsCaption;
 document.getElementById('loadArtPost').onclick=()=>{const id=document.getElementById('artPostSelect').value;if(!id)return alert('Sélectionnez d’abord un brouillon.');loadArtPostById(id)};
 document.getElementById('artPostSelect').onchange=()=>{const id=document.getElementById('artPostSelect').value;if(id)loadArtPostById(id)};
 document.getElementById('artCaption').addEventListener('input',e=>{
@@ -706,6 +708,44 @@ function buildWritingPrompt(){
   'EXTRAIT SIGNALÉ COMME COUPÉ : '+(a.truncated?'OUI':'NON')
  ].join('\n')).join('\n\n'):(p.sourceUrl?'1. SOURCE : '+(p.sourceName||'Source originale')+'\nLIEN : '+p.sourceUrl:'Aucun lien de source enregistré.');
  return 'RÔLE\nTu es rédacteur en chef spécialisé manga et anime pour la page Facebook « Manga, Animé et Actualités ». Tu écris en français naturel, précis, vivant et professionnel.\n\nMISSION\nRédige une publication Facebook originale, prête à être relue et publiée manuellement, à partir de l’actualité et des éléments fournis. Le texte doit parler précisément de ce sujet, pas produire un commentaire générique.\n\nCONTEXTE FOURNI\n'+context+'\n\nSOURCES À CONSULTER\n'+sourceBlock+'\n\nMÉTHODE ET FIABILITÉ OBLIGATOIRES\n1. Si tu disposes réellement d’un outil de navigation, ouvre les liens originaux et vérifie le contenu, la date et les détails importants. Si tu ne peux pas ouvrir une source, n’affirme jamais l’avoir consultée.\n2. Les résumés RSS peuvent être courts, incomplets ou coupés : ne les présente jamais comme des articles intégraux et ne complète pas les informations manquantes.\n3. N’invente aucun nom, rôle, studio, casting, date, chiffre, citation, épisode, intrigue ou annonce. N’ajoute aucun fait qui n’est pas confirmé par les éléments accessibles.\n4. Distingue les confirmations indépendantes des reprises du même communiqué. En cas de contradiction, reste prudent et signale l’incertitude.\n5. Si les informations sont insuffisantes, rédige une version courte et prudente, ou indique clairement qu’il faut vérifier avant publication. Ne remplis jamais les blancs par des suppositions.\n\nFORMAT FACEBOOK ATTENDU\n- Une accroche courte et captivante, sans sensationnalisme.\n- Deux à quatre paragraphes courts qui expliquent clairement ce qui est annoncé et pourquoi cela intéresse les fans.\n- Un ton humain, engageant et accessible, sans répétitions ni phrases creuses.\n- Une question finale naturelle qui invite la communauté à réagir.\n- Trois à six hashtags précis et pertinents, à la fin.\n- Pas de faux suspense, de fausse citation, de promesse exagérée ni de détails inventés.\n- N’insère pas les URL brutes dans le texte : le studio affiche les liens des sources séparément sous l’aperçu Facebook.\n\nSORTIE\nDonne uniquement le texte final de la publication Facebook, prêt à copier. Ne fournis ni introduction, ni explication de ta méthode, ni liste de sources séparée, ni commentaire sur les limites.';
+}
+function generateLocalNewsCaption(){
+ const p=activeWritingPost();if(!p)return '';
+ const news=db.news.find(n=>p.sourceUrl&&canonicalNewsUrl(n.url)===canonicalNewsUrl(p.sourceUrl))||newsItems.find(n=>p.sourceUrl&&canonicalNewsUrl(n.url)===canonicalNewsUrl(p.sourceUrl))||null;
+ const title=String(p.title||'Actualité manga et anime').replace(/\s+/g,' ').trim();
+ const clean=value=>String(value||'').replace(/<[^>]*>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&#39;|&apos;/gi,"'").replace(/&quot;/gi,'"').replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/\s+/g,' ').trim();
+ const summary=clean(news&&news.summary||'');
+ const source=(p.sourceName||news&&news.source||'la source enregistrée').split(/[·,;]/)[0].trim();
+ const sentences=summary?summary.match(/[^.!?]+[.!?]?/g)||[summary]:[];
+ const excerpt=sentences.slice(0,2).join(' ').trim();
+ const questionPool=[
+  'Que pensez-vous de cette actualité ? Dites-nous votre avis en commentaire.',
+  'Cette annonce vous intéresse-t-elle ? Pourquoi ? Parlons-en en commentaire.',
+  'Quel est votre premier avis sur cette information ? La discussion est ouverte !'
+ ];
+ const seed=(title.length+String(p.id||'').length)%questionPool.length;
+ const tags=['#Manga','#Anime','#ActualitésAnime','#CommunautéAnime'];
+ let text='📰 '+title+'\n\n';
+ if(excerpt){
+  text+=excerpt+'\n\n';
+  text+='Voici les éléments rapportés dans le résumé disponible. Celui-ci peut être incomplet : consultez la source pour confirmer les détails avant publication.\n\n';
+ }else{
+  text+='Une information à suivre pour les passionnés de manga et d’anime. Le résumé détaillé n’est pas disponible dans le Studio : nous évitons donc d’ajouter des faits qui ne sont pas confirmés.\n\n';
+ }
+ text+='Source : '+source+'.\n\n'+questionPool[seed]+'\n\n'+tags.join(' ');
+ return text;
+}
+function applyLocalNewsCaption(){
+ const p=activeWritingPost();if(!p)return alert('Chargez d’abord une publication ou une actualité enregistrée.');
+ const text=generateLocalNewsCaption();if(!text)return;
+ const box=document.getElementById('artCaption');box.value=text;
+ p.text=text;p.localCaptionGeneratedAt=new Date().toISOString();
+ if(!save())return;
+ updateFacebookPreview();renderWritingPrompt();
+ const status=document.getElementById('localCaptionStatus');
+ if(status)status.textContent='Texte créé instantanément sur votre appareil et enregistré dans le brouillon. Vérifiez le résumé et la source avant publication.';
+ const postResult=document.getElementById('postResult');if(postResult)postResult.value=text;
+ const postPreview=document.getElementById('postPreview');if(postPreview)postPreview.textContent=text;
 }
 function renderWritingPrompt(){
  const box=document.getElementById('artWritingPrompt');if(!box)return;
