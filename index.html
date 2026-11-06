@@ -164,6 +164,17 @@
    <div class="linked-controls"><div class="field"><label for="artPostSelect">Brouillon à préparer</label><select id="artPostSelect"><option value="">Choisir une publication enregistrée…</option></select></div><div class="actions"><button class="btn primary" id="loadArtPost">Charger le brouillon</button><button class="btn" id="copyArtCaption">Copier le texte Facebook</button></div></div>
    <p class="footnote" id="artLinkedStatus" role="status" aria-live="polite">Aucune publication associée. Sélectionnez un brouillon pour commencer.</p>
    <div class="field"><label for="artCaption">Texte final de la publication</label><textarea id="artCaption" rows="7" placeholder="Le texte Facebook complet apparaîtra ici. Vous pourrez le corriger avant l’export."></textarea><small class="muted">Le texte saisi ici est synchronisé avec le brouillon sélectionné.</small></div>
+   <section class="writing-prompt-kit" aria-labelledby="writingPromptTitle">
+    <div class="writing-prompt-head"><div><div class="kicker">PROMPT IA · ÉTAPE 02</div><h4 id="writingPromptTitle">Préparer le prompt de rédaction</h4><p class="small muted">Le prompt reprend automatiquement l’actualité, les extraits disponibles et les liens des sources. Utilisez-le dans l’IA de votre choix.</p></div><span class="badge green">Multi-IA</span></div>
+    <textarea id="artWritingPrompt" rows="10" readonly placeholder="Chargez une actualité vérifiée pour préparer automatiquement le prompt complet."></textarea>
+    <div class="actions writing-ai-actions">
+     <button class="btn primary" type="button" id="copyWritingPrompt">Copier le prompt</button>
+     <button class="btn" type="button" id="openWritingChatGPT">ChatGPT ↗</button>
+     <button class="btn" type="button" id="openWritingGemini">Gemini ↗</button>
+     <button class="btn" type="button" id="openWritingClaude">Claude ↗</button>
+    </div>
+    <p class="footnote" id="writingPromptStatus" role="status" aria-live="polite">Sélectionnez une actualité vérifiée : le prompt sera préparé ici. Les boutons IA copient le prompt puis ouvrent le service correspondant.</p>
+   </section>
   </section>
 
   <div class="studio-editor-grid" id="pipeline-visual-editor">
@@ -201,6 +212,7 @@ Et vous, quel est votre anime préféré ?</textarea></div><button class="btn" i
     <div class="facebook-preview" aria-label="Maquette de publication Facebook non publiée">
      <div class="fb-preview-header"><div class="fb-page-avatar">M</div><div class="fb-page-identity"><strong>Manga, Animé et Actualités</strong><small>À l’instant · 🌐</small></div><span class="fb-more">•••</span></div>
      <div class="fb-preview-caption" id="fbPreviewCaption">Votre texte Facebook apparaîtra ici après sélection d’un brouillon.</div>
+     <div class="fb-preview-sources" id="fbPreviewSources" aria-label="Liens des sources de cette publication"></div>
      <div class="fb-preview-media"><canvas id="artCanvas" width="1080" height="1350" aria-label="Aperçu du visuel exportable"></canvas></div>
      <div class="fb-preview-reactions"><span>👍 ❤️ 😮</span><span id="fbPreviewEngagement">J’aime · Commentaires · Partages</span></div>
      <div class="fb-preview-actions"><span>♡ J’aime</span><span>▢ Commenter</span><span>↗ Partager</span></div>
