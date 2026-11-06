@@ -864,6 +864,44 @@ function prepareExternalImageAI(provider){
 document.getElementById('openChatGPTImage').onclick=()=>prepareExternalImageAI('chatgpt');
 document.getElementById('openGeminiImage').onclick=()=>prepareExternalImageAI('gemini');
 document.getElementById('copyImagePrompt').onclick=()=>copyText(document.getElementById('imageAiPrompt').value.trim());
+const videoFileInput=document.getElementById('videoFile');
+const videoPlayer=document.getElementById('videoFramePlayer');
+const videoTimeWrap=document.getElementById('videoFrameTimeWrap');
+let localVideoUrl='';
+videoFileInput.onchange=e=>{
+ const file=e.target.files&&e.target.files[0];if(!file)return;
+ if(!file.type.startsWith('video/')){alert('Choisissez un fichier vidéo.');return;}
+ if(file.size>150*1024*1024){alert('Vidéo trop lourde (maximum 150 Mo).');return;}
+ if(localVideoUrl)URL.revokeObjectURL(localVideoUrl);
+ localVideoUrl=URL.createObjectURL(file);videoPlayer.src=localVideoUrl;videoPlayer.hidden=false;
+ videoTimeWrap.hidden=false;
+ videoPlayer.onloadedmetadata=()=>{document.getElementById('videoFrameTime').max=Math.max(0,videoPlayer.duration||0);document.getElementById('videoSourceStatus').textContent='Vidéo chargée. Choisissez un instant puis capturez une image.';};
+};
+document.getElementById('captureVideoFrame').onclick=()=>{
+ if(!videoPlayer.src||!Number.isFinite(videoPlayer.duration)){alert('Importez d’abord une vidéo lisible.');return;}
+ const t=Math.max(0,Math.min(Number(document.getElementById('videoFrameTime').value)||0,videoPlayer.duration));
+ const capture=()=>{try{
+  const cv=document.createElement('canvas');cv.width=videoPlayer.videoWidth;cv.height=videoPlayer.videoHeight;
+  if(!cv.width||!cv.height)throw new Error('Dimensions vidéo indisponibles.');
+  cv.getContext('2d').drawImage(videoPlayer,0,0,cv.width,cv.height);
+  cv.toBlob(blob=>{if(!blob){document.getElementById('videoSourceStatus').textContent='Capture impossible. Essayez un autre instant ou format vidéo.';return;}
+   const dt=new DataTransfer();dt.items.add(new File([blob],'capture-video.jpg',{type:'image/jpeg'}));
+   document.getElementById('artFile').files=dt.files;document.getElementById('artFile').dispatchEvent(new Event('change',{bubbles:true}));
+   document.getElementById('videoSourceStatus').textContent='Image capturée. Elle est envoyée au même processus d’importation et d’association au brouillon.';
+  },'image/jpeg',.92);
+ }catch(err){document.getElementById('videoSourceStatus').textContent='Capture bloquée par le navigateur ou le format vidéo.';}};
+ if(Math.abs(videoPlayer.currentTime-t)<.05)capture();else{videoPlayer.currentTime=t;videoPlayer.onseeked=capture;}
+};
+document.getElementById('loadVideoThumbnail').onclick=()=>{
+ const raw=document.getElementById('videoSourceUrl').value.trim();if(!raw){alert('Collez un lien vidéo.');return;}
+ let id='';try{const u=new URL(raw);if(u.hostname.includes('youtu.be'))id=u.pathname.split('/').filter(Boolean)[0]||'';else if(/youtube\.com$|youtube-nocookie\.com$/.test(u.hostname.replace(/^www\./,'')))id=u.searchParams.get('v')||u.pathname.match(/\/(?:shorts|embed|live)\/([^/?]+)/)?.[1]||'';}catch(e){}
+ const image=document.createElement('img');image.alt='Miniature vidéo à importer';image.style.cssText='display:block;width:100%;max-width:520px;margin:10px 0;border-radius:10px;background:#eef2f8';
+ const status=document.getElementById('videoSourceStatus');
+ const acceptImage=()=>{const cv=document.createElement('canvas');cv.width=image.naturalWidth;cv.height=image.naturalHeight;cv.getContext('2d').drawImage(image,0,0);cv.toBlob(blob=>{if(!blob){status.textContent='Impossible de préparer cette miniature.';return;}const dt=new DataTransfer();dt.items.add(new File([blob],'miniature-video.jpg',{type:'image/jpeg'}));const input=document.getElementById('artFile');input.files=dt.files;input.dispatchEvent(new Event('change',{bubbles:true}));status.textContent='Miniature récupérée et transmise à l’importation du visuel.';},'image/jpeg',.92);};
+ if(id){let triedFallback=false;image.onerror=()=>{if(!triedFallback){triedFallback=true;image.src='https://img.youtube.com/vi/'+encodeURIComponent(id)+'/hqdefault.jpg';}else status.textContent='Miniature indisponible pour cette vidéo YouTube.';};image.onload=()=>{if(image.parentNode)image.parentNode.removeChild(image);document.getElementById('videoSourceStatus').after(image);acceptImage();};image.src='https://img.youtube.com/vi/'+encodeURIComponent(id)+'/maxresdefault.jpg';return;}
+ if(/^https?:\/\/.+\.(?:jpe?g|png|webp)(?:[?#].*)?$/i.test(raw)){image.crossOrigin='anonymous';image.onload=()=>{document.getElementById('videoSourceStatus').after(image);try{acceptImage();}catch(e){status.textContent='Le serveur de cette image interdit son import direct (CORS).';}};image.onerror=()=>status.textContent='Image inaccessible. Téléchargez-la puis importez-la manuellement.';image.src=raw;return;}
+ status.textContent='Ce lien ne fournit pas de miniature accessible. Pour les plateformes qui bloquent l’accès, téléchargez une image autorisée ou utilisez l’import vidéo local.';
+};
 document.getElementById('artFile').onchange=e=>{
  const f=e.target.files[0];if(!f)return;
  if(!f.type.startsWith('image/'))return alert('Choisissez un fichier image.');
