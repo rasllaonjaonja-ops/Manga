@@ -614,3 +614,30 @@ body.home-mode .wrap{padding:12px 16px 22px}
 .auto-capture-results{margin-top:12px}.auto-capture-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin-top:10px}.auto-capture-grid figure{margin:0;min-width:0;background:var(--card,#fff);border:1px solid var(--line,#dce3ef);border-radius:10px;padding:7px}.auto-capture-grid img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:7px}.auto-capture-grid figcaption{font-size:11px;margin-top:6px;color:var(--muted,#667085)}@media(min-width:700px){.auto-capture-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 .video-search-results{display:grid;gap:10px;margin-top:10px}.video-result{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.video-result>div{min-width:0;display:grid;gap:4px}.video-result small{color:var(--muted,#687386);font-size:.82rem}.video-result a{font-size:.82rem;overflow-wrap:anywhere}
+
+
+/* V4.2 — navigation allégée et parcours principal en quatre étapes */
+.side{gap:9px}
+.side .group-title{padding-top:8px;padding-bottom:4px;letter-spacing:1.1px}
+.side .nav{gap:3px}
+.side .nav button{min-height:40px;font-weight:650}
+.side .nav button i{width:22px;min-width:22px;font-size:11px;font-weight:850;color:#58719f}
+.side .nav button.active i{color:#fff}
+.workflow-ribbon{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:5px;padding:8px 10px;border-radius:16px}
+.workflow-node{min-width:0;justify-content:center;flex:initial;padding:8px 6px}
+.workflow-node span{white-space:normal;text-align:left;line-height:1.2}
+.workflow-node b{flex:0 0 28px}
+.workflow-arrow{justify-self:center}
+@media(max-width:900px){
+ .side{gap:8px;padding:14px 12px 18px}
+ .side .group-title{font-size:10px}
+ .workflow-ribbon{display:flex;justify-content:flex-start;overflow-x:auto;scroll-snap-type:x proximity}
+ .workflow-node{flex:0 0 155px;min-width:155px;justify-content:flex-start;scroll-snap-align:start}
+ .workflow-node span{white-space:normal}
+}
+@media(max-width:600px){
+ .workflow-ribbon{gap:3px;padding:6px}
+ .workflow-node{flex-basis:145px;min-width:145px;padding:7px 6px}
+ .workflow-node b{width:25px;height:25px;flex-basis:25px}
+ .side .nav button{font-size:12px}
+}
