@@ -4,18 +4,17 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#f3f7ff"><meta name="author" content="Anime Trend Studio"><meta name="color-scheme" content="light"><meta name="description" content="Anime Trend Studio 4.0 — studio éditorial de Manga, Animé et Actualités">
 <title>Anime Trend Studio 4.0</title>
-<link rel="stylesheet" href="./css/style.css?v=4.1">
+<link rel="stylesheet" href="./css/style.css?v=4.2">
 </head>
 <body class="home-mode">
 <div class="shell">
 <aside class="side" id="side">
  <div class="brand"><img src="assets/logo-manga-anime-actualites.png" alt="Logo Manga Anime et Actualités"><div><b>ANIME TREND</b><small>CONTENT STUDIO</small></div></div>
  <nav class="nav sec-first"><button class="active" data-page="home"><i>⌂</i>Accueil</button></nav>
- <div><div class="group-title">CRÉER</div><nav class="nav"><button data-page="create"><i>✎</i>Atelier de publications</button></nav></div>
- <div><div class="group-title">ACTUALITÉS</div><nav class="nav"><button data-page="radar"><i>◉</i>Radar d'actualités</button><button data-page="calendar"><i>▦</i>Calendrier éditorial</button></nav></div><div><div class="group-title">SUIVI DES CONTENUS</div><nav class="nav"><button data-page="publications"><i>▣</i>Publications</button></nav></div>
- <div><div class="group-title">VISUELS</div><nav class="nav"><button data-page="visual"><i>▧</i>Studio de publication</button><button data-page="library"><i>▣</i>Médiathèque</button></nav></div>
- <div><div class="group-title">PILOTAGE</div><nav class="nav"><button data-page="automation"><i>⌘</i>GitHub & automatisation</button></nav></div>
- <div><div class="group-title">CONFIGURATION</div><nav class="nav"><button data-page="settings"><i>⚙</i>Réglages</button><button data-page="help"><i>?</i>Aide & support</button></nav></div>
+ <div><div class="group-title">PARCOURS PRINCIPAL</div><nav class="nav"><button data-page="radar"><i>01</i>Actualités · Radar</button><button data-page="visual"><i>02</i>Studio complet · Rédaction & visuel</button><button data-page="publications"><i>03</i>Publications · Suivi manuel</button></nav></div>
+ <div><div class="group-title">ORGANISATION</div><nav class="nav"><button data-page="calendar"><i>▦</i>Calendrier éditorial</button><button data-page="library"><i>▣</i>Médiathèque</button></nav></div>
+ <div><div class="group-title">OUTILS COMPLÉMENTAIRES</div><nav class="nav"><button data-page="create"><i>✎</i>Atelier libre (optionnel)</button><button data-page="automation"><i>⌘</i>GitHub & automatisation</button></nav></div>
+ <div><div class="group-title">PARAMÈTRES & AIDE</div><nav class="nav"><button data-page="settings"><i>⚙</i>Réglages & sauvegarde</button><button data-page="help"><i>?</i>Guide d’utilisation</button></nav></div>
  <div class="mode-test"><b>Mode TEST</b>Aucune publication automatique. La publication reste manuelle via Meta Business Suite.</div>
  <div class="side-foot"><span class="online"></span>Système actif · V4 · Mode gratuit</div>
 </aside>
@@ -28,27 +27,19 @@
   <div class="dash-brand"><button class="btn hamb">☰</button><img src="assets/logo-manga-anime-actualites.png" alt="Logo"><div><b>ANIME <em>TREND</em></b><small>Manga • Animé • Actualités • Tendances</small></div></div>
   <div class="dash-tools"><span class="dash-version">Version 4.0</span><span class="sys-pill" id="sysPill">● Système actif</span><button class="dash-icon" data-go="settings" title="Réglages">⚙</button><span class="profile"><span class="avatar">AT</span><span><b>Anime Trend</b><small>Studio local</small></span></span></div>
  </header>
- <nav class="workflow-ribbon" aria-label="Parcours de l’actualité à la publication">
-  <button class="workflow-node node-news" data-go="radar"><b>1</b><span>Actualités</span><small>Radar</small></button>
+ <nav class="workflow-ribbon" aria-label="Parcours simplifié de l’actualité à la publication">
+  <button class="workflow-node node-news" data-go="radar"><b>1</b><span>Actualité</span><small>Rechercher et vérifier</small></button>
   <span class="workflow-arrow">›</span>
-  <button class="workflow-node node-select" data-go="radar"><b>2</b><span>Sélection</span><small>Sujets retenus</small></button>
+  <button class="workflow-node node-write" data-go="visual"><b>2</b><span>Rédaction</span><small>Texte et sources</small></button>
   <span class="workflow-arrow">›</span>
-  <button class="workflow-node node-check" data-go="visual"><b>3</b><span>Vérification</span><small>Sources & faits</small></button>
+  <button class="workflow-node node-visual" data-go="visual"><b>3</b><span>Visuel & contrôle</span><small>Image, captures, aperçu</small></button>
   <span class="workflow-arrow">›</span>
-  <button class="workflow-node node-write" data-go="create"><b>4</b><span>Rédaction</span><small>Atelier</small></button>
-  <span class="workflow-arrow">›</span>
-  <button class="workflow-node node-visual" data-go="visual"><b>5</b><span>Visuel</span><small>ChatGPT / Gemini</small></button>
-  <span class="workflow-arrow">›</span>
-  <button class="workflow-node node-quality" data-go="visual"><b>6</b><span>Contrôle</span><small>Qualité</small></button>
-  <span class="workflow-arrow">›</span>
-  <button class="workflow-node node-publish" data-go="publications"><b>7</b><span>Publication</span><small>Projet / manuel</small></button>
-  <span class="workflow-arrow">›</span>
-  <button class="workflow-node node-follow" data-go="publications"><b>8</b><span>Suivi</span><small>Historique</small></button>
+  <button class="workflow-node node-publish" data-go="publications"><b>4</b><span>Publication manuelle</span><small>Valider et archiver</small></button>
  </nav>
  <div class="dash-grid">
   <div class="dash-main">
    <div class="banner">
-    <div class="banner-copy"><span class="kicker">THE ART OF ANIME CONTENT</span><h2>Bienvenue sur <em>ANIME TREND</em></h2><p>Votre studio pour créer, préparer et suivre vos contenus manga et animé.</p><p class="banner-sub">Créez • Inspirez • Partagez • Faites vivre votre passion !</p><div class="actions"><button class="btn primary" data-go="visual">✦ Commencer →</button><button class="btn" data-go="radar">Voir les actualités →</button></div></div>
+    <div class="banner-copy"><span class="kicker">THE ART OF ANIME CONTENT</span><h2>Bienvenue sur <em>ANIME TREND</em></h2><p>Votre studio pour créer, préparer et suivre vos contenus manga et animé.</p><p class="banner-sub">Créez • Inspirez • Partagez • Faites vivre votre passion !</p><div class="actions"><button class="btn primary" data-go="radar">✦ Commencer par les actualités →</button><button class="btn" data-go="visual">Ouvrir le Studio complet →</button></div></div>
    </div>
    <div class="kpis">
     <div class="kpi blue"><div class="k-ico">▤</div><div><b id="sNews">0</b><span>Actualités collectées</span><small>dans le radar</small></div></div>
