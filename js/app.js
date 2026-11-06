@@ -1013,8 +1013,8 @@ autoFindVideoButton.onclick=async()=>{
    return '<article class="item video-result"><div><strong>'+safe(p.title.replace(/^File:/,''))+'</strong><small>'+safe(license)+' · '+safe(artist)+'</small><a href="'+filePage+'" target="_blank" rel="noopener noreferrer">Voir la source et les conditions ↗</a></div><button class="btn sm" type="button" data-video-index="'+i+'">Utiliser et capturer</button></article>';
   }).join('');
   const selected=pages.slice(0,8);
-  autoFindVideoResults.querySelectorAll('[data-video-index]').forEach(btn=>btn.addEventListener('click',()=>{
-   const p=selected[Number(btn.dataset.videoIndex)],info=p&&p.imageinfo&&p.imageinfo[0];if(!info)return;
+  const useVideoResult=p=>{
+   const info=p&&p.imageinfo&&p.imageinfo[0];if(!info)return;
    const meta=info.extmetadata||{},license=(meta.LicenseShortName&&meta.LicenseShortName.value||meta.License&&meta.License.value||'').replace(/<[^>]*>/g,'').slice(0,100);
    const artist=(meta.Artist&&meta.Artist.value||'').replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').slice(0,140);
    activeVideoSourceMeta={url:'https://commons.wikimedia.org/wiki/'+p.title.replace(/ /g,'_'),credit:artist+(license?' · '+license:''),licensed:!!license,license};
@@ -1023,8 +1023,10 @@ autoFindVideoButton.onclick=async()=>{
    autoFindVideoStatus.textContent='Vidéo sélectionnée : '+p.title.replace(/^File:/,'')+'. Préparation des captures dès que la vidéo est lisible…';
    videoPlayer.addEventListener('loadeddata',()=>{autoCaptureButton.disabled=false;autoCaptureButton.click();},{once:true});
    videoPlayer.addEventListener('error',()=>{autoFindVideoStatus.textContent='Cette vidéo ne peut pas être lue ou capturée directement dans ce navigateur. Ouvrez sa page source pour vérifier les options disponibles.';},{once:true});
-  }));
-  autoFindVideoStatus.textContent=pages.length+' vidéo(s) trouvée(s). Vérifiez la source et la licence, puis choisissez « Utiliser et capturer ».';
+  };
+  autoFindVideoResults.querySelectorAll('[data-video-index]').forEach(btn=>btn.addEventListener('click',()=>useVideoResult(selected[Number(btn.dataset.videoIndex)])));
+  autoFindVideoStatus.textContent=pages.length+' vidéo(s) trouvée(s). La première correspondance est chargée et capturée automatiquement ; vous pouvez en choisir une autre dans la liste.';
+  useVideoResult(selected[0]);
  }catch(error){autoFindVideoStatus.textContent='Recherche impossible : '+(error&&error.message?error.message:'erreur réseau');}
  finally{autoFindVideoButton.disabled=false}
 };
