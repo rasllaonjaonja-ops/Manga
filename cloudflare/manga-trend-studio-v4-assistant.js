@@ -132,6 +132,47 @@ async function readBody(request) {
   }
 }
 
+
+// Recherche libre V4 : Google Actualités RSS (accès public, sans clé API).
+function decodeXml(value) {
+  return String(value || "")
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
+    .replace(/&amp;/g, "&").replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'").replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">").replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)));
+}
+function xmlTag(block, tag) {
+  const match = block.match(new RegExp("<" + tag + "(?:\\s[^>]*)?>([\\s\\S]*?)</" + tag + ">", "i"));
+  return match ? decodeXml(match[1]).trim() : "";
+}
+async function searchNews(query) {
+  const q = String(query || "").trim().slice(0, 120);
+  if (q.length < 2) throw new Error("Saisis un manga, un anime ou un sujet d'au moins 2 caractères.");
+  const rssUrl = new URL("https://news.google.com/rss/search");
+  rssUrl.searchParams.set("q", q + " manga anime");
+  rssUrl.searchParams.set("hl", "fr");
+  rssUrl.searchParams.set("gl", "FR");
+  rssUrl.searchParams.set("ceid", "FR:fr");
+  const response = await fetch(rssUrl.toString(), {
+    headers: { "Accept": "application/rss+xml, application/xml, text/xml" },
+    cf: { cacheTtl: 300, cacheEverything: true }
+  });
+  if (!response.ok) throw new Error("La recherche d'actualités est momentanément indisponible (HTTP " + response.status + ").");
+  const xml = await response.text();
+  const items = [...xml.matchAll(/<item(?:\\s[^>]*)?>([\\s\\S]*?)<\\/item>/gi)].slice(0, 10);
+  const results = items.map(match => {
+    const block = match[1];
+    return {
+      title: xmlTag(block, "title"),
+      url: xmlTag(block, "link"),
+      publishedAt: xmlTag(block, "pubDate"),
+      source: xmlTag(block, "source"),
+      description: xmlTag(block, "description").replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").slice(0, 500)
+    };
+  }).filter(item => item.title && item.url);
+  return { query: q, provider: "Google Actualités RSS", count: results.length, results };
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -151,7 +192,7 @@ export default {
         assistant: "Advanced Hybrid AI",
         model: MODEL,
         ai_binding: Boolean(env.AI),
-        routes: ["/health", "/test-ai", "/generate", "/assistant"],
+        routes: ["/health", "/test-ai", "/search", "/generate", "/assistant"],
       });
     }
 
@@ -172,6 +213,21 @@ export default {
         return json({ success: true, status: "ok", model: MODEL, response });
       } catch (error) {
         return json({ success: false, error: error.message || "Erreur IA." }, 500);
+      }
+    }
+
+
+    if (path === "/search" && (request.method === "GET" || request.method === "POST")) {
+      try {
+        let query = url.searchParams.get("q") || "";
+        if (request.method === "POST") {
+          const input = await readBody(request);
+          query = input.query || input.topic || "";
+        }
+        const result = await searchNews(query);
+        return json({ success: true, ...result, note: "Résultats issus d'un flux RSS de recherche. Ouvrir chaque source originale avant de confirmer les faits." });
+      } catch (error) {
+        return json({ success: false, error: error.message || "Erreur de recherche." }, 502);
       }
     }
 
@@ -228,7 +284,7 @@ export default {
     return json({
       success: false,
       error: "Route introuvable.",
-      available_routes: ["/", "/health", "/test-ai", "/generate", "/assistant"],
+      available_routes: ["/", "/health", "/test-ai", "/search", "/generate", "/assistant"],
     }, 404);
   },
 };
