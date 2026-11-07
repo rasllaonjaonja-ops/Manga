@@ -1,6 +1,6 @@
 /**
  * Manga Trend Studio V4 — Assistant IA Cloudflare
- * Worker indépendant : manga-trend-studio-v4-assistant
+ * Worker indépendant : manga-trend-studio-v4-assistant-2
  *
  * Binding requis :
  *   Workers AI -> variable name : AI
