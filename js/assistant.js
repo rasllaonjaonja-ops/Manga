@@ -29,6 +29,7 @@
     '<div id="at-ai-log" aria-live="polite"><div class="at-ai-msg bot">Bonjour ! Je suis ton copilote éditorial. Je peux analyser les actualités chargées, préparer et améliorer les textes, contrôler les sources, organiser les idées et t’aider avec les visuels. Je ne publie jamais sur Facebook. Ouvre le tutoriel ci-dessus pour apprendre à m’utiliser.</div></div>',
     '<div><div class="at-ai-shortcuts">',
     '<button data-prompt="Analyse les actualités du Radar visibles dans le Studio et classe les sujets à examiner. N’invente aucun fait.">Radar</button>',
+    '<button data-prompt="Recherche Internet : Dragon Ball Z. Trouve des actualités récentes, indique les médias et conserve les liens. Ne confirme aucun fait sans source originale.">Recherche Internet</button>',
     '<button data-prompt="Prépare une publication Facebook à partir de l’actualité sélectionnée et des sources présentes dans le Studio.">Rédiger</button>',
     '<button data-prompt="Contrôle la qualité du brouillon actuel : faits, sources, clarté, répétitions et hashtags.">Contrôle qualité</button>',
     '<button data-prompt="Propose une idée de visuel original et un prompt d’image lié au brouillon actuel.">Visuel</button>',
@@ -124,13 +125,25 @@
   }
   async function ask(message){
     addMessage(message,'user');input.value='';send.disabled=true;
-    const ctx=currentContext(),wait=addMessage('Analyse du contexte du Studio…','bot');
+    let ctx=currentContext(),wait=addMessage('Analyse du contexte du Studio…','bot'),searchCount=null;
     try{
+      const searchMode=/recherche internet|recherche libre|cherche sur internet|actualités récentes/i.test(message);
+      if(searchMode){
+        const query=(message.includes(':')?message.split(':').slice(1).join(':').trim():message.replace(/recherche internet|recherche libre|cherche sur internet|actualités récentes/ig,'').trim()).slice(0,120);
+        if(query.length<2)throw new Error('Précise le manga, l’anime ou le sujet à rechercher.');
+        wait.textContent='Recherche des actualités sur « '+query+' »…';
+        const sr=await fetch(workerBase()+'/search?q='+encodeURIComponent(query),{headers:{'Accept':'application/json'}});
+        const sd=await sr.json();
+        if(!sr.ok||sd.success!==true)throw new Error(sd.error||'La recherche Internet a échoué.');
+        searchCount=sd.count||0;
+        ctx={...ctx,webSearch:{query:sd.query,provider:sd.provider,count:searchCount,results:sd.results||[],notice:sd.note}};
+        wait.textContent='Recherche terminée : '+searchCount+' résultat(s). Vérification éditoriale en cours…';
+      }
       const response=await fetch(workerBase()+'/assistant',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({message,context:ctx,language:'fr',mode:'advanced'})});
       const raw=await response.text();let data={};try{data=raw?JSON.parse(raw):{}}catch(_){}
       if(!response.ok||data.success!==true||!data.answer)throw new Error(data.error||'La route Assistant IA ne renvoie pas de réponse exploitable (HTTP '+response.status+').');
       wait.textContent=data.answer;
-      const meta=document.createElement('div');meta.className='at-ai-meta';meta.textContent='Mode avancé · '+(data.provider||'moteur IA connecté')+(data.fallback?' · moteur de secours utilisé':'');wait.appendChild(meta);
+      const meta=document.createElement('div');meta.className='at-ai-meta';meta.textContent='Mode avancé · '+(data.provider||'moteur IA connecté')+(searchCount!==null?' · Recherche web : '+searchCount+' résultat(s)':'')+(data.fallback?' · moteur de secours utilisé':'');wait.appendChild(meta);
       addResponseActions(wait,data.answer);
     }catch(error){
       const answer=localAnswer(message,ctx);wait.textContent=answer;
