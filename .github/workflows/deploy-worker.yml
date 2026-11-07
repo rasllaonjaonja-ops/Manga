@@ -1,0 +1,36 @@
+name: Deploy Manga Trend Studio V4 AI Worker
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: manga-trend-studio-v4-ai-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Déployer le Worker IA V4
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer la branche V4
+        uses: actions/checkout@v4
+
+      - name: Déployer sur Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: cloudflare-ai
+          command: deploy
+
+      - name: Vérifier la route de santé
+        run: |
+          set -eu
+          BASE="https://wild-field-da5f.rasllaonjaonja.workers.dev"
+          curl --fail --silent "$BASE/health" -o /tmp/health.json
+          node -e "const x=require('/tmp/health.json'); if(!x.success || !x.assistant_route || !x.providers.cloudflare) process.exit(1); console.log('Health OK:', x.model)"
+          curl --fail --silent "$BASE/assistant" -o /tmp/assistant-route.json
+          node -e "const x=require('/tmp/assistant-route.json'); if(!x.success || x.route!=='/assistant' || x.method!=='POST') process.exit(1); console.log('Route /assistant détectée; sonde sans appel IA.')"
