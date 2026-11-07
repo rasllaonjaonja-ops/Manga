@@ -118,7 +118,7 @@
     actions.append(copy,transfer);element.appendChild(actions);
   }
   function workerBase(){
-    const db=read(STORE_KEY,{}),value=String(db.settings?.workerUrl||'https://wild-field-da5f.rasllaonjaonja.workers.dev').trim().replace(/\/+$/,'');
+    const db=read(STORE_KEY,{}),stored=String(db.settings?.workerUrl||'').trim(),value=( !stored || stored==='https://wild-field-da5f.rasllaonjaonja.workers.dev' ? 'https://manga-trend-studio-v4-assistant.rasllaonjaonja.workers.dev' : stored ).replace(/\/+$/,'');
     if(!/^https:\/\/[a-z0-9.-]+(?::\d+)?$/i.test(value))throw new Error('Adresse du Worker invalide. Vérifie Réglages.');
     return value;
   }
