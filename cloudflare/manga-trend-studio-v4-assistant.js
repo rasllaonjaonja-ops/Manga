@@ -142,7 +142,7 @@ function decodeXml(value) {
     .replace(/&gt;/g, ">").replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)));
 }
 function xmlTag(block, tag) {
-  const match = block.match(new RegExp("<" + tag + "(?:\\s[^>]*)?>([\\s\\S]*?)</" + tag + ">", "i"));
+  const match = block.match(new RegExp("<" + tag + "(?:\s[^>]*)?>([\s\S]*?)</" + tag + ">", "i"));
   return match ? decodeXml(match[1]).trim() : "";
 }
 async function searchNews(query) {
@@ -159,7 +159,7 @@ async function searchNews(query) {
   });
   if (!response.ok) throw new Error("La recherche d'actualités est momentanément indisponible (HTTP " + response.status + ").");
   const xml = await response.text();
-  const items = [...xml.matchAll(/<item(?:\\s[^>]*)?>([\\s\\S]*?)<\\/item>/gi)].slice(0, 10);
+  const items = [...xml.matchAll(/<item(?:\s[^>]*)?>([\s\S]*?)<\/item>/gi)].slice(0, 10);
   const results = items.map(match => {
     const block = match[1];
     return {
@@ -167,7 +167,7 @@ async function searchNews(query) {
       url: xmlTag(block, "link"),
       publishedAt: xmlTag(block, "pubDate"),
       source: xmlTag(block, "source"),
-      description: xmlTag(block, "description").replace(/<[^>]+>/g, " ").replace(/\\s+/g, " ").slice(0, 500)
+      description: xmlTag(block, "description").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").slice(0, 500)
     };
   }).filter(item => item.title && item.url);
   return { query: q, provider: "Google Actualités RSS", count: results.length, results };
