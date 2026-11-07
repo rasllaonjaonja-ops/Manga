@@ -35,7 +35,7 @@ function promptFor(topic, sources) {
 }
 async function cloudflare(prompt, env) {
   if (!env.AI || typeof env.AI.run !== "function") throw new Error("Workers AI non configuré (binding AI absent).");
-  const result = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
+  const result = await env.AI.run("@cf/meta/llama-3.1-8b-instruct-fp8", {
     messages: [
       { role: "system", content: "Tu es un rédacteur francophone spécialisé manga et anime. Respecte strictement les sources." },
       { role: "user", content: prompt }
@@ -104,11 +104,24 @@ export default {
           gemini: !!env.GEMINI_API_KEY
         },
         assistant_route: true,
+        assistant_method: "POST",
+        model: "@cf/meta/llama-3.1-8b-instruct-fp8",
         facebook_publishing: false,
         billing: "Aucun fournisseur payant configuré par ce Worker."
       });
     }
     const assistantRoute = url.pathname.endsWith("/assistant");
+    // Sonde sans consommation IA : distingue une route déployée d'une ancienne version.
+    if (request.method === "GET" && assistantRoute) {
+      return json({
+        success: true,
+        route: "/assistant",
+        method: "POST",
+        ready: !!env.AI,
+        service: "Anime Trend Studio V4 AI Gateway",
+        facebook_publishing: false
+      });
+    }
     if (request.method !== "POST" || (!url.pathname.endsWith("/generate") && !assistantRoute)) return json({ success: false, error: "Route inconnue." }, 404);
     const length = Number(request.headers.get("content-length") || 0);
     if (length > MAX_BODY) return json({ success: false, error: "Requête trop volumineuse." }, 413);
