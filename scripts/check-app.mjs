@@ -22,6 +22,7 @@ if (fs.existsSync("index.html") && fs.existsSync("js/app.js")) {
   if (!/<meta\s+charset=/i.test(html)) errors.push("Encodage charset absent de index.html.");
   if (!/css\/style\.css/i.test(html)) errors.push("La feuille css/style.css n'est pas référencée.");
   if (!/js\/app\.js/i.test(html)) errors.push("Le script js/app.js n'est pas référencé.");
+  if (!/js\/assistant\.js/i.test(html)) errors.push("Le script js/assistant.js n'est pas référencé.");
   if (/Anime Trend Studio 3\.0|ANIME TREND STUDIO V3/i.test(html)) errors.push("Une ancienne identité V3 est encore affichée dans index.html.");
   if (!css.includes("--font-size")) errors.push("La variable CSS --font-size est absente.");
 
@@ -60,7 +61,7 @@ if (fs.existsSync("index.html") && fs.existsSync("js/app.js")) {
   if (syntax.status !== 0) errors.push("Erreur de syntaxe JavaScript : " + (syntax.stderr || syntax.stdout).trim());
 }
 
-for (const file of ["scripts/collect-rss.mjs", "scripts/diagnostics.mjs", "scripts/check-app.mjs"]) {
+for (const file of ["js/assistant.js", "cloudflare-ai/worker.js", "scripts/collect-rss.mjs", "scripts/diagnostics.mjs", "scripts/check-app.mjs"]) {
   if (!fs.existsSync(file)) continue;
   const syntax = spawnSync(process.execPath, ["--check", file], { encoding: "utf8" });
   if (syntax.status !== 0) errors.push("Erreur de syntaxe dans " + file + " : " + (syntax.stderr || syntax.stdout).trim());
