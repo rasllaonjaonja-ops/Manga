@@ -11,5 +11,8 @@
     "test": "node --test tests/collect.test.mjs",
     "collect": "node scripts/collect-rss.mjs",
     "diagnostics": "node scripts/diagnostics.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "4.135.0"
   }
 }

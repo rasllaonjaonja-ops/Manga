@@ -1,0 +1,15 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "manga-ai-engine",
+  "main": "./manga-trend-studio-v4-assistant.js",
+  "compatibility_date": "2026-11-07",
+  "workers_dev": true,
+  "ai": {
+    "binding": "AI"
+  },
+  "previews": {
+    "ai": {
+      "binding": "AI"
+    }
+  }
+}
