@@ -1,84 +1,148 @@
-/* ANIME TREND V4 — assistant hybride global */
+/* ANIME TREND V4 — assistant éditorial avancé */
 (() => {
   'use strict';
-  const KEY='animeTrendAssistantMemoryV1';
+  if (window.AnimeTrendAssistant) return;
+  const MEMORY_KEY='animeTrendAssistantMemoryV2', STORE_KEY='animeTrendStudio.v2';
   const $=(s,r=document)=>r.querySelector(s);
-  const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const read=(k,fallback)=>{try{return JSON.parse(localStorage.getItem(k))??fallback}catch(_){return fallback}};
-  const write=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(_){}};
-  const memory=read(KEY,[]);
-  const style=`
-  #at-ai-launch{position:fixed;right:18px;bottom:18px;z-index:9998;border:0;border-radius:999px;padding:13px 17px;background:linear-gradient(135deg,#5b55df,#168fcb);color:#fff;font-weight:800;box-shadow:0 8px 28px #1e3a8a55;cursor:pointer}
-  #at-ai-panel{position:fixed;z-index:9999;right:16px;bottom:78px;width:min(420px,calc(100vw - 24px));height:min(620px,calc(100dvh - 110px));display:none;grid-template-rows:auto 1fr auto;background:var(--card,#fff);color:var(--text,#172033);border:1px solid var(--line,#d9e1ef);border-radius:18px;box-shadow:0 18px 60px #0b173744;overflow:hidden}
-  #at-ai-panel.open{display:grid}
-  .at-ai-head{padding:13px 15px;background:#151c36;color:white;display:flex;align-items:center;justify-content:space-between;gap:10px}
-  .at-ai-head strong{display:block}.at-ai-head small{color:#c8d3f4}
-  .at-ai-head button{border:0;background:#ffffff20;color:white;border-radius:9px;padding:7px 10px;cursor:pointer}
-  #at-ai-log{padding:13px;overflow:auto;display:flex;flex-direction:column;gap:10px;background:var(--bg,#f5f7fc)}
-  .at-ai-msg{max-width:92%;padding:10px 12px;border-radius:13px;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}
-  .at-ai-msg.bot{align-self:flex-start;background:var(--card,#fff);border:1px solid var(--line,#dce3ef)}
-  .at-ai-msg.user{align-self:flex-end;background:#e8edff;color:#172554}
-  .at-ai-meta{font-size:10px;color:var(--muted,#69758b);margin-top:4px}
-  .at-ai-composer{padding:11px;border-top:1px solid var(--line,#dce3ef);display:grid;grid-template-columns:1fr auto;gap:8px;background:var(--card,#fff)}
-  #at-ai-input{width:100%;min-height:44px;max-height:110px;resize:vertical;border:1px solid var(--line,#cbd5e1);border-radius:11px;padding:10px;font:inherit;font-size:13px;background:var(--bg,#fff);color:inherit}
-  #at-ai-send{border:0;border-radius:11px;padding:0 14px;background:#4658d8;color:white;font-weight:800;cursor:pointer}
-  .at-ai-shortcuts{display:flex;gap:6px;overflow:auto;padding:8px 11px;background:var(--card,#fff);border-top:1px solid var(--line,#e2e8f0)}
-  .at-ai-shortcuts button{white-space:nowrap;border:1px solid var(--line,#dce3ef);border-radius:20px;padding:6px 9px;background:transparent;color:inherit;font-size:11px}
-  @media(max-width:600px){#at-ai-launch{right:12px;bottom:12px}#at-ai-panel{right:8px;bottom:68px;width:calc(100vw - 16px);height:min(72dvh,620px)}}
-  `;
-  const css=document.createElement('style');css.textContent=style;document.head.appendChild(css);
-  const panel=document.createElement('section');panel.id='at-ai-panel';panel.setAttribute('aria-label','Assistant intelligent Anime Trend');
-  panel.innerHTML='<header class="at-ai-head"><div><strong>✦ ANIME TREND AI</strong><small>Assistant hybride · tous les modules</small></div><button type="button" id="at-ai-close" aria-label="Fermer">✕</button></header><div id="at-ai-log" aria-live="polite"><div class="at-ai-msg bot">Bonjour ! Je suis ton assistant de studio. Décris ce que tu veux préparer : actualité, rédaction, visuel, vidéo, médiathèque, calendrier ou diagnostic. Je peux utiliser le moteur local ou le Worker IA configuré.</div></div><div><div class="at-ai-shortcuts"><button data-prompt="Analyse les actualités disponibles et propose les sujets prioritaires.">Radar</button><button data-prompt="Prépare une publication Facebook à partir du sujet sélectionné.">Rédiger</button><button data-prompt="Aide-moi à préparer les visuels de la publication.">Visuels</button><button data-prompt="Fais un contrôle qualité de mon contenu actuel.">Contrôle</button></div><form class="at-ai-composer" id="at-ai-form"><textarea id="at-ai-input" rows="2" placeholder="Écris une instruction…"></textarea><button id="at-ai-send" type="submit">Envoyer</button></form></div>';
+  const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k))??d}catch(_){return d}};
+  const write=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v));return true}catch(_){return false}};
+  const clean=v=>String(v??'').trim().slice(0,1600);
+  const unique=items=>[...new Map(items.filter(x=>x&&x.title).map(x=>[String(x.url||x.title).toLowerCase(),x])).values()];
+  const style=document.createElement('style');
+  style.textContent=[
+    '#at-ai-launch{position:fixed;right:18px;bottom:18px;z-index:9998;border:0;border-radius:999px;padding:13px 17px;background:linear-gradient(135deg,#514bd2,#167eb8);color:#fff;font-weight:800;box-shadow:0 8px 28px #1e3a8a55;cursor:pointer}',
+    '#at-ai-panel{position:fixed;z-index:9999;right:16px;bottom:78px;width:min(440px,calc(100vw - 24px));height:min(680px,calc(100dvh - 110px));display:none;grid-template-rows:auto 1fr auto;background:var(--card,#fff);color:var(--text,#172033);border:1px solid var(--line,#d9e1ef);border-radius:18px;box-shadow:0 18px 60px #0b173744;overflow:hidden}',
+    '#at-ai-panel.open{display:grid}.at-ai-head{padding:13px 15px;background:#151c36;color:white;display:flex;align-items:center;justify-content:space-between;gap:10px}.at-ai-head strong{display:block}.at-ai-head small{color:#c8d3f4}.at-ai-head button{border:0;background:#ffffff20;color:white;border-radius:9px;padding:7px 10px;cursor:pointer}',
+    '#at-ai-log{padding:13px;overflow:auto;display:flex;flex-direction:column;gap:10px;background:var(--bg,#f5f7fc)}.at-ai-msg{max-width:96%;padding:10px 12px;border-radius:13px;font-size:13px;line-height:1.55;white-space:pre-wrap;overflow-wrap:anywhere}.at-ai-msg.bot{align-self:flex-start;background:var(--card,#fff);border:1px solid var(--line,#dce3ef)}.at-ai-msg.user{align-self:flex-end;background:#e8edff;color:#172554}.at-ai-meta{font-size:10px;color:var(--muted,#69758b);margin-top:5px}',
+    '.at-ai-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}.at-ai-actions button{border:1px solid #cbd5e1;border-radius:8px;padding:7px 9px;background:#f8fafc;color:#24324a;font-size:11px;font-weight:700;cursor:pointer}',
+    '.at-ai-composer{padding:11px;border-top:1px solid var(--line,#dce3ef);display:grid;grid-template-columns:1fr auto;gap:8px;background:var(--card,#fff)}#at-ai-input{width:100%;min-height:46px;max-height:120px;resize:vertical;border:1px solid var(--line,#cbd5e1);border-radius:11px;padding:10px;font:inherit;font-size:13px;background:var(--bg,#fff);color:inherit}#at-ai-send{border:0;border-radius:11px;padding:0 14px;background:#4658d8;color:white;font-weight:800;cursor:pointer}#at-ai-send:disabled{opacity:.55;cursor:wait}',
+    '.at-ai-shortcuts{display:flex;gap:6px;overflow:auto;padding:8px 11px;background:var(--card,#fff);border-top:1px solid var(--line,#e2e8f0)}.at-ai-shortcuts button{white-space:nowrap;border:1px solid var(--line,#dce3ef);border-radius:20px;padding:6px 9px;background:transparent;color:inherit;font-size:11px;cursor:pointer}',
+    '@media(max-width:600px){#at-ai-launch{right:12px;bottom:12px}#at-ai-panel{right:8px;bottom:68px;width:calc(100vw - 16px);height:min(76dvh,680px)}}'
+  ].join('');
+  document.head.appendChild(style);
+  const panel=document.createElement('section');
+  panel.id='at-ai-panel';panel.setAttribute('aria-label','Assistant éditorial avancé Anime Trend');
+  panel.innerHTML=[
+    '<header class="at-ai-head"><div><strong>✦ ANIME TREND AI</strong><small>Assistant éditorial avancé · V4</small></div><button type="button" id="at-ai-close" aria-label="Fermer">✕</button></header>',
+    '<div id="at-ai-log" aria-live="polite"><div class="at-ai-msg bot">Bonjour ! Je suis ton copilote éditorial. Je peux analyser les actualités chargées, préparer et améliorer les textes, contrôler les sources, organiser les idées et t’aider avec les visuels. Je ne publie jamais sur Facebook.</div></div>',
+    '<div><div class="at-ai-shortcuts">',
+    '<button data-prompt="Analyse les actualités du Radar visibles dans le Studio et classe les sujets à examiner. N’invente aucun fait.">Radar</button>',
+    '<button data-prompt="Prépare une publication Facebook à partir de l’actualité sélectionnée et des sources présentes dans le Studio.">Rédiger</button>',
+    '<button data-prompt="Contrôle la qualité du brouillon actuel : faits, sources, clarté, répétitions et hashtags.">Contrôle qualité</button>',
+    '<button data-prompt="Propose une idée de visuel original et un prompt d’image lié au brouillon actuel.">Visuel</button>',
+    '<button data-prompt="Aide-moi à organiser les publications du jour sans créer de faits d’actualité.">Planning</button>',
+    '</div><form class="at-ai-composer" id="at-ai-form"><textarea id="at-ai-input" rows="2" maxlength="4000" placeholder="Écris une instruction…"></textarea><button id="at-ai-send" type="submit">Envoyer</button></form></div>'
+  ].join('');
   document.body.appendChild(panel);
-  const launch=document.createElement('button');launch.id='at-ai-launch';launch.type='button';launch.textContent='✦ Assistant IA';document.body.appendChild(launch);
-  const log=$('#at-ai-log'),input=$('#at-ai-input'),form=$('#at-ai-form');
-  function add(text,who='bot',meta=''){const el=document.createElement('div');el.className='at-ai-msg '+who;el.textContent=text;if(meta){const m=document.createElement('div');m.className='at-ai-meta';m.textContent=meta;el.appendChild(m)}log.appendChild(el);log.scrollTop=log.scrollHeight;return el}
-  function attachTransfer(el,text){const b=document.createElement('button');b.type='button';b.textContent='Utiliser cette réponse dans l’Atelier';b.style.cssText='display:block;margin-top:9px;padding:7px 10px;border:1px solid #b9d8c8;border-radius:8px;background:#eefaf4;color:#176b48;font-size:11px;font-weight:700;cursor:pointer';b.addEventListener('click',()=>{const field=$('#postResult');if(field){field.value=text;field.dispatchEvent(new Event('input',{bubbles:true}));const preview=$('#postPreview');if(preview)preview.textContent=text;const nav=document.querySelector('[data-page="create"]');if(nav)nav.click();b.textContent='Transféré dans l’Atelier';}else b.textContent='Champ de rédaction introuvable';});el.appendChild(b)}
+  const launch=document.createElement('button');launch.id='at-ai-launch';launch.type='button';launch.textContent='✦ Assistant IA';launch.setAttribute('aria-label','Ouvrir l’assistant IA avancé');document.body.appendChild(launch);
+  const log=$('#at-ai-log'),input=$('#at-ai-input'),form=$('#at-ai-form'),send=$('#at-ai-send');
+  const memory=read(MEMORY_KEY,[]);
+  function addMessage(content,who='bot',meta=''){
+    const el=document.createElement('div');el.className='at-ai-msg '+who;el.textContent=content;
+    if(meta){const m=document.createElement('div');m.className='at-ai-meta';m.textContent=meta;el.appendChild(m)}
+    log.appendChild(el);log.scrollTop=log.scrollHeight;return el;
+  }
+  function collectVisibleNews(){
+    const found=[];
+    ['#topNewsList','#newsList','#homeNews','#savedNewsList'].forEach(selector=>{
+      const root=$(selector);if(!root)return;
+      root.querySelectorAll('a[href],article,.news-card,.news-item,.trend-card').forEach(card=>{
+        const link=card.matches('a[href]')?card:$('a[href]',card);
+        const title=clean(link?.textContent||card.querySelector('h3,h4,strong')?.textContent||card.textContent);
+        if(title.length>8)found.push({title,url:link?.href||'',source:clean(card.querySelector('small,.muted')?.textContent||'')});
+      });
+    });
+    return unique(found).slice(0,12);
+  }
   function currentContext(){
-    const page=$('.page.active');const title=$('#title')?.textContent||page?.querySelector('h2')?.textContent||'Studio';
-    const stored=read('animeTrendStudio.v2',{});const news=Array.isArray(stored.news)?stored.news:[];const headlines=news.slice(0,12).map(n=>({title:n.title,url:n.url,source:n.source}));
-    const topic=$('#postTopic')?.value||$('#pipelineTopic')?.value||'';
-    const draft=$('#postResult')?.value||$('#pipelineWritingText')?.value||'';
-    return {module:title,headlines,topic,draft:draft.slice(0,5000),history:memory.slice(-6)};
+    const db=read(STORE_KEY,{}),posts=Array.isArray(db.posts)?db.posts:[],saved=Array.isArray(db.news)?db.news:[];
+    const selectedId=$('#artPostSelect')?.value||'',selected=posts.find(p=>String(p.id)===String(selectedId))||null;
+    const visible=collectVisibleNews();
+    const headlines=unique(visible.concat(saved.slice(0,12).map(n=>({title:n.title,url:n.url,source:n.source,summary:n.summary})))).slice(0,12);
+    return {
+      brand:'Manga, Animé et Actualités',
+      module:clean($('#title')?.textContent||$('.page.active h2')?.textContent||'Studio'),
+      pageName:clean(db.settings?.pageName||'Manga, Animé et Actualités'),
+      topic:clean(selected?.title||$('#postTopic')?.value||$('#artTitle')?.value||''),
+      selectedPost:selected?{title:selected.title,status:selected.status,sourceUrl:selected.sourceUrl,sourceName:selected.sourceName,workflowStage:selected.workflowStage}:null,
+      draft:clean(selected?.text||$('#artCaption')?.value||$('#postResult')?.value||'').slice(0,5000),
+      headlines,
+      savedNews:saved.slice(0,8).map(n=>({title:n.title,source:n.source,url:n.url,summary:n.summary,verified:n.verified===true})),
+      postCounts:{total:posts.length,drafts:posts.filter(p=>p.status==='Brouillon').length,toCheck:posts.filter(p=>p.status==='À vérifier').length,ready:posts.filter(p=>p.status==='Prêt').length,manuallyPublished:posts.filter(p=>p.status==='Publié manuellement').length},
+      dailyDrafts:posts.filter(p=>p.dailyDate===new Date().toISOString().slice(0,10)).slice(0,4).map(p=>({title:p.title,status:p.status,dailySlot:p.dailySlot})),
+      recentHistory:memory.slice(-5).map(x=>({message:x.message,answer:x.answer}))
+    };
+  }
+  function navigateForRequest(message){
+    const m=message.toLowerCase(),rules=[
+      [/radar|actualité|actualités|source/,'radar'],
+      [/rédig|publication|post|texte|visuel|image|vidéo|capture|médiathèque/,'visual'],
+      [/calendrier|planning|planifier/,'calendar'],
+      [/github|workflow|erreur|diagnostic/,'automation'],
+      [/réglage|paramètre|sauvegarde/,'settings'],
+      [/suivi|publications faites|contenus enregistrés/,'publications']
+    ],hit=rules.find(x=>x[0].test(m));
+    if(hit){const nav=$('[data-page="'+hit[1]+'"]');if(nav)nav.click();else $('[data-go="'+hit[1]+'"]')?.click()}
   }
   function localAnswer(message,ctx){
     const m=message.toLowerCase();
-    const routes=[['radar|actualité|actualités|source','radar'],['rédig|publication|post|texte|commentaire','visual'],['visuel|image|vidéo|capture|médiathèque','visual'],['calendrier|planning','calendar'],['github|workflow|erreur|diagnostic','automation'],['réglage|paramètre|sauvegarde','settings'],['publication.*suivi|contenus enregistrés','publications']];
-    const hit=routes.find(([re])=>new RegExp(re,'i').test(m));
-    if(hit){const target=hit[1];const nav=document.querySelector('[data-page="'+target+'"]');if(nav)nav.click();else{const go=document.querySelector('[data-go="'+target+'"]');if(go)go.click()}}
-    if(/analyse|résume|priorit|tendance/.test(m)&&ctx.headlines.length){
-      return 'Analyse locale du radar ('+ctx.headlines.length+' titres disponibles) :\n'+ctx.headlines.slice(0,5).map((n,i)=>(i+1)+'. '+(n.title||'Titre indisponible')+(n.source?' — '+n.source:'')).join('\n')+'\n\nOuvre les sources originales pour vérifier les faits avant publication. Le moteur local ne lit pas automatiquement le contenu intégral des articles.';
-    }
-    if(/rédig|publication|écris|compose|post/.test(m)){
-      const subject=ctx.topic||ctx.headlines[0]?.title||'actualité manga ou anime à préciser';
-      const text='✨ '+subject+'\n\nUn nouveau sujet mérite notre attention dans l’univers manga et anime. Prenons le temps de distinguer les informations confirmées des rumeurs et de consulter la source originale avant de partager.\n\nEt vous, qu’en pensez-vous ? Dites-le-nous en commentaire !\n\n#Manga #Anime #ActualitésAnime';
-      const field=$('#postResult');if(field){field.value=text;field.dispatchEvent(new Event('input',{bubbles:true}))}
-      return 'Voici un brouillon local à vérifier et personnaliser :\n\n'+text+'\n\nCe brouillon est volontairement prudent : ajoute une source vérifiée et les faits précis pour obtenir une publication informative.';
+    if(/analyse|résume|priorit|tendance|radar/.test(m)){
+      if(!ctx.headlines.length)return 'Je ne vois aucun titre du Radar dans le contexte chargé. Ouvre Actualités · Radar et actualise les données, puis relance l’analyse. Je ne vais pas inventer de sujets.';
+      return 'Éléments visibles dans le Radar ('+ctx.headlines.length+') :\n'+ctx.headlines.slice(0,8).map((n,i)=>(i+1)+'. '+n.title+(n.source?' — '+n.source:'')+(n.url?'\n   '+n.url:'')).join('\n')+'\n\nLimite : le mode local lit les titres et extraits affichés, pas le contenu intégral des articles. Ouvre les sources originales avant de présenter les faits comme confirmés.';
     }
     if(/contrôle|qualité|corrig|vérifi/.test(m)){
-      const draft=ctx.draft;
-      if(!draft)return 'Je ne trouve pas de texte dans le champ de rédaction actuel. Ouvre le Studio complet, ajoute ton brouillon, puis demande-moi de le contrôler.';
-      const checks=['Présence d’un sujet clair : '+(draft.length>40?'oui':'à renforcer'),'Question communautaire : '+(/[?]/.test(draft)?'présente':'à ajouter'),'Hashtags : '+(/#\w+/.test(draft)?'présents':'facultatifs, à ajouter si pertinents'),'Sources : '+(ctx.headlines.length?'titres du radar disponibles, vérifier les sources originales':'aucune source radar détectée')];
-      return 'Contrôle local préliminaire :\n• '+checks.join('\n• ')+'\n\nCe contrôle ne confirme pas l’exactitude factuelle. Vérifie noms, dates, chiffres et droits des visuels.';
+      if(!ctx.draft)return 'Je ne trouve pas de brouillon chargé. Ouvre le Studio complet, sélectionne une publication et charge-la avant le contrôle.';
+      const checks=['Sujet identifiable : '+(ctx.draft.length>45?'oui':'à développer'),'Question finale : '+(/\?/.test(ctx.draft)?'présente':'à envisager'),'Hashtags : '+(/#\w+/.test(ctx.draft)?'présents':'à ajouter seulement s’ils sont pertinents'),'Source liée : '+(ctx.selectedPost?.sourceUrl||'non détectée dans la publication sélectionnée'),'Exactitude factuelle : vérification humaine nécessaire'];
+      return 'Contrôle structurel local :\n• '+checks.join('\n• ')+'\n\nJe n’ai pas vérifié les faits auprès des médias. Compare les noms, dates et chiffres à la source originale.';
     }
-    return 'Je peux déjà agir localement : ouvrir le bon module, analyser les titres chargés, préparer un brouillon prudent et effectuer un contrôle de structure. Pour une rédaction plus riche, configure l’adresse du Worker dans Réglages. Sans Worker, je ne prétends pas effectuer une génération par modèle IA.';
+    if(/visuel|image/.test(m)){
+      const subject=ctx.topic||ctx.headlines[0]?.title;
+      if(!subject)return 'Choisis d’abord une actualité ou un brouillon dans le Studio. Je pourrai ensuite préparer un concept visuel et un prompt adapté.';
+      return 'Concept visuel à préparer pour : '+subject+'\n\nCréer une composition originale au format Facebook 4:5, avec un sujet principal lisible, un arrière-plan cohérent, un espace réservé au titre et la signature « MANGA, ANIMÉ ET ACTUALITÉS ». Évite les logos non autorisés et les personnages déformés.\n\nLe mode local ne génère pas lui-même l’image. Utilise les outils de création d’image du Studio puis importe le résultat.';
+    }
+    return 'Mode local disponible. Je peux lire les titres et brouillons chargés, ouvrir le module adapté et effectuer un contrôle de structure. Pour une analyse et une rédaction IA avancées, le Worker doit répondre sur sa route /assistant. Sans connexion, je ne prétends pas utiliser un modèle IA.';
+  }
+  function addResponseActions(element,answer){
+    const actions=document.createElement('div');actions.className='at-ai-actions';
+    const copy=document.createElement('button');copy.type='button';copy.textContent='Copier la réponse';
+    copy.addEventListener('click',async()=>{try{await navigator.clipboard.writeText(answer);copy.textContent='Copié ✓'}catch(_){copy.textContent='Copie indisponible'}});
+    const transfer=document.createElement('button');transfer.type='button';transfer.textContent='Utiliser dans le Studio';
+    transfer.addEventListener('click',()=>{
+      const target=$('#artCaption')||$('#postResult');if(!target){transfer.textContent='Champ introuvable';return}
+      target.value=answer;target.dispatchEvent(new Event('input',{bubbles:true}));target.dispatchEvent(new Event('change',{bubbles:true}));
+      if(target.id==='postResult'&&$('#postPreview'))$('#postPreview').textContent=answer;
+      transfer.textContent='Texte transféré ✓';$('[data-page="visual"]')?.click();
+    });
+    actions.append(copy,transfer);element.appendChild(actions);
+  }
+  function workerBase(){
+    const db=read(STORE_KEY,{}),value=String(db.settings?.workerUrl||'https://wild-field-da5f.rasllaonjaonja.workers.dev').trim().replace(/\/+$/,'');
+    if(!/^https:\/\/[a-z0-9.-]+(?::\d+)?$/i.test(value))throw new Error('Adresse du Worker invalide. Vérifie Réglages.');
+    return value;
   }
   async function ask(message){
-    add(message,'user');input.value='';const ctx=currentContext();const wait=add('Je traite ta demande…','bot');
-    const stored=read('animeTrendStudio.v2',{});const worker=(stored.settings||{}).workerUrl||$('#workerUrl')?.value||'';
+    addMessage(message,'user');input.value='';send.disabled=true;
+    const ctx=currentContext(),wait=addMessage('Analyse du contexte du Studio…','bot');
     try{
-      if(worker){
-        const response=await fetch(worker.replace(/\/$/,'')+'/assistant',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({message,context:ctx,language:'fr'})});
-        const data=await response.json();if(!response.ok||!data.success)throw new Error(data.error||'Service IA indisponible');
-        wait.textContent=data.answer||data.article||'Réponse vide';const meta='IA : '+(data.provider||'connectée')+(data.fallback?' · basculement effectué':'');const m=document.createElement('div');m.className='at-ai-meta';m.textContent=meta;wait.appendChild(m);attachTransfer(wait,wait.textContent);
-      }else{wait.textContent=localAnswer(message,ctx);const m=document.createElement('div');m.className='at-ai-meta';m.textContent='Mode local · configure le Worker pour activer les modèles IA';wait.appendChild(m)}
-    }catch(error){wait.textContent=localAnswer(message,ctx)+'\n\nConnexion IA : '+String(error.message||error)+'. Le mode local reste disponible.'}
-    memory.push({at:new Date().toISOString(),message,answer:wait.textContent.slice(0,1200)});while(memory.length>30)memory.shift();write(KEY,memory);
+      const response=await fetch(workerBase()+'/assistant',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({message,context:ctx,language:'fr',mode:'advanced'})});
+      const raw=await response.text();let data={};try{data=raw?JSON.parse(raw):{}}catch(_){}
+      if(!response.ok||data.success!==true||!data.answer)throw new Error(data.error||'La route Assistant IA ne renvoie pas de réponse exploitable (HTTP '+response.status+').');
+      wait.textContent=data.answer;
+      const meta=document.createElement('div');meta.className='at-ai-meta';meta.textContent='Mode avancé · '+(data.provider||'moteur IA connecté')+(data.fallback?' · moteur de secours utilisé':'');wait.appendChild(meta);
+      addResponseActions(wait,data.answer);
+    }catch(error){
+      const answer=localAnswer(message,ctx);wait.textContent=answer;
+      const meta=document.createElement('div');meta.className='at-ai-meta';meta.textContent='Mode local de secours · '+String(error.message||error).slice(0,180);wait.appendChild(meta);
+      addResponseActions(wait,answer);
+    }finally{
+      memory.push({at:new Date().toISOString(),message,answer:wait.textContent.slice(0,1200)});
+      while(memory.length>30)memory.shift();write(MEMORY_KEY,memory);send.disabled=false;input.focus();
+    }
   }
   launch.addEventListener('click',()=>{panel.classList.toggle('open');if(panel.classList.contains('open'))input.focus()});
   $('#at-ai-close').addEventListener('click',()=>panel.classList.remove('open'));
-  form.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();if(v)ask(v)});
-  panel.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.prompt;input.focus()}));
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')panel.classList.remove('open')});
-  window.AnimeTrendAssistant={open:()=>panel.classList.add('open'),ask};
+  form.addEventListener('submit',event=>{event.preventDefault();const value=input.value.trim();if(value){navigateForRequest(value);ask(value)}});
+  panel.querySelectorAll('[data-prompt]').forEach(button=>button.addEventListener('click',()=>{input.value=button.dataset.prompt;input.focus()}));
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')panel.classList.remove('open')});
+  window.AnimeTrendAssistant={open:()=>panel.classList.add('open'),ask,getContext:currentContext};
 })();
