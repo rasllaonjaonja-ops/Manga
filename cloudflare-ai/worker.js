@@ -91,7 +91,41 @@ async function openrouter(prompt, env) {
   if (!text) throw new Error("OpenRouter a renvoyé une réponse vide.");
   return { provider: "openrouter", text };
 }
+const RADAR_REPOSITORY = "rasllaonjaonja-ops/Manga";
+const RADAR_WORKFLOW = "radar.yml";
+const RADAR_BRANCH = "manga-trend-studio-v4-work";
+
+// Déclenche le workflow existant sur la branche V4 sans modifier main ni V3.
+// Le jeton est un secret Cloudflare nommé GITHUB_TOKEN (jamais une variable publique).
+async function dispatchRadar(env) {
+  if (!env.GITHUB_TOKEN) throw new Error("Secret GITHUB_TOKEN absent du Worker.");
+  const endpoint = "https://api.github.com/repos/" + RADAR_REPOSITORY +
+    "/actions/workflows/" + RADAR_WORKFLOW + "/dispatches";
+  const response = await fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Accept": "application/vnd.github+json",
+      "Authorization": "Bearer " + env.GITHUB_TOKEN,
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "Anime-Trend-Studio-V4",
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ ref: RADAR_BRANCH })
+  });
+  if (response.status !== 204) {
+    const detail = (await response.text()).slice(0, 500);
+    throw new Error("GitHub workflow_dispatch HTTP " + response.status + (detail ? " : " + detail : ""));
+  }
+  console.log("Radar V4 déclenché avec succès sur " + RADAR_BRANCH + ".");
+}
+
 export default {
+  async scheduled(controller, env, ctx) {
+    ctx.waitUntil(dispatchRadar(env).catch(error => {
+      console.error("Échec du déclenchement automatique du Radar V4 :", error.message);
+      throw error;
+    }));
+  },
   async fetch(request, env) {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: CORS });
     const url = new URL(request.url);
