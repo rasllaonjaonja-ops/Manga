@@ -9,3 +9,7 @@ binding = "AI"
 SITE_URL = "https://rasllaonjaonja-ops.github.io/Manga/"
 # Gemini et OpenRouter sont facultatifs. Ajouter leurs clés comme secrets,
 # jamais dans ce fichier ni dans le code HTML.
+
+[triggers]
+crons = ["0 */5 * * *"]
+
