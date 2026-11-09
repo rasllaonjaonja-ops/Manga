@@ -1,6 +1,16 @@
 {
   "runs": [
     {
+      "runAt": "2026-11-09T05:33:57.040Z",
+      "durationSeconds": 1,
+      "status": "ok",
+      "sourcesTotal": 3,
+      "sourcesOk": 3,
+      "articlesFound": 70,
+      "articlesKept": 70,
+      "errors": []
+    },
+    {
       "runAt": "2026-11-08T23:30:22.191Z",
       "durationSeconds": 1,
       "status": "ok",
