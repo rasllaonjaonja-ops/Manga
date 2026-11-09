@@ -56,6 +56,9 @@
     });
     return unique(found).slice(0,12);
   }
+  function localDayKey(date=new Date()){
+    return date.getFullYear()+'-'+String(date.getMonth()+1).padStart(2,'0')+'-'+String(date.getDate()).padStart(2,'0');
+  }
   function currentContext(){
     const db=read(STORE_KEY,{}),posts=Array.isArray(db.posts)?db.posts:[],saved=Array.isArray(db.news)?db.news:[];
     const selectedId=$('#artPostSelect')?.value||'',selected=posts.find(p=>String(p.id)===String(selectedId))||null;
@@ -71,18 +74,18 @@
       headlines,
       savedNews:saved.slice(0,8).map(n=>({title:n.title,source:n.source,url:n.url,summary:n.summary,verified:n.verified===true})),
       postCounts:{total:posts.length,drafts:posts.filter(p=>p.status==='Brouillon').length,toCheck:posts.filter(p=>p.status==='À vérifier').length,ready:posts.filter(p=>p.status==='Prêt').length,manuallyPublished:posts.filter(p=>p.status==='Publié manuellement').length},
-      dailyDrafts:posts.filter(p=>p.dailyDate===new Date().toISOString().slice(0,10)).slice(0,4).map(p=>({title:p.title,status:p.status,dailySlot:p.dailySlot})),
+      dailyDrafts:posts.filter(p=>p.dailyDate===localDayKey()).slice(0,4).map(p=>({title:p.title,status:p.status,dailySlot:p.dailySlot})),
       recentHistory:memory.slice(-5).map(x=>({message:x.message,answer:x.answer}))
     };
   }
   function navigateForRequest(message){
     const m=message.toLowerCase(),rules=[
+      [/suivi|publications faites|contenus enregistrés|liste des publications|publications? (?:faites|enregistrées|projet|publiées)/,'publications'],
       [/radar|actualité|actualités|source/,'radar'],
-      [/rédig|publication|post|texte|visuel|image|vidéo|capture|médiathèque/,'visual'],
       [/calendrier|planning|planifier/,'calendar'],
       [/github|workflow|erreur|diagnostic/,'automation'],
       [/réglage|paramètre|sauvegarde/,'settings'],
-      [/suivi|publications faites|contenus enregistrés/,'publications']
+      [/rédig|publication|post|texte|visuel|image|vidéo|capture|médiathèque/,'visual']
     ],hit=rules.find(x=>x[0].test(m));
     if(hit){const nav=$('[data-page="'+hit[1]+'"]');if(nav)nav.click();else $('[data-go="'+hit[1]+'"]')?.click()}
   }
