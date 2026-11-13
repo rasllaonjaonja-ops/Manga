@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-12T18:00:29.011Z",
+  "updatedAt": "2026-11-13T00:57:51.233Z",
   "count": 70,
   "items": [
     {
@@ -9,7 +9,7 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-12T09:32:05.000Z",
       "summary": "Production company Asmik Ace opened an official website for a television anime adaptation of Juntarou Aoki and Shin Moriyama&#039;s Nabe ni Tama wo Ukenagara (Getting Shots on Frying Pan) manga on Thursday, revealing the main cast, staff, and a teaser promotional video. Produced by J.C.Staff, the anime is scheduled to premiere on Nippon TV, Yomiuri TV, BS Nippon TV, and AT-X in January 2027. Voice actors Shuu Uchida (Yarinaoshi Reijou wa Ryuutei Heika wo Kouryakuchuu) and Masaaki Mizunaka (Nyai.",
-      "score": 24.3
+      "score": 23.7
     },
     {
       "id": "b5ab7a41891dc322de275c509234f577e83ed93b",
@@ -18,7 +18,7 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-12T10:32:45.000Z",
       "summary": "The official website for the television anime adaptation of Tetsu Kariya&#039;s Oishinbo manga, titled Shin Oishinbo, announced a supporting pair of cast on Thursday. The anime is scheduled to premiere in 2027. Voice actors Kenji Yamauchi (Toujima Tanzaburou wa Kamen Rider ni Naritai) and Ken Uo (Nazotoki wa Dinner no Ato de) are joining the anime as Mantarou Kyougoku and Toujin Touyama, respectively. Kenichi Nishida (Sayounara Ryuusei, Konnichiwa Jinsei) is directing the anime at SynergySP and.",
-      "score": 23.4
+      "score": 22.8
     },
     {
       "id": "14e7c13d466bd546d5bba14fd254e821f761f92e",
@@ -27,7 +27,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T11:19:59.000Z",
       "summary": "Le manga Nabe ni Tama wo Ukenagara adapté en anime + Teaser Vidéo &nbsp;&nbsp; Adala News",
-      "score": 20.4
+      "score": 19.9
     },
     {
       "id": "3245aac2b928916945e7238f503b8bcdcd8b77d6",
@@ -36,7 +36,7 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-11T09:24:46.000Z",
       "summary": "Production company Pony Canyon opened an official website for a television anime adaptation of Tomoko Ninomiya&#039;s Nanatsuya: Shinobu no Housekibako (Nanatsu-ya: Shinobou and Her Jewelry Box) on Wednesday, revealing the main staff, teaser visual (pictured), and teaser promotional video. The anime will premiere in 2027. Staff Director: Chiaki Kon (Golden Time, Niehime to Kemono no Ou) Series Composition: Seishi Minakami (Sugar Apple Fairy Tale) Character Design: Mai Furuki (Mewkledreamy) Studi",
-      "score": 20.3
+      "score": 19.7
     },
     {
       "id": "0aaa1a5d5ad0a9a2debfd01782b0e84dcebd011a",
@@ -45,16 +45,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T16:00:00.000Z",
       "summary": "Anime - A Returner’s Magic Should Be Special - Saison 2 - Episode #6 - Archmage, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
-      "score": 19.8
-    },
-    {
-      "id": "bfdb1338cc7f1267f6447b6749958b1cbfb9d3ea",
-      "title": "Anime - Sasaki and Peeps - Saison 2 - Episode #6 - Banquet et destin, 12 Novembre 2026 - Manga news",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQekhXYk5uay1PMnpIZkhVUGZXcVRiRG5zc0ViZThENWJndXA1UEJjdEdpQzZ4T3BWd3JCb1pyem82VGZvZDdyMDhfS3VndkZlV0dIdUgzMTlRckItdjZJNXZ4QjBVaFBaOEZNRDFVU1NxZXBxLWYtbTJzRlBPZUhsWkVpM2pCZFFrVTc5MGpiV1IxVGFuSXpoMGRaSnE3aFVMNWgweFB2Z2VRWXRpUzdHWjh1Zw?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-12T16:00:00.000Z",
-      "summary": "Anime - Sasaki and Peeps - Saison 2 - Episode #6 - Banquet et destin, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
-      "score": 19.8
+      "score": 19.3
     },
     {
       "id": "1001652cd82997f0afda5f90a273c3c1f36dc117",
@@ -63,7 +54,16 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T16:00:00.000Z",
       "summary": "Anime - Reincarnated as a Sword - Saison 2 - Episode #7 -, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
-      "score": 19.8
+      "score": 19.3
+    },
+    {
+      "id": "bfdb1338cc7f1267f6447b6749958b1cbfb9d3ea",
+      "title": "Anime - Sasaki and Peeps - Saison 2 - Episode #6 - Banquet et destin, 12 Novembre 2026 - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQekhXYk5uay1PMnpIZkhVUGZXcVRiRG5zc0ViZThENWJndXA1UEJjdEdpQzZ4T3BWd3JCb1pyem82VGZvZDdyMDhfS3VndkZlV0dIdUgzMTlRckItdjZJNXZ4QjBVaFBaOEZNRDFVU1NxZXBxLWYtbTJzRlBPZUhsWkVpM2pCZFFrVTc5MGpiV1IxVGFuSXpoMGRaSnE3aFVMNWgweFB2Z2VRWXRpUzdHWjh1Zw?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-12T16:00:00.000Z",
+      "summary": "Anime - Sasaki and Peeps - Saison 2 - Episode #6 - Banquet et destin, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
+      "score": 19.3
     },
     {
       "id": "83096e88c2fafc7143009a4fa304448c42a56fe5",
@@ -72,43 +72,7 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-10T03:58:55.000Z",
       "summary": "Publishing company Manga Box announced a television anime adaptation of Izumi and Mitsuya Otosu&#039;s Ore no Shibou Flag ga Todomaru Tokoro wo Shiranai (My Death Flags Show No Sign of Ending) web manga on Tuesday, revealing an announcement visual (pictured above). Otosu also drew an illustration to commemorate the announcement (pictured right). The anime series will premiere in 2027. Otosu began serializing the manga adaptation of Izumi&#039;s adventure fantasy light novel on the Manga Box web.",
-      "score": 18.8
-    },
-    {
-      "id": "6e0cdeca16dae193e8cdc11ef268c6dd69943d18",
-      "title": "L'anime Mashle Saison 3, en Trailer - Adala News",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE5RNjB5U0JYeGwyRnBRdmN3ZG5TYWxxT1JHLTI0UGNmazRVMzIxZE9jVWN5YUZiVlk5ZkRYNUNMZVdSZnNUUGFaTG5HYlhiR2pYWDlYQXhta3lHdVpCeTVqMG42ZVV5eFV4bHBYUnFMSTBBUQ?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-11T11:37:01.000Z",
-      "summary": "L'anime Mashle Saison 3, en Trailer &nbsp;&nbsp; Adala News",
-      "score": 18.5
-    },
-    {
-      "id": "d4a1e0afb0e657fedab387c45535c504ddc99d18",
-      "title": "Romancing SaGa 3: Destinies United Game Announces New, Earlier February 4 Release Date",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-12/romancing-saga-3-destinies-united-game-announces-new-earlier-february-4-release-date/.243758",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-12T12:15:00.000Z",
-      "summary": "Game first announced for February 16 release for Switch, Switch 2, PS5, Xbox Series X|S, Steam",
-      "score": 17.5
-    },
-    {
-      "id": "6f1b203ac91822a149c83723ca72f1f2a1ab810f",
-      "title": "'Ghost: Yoru no Hate' Unveils Additional Cast, Staff, Theme Song, Main Trailer",
-      "url": "https://myanimelist.net/news/74922872?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-10T00:05:31.000Z",
-      "summary": "The official website for the Ghost: Yoru no Hate original anime movie unveiled additional cast, staff, a second key visual (pictured right), the theme song, and main trailer on Tuesday. The movie is scheduled to open in Japanese theaters on February 11, 2027. The movie was previewed at Sitges Film Festival on October 9 and at Animation Is Film Festival on October 17. Cast Bora: Takeo Ootsuka ([Oshi no Ko]) Ahab: Kazuhiro Yamaji (Shuumatsu no Walk&uuml;re) Structure: Yuuki Shin (Tokyo Revengers).",
-      "score": 17.5
-    },
-    {
-      "id": "f3a6b666447f5957b460be67fdf011e098aad3ee",
-      "title": "'Spy x Family' Gets Season 4, Second Anime Movie in 2027",
-      "url": "https://myanimelist.net/news/74917181?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-08T11:24:31.000Z",
-      "summary": "The Spy x Family Anime Extra Mission II special event announced a fourth season and a second theatrical movie on Sunday, revealing the production staff and a teaser visual (pictured) for Season 4. The new season and movie are scheduled for a 2027 premiere. Staff Director: Yasuhiro Akamatsu (Spy x Family Season 3 episode director) NEW Assistant Director: Hiroki Shinagawa (Lazarus sub character design) NEW Series Composition: Aya Takaha (Mahoutsukai no Yome script) NEW Assistant Series Composition",
-      "score": 17.5
+      "score": 18.3
     },
     {
       "id": "e33a1da83a557d380ee89711bc6391f866a92ad2",
@@ -120,13 +84,31 @@
       "score": 17
     },
     {
-      "id": "d9fcdb6c6e8edde1331a9ad33c73a6dae4d7fe29",
-      "title": "Anime - Dandivine - Episode #6 - La ballade des pantoufles, 12 Novembre 2026 - Manga news",
-      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSENDQ3NWdzF4RFN5bmNoTktSUU42YThfNUR3UV9GZ0NNODNSUkN1RHNfbFRTZloxYXNiRnRTaVJxSWN6WlNhNGUyZldoYjRDUl9JSEZaTEdCQjJvWTd0QW5UMmg0ZTJ3N3JkaFFYMTd0SVRKaGQyMGV5MG9NOGVkZEZ6WUF5WUNjWUxka3NrOHR2RGQ4T1NRajNzU1Q0ZnktOXNPbTBXaVc?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-12T16:00:00.000Z",
-      "summary": "Anime - Dandivine - Episode #6 - La ballade des pantoufles, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
-      "score": 16.8
+      "id": "d4a1e0afb0e657fedab387c45535c504ddc99d18",
+      "title": "Romancing SaGa 3: Destinies United Game Announces New, Earlier February 4 Release Date",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-12/romancing-saga-3-destinies-united-game-announces-new-earlier-february-4-release-date/.243758",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-12T12:15:00.000Z",
+      "summary": "Game first announced for February 16 release for Switch, Switch 2, PS5, Xbox Series X|S, Steam",
+      "score": 16.9
+    },
+    {
+      "id": "6f1b203ac91822a149c83723ca72f1f2a1ab810f",
+      "title": "'Ghost: Yoru no Hate' Unveils Additional Cast, Staff, Theme Song, Main Trailer",
+      "url": "https://myanimelist.net/news/74922872?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-10T00:05:31.000Z",
+      "summary": "The official website for the Ghost: Yoru no Hate original anime movie unveiled additional cast, staff, a second key visual (pictured right), the theme song, and main trailer on Tuesday. The movie is scheduled to open in Japanese theaters on February 11, 2027. The movie was previewed at Sitges Film Festival on October 9 and at Animation Is Film Festival on October 17. Cast Bora: Takeo Ootsuka ([Oshi no Ko]) Ahab: Kazuhiro Yamaji (Shuumatsu no Walk&uuml;re) Structure: Yuuki Shin (Tokyo Revengers).",
+      "score": 16.9
+    },
+    {
+      "id": "f3a6b666447f5957b460be67fdf011e098aad3ee",
+      "title": "'Spy x Family' Gets Season 4, Second Anime Movie in 2027",
+      "url": "https://myanimelist.net/news/74917181?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-08T11:24:31.000Z",
+      "summary": "The Spy x Family Anime Extra Mission II special event announced a fourth season and a second theatrical movie on Sunday, revealing the production staff and a teaser visual (pictured) for Season 4. The new season and movie are scheduled for a 2027 premiere. Staff Director: Yasuhiro Akamatsu (Spy x Family Season 3 episode director) NEW Assistant Director: Hiroki Shinagawa (Lazarus sub character design) NEW Series Composition: Aya Takaha (Mahoutsukai no Yome script) NEW Assistant Series Composition",
+      "score": 16.9
     },
     {
       "id": "64e41661daf42b034f44c353b22272fe24ba754e",
@@ -135,7 +117,16 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T16:00:00.000Z",
       "summary": "Anime - Paw & Palaces - Episode #9 - Un Remède d'enfer, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
-      "score": 16.8
+      "score": 16.3
+    },
+    {
+      "id": "d9fcdb6c6e8edde1331a9ad33c73a6dae4d7fe29",
+      "title": "Anime - Dandivine - Episode #6 - La ballade des pantoufles, 12 Novembre 2026 - Manga news",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPSENDQ3NWdzF4RFN5bmNoTktSUU42YThfNUR3UV9GZ0NNODNSUkN1RHNfbFRTZloxYXNiRnRTaVJxSWN6WlNhNGUyZldoYjRDUl9JSEZaTEdCQjJvWTd0QW5UMmg0ZTJ3N3JkaFFYMTd0SVRKaGQyMGV5MG9NOGVkZEZ6WUF5WUNjWUxka3NrOHR2RGQ4T1NRajNzU1Q0ZnktOXNPbTBXaVc?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-12T16:00:00.000Z",
+      "summary": "Anime - Dandivine - Episode #6 - La ballade des pantoufles, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
+      "score": 16.3
     },
     {
       "id": "faea34e3716e0e820701ce4d648c45c589932f97",
@@ -144,16 +135,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T16:00:00.000Z",
       "summary": "Anime - The World's Strongest Witch - Episode #6 - J'ai essayé de devenir une déesse, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
-      "score": 16.8
-    },
-    {
-      "id": "821e9bf212e62fa616ca20bae39d93cc558cf90b",
-      "title": "'Boku no Suki na Hito ga Suki na Hito' Reveals Main Cast, Staff, Teaser Promo, Spring 2027 Premiere",
-      "url": "https://myanimelist.net/news/74917765?_location=rss",
-      "source": "MyAnimeList",
-      "publishedAt": "2026-11-08T15:20:52.000Z",
-      "summary": "Production company Avex Pictures opened an official website for a television anime adaptation of Sekina Aoi and Ryou Tsuzura&#039;s Boku no Suki na Hito ga Suki na Hito (My Crush&#039;s Crush) manga on Friday, revealing the main cast, staff, teaser visual (pictured), and teaser promotional video. The anime is scheduled to premiere in April 2027. Cast Sora Akizuki: Gakuto Kajiwara (Black Clover) Asahi Suzukaze: Haruna Mikawa (Ninja to Koroshiya no Futarigurashi) Miya Fuwa: Nene Hieda (Summer Pock",
-      "score": 16.8
+      "score": 16.3
     },
     {
       "id": "a219c4c9dcd1d4adf9b21ecdf894f19d506586e7",
@@ -162,7 +144,16 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-11T14:46:50.000Z",
       "summary": "The official website of the Mashle (Mashle: Magic and Muscles) television anime revealed additional cast pair, a key visual and a promotional video for its third season on Wednesday. The new season is scheduled to premiere on January 10 at 12.00 a.m. on Tokyo MX, BS11, Gunma TV and Tochigi TV, followed by Mainichi Broadcasting, Shizuoka Broadcasting, FBS Fukoka, Chukyo TV, Nagano Asahi, Okayama, Miyagi TV, Sapporo TV, Television Niigata and Chugoku. Voice actors Souma Saitou (Youkoso Jitsuryoku.",
-      "score": 16.7
+      "score": 16.2
+    },
+    {
+      "id": "821e9bf212e62fa616ca20bae39d93cc558cf90b",
+      "title": "'Boku no Suki na Hito ga Suki na Hito' Reveals Main Cast, Staff, Teaser Promo, Spring 2027 Premiere",
+      "url": "https://myanimelist.net/news/74917765?_location=rss",
+      "source": "MyAnimeList",
+      "publishedAt": "2026-11-08T15:20:52.000Z",
+      "summary": "Production company Avex Pictures opened an official website for a television anime adaptation of Sekina Aoi and Ryou Tsuzura&#039;s Boku no Suki na Hito ga Suki na Hito (My Crush&#039;s Crush) manga on Friday, revealing the main cast, staff, teaser visual (pictured), and teaser promotional video. The anime is scheduled to premiere in April 2027. Cast Sora Akizuki: Gakuto Kajiwara (Black Clover) Asahi Suzukaze: Haruna Mikawa (Ninja to Koroshiya no Futarigurashi) Miya Fuwa: Nene Hieda (Summer Pock",
+      "score": 16.2
     },
     {
       "id": "d048d44cef5d52ce0635503a2668ef0369e1449b",
@@ -171,7 +162,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-11T21:00:00.000Z",
       "summary": "Gundam Seed FREEDOM film writer Liu Goto pens new novel slated for January 19 release",
-      "score": 16.2
+      "score": 15.7
     },
     {
       "id": "501e6a9181219ef8260e230be4682c96cb0403e4",
@@ -180,7 +171,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T16:31:15.000Z",
       "summary": "Laocorn trailer, Fatal Fury: The Motion Picture digest movie streamed",
-      "score": 15.9
+      "score": 15.3
     },
     {
       "id": "dd902cbe6213e031a405bcc5dd212f69f1a78561",
@@ -207,16 +198,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T15:45:34.000Z",
       "summary": "Series casts Yamauchi as Mantarō Kyōgoku, Uo as Tōjin Tōyama",
-      "score": 14.8
-    },
-    {
-      "id": "6eff1e0ee76eec900f9bef31af2140499d1a6172",
-      "title": "Elden Ring: Distant Tales Between Manga Ends in Next Chapter",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-11/elden-ring-distant-tales-between-manga-ends-in-next-chapter/.243710",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-11T13:59:04.000Z",
-      "summary": "Final chapter's date to be determined for manga which launched in July 2024",
-      "score": 14.7
+      "score": 14.2
     },
     {
       "id": "3e340bfcf585c22d4c37d150dafc96e1ecfb44e6",
@@ -225,7 +207,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T13:00:00.000Z",
       "summary": "Les nouveaux tomes de la semaine au Japon, 12 Novembre 2026 &nbsp;&nbsp; Manga news",
-      "score": 14.6
+      "score": 14
     },
     {
       "id": "220dbf7fcd51c88aa58dbd0a1ecd23d838c3b7af",
@@ -234,7 +216,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T10:17:34.000Z",
       "summary": "Shū Uchida, Masaaki Mizunaka both voice Juntarō in J.C.STAFF anime",
-      "score": 14.4
+      "score": 13.8
     },
     {
       "id": "a3bce2528107d529521aca131e4c26911b4d20a2",
@@ -243,7 +225,7 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-08T06:43:49.000Z",
       "summary": "The Minami-ke Special Event 2026 revealed new staff, teaser visual (pictured), and teaser promotional video for the Season 5 on Sunday. The fifth season adapting Coharu Sakuraba&#039;s comedy slice of life manga will premiere in April 2027. Voice actresses Rina Satou (Akiba Meido Sensou), Marina Inoue (Date A Live), and Minori Chihara (Kyoukai no Kanata) are reprising their respective roles from the previous seasons. Staff Director: Junichi Kitamura (Ballpark de Tsukamaete!) NEW Series Compositi",
-      "score": 14.1
+      "score": 13.5
     },
     {
       "id": "f902ceb60670d30431c1f7d468330af1f09158f4",
@@ -252,7 +234,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-11T17:30:00.000Z",
       "summary": "Anime Frontier to host premiere screening on December 6 alongside Shangri-La Frontier , Fate Rewinder",
-      "score": 14
+      "score": 13.4
     },
     {
       "id": "038a421703f2fc0ffdb0cd688525b12638dfac50",
@@ -261,7 +243,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T16:00:00.000Z",
       "summary": "Le manga SennenKimatsu ni Hoeru Koi sortira en France chez Akata &nbsp;&nbsp; Manga news",
-      "score": 13.8
+      "score": 13.3
     },
     {
       "id": "c7de840f4001114fd0ff5df45fb9db94c3422fbe",
@@ -270,7 +252,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T15:10:28.000Z",
       "summary": "Zeste de tendresse (Un) : Critiques &nbsp;&nbsp; Manga news",
-      "score": 13.8
+      "score": 13.2
     },
     {
       "id": "307ff5db2c6868ab48376ea6d3f176b59e9a5269",
@@ -279,16 +261,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T15:07:58.000Z",
       "summary": "Love Bullet Vol.2 : Critiques &nbsp;&nbsp; Manga news",
-      "score": 13.8
-    },
-    {
-      "id": "0ea938b5825811ebbd1b0e937e6a889e8ff6ebca",
-      "title": "The Seven Knights of the Marronnier Kingdom Anime Casts Yūsuke Kobayashi",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-11/the-seven-knights-of-the-marronnier-kingdom-anime-casts-yusuke-kobayashi/.243743",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-12T03:34:25.000Z",
-      "summary": "Yūsuke plays \"mysterious boy\" debuting in episode 7 on Saturday",
-      "score": 13.8
+      "score": 13.2
     },
     {
       "id": "d6dc5e0e7ff5f124757b428f0c53d83def8fcff0",
@@ -297,7 +270,16 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T15:00:00.000Z",
       "summary": "La chaîne MANGAS mettra à l'honneur One Piece avec plusieurs diffusions &nbsp;&nbsp; Manga news",
-      "score": 13.7
+      "score": 13.2
+    },
+    {
+      "id": "0ea938b5825811ebbd1b0e937e6a889e8ff6ebca",
+      "title": "The Seven Knights of the Marronnier Kingdom Anime Casts Yūsuke Kobayashi",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-11/the-seven-knights-of-the-marronnier-kingdom-anime-casts-yusuke-kobayashi/.243743",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-12T03:34:25.000Z",
+      "summary": "Yūsuke plays \"mysterious boy\" debuting in episode 7 on Saturday",
+      "score": 13.2
     },
     {
       "id": "cb35cd498ea0fe12fdc099a9e90189a8961281d5",
@@ -306,7 +288,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T14:00:00.000Z",
       "summary": "Les sorties manga de la semaine &nbsp;&nbsp; Manga news",
-      "score": 13.7
+      "score": 13.1
     },
     {
       "id": "67c261ad3954f88234fe4f83f50b95d2e9725b07",
@@ -315,7 +297,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T11:00:00.000Z",
       "summary": "Une édition limitée pour Dandadan 24 &nbsp;&nbsp; Manga news",
-      "score": 13.4
+      "score": 12.8
     },
     {
       "id": "931ed83d698782540227810001d3b0de3466f18a",
@@ -324,7 +306,34 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-11T22:00:00.000Z",
       "summary": "Live-action Nanji, Hoshi no Gotoku film drops to #3",
-      "score": 13.3
+      "score": 12.8
+    },
+    {
+      "id": "10e59cfa70fbdd17b2dafbbdee2a9209f8b1dfac",
+      "title": "Professor Layton and The New World of Steam Game Reveals English Dub, Cast",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-12/professor-layton-and-the-new-world-of-steam-game-reveals-english-dub-cast/.243767",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-12T18:30:41.000Z",
+      "summary": "Christopher Robin Miller, Lani Minella return as Professor Layton, Luke, respectively",
+      "score": 12.5
+    },
+    {
+      "id": "d6be04177967418945b9e045959fa879898b573f",
+      "title": "Après 11 mois d'attente, on sait enfin quand reviendra le meilleur anime feel good du moment - Purebreak",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPY29IaDNvSDhkTDlYZGpvOEJadHY2dFQ0LWE1QkM0SEtqN3YwMURrd1ducXQyYmJGVzRNZU4tYWFXWENDbzFRZlRpY3pRNy1sdkJTRmkwSmQtdXZ4V0tiQlF1VThDLTBuN1F1SVJIMGpGZUVIWnJydnNXU1psSnZZTW0xODNmMHZqeFNVUXFZc0FOOEVYeVg4SkxfZnVxT3RaaXRHam55QUtGTXI2bkFnRGhvSUItZUFUdDcybFdZT2FYbEdJMW00?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-12T18:24:00.000Z",
+      "summary": "Après 11 mois d'attente, on sait enfin quand reviendra le meilleur anime feel good du moment &nbsp;&nbsp; Purebreak",
+      "score": 12.5
+    },
+    {
+      "id": "647103729619da7051f501c2febd4ef76f5bd18c",
+      "title": "Un atelier initiation au manga, à la bibliothèque de Doix lès Fontaines, le mercredi 18 novembre - Ouest-France",
+      "url": "https://news.google.com/rss/articles/CBMiqAJBVV95cUxOZnZPWTJ1cWVOZW15SXM2cms4RkZ1bXBUdzNJMG1wYVNIR0FIZGpfV3RuUmtKZkV2ZHI2a2Q3ZERrSm8td3JCa295VHhpQmxZSWxqSkJJa2kxMG5RTUtnS0lSQjdjbWlVSVBOSU5sRVdxa1ZKdVA4UUUyVnMycDB3eHdJYzVUUEZDa2VhM0tEdU1ZOGlJZnB3Y0FVd1hDbURBZWNkOUxQSTR5OWxvblJxVzBmXzU2R2hwWW1NOW9Zc1A1Y0YwVnpWWlpUUVBpUkROcC1HdzRmOUw1YnlXeVJneW9QOElJazdieDRoUGVhbERlTnJIU0pHOHN2TWxkTThZY2RoQzQ3RWFHMWc3RkZpeTM4bExqdTRNbUlqNWVFRE0xM05RVTBfLQ?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-12T17:51:22.000Z",
+      "summary": "Un atelier initiation au manga, à la bibliothèque de Doix lès Fontaines, le mercredi 18 novembre &nbsp;&nbsp; Ouest-France",
+      "score": 12.4
     },
     {
       "id": "137933257bbe66b56e3c8517d2a0c84500716cc6",
@@ -333,7 +342,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T17:35:02.000Z",
       "summary": "« Chaque témoignage est singulier et à entendre » : à Poullaouen, Joannah Schwab anime des ateliers pour parler librement de la mort &nbsp;&nbsp; Le Télégramme",
-      "score": 13
+      "score": 12.4
     },
     {
       "id": "b071a006a9631adc3675e0d7d99f806ab7cba491",
@@ -342,7 +351,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T03:38:17.000Z",
       "summary": "New visual also unveiled",
-      "score": 12.8
+      "score": 12.2
     },
     {
       "id": "67dc73f5bf03d2a48fb32ab5946cd1eac7906f43",
@@ -351,7 +360,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T13:00:00.000Z",
       "summary": "Welsh & Shedar : alerte, un webtoon basé sur l’univers de l’anime français est déjà disponible ! Où peut-on le lire ? Suit-il la même histoire que la série ? &nbsp;&nbsp; Serieously",
-      "score": 12.6
+      "score": 12
     },
     {
       "id": "57bbadfb06872f95ac7a74fb8a3dace57c4af9a3",
@@ -360,78 +369,6 @@
       "source": "MyAnimeList",
       "publishedAt": "2026-11-10T12:45:55.000Z",
       "summary": "The official X account for author Nana Mikoshiba announced on Tuesday that the Hyouken no Majutsushi ga Sekai wo Suberu: Sekai Saikyou no Majutsushi de Aru Shounen wa, Majutsu Gakuin ni Nyuugaku suru (The Iceblade Sorcerer Shall Rule the World) light novel series will end with its tenth volume, scheduled to be released on December 2. The main story has already concluded, with the final volume featuring revised and expanded side stories from the web novel, as well as an original story covering Ra",
-      "score": 12.6
-    },
-    {
-      "id": "bbe1ec458229738ba602b8347c47fe06c29c3a2a",
-      "title": "Interview du Père Jacques Manga, vicaire de Tous-les-Saints (93) - Chantiers du Cardinal",
-      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTERMY3pUMTQ0QnpPUHhwdk5BZ3J6SzF3TS05VkJoV2pGZ3gtZFZobUpwZVhsWFJQY0k2V1ZraEd0clJLYkpoZGhocXk5aTFEOHRoUUY5TkhDemZockltaTdDbV9yR3NrdmpUOWo1VnJ1cDlNeHRydjZPM0M5cVBTbjc2Z3FNcGVpV2pqbW5wNTV1ZDhxaTVv?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-12T12:00:22.000Z",
-      "summary": "Interview du Père Jacques Manga, vicaire de Tous-les-Saints (93) &nbsp;&nbsp; Chantiers du Cardinal",
-      "score": 12.5
-    },
-    {
-      "id": "047d7b46bb9b7a219d33273f5d80e61984bbaa31",
-      "title": "Mort de Frédéric Boilet, défenseur passionné du manga d’auteur en France, à l’âge de 66 ans - Le Figaro",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPY3dfWERSd3J3bFp2YzF3bUVJS2RlcTNoVmp2MC00dnlHVlpvT3NTNmFWQlV5R2xzZnhwLUM4VlBBUkI0WHlxanNrSE0wRVdHcXh0UVVud0VxRHprRV9nUWVqYkZKVG8xNXhWUnpVclJXZFVfaEYyaWJRSVFaT215ak04QjdIM3NYQlFHdjgzbk4wQm42YVhvc2RIaU9fQ2N5SmpDbGJMMUEzSWk5dmoxZTRsMHhBWFVYYXdiMllqOWRXdjg?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-12T11:49:32.000Z",
-      "summary": "Mort de Frédéric Boilet, défenseur passionné du manga d’auteur en France, à l’âge de 66 ans &nbsp;&nbsp; Le Figaro",
-      "score": 12.5
-    },
-    {
-      "id": "156889b5c11e63a19d13d3c7acf5be3e8f530f73",
-      "title": "La saison 3 de MASHLE révèle enfin sa Date de Sortie : quand et où la regarder en France ? - AnimOtaku",
-      "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxQTUktUWliOWtVZy1tY000azVYeTJkMDNpZTFBUWM0ZHhVMEpRVUt3LXdsbkF3cmlSMFBIU2RhNGg4VkRVdzhFNnJfVWVIZHR6XzBuVFNYLTNCSUZCelVSenYxNVlycTI2V2JfYTRKZC16alQ3cHRISEVXODVyQWZyWUJFS2FEME5DT3c?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-11T11:30:00.000Z",
-      "summary": "La saison 3 de MASHLE révèle enfin sa Date de Sortie : quand et où la regarder en France ? &nbsp;&nbsp; AnimOtaku",
-      "score": 12.5
-    },
-    {
-      "id": "23d724b0231816d511718cd0a7e8bd541572c917",
-      "title": "Live-Action Wandance Film's New Video Previews Insert Song by mabanua",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-12/live-action-wandance-film-new-video-previews-insert-song-by-mabanua/.243751",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-12T09:36:18.000Z",
-      "summary": "mabanua performs \"Step by Step feat. Sagiri Sól, Kenya Fujita\" for film opening on November 27",
-      "score": 12.3
-    },
-    {
-      "id": "a9bea63dcb224df63da8910ace5528a7629b7601",
-      "title": "Chained Soldier Manga Resumes on December 12",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-12/chained-soldier-manga-resumes-on-december-12/.243752",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-12T09:10:50.000Z",
-      "summary": "Manga went on hiatus in October after artist Yōhei Takemura's wrist injury",
-      "score": 12.3
-    },
-    {
-      "id": "d6d71f54f0ab7f49432a396d0eb1be006b73986c",
-      "title": "Mangas les plus vendus de tous les temps : top (2026) - FuransuJapon",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE03U2FpTWZkcDlVQ0dKaVRtbkpCRHgybEptUllNZE5aNFVWZDlXZnRfVnhLZXV2cjJTNTUxblEtUTk1dGU4UVRvMmJ1LW9Hb2RoX096MWxUMFIzd3BEOFpXTVNSTmRkYkk?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-12T09:00:00.000Z",
-      "summary": "Mangas les plus vendus de tous les temps : top (2026) &nbsp;&nbsp; FuransuJapon",
-      "score": 12.2
-    },
-    {
-      "id": "87faf68bef93c7119a8592d59bc3de281659b4c8",
-      "title": "Viz Media Licenses Kyousuke Motomi's Registry of the Divine Manga",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-12/viz-media-licenses-kyousuke-motomi-registry-of-the-divine-manga/.243741",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-12T08:19:35.000Z",
-      "summary": "Manga debuts on Viz Manga app on Thursday",
-      "score": 12.2
-    },
-    {
-      "id": "3940a791b5cfeffb34b21a0304adbf3c3424da4a",
-      "title": "Nanatsu-ya: Shinobu and Her Jewelry Box sera adapté en anime en 2027 - Crunchyroll",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOd0NKN21TRlU2V3hmZFhBNGNSa1dKX0tpc1Z1UkpaQjYwcEgyR2tDV3lKV0UzODQyekJaZTI0aU1FaWpVQVItM0RKS3gtNWR5RkJGT09aU21DaGZBUU84UHRpOTI5TkMzRDJCaE9CR3AtY1JmUnhiV1NaTmh3OUpuQnlyWTRHbjlIeTRpbXBkc0kyaFJJR3JuZ0NwQ2daN1lFb0xLMjBrYzl1SkJ3WTRxdWRCX2E5NGc?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-12T05:40:00.000Z",
-      "summary": "Nanatsu-ya: Shinobu and Her Jewelry Box sera adapté en anime en 2027 &nbsp;&nbsp; Crunchyroll",
       "score": 12
     },
     {
@@ -444,13 +381,85 @@
       "score": 12
     },
     {
+      "id": "bbe1ec458229738ba602b8347c47fe06c29c3a2a",
+      "title": "Interview du Père Jacques Manga, vicaire de Tous-les-Saints (93) - Chantiers du Cardinal",
+      "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTERMY3pUMTQ0QnpPUHhwdk5BZ3J6SzF3TS05VkJoV2pGZ3gtZFZobUpwZVhsWFJQY0k2V1ZraEd0clJLYkpoZGhocXk5aTFEOHRoUUY5TkhDemZockltaTdDbV9yR3NrdmpUOWo1VnJ1cDlNeHRydjZPM0M5cVBTbjc2Z3FNcGVpV2pqbW5wNTV1ZDhxaTVv?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-12T12:00:22.000Z",
+      "summary": "Interview du Père Jacques Manga, vicaire de Tous-les-Saints (93) &nbsp;&nbsp; Chantiers du Cardinal",
+      "score": 11.9
+    },
+    {
+      "id": "047d7b46bb9b7a219d33273f5d80e61984bbaa31",
+      "title": "Mort de Frédéric Boilet, défenseur passionné du manga d’auteur en France, à l’âge de 66 ans - Le Figaro",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPY3dfWERSd3J3bFp2YzF3bUVJS2RlcTNoVmp2MC00dnlHVlpvT3NTNmFWQlV5R2xzZnhwLUM4VlBBUkI0WHlxanNrSE0wRVdHcXh0UVVud0VxRHprRV9nUWVqYkZKVG8xNXhWUnpVclJXZFVfaEYyaWJRSVFaT215ak04QjdIM3NYQlFHdjgzbk4wQm42YVhvc2RIaU9fQ2N5SmpDbGJMMUEzSWk5dmoxZTRsMHhBWFVYYXdiMllqOWRXdjg?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-12T11:49:32.000Z",
+      "summary": "Mort de Frédéric Boilet, défenseur passionné du manga d’auteur en France, à l’âge de 66 ans &nbsp;&nbsp; Le Figaro",
+      "score": 11.9
+    },
+    {
+      "id": "23d724b0231816d511718cd0a7e8bd541572c917",
+      "title": "Live-Action Wandance Film's New Video Previews Insert Song by mabanua",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-12/live-action-wandance-film-new-video-previews-insert-song-by-mabanua/.243751",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-12T09:36:18.000Z",
+      "summary": "mabanua performs \"Step by Step feat. Sagiri Sól, Kenya Fujita\" for film opening on November 27",
+      "score": 11.7
+    },
+    {
+      "id": "a9bea63dcb224df63da8910ace5528a7629b7601",
+      "title": "Chained Soldier Manga Resumes on December 12",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-12/chained-soldier-manga-resumes-on-december-12/.243752",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-12T09:10:50.000Z",
+      "summary": "Manga went on hiatus in October after artist Yōhei Takemura's wrist injury",
+      "score": 11.7
+    },
+    {
+      "id": "e922a059094eb79fbfbb58cd793c2063e95af0a9",
+      "title": "Décès de Frédéric Boilet, défenseur du manga d’auteur - ToutenBD.com",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQX1g1UExNcG50NVFIVTJfbHBkS1oyaHJtcEhZUDBfZUJOZlVkbDdWV0E0VUJRVE5XV3ZtSWI1OVpFZDJITkZoaWZMT05QTVlEa0stWVEya0xmR205R185Yk41RHdsVWpLZ2JPUGFhTlhBaTI0blZNaUV0cEo0b2NWX3doLUJFVEQ1RzlLWjdqME9fUQ?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-12T08:56:51.000Z",
+      "summary": "Décès de Frédéric Boilet, défenseur du manga d’auteur &nbsp;&nbsp; ToutenBD.com",
+      "score": 11.7
+    },
+    {
+      "id": "2a5d497719325f3cc16c1d1d21d8f801c6f2e0e0",
+      "title": "Sega Streams Sonic the Hedgehog: Memories and Beyond Short Animated Film on YouTube",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-12/sega-streams-sonic-the-hedgehog-memories-and-beyond-short-animated-film-on-youtube/.243768",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-12T20:00:00.000Z",
+      "summary": "Short commemorating franchise's 35th anniversary features Sonic & friends vs. Metal Sonic",
+      "score": 11.6
+    },
+    {
+      "id": "87faf68bef93c7119a8592d59bc3de281659b4c8",
+      "title": "Viz Media Licenses Kyousuke Motomi's Registry of the Divine Manga",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-12/viz-media-licenses-kyousuke-motomi-registry-of-the-divine-manga/.243741",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-12T08:19:35.000Z",
+      "summary": "Manga debuts on Viz Manga app on Thursday",
+      "score": 11.6
+    },
+    {
+      "id": "3940a791b5cfeffb34b21a0304adbf3c3424da4a",
+      "title": "Nanatsu-ya: Shinobu and Her Jewelry Box sera adapté en anime en 2027 - Crunchyroll",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxOd0NKN21TRlU2V3hmZFhBNGNSa1dKX0tpc1Z1UkpaQjYwcEgyR2tDV3lKV0UzODQyekJaZTI0aU1FaWpVQVItM0RKS3gtNWR5RkJGT09aU21DaGZBUU84UHRpOTI5TkMzRDJCaE9CR3AtY1JmUnhiV1NaTmh3OUpuQnlyWTRHbjlIeTRpbXBkc0kyaFJJR3JuZ0NwQ2daN1lFb0xLMjBrYzl1SkJ3WTRxdWRCX2E5NGc?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-12T05:40:00.000Z",
+      "summary": "Nanatsu-ya: Shinobu and Her Jewelry Box sera adapté en anime en 2027 &nbsp;&nbsp; Crunchyroll",
+      "score": 11.4
+    },
+    {
       "id": "defa0961dc3269e927d46b6b15e56fd0609c3042",
       "title": "Aoharu Once More sera adapté en light anime en janvier 2027 - Crunchyroll",
       "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxNRlRPYzhpbE90UDZQODV6LTIxYXkwblpTSy00c0pudzE0eEhTLUVwT3NiNzUyeWNyOUhjRXFWb1FRTjE4Tno1b2tjeng0anRqN29Hc1dLQlhvelBnU2VPLWZFQXNYcHV1QWZhVHc2ODB3bHYzcVk2dWxHQWVJUXhscEluZlRzWG13VGZhaGZTSGhDZHo1dVQ3cEZGQndDTl9XYzFqZkJJLU83NWNTVUNxS1YtTkhzTlFkbWRvd0oxSldjQQ?oc=5",
       "source": "Google Actualités",
       "publishedAt": "2026-11-12T05:10:00.000Z",
       "summary": "Aoharu Once More sera adapté en light anime en janvier 2027 &nbsp;&nbsp; Crunchyroll",
-      "score": 11.9
+      "score": 11.4
     },
     {
       "id": "fffa1f7df63147542d8f33068288d96cb9f4126f",
@@ -459,7 +468,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T03:52:30.000Z",
       "summary": "Series debuted in December 2025",
-      "score": 11.8
+      "score": 11.2
     },
     {
       "id": "8c1ad0766c96c96eff69003fc3f71934547627b3",
@@ -468,7 +477,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T03:43:38.000Z",
       "summary": "3rd part launched on August 12",
-      "score": 11.8
+      "score": 11.2
     },
     {
       "id": "62f138bbe471720752b3e0aea89f618c64798cbd",
@@ -477,16 +486,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T03:10:20.000Z",
       "summary": "12-episode webtoon features multiple artists",
-      "score": 11.8
-    },
-    {
-      "id": "748ea9f354ca0712bbf129e8137c52cf5c942656",
-      "title": "Crunchyroll Screens The Guy She Was Interested In Wasn't a Guy at All, Here U Are, Bless Premieres at Anime Frontier",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-11/crunchyroll-screens-the-guy-she-was-interested-in-wasnt-a-guy-at-all-here-u-are-bless-premieres-at-/.243735",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-11T21:30:00.000Z",
-      "summary": "Dengeki Daisy , Fate Rewinder , more anime screen at event in Fort Worth, TX",
-      "score": 11.3
+      "score": 11.2
     },
     {
       "id": "a05ef9480341a2309e5123a0c198470788b645a2",
@@ -516,30 +516,21 @@
       "score": 11
     },
     {
+      "id": "748ea9f354ca0712bbf129e8137c52cf5c942656",
+      "title": "Crunchyroll Screens The Guy She Was Interested In Wasn't a Guy at All, Here U Are, Bless Premieres at Anime Frontier",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-11/crunchyroll-screens-the-guy-she-was-interested-in-wasnt-a-guy-at-all-here-u-are-bless-premieres-at-/.243735",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-11T21:30:00.000Z",
+      "summary": "Dengeki Daisy , Fate Rewinder , more anime screen at event in Fort Worth, TX",
+      "score": 10.7
+    },
+    {
       "id": "4109e811947abe2f540cf70112314107eab94d00",
       "title": "Kakao Piccoma Launches New 'Lulumiru' BL Webtoon Platform",
       "url": "https://www.animenewsnetwork.com/news/2026-11-12/kakao-piccoma-launches-new-lulumiru-bl-webtoon-platform/.243759",
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T14:15:00.000Z",
       "summary": "New service available in Japan only launched on November 5",
-      "score": 10.7
-    },
-    {
-      "id": "45e784f0b769fcb2f706c0d1846fd37c18b2d723",
-      "title": "Sayaka Mogi's Happy Hypoxia Manga Ends",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-11/sayaka-mogi-happy-hypoxia-manga-ends/.243705",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-11T13:53:15.000Z",
-      "summary": "Manga launched in June 2025",
-      "score": 10.7
-    },
-    {
-      "id": "1f46d686b11baa1bcfb0325fdefa627b573bcc7f",
-      "title": "Final Fantasy XIV Game Band The Primals' Bassist Eikichi Iwai Dies",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-11/final-fantasy-xiv-game-band-the-primals-bassist-eikichi-iwai-dies/.243729",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-11T19:35:02.000Z",
-      "summary": "Iwai had just performed concert with MMORPG's official rock band at event in Tokyo on November 1",
       "score": 10.1
     },
     {
@@ -561,22 +552,31 @@
       "score": 10
     },
     {
+      "id": "1f46d686b11baa1bcfb0325fdefa627b573bcc7f",
+      "title": "Final Fantasy XIV Game Band The Primals' Bassist Eikichi Iwai Dies",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-11/final-fantasy-xiv-game-band-the-primals-bassist-eikichi-iwai-dies/.243729",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-11T19:35:02.000Z",
+      "summary": "Iwai had just performed concert with MMORPG's official rock band at event in Tokyo on November 1",
+      "score": 9.6
+    },
+    {
+      "id": "5f9d967f529efa9bad8bfdbe956b086e1e7cec6b",
+      "title": "Disney to Premiere Lilas Dreams & Memories Documentary About YOASOBI's Lilas Ikuta on December 30",
+      "url": "https://www.animenewsnetwork.com/news/2026-11-12/disney-to-premiere-lilas-dreams-and-memories-documentary-about-yoasobi-lilas-ikuta-on-december-30/.243764",
+      "source": "Anime News Network",
+      "publishedAt": "2026-11-12T18:00:00.000Z",
+      "summary": "2-part documentary about ikura's experience with High School Musical streams/airs on December 30",
+      "score": 9.4
+    },
+    {
       "id": "ae3b3e9e6525639751f20ac57947b54cff5f6d6e",
       "title": "Falcom Reveals Sequel for The Legend of Heroes: Trails beyond the Horizon Game",
       "url": "https://www.animenewsnetwork.com/news/2026-11-11/falcom-reveals-sequel-for-the-legend-of-heroes-trails-beyond-the-horizon-game/.243725",
       "source": "Anime News Network",
       "publishedAt": "2026-11-11T17:06:22.000Z",
       "summary": "Sequel slated for release by September 2027",
-      "score": 9.9
-    },
-    {
-      "id": "5e984d76e4c64790be3bb3264f45465e0c7e40a7",
-      "title": "Tsugumi Project : Diffusion en janvier 2027 et nouveau Visuel - Crunchyroll",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxNZlZ5QWxKZXo0TXI5bG03OFpZUE5QUzFES1k1Qm1yWWpiT3JLQnJxLUJaVUhCWXo1MTdOdi1QZUJ3MWtMODhyUzlvbDJjTVNTdnhBbkJUb0ZrajZhWE9GNEk4RGdwUG50VjhLQ19yeVlxT1Z3MWNXXzVvOWZjaUhXWEZ3T2o4dnU1NnpsZTlIR1JvVFk?oc=5",
-      "source": "Google Actualités",
-      "publishedAt": "2026-11-12T01:20:00.000Z",
-      "summary": "Tsugumi Project : Diffusion en janvier 2027 et nouveau Visuel &nbsp;&nbsp; Crunchyroll",
-      "score": 9.6
+      "score": 9.3
     },
     {
       "id": "f8875f5b6b3cbbf8f46f46057600693ccabc8093",
@@ -585,7 +585,16 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-12T08:30:30.000Z",
       "summary": "Onimusha: Way of the Sword , Pragmata , Capcom also take home awards",
-      "score": 9.2
+      "score": 8.6
+    },
+    {
+      "id": "983dd4495c65e70af337ea76e290037a2079a1b7",
+      "title": "Mort du dessinateur de BD Frédéric Boilet, passeur essentiel du manga d’auteur en France - Libération",
+      "url": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxQa1pSRVJ4akdTd2prREtGelRQNDFhYVU3azA5RXFob29neUE4T2pWMjBxRFpsTldaSG9EZzlZUlhOdUoxSVJzTlZwcFJZT1hoMlZSY2hXRzJUNHNzT3RHTkFRY2c1X3E5dWRCcG1IQ3MzM1lKZ24xRjhzTnlZUDVTM202UnpCejJXbTJKVC0yMUZtbUtNQ2ItTThOVHE1enJJa1JONkVaUXRpR0JYTjlYaEtrbHh2YUdxNVBVSm92MDg1ZHZ2RXBHc0h0NDJDRVNwTHRjd3JmeXVHdW9jY1NVWUlwMUh2V1NGYnJFMXFRbXZoZw?oc=5",
+      "source": "Google Actualités",
+      "publishedAt": "2026-11-10T17:01:00.000Z",
+      "summary": "Mort du dessinateur de BD Frédéric Boilet, passeur essentiel du manga d’auteur en France &nbsp;&nbsp; Libération",
+      "score": 8.3
     },
     {
       "id": "70db48a03dbd7b16d2340b37449c98018db35136",
@@ -594,7 +603,7 @@
       "source": "Google Actualités",
       "publishedAt": "2026-11-10T15:22:48.000Z",
       "summary": "Frédéric Boilet, pionnier du manga d'auteur en France, est mort &nbsp;&nbsp; ActuaLitté.com",
-      "score": 8.8
+      "score": 8.2
     },
     {
       "id": "e9dcff7f81b46f2f16272493382a971547675290",
@@ -603,7 +612,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-11T16:00:00.000Z",
       "summary": "PS5 had shipped over 97.9 million units as of September 30",
-      "score": 7.8
+      "score": 7.3
     },
     {
       "id": "d98291e7e3df3e198e53481c555604c2e968103c",
@@ -612,16 +621,7 @@
       "source": "Anime News Network",
       "publishedAt": "2026-11-11T15:33:40.000Z",
       "summary": "Remake surpasses previously reported lifetime sales of 2nd bestselling Switch 2 title Donkey Kong Bananza",
-      "score": 7.8
-    },
-    {
-      "id": "12c8f5af888239a27b0d6238692d18950f5489ac",
-      "title": "CyberAgent Announces Business Alliance With Animation Studio MAPPA",
-      "url": "https://www.animenewsnetwork.com/news/2026-11-11/cyberagent-announces-business-alliance-with-animation-studio-mappa/.243717",
-      "source": "Anime News Network",
-      "publishedAt": "2026-11-11T15:00:00.000Z",
-      "summary": "CyberAgent has acquired stake in MAPPA's parent company MHD Co.",
-      "score": 7.7
+      "score": 7.2
     },
     {
       "id": "817ff42709e2a20015aa0f299729b7f55bcc9775",
