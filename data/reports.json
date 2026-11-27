@@ -1,6 +1,21 @@
 {
   "runs": [
     {
+      "runAt": "2026-11-27T07:39:26.499Z",
+      "durationSeconds": 18,
+      "status": "partiel",
+      "sourcesTotal": 3,
+      "sourcesOk": 2,
+      "articlesFound": 45,
+      "articlesKept": 45,
+      "errors": [
+        {
+          "source": "Anime News Network",
+          "message": "The operation was aborted due to timeout"
+        }
+      ]
+    },
+    {
       "runAt": "2026-11-26T23:36:01.066Z",
       "durationSeconds": 1,
       "status": "ok",
